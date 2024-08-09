@@ -19,6 +19,7 @@ extern u16 gTrainerBattleOpponent_B;
 extern u16 gPartnerTrainerId;
 
 void BattleSetup_StartWildBattle(void);
+void BattleSetup_StartScriptedWildBattleWithFlag(u32 flags);
 void BattleSetup_StartDoubleWildBattle(void);
 void BattleSetup_StartBattlePikeWildBattle(void);
 void BattleSetup_StartRoamerBattle(void);

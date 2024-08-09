@@ -2031,12 +2031,14 @@ bool8 ScrCmd_setwildbattle(struct ScriptContext *ctx)
 bool8 ScrCmd_dowildbattle(struct ScriptContext *ctx)
 {
     if (sIsScriptedWildDouble == FALSE)
-        BattleSetup_StartScriptedWildBattle();
+    {
+        u32 flags = ScriptReadWord(ctx);
+        BattleSetup_StartScriptedWildBattleWithFlag(flags);
+    }
     else
         BattleSetup_StartScriptedDoubleWildBattle();
 
     ScriptContext_Stop();
-
     return TRUE;
 }
 
