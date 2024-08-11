@@ -2322,4 +2322,3 @@
 	.macro togglefakertc
 	callnative Script_ToggleFakeRtc
 	.endm
-	

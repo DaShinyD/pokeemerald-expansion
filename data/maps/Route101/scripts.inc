@@ -41,8 +41,46 @@ Route101_EventScript_StartBirchRescue::
 	msgbox Route101_Text_PleaseHelp, MSGBOX_DEFAULT
 	closemessage
 	setvar VAR_ROUTE101_STATE, 2
+	applymovement OBJ_EVENT_ID_PLAYER, WalkToBag
+	waitmovement 0
+	goto Route101_EventScript_BirchsBag
 	releaseall
 	end
+
+Route101_EventScript_StartBirchRescue2::
+	lockall
+	playbgm MUS_HELP, TRUE
+	msgbox Route101_Text_HelpMe, MSGBOX_DEFAULT
+	closemessage
+	setobjectxy LOCALID_BIRCH, 0, 15
+	setobjectxy LOCALID_ZIGZAGOON, 0, 16
+	applymovement OBJ_EVENT_ID_PLAYER, Route101_Movement_EnterScene2
+	applymovement LOCALID_BIRCH, Route101_Movement_BirchRunAway1
+	applymovement LOCALID_ZIGZAGOON, Route101_Movement_ZigzagoonChase1
+	waitmovement 0
+	applymovement LOCALID_ZIGZAGOON, Route101_Movement_ZigzagoonChaseInCircles
+	applymovement LOCALID_BIRCH, Route101_Movement_BirchRunInCircles
+	waitmovement 0
+	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceFasterRight
+	waitmovement 0
+	applymovement LOCALID_ZIGZAGOON, Route101_Movement_ZigzagoonFaceBirch
+	applymovement LOCALID_BIRCH, Route101_Movement_BirchFaceZigzagoon
+	waitmovement 0
+	msgbox Route101_Text_PleaseHelp, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_ROUTE101_STATE, 2
+	applymovement OBJ_EVENT_ID_PLAYER, WalkToBag
+	waitmovement 0
+	goto Route101_EventScript_BirchsBag
+	releaseall
+	end
+
+WalkToBag::
+	walk_fast_left
+	walk_fast_left
+	walk_fast_left
+	face_up
+	step_end
 
 Route101_EventScript_PreventExitSouth::
 	lockall
@@ -143,6 +181,15 @@ Route101_Movement_EnterScene:
 	walk_in_place_faster_left
 	step_end
 
+	Route101_Movement_EnterScene2:
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_left
+	walk_in_place_faster_left
+	step_end
+
 Route101_Movement_BirchRunInCircles:
 	walk_fast_up
 	walk_fast_up
@@ -220,18 +267,15 @@ Route101_EventScript_RouteSign::
 
 Route101_EventScript_BirchsBag::
 	lock
-	faceplayer
 	setflag FLAG_SYS_POKEMON_GET
 	setflag FLAG_RESCUED_BIRCH
-	fadescreen FADE_TO_BLACK
-	removeobject LOCALID_ZIGZAGOON
-	setobjectxy OBJ_EVENT_ID_PLAYER, 6, 13
-	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
 	callnative StartNewPokeballCaseUI
 	waitstate
+	applymovement OBJ_EVENT_ID_PLAYER, MoveToZigAfterBag
+	waitmovement 0
 	setwildbattle SPECIES_ZIGZAGOON, 2
 	dowildbattle BATTLE_TYPE_FIRST_BATTLE
+	removeobject LOCALID_ZIGZAGOON
 	applymovement LOCALID_BIRCH, Route101_Movement_BirchApproachPlayer
 	waitmovement 0
 	msgbox Route101_Text_YouSavedMe, MSGBOX_DEFAULT
@@ -250,6 +294,13 @@ Route101_EventScript_BirchsBag::
 	release
 	end
 
+MoveToZigAfterBag::
+	walk_left
+	walk_left
+	walk_up
+	face_up
+	step_end
+
 Route101_EventScript_HideMayInBedroom::
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM
 	return
@@ -260,6 +311,7 @@ Route101_EventScript_HideBrendanInBedroom::
 
 Route101_Movement_BirchApproachPlayer:
 	walk_right
+	face_down
 	step_end
 
 Route101_Text_HelpMe:
