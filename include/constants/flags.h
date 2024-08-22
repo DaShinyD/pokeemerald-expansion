@@ -43,10 +43,10 @@
 #define NUM_TEMP_FLAGS   (TEMP_FLAGS_END - TEMP_FLAGS_START + 1)
 
 #define FLAG_PARTY_MOVES     0x20 // Move Relearner Flag
-#define FLAG_UNUSED_0x021    0x21 // Unused Flag
-#define FLAG_UNUSED_0x022    0x22 // Unused Flag
-#define FLAG_UNUSED_0x023    0x23 // Unused Flag
-#define FLAG_UNUSED_0x024    0x24 // Unused Flag
+#define FLAG_STARDUST_OLDALE 0x21 // Stardust in Oldale Garden
+#define FLAG_SPELLTAG_102    0x22 // Spell tag in Route102 Cemetery
+#define FLAG_GHOSTGIRL_102   0x23 // Ghost girl in Route102 Cemetery
+#define FLAG_CYNDAQUIL_BALL  0x24 // Hisuian Cyndaquil ball in Route102 Cemetery
 #define FLAG_UNUSED_0x025    0x25 // Unused Flag
 #define FLAG_UNUSED_0x026    0x26 // Unused Flag
 #define FLAG_UNUSED_0x027    0x27 // Unused Flag

@@ -446,3 +446,7 @@ OldaleTown_Text_EnjoyRod:
 
 OldaleTown_Text_HopeFishingIsWell:
 	.string "Hope you're catching lots of pokemon!$"
+
+OldaleTown_EventScript_StardustItem::
+	call Common_EventScript_FindItem
+	end
