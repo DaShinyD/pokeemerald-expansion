@@ -3046,4 +3046,7 @@ extern const u8 gText_PlantBerry[];
 extern const u8 gText_AM[];
 extern const u8 gText_PM[];
 
+// My new stuff -cam
+extern const u8 gText_Moves_Menu[];
+
 #endif // GUARD_STRINGS_H
