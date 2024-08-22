@@ -33,6 +33,14 @@ OldaleTown_EventScript_TownSign::
 	msgbox OldaleTown_Text_TownSign, MSGBOX_SIGN
 	end
 
+OldaleTown_EventScript_GardenSign::
+	msgbox OldaleTown_Text_GardenSign, MSGBOX_SIGN
+	end
+
+OldaleTown_EventScript_LockedDoor::
+	msgbox OldaleTown_Text_LockedDoor, MSGBOX_SIGN
+	end
+
 OldaleTown_EventScript_Girl::
 	msgbox OldaleTown_Text_SavingMyProgress, MSGBOX_NPC
 	end
@@ -399,3 +407,42 @@ OldaleTown_Text_TownSign:
 	.string "OLDALE TOWN\n"
 	.string "“Where things start off scarce.”$"
 
+OldaleTown_Text_GardenSign:
+	.string "OLDALE GARDEN\n"
+	.string "A shelter for rare species.$"
+
+OldaleTown_Text_LockedDoor:
+	.string "The door is locked.$"
+
+
+
+
+OldaleTown_EventScript_Fisherman::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_OLD_ROD, OldaleTown_EventScript_GoodFishing
+	msgbox OldaleTown_Text_GiveRod, MSGBOX_DEFAULT
+	giveitem ITEM_OLD_ROD
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_OLD_ROD
+	msgbox OldaleTown_Text_EnjoyRod, MSGBOX_DEFAULT
+	release
+	end
+
+OldaleTown_EventScript_GoodFishing::
+	lock
+	faceplayer
+	msgbox OldaleTown_Text_HopeFishingIsWell, MSGBOX_DEFAULT
+	release
+	end
+
+OldaleTown_Text_GiveRod:
+	.string "Hey, you look like a good kid.\n"
+	.string "Take this.$"
+
+OldaleTown_Text_EnjoyRod:
+	.string "That's my old fishing rod.\n"
+	.string "Use it to fish up cool water pokemon!$"
+
+OldaleTown_Text_HopeFishingIsWell:
+	.string "Hope you're catching lots of pokemon!$"
