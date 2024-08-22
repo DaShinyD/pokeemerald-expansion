@@ -3048,5 +3048,6 @@ extern const u8 gText_PM[];
 
 // My new stuff -cam
 extern const u8 gText_Moves_Menu[];
+extern const u8 gText_Nickname[];
 
 #endif // GUARD_STRINGS_H
