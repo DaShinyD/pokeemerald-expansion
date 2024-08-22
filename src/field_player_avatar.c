@@ -1808,36 +1808,23 @@ static bool32 Fishing_ShowDots(struct Task *task)
 
     AlignFishingAnimationFrames();
     task->tFrameCounter++;
-    if (JOY_NEW(A_BUTTON))
-    {
-        if (!DoesFishingMinigameAllowCancel())
-            return FALSE;
-
-        task->tStep = FISHING_NOT_EVEN_NIBBLE;
-        if (task->tRoundsPlayed != 0)
-            task->tStep = FISHING_GOT_AWAY;
-        return TRUE;
-    }
-    else
-    {
         if (task->tFrameCounter >= 20)
         {
             task->tFrameCounter = 0;
             if (task->tNumDots >= task->tDotsRequired)
             {
-                task->tStep = FISHING_CHECK_FOR_BITE;
+                task->tStep++;
                 if (task->tRoundsPlayed != 0)
-                    task->tStep = FISHING_GOT_BITE;
+                    task->tStep++;
                 task->tRoundsPlayed++;
             }
             else
             {
-                AddTextPrinterParameterized(0, FONT_NORMAL, dot, task->tNumDots * 8, 1, 0, NULL);
+                AddTextPrinterParameterized(0, 1, dot, task->tNumDots * 8, 1, 0, NULL);
                 task->tNumDots++;
             }
         }
         return FALSE;
-    }
 }
 
 static bool32 Fishing_CheckForBite(struct Task *task)
@@ -1873,10 +1860,7 @@ static bool32 Fishing_CheckForBite(struct Task *task)
 
 static bool32 Fishing_GotBite(struct Task *task)
 {
-    AlignFishingAnimationFrames();
-    AddTextPrinterParameterized(0, FONT_NORMAL, gText_OhABite, 0, 17, 0, NULL);
-    task->tStep = FISHING_CHANGE_MINIGAME;
-    task->tFrameCounter = 0;
+    task->tStep += 3;
     return FALSE;
 }
 
