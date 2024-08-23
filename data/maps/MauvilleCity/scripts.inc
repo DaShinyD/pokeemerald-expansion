@@ -42,6 +42,10 @@ MauvilleCity_EventScript_CitySign::
 	msgbox MauvilleCity_Text_CitySign, MSGBOX_SIGN
 	end
 
+MauvilleCity_EventScript_StoneSellerSign::
+	msgbox MauvilleCity_Text_StoneSeller, MSGBOX_SIGN
+	end
+
 MauvilleCity_EventScript_GymSign::
 	msgbox MauvilleCity_Text_GymSign, MSGBOX_SIGN
 	end
@@ -642,6 +646,9 @@ MauvilleCity_Text_GymSign:
 	.string "MAUVILLE CITY POKéMON GYM\n"
 	.string "LEADER: WATTSON\l"
 	.string "“The cheerfully electrifying man!”$"
+
+MauvilleCity_Text_StoneSeller:
+	.string "EVOLUTION ITEM SELLER$"
 
 MauvilleCity_Text_BikeShopSign:
 	.string "“Ride in gravel and shake up your\n"

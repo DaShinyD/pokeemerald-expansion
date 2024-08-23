@@ -4420,6 +4420,16 @@
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/Route102Cemetery/border.bin",
       "blockdata_filepath": "data/layouts/Route102Cemetery/map.bin"
+    },
+    {
+      "id": "LAYOUT_MAUVILLE_CITY_STONE_SELLER",
+      "name": "MauvilleCity_StoneSeller_Layout",
+      "width": 8,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/MauvilleCity_StoneSeller/border.bin",
+      "blockdata_filepath": "data/layouts/MauvilleCity_StoneSeller/map.bin"
     }
   ]
 }

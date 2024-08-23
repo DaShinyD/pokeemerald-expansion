@@ -160,6 +160,7 @@
 #define MAP_MAUVILLE_CITY_POKEMON_CENTER_1F (5 | (10 << 8))
 #define MAP_MAUVILLE_CITY_POKEMON_CENTER_2F (6 | (10 << 8))
 #define MAP_MAUVILLE_CITY_MART              (7 | (10 << 8))
+#define MAP_MAUVILLE_CITY_STONE_SELLER      (8 | (10 << 8))
 
 // gMapGroup_IndoorRustboro
 #define MAP_RUSTBORO_CITY_DEVON_CORP_1F     (0 | (11 << 8))
