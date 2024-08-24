@@ -146,13 +146,61 @@
       "trainer_sight_or_berry_tree_id": "3",
       "script": "Route102_EventScript_Allen",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "x": 9,
+      "y": 4,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_DASH102"
     }
   ],
   "warp_events": [
 
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_DASH_ROUTE102",
+      "var_value": "0",
+      "script": "Route102_EventScript_DashTrigger3"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_DASH_ROUTE102",
+      "var_value": "0",
+      "script": "Route102_EventScript_DashTrigger4"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 2,
+      "elevation": 0,
+      "var": "VAR_DASH_ROUTE102",
+      "var_value": "0",
+      "script": "Route102_EventScript_DashTrigger1"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 3,
+      "elevation": 0,
+      "var": "VAR_DASH_ROUTE102",
+      "var_value": "0",
+      "script": "Route102_EventScript_DashTrigger2"
+    }
   ],
   "bg_events": [
     {

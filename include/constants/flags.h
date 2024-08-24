@@ -47,7 +47,7 @@
 #define FLAG_SPELLTAG_102    0x22 // Spell tag in Route102 Cemetery
 #define FLAG_GHOSTGIRL_102   0x23 // Ghost girl in Route102 Cemetery
 #define FLAG_CYNDAQUIL_BALL  0x24 // Hisuian Cyndaquil ball in Route102 Cemetery
-#define FLAG_UNUSED_0x025    0x25 // Unused Flag
+#define FLAG_HIDE_DASH102    0x25 // Hide Dash after 102 encounter
 #define FLAG_UNUSED_0x026    0x26 // Unused Flag
 #define FLAG_UNUSED_0x027    0x27 // Unused Flag
 #define FLAG_UNUSED_0x028    0x28 // Unused Flag

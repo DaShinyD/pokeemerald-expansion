@@ -1,3 +1,5 @@
+.set LOCALID_DASH, 10
+
 Route102_MapScripts::
 	.byte 0
 
@@ -107,3 +109,236 @@ Route102_Text_RouteSignOldale:
 Route102_Text_RouteSignPetalburg:
 	.string "ROUTE 102\n"
 	.string "{LEFT_ARROW} PETALBURG CITY$"
+
+@begin my new code
+
+Route102_EventScript_DashTrigger1::
+	lock
+	playse SE_PIN
+	applymovement LOCALID_DASH, Common_Movement_ExclamationMark
+	applymovement LOCALID_DASH, Route102_Movement_DashNoticesPlayer
+	waitmovement 0
+	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
+	applymovement LOCALID_DASH, Route102_Movement_DashApproachesPlayer1
+	waitmovement 0
+	msgbox Route102_Text_DashGreet, MSGBOX_DEFAULT
+	waitmessage
+	goto Route102_EventScript_DashBattle1
+	end
+
+Route102_EventScript_DashBattle1::
+	trainerbattle_no_intro TRAINER_DASH_102, Route102_Text_DashDefeat
+	goto Route102_EventScript_DashLeave1
+	end
+
+Route102_EventScript_DashLeave1::
+	msgbox Route102_Text_DashGoodbye, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_DASH, Route102_Movement_DashLeaves1
+	waitmovement 0
+	removeobject LOCALID_DASH
+	fadedefaultbgm
+	setflag FLAG_HIDE_DASH102
+	setvar VAR_DASH_ROUTE102, 1
+	release
+	end
+
+Route102_EventScript_DashTrigger2::
+	lock
+	playse SE_PIN
+	applymovement LOCALID_DASH, Common_Movement_ExclamationMark
+	applymovement LOCALID_DASH, Route102_Movement_DashNoticesPlayer
+	waitmovement 0
+	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
+	applymovement LOCALID_DASH, Route102_Movement_DashApproachesPlayer2
+	waitmovement 0
+	msgbox Route102_Text_DashGreet, MSGBOX_DEFAULT
+	waitmessage
+	goto Route102_EventScript_DashBattle2
+	end
+
+Route102_EventScript_DashBattle2::
+	trainerbattle_no_intro TRAINER_DASH_102, Route102_Text_DashDefeat
+	goto Route102_EventScript_DashLeave2
+	end
+
+Route102_EventScript_DashLeave2::
+	msgbox Route102_Text_DashGoodbye, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_DASH, Route102_Movement_DashLeaves2
+	waitmovement 0
+	removeobject LOCALID_DASH
+	fadedefaultbgm
+	setflag FLAG_HIDE_DASH102
+	setvar VAR_DASH_ROUTE102, 1
+	release
+	end
+
+Route102_EventScript_DashTrigger3::
+	lock
+	playse SE_PIN
+	applymovement LOCALID_DASH, Common_Movement_ExclamationMark
+	applymovement LOCALID_DASH, Route102_Movement_DashNoticesPlayer
+	waitmovement 0
+	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
+	applymovement LOCALID_DASH, Route102_Movement_DashApproachesPlayer3
+	waitmovement 0
+	msgbox Route102_Text_DashGreet, MSGBOX_DEFAULT
+	waitmessage
+	goto Route102_EventScript_DashBattle3
+	end
+
+Route102_EventScript_DashBattle3::
+	trainerbattle_no_intro TRAINER_DASH_102, Route102_Text_DashDefeat
+	goto Route102_EventScript_DashLeave3
+	end
+
+Route102_EventScript_DashLeave3::
+	msgbox Route102_Text_DashGoodbye, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_DASH, Route102_Movement_DashLeaves3
+	waitmovement 0
+	removeobject LOCALID_DASH
+	fadedefaultbgm
+	setflag FLAG_HIDE_DASH102
+	setvar VAR_DASH_ROUTE102, 1
+	release
+	end
+
+Route102_EventScript_DashTrigger4::
+	lock
+	playse SE_PIN
+	applymovement LOCALID_DASH, Common_Movement_ExclamationMark
+	applymovement LOCALID_DASH, Route102_Movement_DashNoticesPlayer
+	waitmovement 0
+	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
+	applymovement LOCALID_DASH, Route102_Movement_DashApproachesPlayer4
+	waitmovement 0
+	msgbox Route102_Text_DashGreet, MSGBOX_DEFAULT
+	waitmessage
+	goto Route102_EventScript_DashBattle4
+	end
+
+Route102_EventScript_DashBattle4::
+	trainerbattle_no_intro TRAINER_DASH_102, Route102_Text_DashDefeat
+	goto Route102_EventScript_DashLeave4
+	end
+
+Route102_EventScript_DashLeave4::
+	msgbox Route102_Text_DashGoodbye, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_DASH, Route102_Movement_DashLeaves4
+	waitmovement 0
+	removeobject LOCALID_DASH
+	fadedefaultbgm
+	setflag FLAG_HIDE_DASH102
+	setvar VAR_DASH_ROUTE102, 1
+	release
+	end
+
+Route102_Text_DashGreet:
+	.string "Yo! You look like a new\n"
+	.string "trainer. My name is Dash.\p"
+	.string "You are?\p"
+	.string "{PLAYER}, huh? Nice to\n"
+	.string "meet you.\p"
+	.string "Tell you what, from now on\n"
+	.string "we are rivals. Let's battle!$"
+
+Route102_Text_DashIntro:
+	.string "Go, Beedrill!$"
+
+Route102_Text_DashDefeat:
+	.string "Aw man.$"
+
+Route102_Text_DashGoodbye:
+	.string "That was a great battle. We\n"
+	.string "should do it again. Tell you\p"
+	.string "what, I'll race you through\n"
+	.string "the gyms!. See ya.$"
+
+Route102_Movement_DashNoticesPlayer:
+	face_right
+	step_end
+
+Route102_Movement_DashApproachesPlayer1:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	face_right
+	step_end
+
+Route102_Movement_DashApproachesPlayer2:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	face_right
+	step_end
+
+Route102_Movement_DashApproachesPlayer3:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+Route102_Movement_DashApproachesPlayer4:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	face_right
+	step_end
+
+Route102_Movement_DashLeaves1:
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+Route102_Movement_DashLeaves2:
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+Route102_Movement_DashLeaves3:
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+Route102_Movement_DashLeaves4:
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
