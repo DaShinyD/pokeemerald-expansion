@@ -4430,6 +4430,26 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/MauvilleCity_StoneSeller/border.bin",
       "blockdata_filepath": "data/layouts/MauvilleCity_StoneSeller/map.bin"
+    },
+    {
+      "id": "LAYOUT_PETALBURG_WOODS2",
+      "name": "PetalburgWoods2_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/PetalburgWoods2/border.bin",
+      "blockdata_filepath": "data/layouts/PetalburgWoods2/map.bin"
+    },
+    {
+      "id": "LAYOUT_RUSTURF_MINE",
+      "name": "RusturfMine_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_RusturfTunnel",
+      "border_filepath": "data/layouts/RusturfMine/border.bin",
+      "blockdata_filepath": "data/layouts/RusturfMine/map.bin"
     }
   ]
 }

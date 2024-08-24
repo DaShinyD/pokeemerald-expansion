@@ -1078,3 +1078,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Route102Cemetery/scripts.inc"
 
 	.include "data/maps/MauvilleCity_StoneSeller/scripts.inc"
+
+	.include "data/maps/PetalburgWoods2/scripts.inc"
+
+	.include "data/maps/RusturfMine/scripts.inc"
