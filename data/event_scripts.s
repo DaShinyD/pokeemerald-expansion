@@ -1082,3 +1082,7 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/PetalburgWoods2/scripts.inc"
 
 	.include "data/maps/RusturfMine/scripts.inc"
+
+	.include "data/maps/DewfordRoute/scripts.inc"
+
+	.include "data/maps/DewfordCave2/scripts.inc"

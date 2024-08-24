@@ -93,7 +93,8 @@
     "Underwater_Route129",
     "Underwater_Route105",
     "Underwater_Route125",
-    "Route102Cemetery"
+    "Route102Cemetery",
+    "DewfordRoute"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -433,7 +434,8 @@
     "AlteringCave",
     "MeteorFalls_StevensCave",
     "PetalburgWoods2",
-    "RusturfMine"
+    "RusturfMine",
+    "DewfordCave2"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

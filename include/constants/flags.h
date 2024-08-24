@@ -48,12 +48,12 @@
 #define FLAG_GHOSTGIRL_102   0x23 // Ghost girl in Route102 Cemetery
 #define FLAG_CYNDAQUIL_BALL  0x24 // Hisuian Cyndaquil ball in Route102 Cemetery
 #define FLAG_HIDE_DASH102    0x25 // Hide Dash after 102 encounter
-#define FLAG_UNUSED_0x026    0x26 // Unused Flag
-#define FLAG_UNUSED_0x027    0x27 // Unused Flag
-#define FLAG_UNUSED_0x028    0x28 // Unused Flag
-#define FLAG_UNUSED_0x029    0x29 // Unused Flag
-#define FLAG_UNUSED_0x02A    0x2A // Unused Flag
-#define FLAG_UNUSED_0x02B    0x2B // Unused Flag
+#define FLAG_DEWFORD_MBALL   0x26 // Masterball in Dewford Route
+#define FLAG_BLOCKER_DEWFORD 0x27 // Lady blocking cave in new Dewford route
+#define FLAG_TERRAKION       0x28 // Terrakion in Dewford Cave 2
+#define FLAG_KELDEO          0x29 // Keldeo in Dewford Cave 2
+#define FLAG_COBALION        0x2A // Cobalion in Dewford Cave 2
+#define FLAG_VIRIZION        0x2B // Virizion in Dewford Cave 2
 #define FLAG_UNUSED_0x02C    0x2C // Unused Flag
 #define FLAG_UNUSED_0x02D    0x2D // Unused Flag
 #define FLAG_UNUSED_0x02E    0x2E // Unused Flag
