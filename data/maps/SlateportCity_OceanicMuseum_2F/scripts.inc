@@ -2,6 +2,10 @@
 .set LOCALID_ARCHIE, 2
 .set LOCALID_GRUNT_1, 3
 .set LOCALID_GRUNT_2, 4
+.set LOCALID_GRUNT_3, 8
+.set LOCALID_GRUNT_4, 9
+.set LOCALID_DASH, 10
+.set LOCALID_RYE, 11
 
 SlateportCity_OceanicMuseum_2F_MapScripts::
 	.byte 0
@@ -23,6 +27,40 @@ SlateportCity_OceanicMuseum_2F_EventScript_CaptStern::
 	waitmovement 0
 	call_if_eq VAR_FACING, DIR_SOUTH, SlateportCity_OceanicMuseum_2F_EventScript_PlayerFaceGrunts
 	call_if_eq VAR_FACING, DIR_EAST, SlateportCity_OceanicMuseum_2F_EventScript_PlayerFaceGrunts
+	addobject LOCALID_GRUNT_3
+	applymovement LOCALID_GRUNT_3, SlateportCity_OceanicMuseum_2F_Movement_MyGrunt1Enter
+	waitmovement 0
+	addobject LOCALID_GRUNT_4
+	applymovement LOCALID_GRUNT_4, SlateportCity_OceanicMuseum_2F_Movement_MyGrunt2Enter
+	waitmovement 0
+	applymovement LOCALID_GRUNT_3, SlateportCity_OceanicMuseum_2F_Movement_MyGrunt1Approach
+	applymovement LOCALID_GRUNT_4, SlateportCity_OceanicMuseum_2F_Movement_MyGrunt2Approach
+	waitmovement 0
+	addobject LOCALID_DASH
+	applymovement LOCALID_DASH, SlatePortCity_OceanicMuseum_2F_Movement_DashEnter
+	waitmovement 0
+	addobject LOCALID_RYE
+	applymovement LOCALID_RYE, SlatePortCity_OceanicMuseum_2F_Movement_RyeEnter
+	waitmovement 0
+	applymovement LOCALID_DASH, SlatePortCity_OceanicMuseum_2F_Movement_DashGruntApproach
+	applymovement LOCALID_RYE, SlatePortCity_OceanicMuseum_2F_Movement_RyeGruntApproach
+	waitmovement 0
+	playse SE_PIN
+	applymovement LOCALID_GRUNT_3, Common_Movement_ExclamationMark
+	applymovement LOCALID_GRUNT_4, Common_Movement_ExclamationMark
+	applymovement LOCALID_GRUNT_1, Common_Movement_ExclamationMark
+	applymovement LOCALID_GRUNT_2, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_GRUNT_3, Common_Movement_WalkInPlaceFasterLeft
+	applymovement LOCALID_GRUNT_4, Common_Movement_WalkInPlaceFasterLeft
+	applymovement LOCALID_GRUNT_1, Common_Movement_WalkInPlaceFasterLeft
+	applymovement LOCALID_GRUNT_2, Common_Movement_WalkInPlaceFasterLeft
+	waitmovement 0
+	msgbox SlatePortCity_OceanicMuseum_2F_Text_DashAndRyeWeWillHandle, MSGBOX_DEFAULT
+	waitmessage
+	applymovement LOCALID_GRUNT_1, Common_Movement_WalkInPlaceFasterRight
+	applymovement LOCALID_GRUNT_2, Common_Movement_WalkInPlaceFasterRight
+	waitmovement 0
 	msgbox SlateportCity_OceanicMuseum_2F_Text_WellTakeThoseParts, MSGBOX_DEFAULT
 	call_if_ne VAR_FACING, DIR_EAST, SlateportCity_OceanicMuseum_2F_EventScript_SternFaceGrunts
 	msgbox SlateportCity_OceanicMuseum_2F_Text_SternWhoAreYou, MSGBOX_DEFAULT
@@ -65,9 +103,21 @@ SlateportCity_OceanicMuseum_2F_EventScript_CaptStern::
 	removeobject LOCALID_ARCHIE
 	removeobject LOCALID_GRUNT_1
 	removeobject LOCALID_GRUNT_2
+	removeobject LOCALID_GRUNT_3
+	removeobject LOCALID_GRUNT_4
 	fadescreen FADE_FROM_BLACK
 	delay 30
 	setflag FLAG_HIDE_SLATEPORT_CITY_OCEANIC_MUSEUM_AQUA_GRUNTS
+	applymovement LOCALID_DASH, SlatePortCity_OceanicMuseum_2F_Movement_DashApproachPlayer
+	applymovement LOCALID_RYE, SlatePortCity_OceanicMuseum_2F_Movement_RyeApproachPlayer
+	waitmovement 0
+	msgbox SlatePortCity_OceanicMuseum_2F_Text_DashAndRyeNotAlone
+	waitmessage
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_RYE
+	removeobject LOCALID_DASH
+	fadescreen FADE_FROM_BLACK
+	delay 30
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
 	msgbox SlateportCity_OceanicMuseum_2F_Text_SternThankYouForSavingUs, MSGBOX_DEFAULT
@@ -438,4 +488,109 @@ SlateportCity_OceanicMuseum_2F_Text_SSAnneReplica:
 	.string "“S.S. ANNE\p"
 	.string "“A replica of the luxury liner that\n"
 	.string "circles the globe.”$"
+
+@Begin my movement and text
+
+SlateportCity_OceanicMuseum_2F_Movement_MyGrunt1Enter:
+	walk_down
+	walk_right
+	face_down
+	step_end
+
+SlateportCity_OceanicMuseum_2F_Movement_MyGrunt2Enter:
+	walk_down
+	step_end
+
+SlatePortCity_OceanicMuseum_2F_Movement_DashEnter:
+	walk_down
+	walk_right
+	face_down
+	step_end
+
+SlatePortCity_OceanicMuseum_2F_Movement_RyeEnter:
+	walk_down
+	step_end
+
+SlateportCity_OceanicMuseum_2F_Movement_MyGrunt1Approach:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	step_end
+
+SlateportCity_OceanicMuseum_2F_Movement_MyGrunt2Approach:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+SlatePortCity_OceanicMuseum_2F_Movement_DashGruntApproach:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	step_end
+
+SlatePortCity_OceanicMuseum_2F_Movement_RyeGruntApproach:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	step_end
+
+SlatePortCity_OceanicMuseum_2F_Text_DashAndRyeWeWillHandle:
+	.string "Dash: Yo, {PLAYER}!\n"
+	.string "We'll take care of these guys\p"
+	.string "Both of us have dealt with\n"
+	.string "Team Aqua recently.\p"
+	.string "We can't let them keep doing\n"
+	.string "evil acts.\p"
+	.string "Show them your power, rival!$"
+
+SlatePortCity_OceanicMuseum_2F_Movement_DashApproachPlayer:
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+SlatePortCity_OceanicMuseum_2F_Movement_RyeApproachPlayer:
+	walk_up
+	walk_up
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+SlatePortCity_OceanicMuseum_2F_Text_DashAndRyeNotAlone:
+	.string "Dash: Nice work.\n"
+	.string "Rye: Those guys were chumps.\p"
+	.string "Dash: Team Aqua must be up to\n"
+	.string "something.\p"
+	.string "What could they want with\n"
+	.string "submarine plans?\p"
+	.string "Rye: Who knows.\p"
+	.string "Anyway, just know you're not\n"
+	.string "alone.\p"
+	.string "If these guys appear again, we\n"
+	.string "will be there.\p"
+	.string "Dash: Welp, time to head out.\p"
+	.string "More badges to earn.\p"
+	.string "See ya!$"
 
