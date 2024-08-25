@@ -54,7 +54,7 @@
 #define FLAG_KELDEO          0x29 // Keldeo in Dewford Cave 2
 #define FLAG_COBALION        0x2A // Cobalion in Dewford Cave 2
 #define FLAG_VIRIZION        0x2B // Virizion in Dewford Cave 2
-#define FLAG_UNUSED_0x02C    0x2C // Unused Flag
+#define FLAG_RYE_GRANITE     0x2C // Hide Rye in Granite Cave
 #define FLAG_UNUSED_0x02D    0x2D // Unused Flag
 #define FLAG_UNUSED_0x02E    0x2E // Unused Flag
 #define FLAG_UNUSED_0x02F    0x2F // Unused Flag
