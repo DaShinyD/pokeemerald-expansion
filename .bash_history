@@ -60,3 +60,12 @@ make -j32
 make -j32
 make -j32
 make -j32
+dir
+make -j32
+make -j32
+make -j32
+make -j32
+make -j32
+make -j32
+make -j32
+make -j32
