@@ -384,8 +384,11 @@ const u16 gObjectEventPal_Substitute[] = INCBIN_U16("graphics/pokemon/question_m
 
 const u16 gObjectEventPaletteEmotes[] = INCBIN_U16("graphics/misc/emotes.gbapal");
 
-const u16 gObjectEventPal_Cam[] = INCBIN_U16("graphics/object_events/pics/people/cam.gbapal");
-const u32 gObjectEventPic_Cam[] = INCBIN_U32("graphics/object_events/pics/people/cam.4bpp");
+const u16 gObjectEventPal_Dash[] = INCBIN_U16("graphics/object_events/pics/people/Dash.gbapal");
+const u32 gObjectEventPic_Dash[] = INCBIN_U32("graphics/object_events/pics/people/Dash.4bpp");
+
+const u16 gObjectEventPal_Rye[] = INCBIN_U16("graphics/object_events/pics/people/Rye.gbapal");
+const u32 gObjectEventPic_Rye[] = INCBIN_U32("graphics/object_events/pics/people/Rye.4bpp");
 
 #if OW_FOLLOWERS_POKEBALLS
 const u32 gObjectEventPic_MasterBall[] = INCBIN_U32("graphics/object_events/pics/misc/ball_master.4bpp");
