@@ -9,7 +9,7 @@ Route102Cemetery_OnLoad::
 	end
 
 Route102Cemetery_EventScript_SetGraveAndBall::
-	setmetatile 0, 6, METATILE_Facility_Grave_Normal, TRUE
+	setmetatile 0, 6, METATILE_lilycove2_Fake_Grave_Normal, TRUE
 	setflag FLAG_CYNDAQUIL_BALL
 	return
 
@@ -41,7 +41,7 @@ Route102Cemetery_EventScript_Grave::
 	msgbox Route102Cemetery_Text_CleanedGrave MSGBOX_DEFAULT
 	closemessage
 	waitfanfare
-	setmetatile 0, 6, METATILE_Facility_Grave_Normal, TRUE
+	setmetatile 0, 6, METATILE_lilycove2_Fake_Grave_Normal, TRUE
 	special DrawWholeMapView
 	delay 10
 	fadescreen FADE_FROM_BLACK
