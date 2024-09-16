@@ -4470,6 +4470,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/DewfordCave2/border.bin",
       "blockdata_filepath": "data/layouts/DewfordCave2/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE135",
+      "name": "Route135_Layout",
+      "width": 34,
+      "height": 32,
+      "primary_tileset": "gTileset_desert",
+      "secondary_tileset": "gTileset_desertpyramid",
+      "border_filepath": "data/layouts/Route135/border.bin",
+      "blockdata_filepath": "data/layouts/Route135/map.bin"
     }
   ]
 }
