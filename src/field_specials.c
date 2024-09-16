@@ -1240,6 +1240,48 @@ bool8 CheckLeadMonTough(void)
     return TRUE;
 }
 
+bool8 CheckStarter(void)
+{
+    u16 starterSpecies = 0;
+    u8 i;
+
+    // check party
+    for (i = 0; i< PARTY_SIZE; i++)
+    {
+        struct Pokemon *mon = &gPlayerParty[i];
+        u16 species = GetMonData(mon, MON_DATA_SPECIES);
+
+        // starters, other values dont matter itll be called right after receiving
+        if (species == SPECIES_TREECKO || species == SPECIES_TORCHIC || species == SPECIES_MUDKIP || species == SPECIES_CHIKORITA || species == SPECIES_CYNDAQUIL || species == SPECIES_TOTODILE || species == SPECIES_BULBASAUR || species == SPECIES_CHARMANDER || species == SPECIES_SQUIRTLE)
+        {
+            starterSpecies = species;
+            break;
+        }
+    }
+
+    // set the VAR based on the starter
+    switch (starterSpecies)
+    {
+        case SPECIES_TREECKO:
+        case SPECIES_BULBASAUR:
+        case SPECIES_CHIKORITA:
+            VarSet(VAR_STARTER_MON, 0); // Rival has torchic
+            break;
+        case SPECIES_TORCHIC:
+        case SPECIES_CYNDAQUIL:
+        case SPECIES_CHARMANDER:
+            VarSet(VAR_STARTER_MON, 1); // Rival has mudkip
+            break;
+        case SPECIES_MUDKIP:
+        case SPECIES_SQUIRTLE:
+        case SPECIES_TOTODILE:
+            VarSet(VAR_STARTER_MON, 2); // Rival has treecko
+            break;
+    }
+
+    return 0;
+}
+
 void IsGrassTypeInParty(void)
 {
     u8 i;
