@@ -652,16 +652,20 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x6E)
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
-#define FLAG_UNUSED_0x264  0x264 // Unused Flag
-#define FLAG_UNUSED_0x265  0x265 // Unused Flag
-#define FLAG_UNUSED_0x266  0x266 // Unused Flag
-#define FLAG_UNUSED_0x267  0x267 // Unused Flag
-#define FLAG_UNUSED_0x268  0x268 // Unused Flag
-#define FLAG_UNUSED_0x269  0x269 // Unused Flag
-#define FLAG_UNUSED_0x26A  0x26A // Unused Flag
-#define FLAG_UNUSED_0x26B  0x26B // Unused Flag
-#define FLAG_UNUSED_0x26C  0x26C // Unused Flag
-#define FLAG_UNUSED_0x26D  0x26D // Unused Flag
+// Level Caps
+#define FLAG_LEVEL_CAP_MASTER                       0x264 // Level Cap Master For Scripts
+#define FLAG_LEVEL_CAP_ONE                          0x265 // Cap 1
+#define FLAG_LEVEL_CAP_TWO                          0x266 // Cap 2
+#define FLAG_LEVEL_CAP_THREE                        0x267 // Cap 3
+#define FLAG_LEVEL_CAP_FOUR                         0x268 // Cap 4
+#define FLAG_LEVEL_CAP_FIVE                         0x269 // Cap 5
+#define FLAG_LEVEL_CAP_SIX                          0x26A // Cap 6
+#define FLAG_LEVEL_CAP_SEVEN                        0x26B // Cap 7
+#define FLAG_LEVEL_CAP_EIGHT                        0x26C // Cap 8
+#define FLAG_LEVEL_CAP_NINE                         0x26D // Cap 9
+
+
+// More Unused
 #define FLAG_UNUSED_0x26E  0x26E // Unused Flag
 #define FLAG_UNUSED_0x26F  0x26F // Unused Flag
 #define FLAG_UNUSED_0x270  0x270 // Unused Flag
