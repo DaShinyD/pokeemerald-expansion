@@ -554,7 +554,7 @@ SlatePortCity_OceanicMuseum_2F_Movement_RyeGruntApproach:
 	step_end
 
 SlatePortCity_OceanicMuseum_2F_Text_DashAndRyeWeWillHandle:
-	.string "Dash: Yo, {PLAYER}!\n"
+	.string "Dash: Yo, {PLAYER}!\p"
 	.string "We'll take care of these guys\p"
 	.string "Both of us have dealt with\n"
 	.string "Team Aqua recently.\p"
@@ -584,7 +584,7 @@ SlatePortCity_OceanicMuseum_2F_Text_DashAndRyeNotAlone:
 	.string "Dash: Team Aqua must be up to\n"
 	.string "something.\p"
 	.string "What could they want with\n"
-	.string "submarine plans?\p"
+	.string "the submarine plans?\p"
 	.string "Rye: Who knows.\p"
 	.string "Anyway, just know you're not\n"
 	.string "alone.\p"

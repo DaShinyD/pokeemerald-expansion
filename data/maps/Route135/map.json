@@ -3,7 +3,7 @@
   "name": "Route135",
   "layout": "LAYOUT_ROUTE135",
   "music": "MUS_ROUTE101",
-  "region_map_section": "MAPSEC_MAUVILLE_CITY",
+  "region_map_section": "MAPSEC_ROUTE_135",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",

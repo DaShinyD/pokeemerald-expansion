@@ -242,8 +242,10 @@ Route102_Text_DashGreet:
 	.string "You are?\p"
 	.string "{PLAYER}, huh? Nice to\n"
 	.string "meet you.\p"
-	.string "Tell you what, from now on\n"
-	.string "we are rivals. Let's battle!$"
+	.string "How would you like to be my\n"
+	.string "rival?\p"
+	.string "I'll show you my strength with\n"
+	.string "a battle.$"
 
 Route102_Text_DashIntro:
 	.string "Go, Beedrill!$"
@@ -253,9 +255,12 @@ Route102_Text_DashDefeat:
 
 Route102_Text_DashGoodbye:
 	.string "That was a great battle. We\n"
-	.string "should do it again. Tell you\p"
-	.string "what, I'll race you through\n"
-	.string "the gyms!. See ya.$"
+	.string "definitely have to do it\l"
+	.string "again.\p"
+	.string "I'll be seeing you around.\p"
+	.string "For now, I've got some\n"
+	.string "gyms to beat.\p"
+	.string "Bye!$"
 
 Route102_Movement_DashNoticesPlayer:
 	face_right

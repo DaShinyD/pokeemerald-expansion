@@ -146,8 +146,8 @@
       "name": "VerdanturfTown_Layout",
       "width": 20,
       "height": 20,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Mauville",
+      "primary_tileset": "gTileset_general2",
+      "secondary_tileset": "gTileset_mauville2",
       "border_filepath": "data/layouts/VerdanturfTown/border.bin",
       "blockdata_filepath": "data/layouts/VerdanturfTown/map.bin"
     },
@@ -1224,8 +1224,8 @@
     {
       "id": "LAYOUT_ROUTE117_POKEMON_DAY_CARE",
       "name": "Route117_PokemonDayCare_Layout",
-      "width": 12,
-      "height": 9,
+      "width": 20,
+      "height": 16,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_PokemonDayCare",
       "border_filepath": "data/layouts/Route117_PokemonDayCare/border.bin",
@@ -4480,6 +4480,16 @@
       "secondary_tileset": "gTileset_desertpyramid",
       "border_filepath": "data/layouts/Route135/border.bin",
       "blockdata_filepath": "data/layouts/Route135/map.bin"
+    },
+    {
+      "id": "LAYOUT_DAYCARE_GARDEN",
+      "name": "DaycareGarden_Layout",
+      "width": 30,
+      "height": 30,
+      "primary_tileset": "gTileset_general2",
+      "secondary_tileset": "gTileset_mauville2",
+      "border_filepath": "data/layouts/DaycareGarden/border.bin",
+      "blockdata_filepath": "data/layouts/DaycareGarden/map.bin"
     }
   ]
 }

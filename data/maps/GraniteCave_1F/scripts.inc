@@ -92,7 +92,7 @@ GraniteCave_1F_Movement_RyeLeaves:
 
 GraniteCave_1F_Text_RyeGreet:
 	.string "What's going on. The name is\n"
-	.string "Rye. I'm a trainer doing the\p"
+	.string "Rye. I'm a trainer doing the\l"
 	.string "Pokemon League challenge.\p"
 	.string "Who are you?\p"
 	.string "{PLAYER}? Cool name.\p"
@@ -106,9 +106,8 @@ GraniteCave_1F_Text_RyeDefeat:
 
 GraniteCave_1F_Text_RyeSeeYa:
 	.string "Awesome battle.\p"
-	.string "I'm sure we will see more of\n"
+	.string "I'm sure we'll see more of\n"
 	.string "each other.\p"
 	.string "For now, I've gotta go.\p"
 	.string "See you later, {PLAYER}.$"
-
 

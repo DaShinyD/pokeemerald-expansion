@@ -320,7 +320,8 @@
     "Route116_TunnelersRestHouse"
   ],
   "gMapGroup_IndoorRoute117": [
-    "Route117_PokemonDayCare"
+    "Route117_PokemonDayCare",
+    "DaycareGarden"
   ],
   "gMapGroup_IndoorRoute121": [
     "Route121_SafariZoneEntrance"

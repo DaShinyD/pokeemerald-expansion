@@ -291,6 +291,7 @@
 
 // gMapGroup_IndoorRoute117
 #define MAP_ROUTE117_POKEMON_DAY_CARE (0 | (22 << 8))
+#define MAP_DAYCARE_GARDEN            (1 | (22 << 8))
 
 // gMapGroup_IndoorRoute121
 #define MAP_ROUTE121_SAFARI_ZONE_ENTRANCE (0 | (23 << 8))

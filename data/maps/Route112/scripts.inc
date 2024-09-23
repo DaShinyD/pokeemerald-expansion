@@ -1,5 +1,7 @@
 .set LOCALID_GRUNT_1, 1
 .set LOCALID_GRUNT_2, 6
+.set LOCALID_DASH, 15
+.set LOCALID_RYE, 16
 
 Route112_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route112_OnTransition
@@ -9,6 +11,116 @@ Route112_OnTransition:
 	clearflag FLAG_FORCE_MIRAGE_TOWER_VISIBLE
 	setvar VAR_JAGGED_PASS_ASH_WEATHER, 0
 	end
+
+Route112_EventScript_Rivals::
+	lockall
+	applymovement LOCALID_DASH, Route112_Movement_RivalsApproach112
+	applymovement LOCALID_RYE, Route112_Movement_RivalsApproach112
+	waitmovement 0
+	msgbox Route112_Text_CamAndRyeHello112, MSGBOX_DEFAULT
+	waitmessage
+	goto Route112_EventScript_CamBattle112
+	releaseall
+	end
+
+Route112_EventScript_CamBattle112::
+	trainerbattle_no_intro TRAINER_DASH_ROUTE_112, Route112_Text_DashDefeat112
+	goto Route112_EventScript_RyeBattleText112
+	releaseall
+	end
+
+Route112_EventScript_RyeBattleText112::
+	msgbox Route112_Text_RyeTurn112, MSGBOX_DEFAULT
+	waitmessage
+	call Common_EventScript_OutOfCenterPartyHeal
+	goto Route112_EventScript_RyeBattle112
+	releaseall
+	end
+
+Route112_EventScript_RyeBattle112::
+	trainerbattle_no_intro TRAINER_RYE_ROUTE_112, Route112_Text_RyeDefeat112
+	goto Route112_EventScript_RivalsLeave112
+	releaseall
+	end
+
+Route112_EventScript_RivalsLeave112::
+	msgbox Route112_Text_RivalsBye112, MSGBOX_DEFAULT
+	waitmessage
+	applymovement LOCALID_DASH, Route112_Movement_RivalsLeave112
+	applymovement LOCALID_RYE, Route112_Movement_RivalsLeave112
+	waitmovement 0
+	setflag FLAG_HIDE_RIVALS_112
+	setvar VAR_RIVALS_112, 1
+	removeobject LOCALID_DASH
+	removeobject LOCALID_RYE
+	releaseall
+	end
+
+Route112_Movement_RivalsApproach112:
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+Route112_Text_CamAndRyeHello112:
+	.string "Dash: Hey there {PLAYER}!\p"
+	.string "Great job in Slateport. You\n"
+	.string "showed those Aqua guys who the\l"
+	.string "boss is.\p"
+	.string "Rye: Listen, up ahead there\n"
+	.string "are guys calling themselves\l"
+	.string "Team Magma.\p"
+	.string "We don't know who they are\n"
+	.string "but it can't be anything good.\p"
+	.string "Dash: I think something big\n"
+	.string "is going on here.\p"
+	.string "We will have to keep an eye\n"
+	.string "out for anything suspicious.\p"
+	.string "Rye: If anything happens, just\n"
+	.string "call us. We will come help.\p"
+	.string "Here are our numbers.\p"
+	.string "Received Dash and Rye's\n"
+	.string "numbers!\p"
+	.string "Dash: Anyway, show me how much\n"
+	.string "stronger you are!$"
+
+Route112_Text_DashDefeat112:
+	.string "You're too good!$"
+
+Route112_Text_RyeTurn112:
+	.string "You may have beat Dash, but\n"
+	.string "now it's my turn.\p"
+	.string "I'll heal your pokemon\n"
+	.string "for you.$"
+
+Route112_Text_RyeDefeat112:
+	.string "Not me too!$"
+
+Route112_Text_RivalsBye112:
+	.string "Rye: Ah man, you got us both.\p"
+	.string "Dash: Good, my rival should be\n"
+	.string "at least this strong.\p"
+	.string "Rye: Time for us to get going.\p"
+	.string "Dash: Don't hesitate to give\n"
+	.string "us a call if anything happens.\p"
+	.string "Dash and Rye: See ya!$"
+
+Route112_Movement_RivalsLeave112:
+	walk_up
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
 
 Route112_EventScript_MagmaGrunts::
 	lockall
