@@ -780,6 +780,9 @@
 #define METATILE_Underwater_FloorShadow  0x228
 #define METATILE_Underwater_RockWall     0x21E
 
+// gTileset_general2
+#define METATILE_general2_CalmWater  0x170
+
 // gTileset_lilycove2
 #define METATILE_lilycove2_Fake_Grave_Normal  0x347
 

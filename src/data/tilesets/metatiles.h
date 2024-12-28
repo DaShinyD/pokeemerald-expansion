@@ -273,3 +273,6 @@ const u16 gMetatileAttributes_desertvillage[] = INCBIN_U16("data/tilesets/second
 
 const u16 gMetatiles_desertpyramid[] = INCBIN_U16("data/tilesets/secondary/desertpyramid/metatiles.bin");
 const u16 gMetatileAttributes_desertpyramid[] = INCBIN_U16("data/tilesets/secondary/desertpyramid/metatile_attributes.bin");
+
+const u16 gMetatiles_generic_building2[] = INCBIN_U16("data/tilesets/secondary/generic_building_2/metatiles.bin");
+const u16 gMetatileAttributes_generic_building2[] = INCBIN_U16("data/tilesets/secondary/generic_building_2/metatile_attributes.bin");

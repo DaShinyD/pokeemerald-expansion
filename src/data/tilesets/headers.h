@@ -1067,3 +1067,14 @@ const struct Tileset gTileset_desertpyramid =
     .metatileAttributes = gMetatileAttributes_desertpyramid,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_generic_building2 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_generic_building2,
+    .palettes = gTilesetPalettes_generic_building2,
+    .metatiles = gMetatiles_generic_building2,
+    .metatileAttributes = gMetatileAttributes_generic_building2,
+    .callback = NULL,
+};
