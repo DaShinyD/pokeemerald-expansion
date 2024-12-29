@@ -558,3 +558,4 @@ gSpecials::
 	def_special EnterMysteryGiftCode
 	def_special GetMysteryGiftFeedback
 	
+	

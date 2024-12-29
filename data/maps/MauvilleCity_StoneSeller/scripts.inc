@@ -54,6 +54,7 @@ StoneSeller_Mart_Pokemart:
 	.2byte ITEM_DUSK_STONE
 	.2byte ITEM_DAWN_STONE
 	.2byte ITEM_ICE_STONE
+	.2byte ITEM_LINKING_CORD
 	.2byte ITEM_NONE
 	release
 	end

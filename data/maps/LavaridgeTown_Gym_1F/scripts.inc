@@ -79,9 +79,14 @@ LavaridgeTown_Gym_1F_EventScript_FlanneryDefeated::
 	waitfanfare
 	closemessage
 	delay 30
+	goto_if_set FLAG_LEVEL_CAP_MASTER, LavaridgeTown_Gym_1F_EventScript_IncreaseCap
 	setflag FLAG_ENABLE_FLANNERY_MATCH_CALL
 	release
 	end
+
+LavaridgeTown_Gym_1F_EventScript_IncreaseCap::
+	setflag FLAG_LEVEL_CAP_FOUR
+	return
 
 LavaridgeTown_Gym_1F_EventScript_GiveOverheat2::
 	giveitem ITEM_TM_OVERHEAT

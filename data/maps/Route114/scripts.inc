@@ -200,3 +200,100 @@ Route114_Text_FossilManiacsHouseSign:
 Route114_Text_LanettesHouse:
 	.string "LANETTE'S HOUSE$"
 
+
+
+
+Route114_EventScript_SellStones::
+	lock
+	faceplayer
+	goto_if_set FLAG_BATTLE_ITEMS, Route114_EventScript_SellStones1
+	msgbox Route114_Text_GiveBattleItems, MSGBOX_DEFAULT
+	giveitem ITEM_MEGA_RING
+	giveitem ITEM_DYNAMAX_BAND
+	msgbox Route114_Text_ThereYaGo, MSGBOX_DEFAULT
+	setflag FLAG_BATTLE_ITEMS
+	pokemart MegaStone_Mart_Pokemart
+	release
+	end
+	
+Route114_Text_GiveBattleItems:
+	.string "Hello the-oh!\p"
+	.string "It seems you're an upcoming\n"
+	.string "young trainer, but you don't\l"
+	.string "have any battle power items!\p"
+	.string "I'm talking about the mega\n"
+	.string "ring and dynamax band.\p"
+	.string "Here, let me give you a pair.$"
+
+Route114_Text_ThereYaGo:
+	.string "These items and mega stones\p"
+	.string "are abundant now. So take any\n"
+	.string "free of charge.$"
+
+Route114_EventScript_SellStones1::
+	msgbox Route114_Text_Hello, MSGBOX_DEFAULT
+	waitmessage
+	pokemart MegaStone_Mart_Pokemart
+	msgbox Route114_Text_SeeYa, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+MegaStone_Mart_Pokemart:
+	.2byte ITEM_VENUSAURITE
+	.2byte ITEM_CHARIZARDITE_X
+	.2byte ITEM_CHARIZARDITE_Y
+	.2byte ITEM_BLASTOISINITE
+	.2byte ITEM_BEEDRILLITE
+	.2byte ITEM_PIDGEOTITE
+	.2byte ITEM_ALAKAZITE
+	.2byte ITEM_SLOWBRONITE
+	.2byte ITEM_GENGARITE
+	.2byte ITEM_KANGASKHANITE
+	.2byte ITEM_PINSIRITE
+	.2byte ITEM_GYARADOSITE
+	.2byte ITEM_AERODACTYLITE
+	.2byte ITEM_MEWTWONITE_X
+	.2byte ITEM_MEWTWONITE_Y
+	.2byte ITEM_AMPHAROSITE
+	.2byte ITEM_STEELIXITE
+	.2byte ITEM_SCIZORITE
+	.2byte ITEM_HERACRONITE
+	.2byte ITEM_HOUNDOOMINITE
+	.2byte ITEM_TYRANITARITE
+	.2byte ITEM_SCEPTILITE
+	.2byte ITEM_BLAZIKENITE
+	.2byte ITEM_SWAMPERTITE
+	.2byte ITEM_GARDEVOIRITE
+	.2byte ITEM_SABLENITE
+	.2byte ITEM_MAWILITE
+	.2byte ITEM_AGGRONITE
+	.2byte ITEM_MEDICHAMITE
+	.2byte ITEM_MANECTITE
+	.2byte ITEM_SHARPEDONITE
+	.2byte ITEM_CAMERUPTITE
+	.2byte ITEM_ALTARIANITE
+	.2byte ITEM_BANETTITE
+	.2byte ITEM_ABSOLITE
+	.2byte ITEM_GLALITITE
+	.2byte ITEM_SALAMENCITE
+	.2byte ITEM_METAGROSSITE
+	.2byte ITEM_LATIASITE
+	.2byte ITEM_LATIOSITE
+	.2byte ITEM_LOPUNNITE
+	.2byte ITEM_GARCHOMPITE
+	.2byte ITEM_LUCARIONITE
+	.2byte ITEM_ABOMASITE
+	.2byte ITEM_GALLADITE
+	.2byte ITEM_AUDINITE
+	.2byte ITEM_DIANCITE
+	.2byte ITEM_NONE
+	release
+	end
+
+Route114_Text_Hello:
+	.string "Hi there, what would you like?$"
+
+Route114_Text_SeeYa:
+	.string "Come again.$"
+

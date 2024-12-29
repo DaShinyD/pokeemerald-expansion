@@ -12,12 +12,12 @@ u32 GetCurrentLevelCap(void)
         {FLAG_LEVEL_CAP_ONE, 18},
         {FLAG_LEVEL_CAP_TWO, 24},
         {FLAG_LEVEL_CAP_THREE , 36},
-        {FLAG_LEVEL_CAP_FOUR, 29},
-        {FLAG_LEVEL_CAP_FIVE, 31},
-        {FLAG_LEVEL_CAP_SIX, 33},
-        {FLAG_LEVEL_CAP_SEVEN , 42},
-        {FLAG_LEVEL_CAP_EIGHT, 46},
-        {FLAG_LEVEL_CAP_NINE, 58},
+        {FLAG_LEVEL_CAP_FOUR, 48},
+        {FLAG_LEVEL_CAP_FIVE, 50},
+        {FLAG_LEVEL_CAP_SIX, 58},
+        {FLAG_LEVEL_CAP_SEVEN , 67},
+        {FLAG_LEVEL_CAP_EIGHT, 75},
+        {FLAG_LEVEL_CAP_NINE, 82},
     };
 
     u32 i;
