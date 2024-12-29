@@ -269,8 +269,55 @@ PlayersHouse_2F_EventScript_Notebook::
 	end
 
 PlayersHouse_2F_EventScript_GameCube::
-	msgbox PlayersHouse_2F_Text_ItsAGameCube, MSGBOX_SIGN
+	call Common_EventScript_MysteryGift
 	end
+
+PlayersHouse_2F_EventScript_LevelCap::
+	lock
+	msgbox PlayersHouse_2F_Text_CapOrNo, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, PlayersHouse_2F_EventScript_EnableCap
+	goto_if_eq VAR_RESULT, NO, PlayersHouse_2F_EventScript_NoCap
+	release
+	end
+
+PlayersHouse_2F_Text_CapOrNo:
+	.string "Please do not mash A!\p"
+	.string "I repeat, do not mash A\n"
+	.string "...or B.\p"
+	.string "Would you like to play with\n"
+	.string "level caps enabled?\p"
+	.string "This cannot be changed.$"
+
+PlayersHouse_2F_EventScript_EnableCap::
+	msgbox PlayersHouse_2F_Text_CapEnabled1, MSGBOX_DEFAULT
+	setflag FLAG_LEVEL_CAP_MASTER
+	setvar VAR_LEVEL_CAP, 1
+	release
+	end
+
+PlayersHouse_2F_EventScript_NoCap::
+	msgbox PlayersHouse_2F_Text_NoCap, MSGBOX_DEFAULT
+	setflag FLAG_LEVEL_CAP_ONE
+	setflag FLAG_LEVEL_CAP_TWO
+	setflag FLAG_LEVEL_CAP_THREE
+	setflag FLAG_LEVEL_CAP_FOUR
+	setflag FLAG_LEVEL_CAP_FIVE
+	setflag FLAG_LEVEL_CAP_SIX
+	setflag FLAG_LEVEL_CAP_SEVEN
+	setflag FLAG_LEVEL_CAP_EIGHT
+	setflag FLAG_LEVEL_CAP_NINE
+	setvar VAR_LEVEL_CAP, 1
+	release
+	end
+
+PlayersHouse_2F_Text_NoCap:
+	.string "No cap frfr.$"
+
+PlayersHouse_2F_Text_CapEnabled1:
+	.string "Level cap enabled. The\n"
+	.string "caps are as follow from\p"
+	.string "badge 1 to the elite 4.\p"
+	.string "18 , 24, 36, unimplemented.$"
 
 PlayersHouse_2F_Text_ClockIsStopped:
 	.string "The clock is stopped…\p"
@@ -297,8 +344,3 @@ PlayersHouse_2F_Text_Notebook:
 Common_Text_LookCloserAtMap:
 	.string "{PLAYER} took a closer look at the\n"
 	.string "HOENN region map.$"
-
-PlayersHouse_2F_Text_ItsAGameCube:
-	.string "It's a Nintendo GameCube.\p"
-	.string "A Game Boy Advance is connected to\n"
-	.string "serve as the Controller.$"

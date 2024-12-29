@@ -107,9 +107,14 @@ MauvilleCity_Gym_EventScript_WattsonDefeated::
 	waitfanfare
 	closemessage
 	delay 30
+	goto_if_set FLAG_LEVEL_CAP_MASTER, MauvilleCity_Gym_EventScript_IncreaseCap
 	setflag FLAG_ENABLE_WATTSON_MATCH_CALL
 	release
 	end
+
+MauvilleCity_Gym_EventScript_IncreaseCap::
+	setflag FLAG_LEVEL_CAP_THREE
+	return
 
 MauvilleCity_Gym_EventScript_GiveShockWave2::
 	giveitem ITEM_TM_SHOCK_WAVE

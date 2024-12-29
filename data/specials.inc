@@ -555,4 +555,6 @@ gSpecials::
 	def_special Script_GetChosenMonOffensiveIVs
 	def_special Script_GetChosenMonDefensiveIVs
 	def_special CheckStarter
+	def_special EnterMysteryGiftCode
+	def_special GetMysteryGiftFeedback
 	

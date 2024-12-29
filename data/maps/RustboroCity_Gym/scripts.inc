@@ -20,10 +20,15 @@ RustboroCity_Gym_EventScript_RoxanneDefeated::
 	setvar VAR_RUSTBORO_CITY_STATE, 1
 	addvar VAR_PETALBURG_GYM_STATE, 1
 	setvar VAR_0x8008, 1
+	goto_if_set FLAG_LEVEL_CAP_MASTER, RustboroCity_Gym_EventScript_IncreaseCap
 	call Common_EventScript_SetGymTrainers
 	call_if_eq VAR_PETALBURG_GYM_STATE, 6, Common_EventScript_ReadyPetalburgGymForBattle
 	goto RustboroCity_Gym_EventScript_GiveRockTomb
 	end
+
+RustboroCity_Gym_EventScript_IncreaseCap::
+	setflag FLAG_LEVEL_CAP_ONE
+	return
 
 RustboroCity_Gym_EventScript_GiveRockTomb::
 	giveitem ITEM_TM_ROCK_TOMB
