@@ -1265,3 +1265,5 @@ MysteryGift_Text_ReceivedGiftMon:
 	.string "{PLAYER} received a {STR_VAR_1}!$"
 
 
+
+	.include "data/maps/FallarborForest/scripts.inc"

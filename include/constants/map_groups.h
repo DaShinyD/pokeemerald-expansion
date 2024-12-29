@@ -66,6 +66,7 @@
 #define MAP_ROUTE102CEMETERY    (57 | (0 << 8))
 #define MAP_DEWFORD_ROUTE       (58 | (0 << 8))
 #define MAP_ROUTE135            (59 | (0 << 8))
+#define MAP_FALLARBOR_FOREST    (60 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))

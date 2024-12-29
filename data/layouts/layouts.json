@@ -4490,6 +4490,16 @@
       "secondary_tileset": "gTileset_mauville2",
       "border_filepath": "data/layouts/DaycareGarden/border.bin",
       "blockdata_filepath": "data/layouts/DaycareGarden/map.bin"
+    },
+    {
+      "id": "LAYOUT_FALLARBOR_FOREST",
+      "name": "FallarborForest_Layout",
+      "width": 50,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_fallarbor2",
+      "border_filepath": "data/layouts/FallarborForest/border.bin",
+      "blockdata_filepath": "data/layouts/FallarborForest/map.bin"
     }
   ]
 }
