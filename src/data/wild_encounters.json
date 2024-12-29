@@ -1432,64 +1432,64 @@
             "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 13,
-                "max_level": 13,
-                "species": "SPECIES_POOCHYENA"
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_FERROSEED"
               },
               {
-                "min_level": 13,
-                "max_level": 13,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_ODDISH"
               },
               {
-                "min_level": 14,
-                "max_level": 14,
-                "species": "SPECIES_POOCHYENA"
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_SHROOMISH"
               },
               {
-                "min_level": 14,
-                "max_level": 14,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_ODDISH"
               },
               {
-                "min_level": 13,
-                "max_level": 13,
-                "species": "SPECIES_MARILL"
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_BELLSPROUT"
               },
               {
-                "min_level": 13,
-                "max_level": 13,
-                "species": "SPECIES_ODDISH"
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_BELLSPROUT"
               },
               {
-                "min_level": 13,
-                "max_level": 13,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_ILLUMISE"
               },
               {
-                "min_level": 13,
-                "max_level": 13,
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_VOLBEAT"
+              },
+              {
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_ILLUMISE"
               },
               {
-                "min_level": 14,
-                "max_level": 14,
-                "species": "SPECIES_ILLUMISE"
+                "min_level": 20,
+                "max_level": 20,
+                "species": "SPECIES_VOLBEAT"
               },
               {
-                "min_level": 14,
-                "max_level": 14,
-                "species": "SPECIES_ILLUMISE"
-              },
-              {
-                "min_level": 13,
-                "max_level": 13,
+                "min_level": 20,
+                "max_level": 20,
                 "species": "SPECIES_VOLBEAT"
               },
               {
                 "min_level": 13,
-                "max_level": 13,
-                "species": "SPECIES_SEEDOT"
+                "max_level": 20,
+                "species": "SPECIES_BULBASAUR"
               }
             ]
           },

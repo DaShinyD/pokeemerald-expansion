@@ -1207,7 +1207,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .baseSpeed     = 70,
         .baseSpAttack  = 95,
         .baseSpDefense = 79,
-        .types = MON_TYPES(TYPE_ELECTRIC),
+        .types = MON_TYPES(TYPE_ELECTRIC, TYPE_DARK),
         .catchRate = 45,
     #if P_UPDATED_EXP_YIELDS >= GEN_8
         .expYield = 262,
@@ -2041,13 +2041,13 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
 
     [SPECIES_VESPIQUEN] =
     {
-        .baseHP        = 70,
+        .baseHP        = 80,
         .baseAttack    = 80,
         .baseDefense   = 102,
         .baseSpeed     = 40,
-        .baseSpAttack  = 80,
+        .baseSpAttack  = 100,
         .baseSpDefense = 102,
-        .types = MON_TYPES(TYPE_BUG, TYPE_FLYING),
+        .types = MON_TYPES(TYPE_BUG, TYPE_FAIRY),
         .catchRate = 45,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 166 : 188,
         .evYield_Defense = 1,
@@ -4392,7 +4392,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .baseSpeed     = 46,
         .baseSpAttack  = 90,
         .baseSpDefense = 72,
-        .types = MON_TYPES(TYPE_GRASS),
+        .types = MON_TYPES(TYPE_GRASS, TYPE_DARK),
         .catchRate = 200,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 159 : 164,
         .evYield_Attack = 2,
@@ -5752,7 +5752,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .friendship = 0,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_SLOW_START, ABILITY_NONE, ABILITY_NONE },
+        .abilities = { ABILITY_PRESSURE, ABILITY_NONE, ABILITY_NONE },
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("Regigigas"),
         .cryId = CRY_REGIGIGAS,

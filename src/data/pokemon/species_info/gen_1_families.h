@@ -15891,7 +15891,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 
     [SPECIES_UMBREON] =
     {
-        .baseHP        = 100,
+        .baseHP        = 105,
         .baseAttack    = 65,
         .baseDefense   = 130,
         .baseSpeed     = 65,
@@ -17470,7 +17470,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .baseSpeed     = 80,
         .baseSpAttack  = 100,
         .baseSpDefense = 100,
-        .types = MON_TYPES(TYPE_DRAGON, TYPE_FLYING),
+        .types = MON_TYPES(TYPE_DRAGON),
         .catchRate = 45,
     #if P_UPDATED_EXP_YIELDS >= GEN_8
         .expYield = 300,
