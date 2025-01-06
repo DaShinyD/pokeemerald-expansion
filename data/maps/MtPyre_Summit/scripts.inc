@@ -68,6 +68,7 @@ MtPyre_Summit_EventScript_TeamAquaExits::
 	giveitem ITEM_MAGMA_EMBLEM
 	setflag FLAG_RECEIVED_RED_OR_BLUE_ORB
 	setflag FLAG_HIDE_JAGGED_PASS_MAGMA_GUARD
+	setvar VAR_MAGMA_HIDEOUT_BLOCK, 1
 	releaseall
 	end
 
@@ -517,7 +518,9 @@ MtPyre_Summit_Text_BothOrbsTakenMagmaLeftThis:
 	.string "I couldn't imagine what exactly it\n"
 	.string "could be.\p"
 	.string "I would like you to have it.\n"
-	.string "Perhaps it will be useful in some way.$"
+	.string "Perhaps it will be useful in some way.\p"
+	.string "I would head to Lilycove to rest\n"
+	.string "before doing anything drastic.$"
 
 MtPyre_Summit_Text_OrbsHaveBeenTaken:
 	.string "The BLUE ORB and RED ORB taken by\n"

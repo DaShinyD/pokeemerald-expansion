@@ -266,3 +266,34 @@ JaggedPass_Text_AutumnPostBattle:
 	.string "What is that odd rock protrusion\n"
 	.string "a little up the hill from here?$"
 
+
+
+
+JaggedPass_EventScript_BlockHideoutLilycoveT::
+	lock
+	msgbox JaggedPass_Text_IShouldGoToLilycove, MSGBOX_AUTOCLOSE
+	applymovement OBJ_EVENT_ID_PLAYER, JaggedPass_Movement_MovePlayerUp
+	waitmovement 0
+	release
+	end
+
+JaggedPass_EventScript_BlockHideoutLilycoveB::
+	lock
+	msgbox JaggedPass_Text_IShouldGoToLilycove, MSGBOX_AUTOCLOSE
+	applymovement OBJ_EVENT_ID_PLAYER, JaggedPass_Movement_MovePlayerDown
+	waitmovement 0
+	release
+	end
+
+JaggedPass_Text_IShouldGoToLilycove:
+	.string "I should really listen to the\n"
+	.string "old lady and go to Lilycove.$"
+
+JaggedPass_Movement_MovePlayerUp:
+	walk_up
+	step_end
+
+JaggedPass_Movement_MovePlayerDown:
+	walk_down
+	step_end
+

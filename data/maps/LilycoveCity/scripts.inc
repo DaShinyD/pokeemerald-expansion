@@ -395,6 +395,7 @@ LilycoveCity_EventScript_RivalFlyAway::
 	savebgm MUS_DUMMY
 	fadedefaultbgm
 	setflag FLAG_MET_RIVAL_LILYCOVE
+	setvar VAR_MAGMA_HIDEOUT_BLOCK, 0
 	release
 	end
 

@@ -223,6 +223,42 @@
       "var": "VAR_JAGGED_PASS_STATE",
       "var_value": "1",
       "script": "JaggedPass_EventScript_OpenMagmaHideout"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_MAGMA_HIDEOUT_BLOCK",
+      "var_value": "1",
+      "script": "JaggedPass_EventScript_BlockHideoutLilycoveT"
+    },
+    {
+      "type": "trigger",
+      "x": 13,
+      "y": 7,
+      "elevation": 0,
+      "var": "VAR_MAGMA_HIDEOUT_BLOCK",
+      "var_value": "1",
+      "script": "JaggedPass_EventScript_BlockHideoutLilycoveT"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 37,
+      "elevation": 0,
+      "var": "VAR_MAGMA_HIDEOUT_BLOCK",
+      "var_value": "1",
+      "script": "JaggedPass_EventScript_BlockHideoutLilycoveB"
+    },
+    {
+      "type": "trigger",
+      "x": 14,
+      "y": 37,
+      "elevation": 0,
+      "var": "VAR_MAGMA_HIDEOUT_BLOCK",
+      "var_value": "1",
+      "script": "JaggedPass_EventScript_BlockHideoutLilycoveB"
     }
   ],
   "bg_events": [
