@@ -96,7 +96,8 @@
     "Route102Cemetery",
     "DewfordRoute",
     "Route135",
-    "FallarborForest"
+    "FallarborForest",
+    "AncientPyramid"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -249,7 +250,8 @@
     "LilycoveCity_DepartmentStore_4F",
     "LilycoveCity_DepartmentStore_5F",
     "LilycoveCity_DepartmentStoreRooftop",
-    "LilycoveCity_DepartmentStoreElevator"
+    "LilycoveCity_DepartmentStoreElevator",
+    "LilycoveSewer"
   ],
   "gMapGroup_IndoorMossdeep": [
     "MossdeepCity_Gym",

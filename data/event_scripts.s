@@ -1164,7 +1164,6 @@ MysteryGift_EventScript_TransferredToPC::
 MysteryGift_EventScript_Candy::
 	giveitem ITEM_RARE_CANDY, 999
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
-	playfanfare MUS_OBTAIN_ITEM
 	releaseall
 	end
 MysteryGift_EventScript_Jirachi::
@@ -1267,3 +1266,7 @@ MysteryGift_Text_ReceivedGiftMon:
 
 
 	.include "data/maps/FallarborForest/scripts.inc"
+
+	.include "data/maps/AncientPyramid/scripts.inc"
+
+	.include "data/maps/LilycoveSewer/scripts.inc"

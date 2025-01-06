@@ -1,5 +1,8 @@
 .set LOCALID_WOMAN_1, 19
 .set LOCALID_MAN_1, 20
+.set LOCALID_DASH, 23
+.set LOCALID_RYE, 24
+.set LOCALID_WALLY, 25
 
 LilycoveCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, LilycoveCity_OnTransition
@@ -758,4 +761,351 @@ LilycoveCity_Text_HoneymoonVowToSeeRarePokemon:
 	.string "So we were delighted to see a rare\n"
 	.string "POKéMON as soon as we arrived.\p"
 	.string "I mean, we are totally happy!$"
+
+
+
+
+
+LilyCoveCity_EventScript_RivalTriggerL::
+	lock
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
+	applymovement OBJ_EVENT_ID_PLAYER, LilyCoveCity_Movement_PlayerMovesL
+	waitmovement 0
+	setvar VAR_LILYCOVE_RIVAL, 1
+	goto LilyCoveCity_EventScript_RivalsTalk
+	end
+
+LilyCoveCity_EventScript_RivalTriggerR::
+	lock
+	playse SE_PIN
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
+	applymovement OBJ_EVENT_ID_PLAYER, LilyCoveCity_Movement_PlayerMovesR
+	waitmovement 0
+	setvar VAR_LILYCOVE_RIVAL, 1
+	goto LilyCoveCity_EventScript_RivalsTalk
+	end
+
+LilyCoveCity_Movement_PlayerMovesL:
+	delay_8
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	step_end
+
+LilyCoveCity_Movement_PlayerMovesR:
+	delay_8
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	step_end
+
+LilyCoveCity_Movement_ImTalkingReUse:
+	walk_in_place_down
+	walk_in_place_down
+	step_end
+
+LilyCoveCity_Movement_ImTalkingLeft:
+	walk_in_place_right
+	walk_in_place_right
+	step_end
+
+LilyCoveCity_EventScript_RivalsTalk::
+	applymovement LOCALID_DASH, LilyCoveCity_Movement_ImTalkingReUse
+	waitmovement 0
+	msgbox LilyCoveCity_Text_DashHi, MSGBOX_DEFAULT
+	waitmessage
+	applymovement LOCALID_RYE, LilyCoveCity_Movement_ImTalkingReUse
+	waitmovement 0
+	msgbox LilyCoveCity_Text_RyeHi, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_WALLY, LilyCoveCity_Movement_ImTalkingLeft
+	waitmovement 0
+	msgbox LilyCoveCity_Text_WallyHoldIt, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_DASH, Common_Movement_ExclamationMark
+	applymovement LOCALID_RYE, Common_Movement_ExclamationMark
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	waitmovement 0
+	msgbox LilyCoveCity_Text_WallyImFirst, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, LilyCoveCity_Movement_PlayerWalkLeft
+	waitmovement 0
+	goto LilyCoveCity_EventScript_WallyFight
+	end
+
+LilyCoveCity_Text_DashHi:
+	.string "Dash: Hey {PLAYER}!\p"
+	.string "We haven't seend you since the\n"
+	.string "Weather Institute.\p"
+	.string "What? You took on those goons\n"
+	.string "at Mt. Pyre? You should have\l"
+	.string "called us!\p"
+	.string "Promise you will next time.\n"
+	.string "...\l"
+	.string "...\p"
+	.string "Good.\p"
+	.string "Anyway, it sure looks like you\n"
+	.string "have a lot of rivals!\p"
+	.string "We all met while taking a\n"
+	.string "break shopping.\p"
+	.string "I hope you can keep up with\n"
+	.string "all of us.$"
+
+LilyCoveCity_Text_RyeHi:
+	.string "Rye: It's good that you'll\n"
+	.string "call us next time.\p"
+	.string "Anyway, how about you show us\n"
+	.string "how much training you've done.\p"
+	.string "Let's ba-$"
+
+LilyCoveCity_Text_WallyHoldIt:
+	.string "Wally: Hold on!$"
+
+LilyCoveCity_Text_WallyImFirst:
+	.string "Wally: I'm first!\p"
+	.string "I want to show you how strong\n"
+	.string "I've gotten with your help!$"
+
+LilyCoveCity_Movement_PlayerWalkLeft:
+	walk_left
+	step_end
+
+LilyCoveCity_EventScript_WallyFight::
+	trainerbattle_no_intro TRAINER_WALLY_LILYCOVE, LilyCoveCity_Text_WallyDefeat
+	goto LilyCoveCity_EventScript_NextIsDash
+	end
+
+LilyCoveCity_Text_WallyDefeat:
+	.string "So close...$"
+
+LilyCoveCity_EventScript_NextIsDash::
+	msgbox LilyCoveCity_Text_WallyBye, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_WALLY
+	setflag FLAG_HIDE_WALLY_LILYCOVE
+	fadescreen FADE_FROM_BLACK
+	applymovement LOCALID_DASH, LilyCoveCity_Movement_ImTalkingReUse
+	waitmovement 0
+	msgbox LilyCoveCity_Text_DashNowMe, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, LilyCoveCity_Movement_ApproachDash
+	waitmovement 0
+	call Common_EventScript_OutOfCenterPartyHeal
+	goto LilyCoveCity_EventScript_DashBattle
+	end
+
+LilyCoveCity_Text_WallyBye:
+	.string "Wally: I promise I'll get even\n"
+	.string "stronger next time.\p"
+	.string "Goodbye, {PLAYER}.$"
+
+LilyCoveCity_Movement_ApproachDash:
+	face_up
+	step_end
+
+LilyCoveCity_Text_DashNowMe:
+	.string "Dash: My turn!\p"
+	.string "Don't worry, I'll heal your\n"
+	.string "Pokemon for a fair fight.$"
+
+LilyCoveCity_EventScript_DashBattle:
+	trainerbattle_no_intro TRAINER_DASH_LILYCOVE, LilyCoveCity_Text_DashDefeat
+	goto LilyCoveCity_EventScript_NextIsRye
+	end
+
+LilyCoveCity_Text_DashDefeat:
+	.string "You've done it again.$"
+
+LilyCoveCity_EventScript_NextIsRye::
+	msgbox LilyCoveCity_Text_DashBye, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_DASH
+	setflag FLAG_HIDE_DASH_LILYCOVE
+	fadescreen FADE_FROM_BLACK
+	applymovement LOCALID_RYE, LilyCoveCity_Movement_ImTalkingReUse
+	waitmovement 0
+	applymovement LOCALID_RYE, Common_Movement_FaceLeft
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	waitmovement 0
+	msgbox LilyCoveCity_Text_RyeNowMe, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, LilyCoveCity_Movement_ApproachRye
+	applymovement LOCALID_RYE, LilyCoveCity_Movement_RyeLookDown
+	waitmovement 0
+	call Common_EventScript_OutOfCenterPartyHeal
+	goto LilyCoveCity_EventScript_RyeBattle
+	end
+
+LilyCoveCity_Movement_RyeLookDown:
+	face_down
+	step_end
+
+LilyCoveCity_Text_DashBye:
+	.string "Dash: As strong as ever.\p"
+	.string "I can't stick around, but if\n"
+	.string "you manage to beat Rye and\l"
+	.string "your rival...\p"
+	.string "Well, you'd be a crazy strong\n"
+	.string "trainer, haha.\p"
+	.string "See ya, {PLAYER}.$"
+
+LilyCoveCity_Text_RyeNowMe:
+	.string "Rye: You may have beaten those\n"
+	.string "two, but I won't be so easy.\p"
+	.string "Here's some potions, now let's\n"
+	.string "battle!$"
+
+LilyCoveCity_Movement_ApproachRye:
+	walk_right
+	walk_right
+	face_up
+	step_end
+
+LilyCoveCity_EventScript_RyeBattle::
+	trainerbattle_no_intro TRAINER_RYE_LILYCOVE, LilyCoveCity_Text_RyeDefeat
+	goto LilyCoveCity_EventScript_RivalsBeaten
+	end
+
+LilyCoveCity_Text_RyeDefeat:
+	.string "Mannn$"
+
+LilyCoveCity_EventScript_RivalsBeaten::
+	msgbox LilyCoveCity_Text_RyeBye, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_RYE
+	setflag FLAG_HIDE_RYE_LILYCOVE
+	fadescreen FADE_FROM_BLACK
+	fadedefaultbgm
+	release
+	end
+
+LilyCoveCity_Text_RyeBye:
+	.string "Rye: Man! You're way too\n"
+	.string "strong, {PLAYER}.\p"
+	.string "You must do some intense\n"
+	.string "training.\p"
+	.string "I'll be heading out too. Don't\n"
+	.string "forget your promise.\p"
+	.string "Also, don't leave your rival\n"
+	.string "over there hanging.\p"
+	.string "Bye, {PLAYER}.$"
+
+
+
+
+LilyCoveCity_EventScript_WallyBattleRedo::
+	lock
+	faceplayer
+	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
+	msgbox LilyCoveCity_Text_WallyRedo, MSGBOX_DEFAULT
+	closemessage
+	goto LilyCoveCity_EventScript_WallyBattleRematch
+	end
+
+LilyCoveCity_Text_WallyRedo:
+	.string "Let's go again!$"
+
+LilyCoveCity_EventScript_WallyBattleRematch::
+	trainerbattle_no_intro TRAINER_WALLY_LILYCOVE, LilyCoveCity_Text_WallyDefeat
+	goto LilyCoveCity_EventScript_WallyRematchBeaten
+	end
+
+LilyCoveCity_EventScript_WallyRematchBeaten::
+	msgbox LilyCoveCity_Text_WallyBye, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_WALLY
+	setflag FLAG_HIDE_WALLY_LILYCOVE
+	fadescreen FADE_FROM_BLACK
+	fadedefaultbgm
+	release
+	end
+
+LilyCoveCity_EventScript_DashBattleRedo::
+	lock
+	faceplayer
+	goto_if_set FLAG_HIDE_DASH_LILYCOVE, LilyCoveCity_EventScript_Skip
+	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
+	msgbox LilyCoveCity_Text_DashHiIfLose, MSGBOX_DEFAULT
+	closemessage
+	goto LilyCoveCity_EventScript_DashBattleIfLose
+	end
+
+LilyCoveCity_Text_DashHiIfLose:
+	.string "Losing makes us stronger!$"
+
+LilyCoveCity_EventScript_DashBattleIfLose::
+	trainerbattle_no_intro TRAINER_DASH_LILYCOVE, LilyCoveCity_Text_DashDefeat
+	goto LilyCoveCity_EventScript_DashRematchBeaten
+	end
+
+LilyCoveCity_EventScript_DashRematchBeaten::
+	msgbox LilyCoveCity_Text_DashByeRematch, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_DASH
+	setflag FLAG_HIDE_DASH_LILYCOVE
+	fadescreen FADE_FROM_BLACK
+	fadedefaultbgm
+	release
+	end
+
+LilyCoveCity_Text_DashByeRematch:
+	.string "As good as ever.\p"
+	.string "I'll take my leave.\n"
+	.string "Later, {PLAYER}.$"
+
+LilyCoveCity_EventScript_RyeBattleRedo::
+	lock
+	faceplayer
+	goto_if_set FLAG_HIDE_RYE_LILYCOVE, LilyCoveCity_EventScript_Skip
+	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
+	msgbox LilyCoveCity_Text_RyeHiIfLose, MSGBOX_DEFAULT
+	closemessage
+	goto LilyCoveCity_EventScript_RyeBattleIfLose
+	end
+
+LilyCoveCity_Text_RyeHiIfLose:
+	.string "It's a shame someone else made\n"
+	.string "you lose first. But now I'll\l"
+	.string "do it too.$"
+
+LilyCoveCity_EventScript_RyeBattleIfLose::
+	trainerbattle_no_intro TRAINER_RYE_LILYCOVE, LilyCoveCity_Text_RyeDefeat
+	goto LilyCoveCity_EventScript_RyeRematchBeaten
+	end
+
+LilyCoveCity_EventScript_RyeRematchBeaten::
+	msgbox LilyCoveCity_Text_RyeBye, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_RYE
+	setflag FLAG_HIDE_RYE_LILYCOVE
+	fadescreen FADE_FROM_BLACK
+	fadedefaultbgm
+	release
+	end
+
+LilyCoveCity_EventScript_Skip::
+	release
+	end
 

@@ -1,6 +1,8 @@
 .set LOCALID_RIVAL, 16
 .set LOCALID_RIVAL_ON_BIKE, 25
 .set LOCALID_SCOTT, 43
+.set LOCALID_DASH, 45
+.set LOCALID_RYE, 44
 
 Route119_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, Route119_OnResume
@@ -483,9 +485,10 @@ Route119_Text_MayIntro:
 	.string "MAY: {PLAYER}{KUN}!\n"
 	.string "Where were you? I was looking for you!\p"
 	.string "How much stronger have you gotten?\n"
-	.string "Let me check for you!\p"
-	.string "Ready with your POKéMON?\n"
-	.string "Of course you are! Go!$"
+	.string "I've decided to try harder.\p"
+	.string "You can't be the only one who\n"
+	.string "represents Littleroot!\p"
+	.string "Let's battle.$"
 
 Route119_Text_MayDefeat:
 	.string "Achah!\n"
@@ -514,10 +517,10 @@ Route119_Text_MayExplainFly:
 Route119_Text_BrendanIntro:
 	.string "BRENDAN: {PLAYER}! So this is where\n"
 	.string "you've been looking for POKéMON?\p"
-	.string "Let me see how good you got.\n"
-	.string "I'll test you!\p"
-	.string "Now!\n"
-	.string "It's a battle, so battle!$"
+	.string "I've decided to try harder.\p"
+	.string "You can't be the only one who\n"
+	.string "represents Littleroot!\p"
+	.string "Let's battle.$"
 
 Route119_Text_BrendanDefeat:
 	.string "Hmm…\n"
@@ -612,3 +615,62 @@ Route119_Text_TrainerTipsDecoration:
 	.string "Pick your favorite items and create\n"
 	.string "your very own SECRET BASE exactly the\l"
 	.string "way you want.$"
+
+
+
+
+Route119_EventScript_RyeTalkToDash::
+	lock
+	faceplayer
+	msgbox Route119_Text_HeyTalkToDash, MSGBOX_DEFAULT
+	release
+	end
+
+Route119_Text_HeyTalkToDash:
+	.string "Hey {PLAYER}!\p"
+	.string "It seems Team Aqua is here and\n"
+	.string "up to no good again.\p"
+	.string "Talk to Dash so we can figure\n"
+	.string "this out.$"
+
+Route119_EventScript_Dash::
+	lock
+	faceplayer
+	msgbox Route119_Text_Dash, MSGBOX_DEFAULT
+	applymovement LOCALID_DASH, Route119_Movement_DashEnterWeather
+	waitmovement 0
+	removeobject LOCALID_DASH
+	applymovement LOCALID_RYE, Route119_Movement_RyeFollowDash
+	waitmovement 0
+	removeobject LOCALID_RYE
+	setflag FLAG_HIDE_DASH_WEATHER
+	setflag FLAG_HIDE_RYE_WEATHER
+	waitmovement 0
+	release
+	end
+
+Route119_Text_Dash:
+	.string "Yo, {PLAYER}!\p"
+	.string "Team Aqua is trying to take\n"
+	.string "over the Weather Institute.\p"
+	.string "I'm not sure what they're\n"
+	.string "planning exactly, but it can't\l"
+	.string "be good.\p"
+	.string "Let's go inside and stop them.\p"
+	.string "We'll take care of the first\n"
+	.string "floor. You go right up to the\l"
+	.string "second floor.\p"
+	.string "Be safe, see you inside.$"
+
+Route119_Movement_DashEnterWeather:
+	face_up
+	walk_up
+	step_end
+
+Route119_Movement_RyeFollowDash:
+	face_left
+	walk_left
+	face_up
+	walk_up
+	step_end
+

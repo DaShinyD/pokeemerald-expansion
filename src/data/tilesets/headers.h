@@ -1078,3 +1078,36 @@ const struct Tileset gTileset_generic_building2 =
     .metatileAttributes = gMetatileAttributes_generic_building2,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_PyramidInteriorP =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_PyramidInteriorP,
+    .palettes = gTilesetPalettes_PyramidInteriorP,
+    .metatiles = gMetatiles_PyramidInteriorP,
+    .metatileAttributes = gMetatileAttributes_PyramidInteriorP,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_PyramidInteriorS =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_PyramidInteriorS,
+    .palettes = gTilesetPalettes_PyramidInteriorS,
+    .metatiles = gMetatiles_PyramidInteriorS,
+    .metatileAttributes = gMetatileAttributes_PyramidInteriorS,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_SewerClear =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_SewerClear,
+    .palettes = gTilesetPalettes_SewerClear,
+    .metatiles = gMetatiles_SewerClear,
+    .metatileAttributes = gMetatileAttributes_SewerClear,
+    .callback = NULL,
+};

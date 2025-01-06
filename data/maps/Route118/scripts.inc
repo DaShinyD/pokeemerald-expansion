@@ -1,4 +1,5 @@
 .set LOCALID_STEVEN, 19
+.set LOCALID_WALLY, 22
 
 Route118_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route118_OnTransition
@@ -299,4 +300,151 @@ Route118_Text_RouteSignMauville:
 Route118_Text_RouteSign119:
 	.string "ROUTE 118\n"
 	.string "{UP_ARROW} ROUTE 119$"
+
+
+
+Route118_EventScript_WallyL::
+	lock
+	playse SE_PIN
+	applymovement LOCALID_WALLY, Common_Movement_ExclamationMark
+	applymovement LOCALID_WALLY, Route118_Movement_WallyNotice
+	waitmovement 0
+	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
+	applymovement LOCALID_WALLY, Route118_Movement_WallyApproachL
+	waitmovement 0
+	msgbox Route118_Text_WallyHi, MSGBOX_DEFAULT
+	waitmessage
+	goto Route118_EventScript_WallyBattleL
+	end
+
+Route118_EventScript_WallyM::
+	lock
+	playse SE_PIN
+	applymovement LOCALID_WALLY, Common_Movement_ExclamationMark
+	applymovement LOCALID_WALLY, Route118_Movement_WallyNotice
+	waitmovement 0
+	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
+	applymovement LOCALID_WALLY, Route118_Movement_WallyApproachM
+	waitmovement 0
+	msgbox Route118_Text_WallyHi, MSGBOX_DEFAULT
+	waitmessage
+	goto Route118_EventScript_WallyBattleM
+	end
+
+Route118_EventScript_WallyR::
+	lock
+	playse SE_PIN
+	applymovement LOCALID_WALLY, Common_Movement_ExclamationMark
+	applymovement LOCALID_WALLY, Route118_Movement_WallyNotice
+	waitmovement 0
+	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
+	applymovement LOCALID_WALLY, Route118_Movement_WallyApproachR
+	waitmovement 0
+	msgbox Route118_Text_WallyHi, MSGBOX_DEFAULT
+	waitmessage
+	goto Route118_EventScript_WallyBattleR
+	end
+
+Route118_Movement_WallyNotice:
+	face_down
+	step_end
+
+Route118_Movement_WallyApproachL:
+	walk_down
+	walk_left
+	face_down
+	step_end
+
+Route118_Movement_WallyApproachM:
+	walk_down
+	step_end
+
+Route118_Movement_WallyApproachR:
+	walk_down
+	walk_right
+	face_down
+	step_end
+
+Route118_Text_WallyHi:
+	.string "Hey, {PLAYER}!\p"
+	.string "I've become a lot stronger\n"
+	.string "since you beat me in Mauville.\p"
+	.string "The fresh air in Verdanturf\n"
+	.string "has really helped my health.\p"
+	.string "Ever since I lost, I've been\n"
+	.string "motivated to become a better\l"
+	.string "trainer for my Pokemon.\p"
+	.string "Let me show you.$"
+
+Route118_EventScript_WallyBattleL::
+	trainerbattle_no_intro TRAINER_WALLY_118, Route118_Text_WallyDefeat
+	goto Route118_EventScript_WallyDefeatedL
+	end
+
+Route118_EventScript_WallyBattleM::
+	trainerbattle_no_intro TRAINER_WALLY_118, Route118_Text_WallyDefeat
+	goto Route118_EventScript_WallyDefeatedM
+	end
+
+Route118_EventScript_WallyBattleR::
+	trainerbattle_no_intro TRAINER_WALLY_118, Route118_Text_WallyDefeat
+	goto Route118_EventScript_WallyDefeatedR
+	end
+
+Route118_Text_WallyDefeat:
+	.string "Great battle, {PLAYER}.$"
+
+Route118_EventScript_WallyDefeatedL::
+	msgbox Route118_Text_WallyGoodbye, MSGBOX_DEFAULT
+	waitmessage
+	applymovement LOCALID_WALLY, Route118_Movement_WallyLeaves
+	waitmovement 0
+	removeobject LOCALID_WALLY
+	setflag FLAG_WALLY_118
+	setvar VAR_WALLY_118, 1
+	fadedefaultbgm
+	release
+	end
+
+Route118_EventScript_WallyDefeatedM::
+	msgbox Route118_Text_WallyGoodbye, MSGBOX_DEFAULT
+	waitmessage
+	applymovement LOCALID_WALLY, Route118_Movement_WallyLeaves
+	waitmovement 0
+	removeobject LOCALID_WALLY
+	setflag FLAG_WALLY_118
+	setvar VAR_WALLY_118, 1
+	fadedefaultbgm
+	release
+	end
+
+Route118_EventScript_WallyDefeatedR::
+	msgbox Route118_Text_WallyGoodbye, MSGBOX_DEFAULT
+	waitmessage
+	applymovement LOCALID_WALLY, Route118_Movement_WallyLeaves
+	waitmovement 0
+	removeobject LOCALID_WALLY
+	setflag FLAG_WALLY_118
+	setvar VAR_WALLY_118, 1
+	fadedefaultbgm
+	release
+	end
+
+Route118_Text_WallyGoodbye:
+	.string "As expected, beating you is\n"
+	.string "still too much. But I won't\l"
+	.string "give up.\p"
+	.string "Next time I see you I'll be\n"
+	.string "even stronger.\p"
+	.string "See you later, {PLAYER}.$"
+
+Route118_Movement_WallyLeaves:
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
 

@@ -4500,6 +4500,26 @@
       "secondary_tileset": "gTileset_fallarbor2",
       "border_filepath": "data/layouts/FallarborForest/border.bin",
       "blockdata_filepath": "data/layouts/FallarborForest/map.bin"
+    },
+    {
+      "id": "LAYOUT_ANCIENT_PYRAMID",
+      "name": "AncientPyramid_Layout",
+      "width": 30,
+      "height": 40,
+      "primary_tileset": "gTileset_PyramidInteriorP",
+      "secondary_tileset": "gTileset_PyramidInteriorS",
+      "border_filepath": "data/layouts/AncientPyramid/border.bin",
+      "blockdata_filepath": "data/layouts/AncientPyramid/map.bin"
+    },
+    {
+      "id": "LAYOUT_LILYCOVE_SEWER",
+      "name": "LilycoveSewer_Layout",
+      "width": 30,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SewerClear",
+      "border_filepath": "data/layouts/LilycoveSewer/border.bin",
+      "blockdata_filepath": "data/layouts/LilycoveSewer/map.bin"
     }
   ]
 }

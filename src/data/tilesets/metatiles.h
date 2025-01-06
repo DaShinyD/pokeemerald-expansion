@@ -276,3 +276,12 @@ const u16 gMetatileAttributes_desertpyramid[] = INCBIN_U16("data/tilesets/second
 
 const u16 gMetatiles_generic_building2[] = INCBIN_U16("data/tilesets/secondary/generic_building_2/metatiles.bin");
 const u16 gMetatileAttributes_generic_building2[] = INCBIN_U16("data/tilesets/secondary/generic_building_2/metatile_attributes.bin");
+
+const u16 gMetatiles_PyramidInteriorP[] = INCBIN_U16("data/tilesets/primary/pyramid_interior_p/metatiles.bin");
+const u16 gMetatileAttributes_PyramidInteriorP[] = INCBIN_U16("data/tilesets/primary/pyramid_interior_p/metatile_attributes.bin");
+
+const u16 gMetatiles_PyramidInteriorS[] = INCBIN_U16("data/tilesets/secondary/pyramid_interior_s/metatiles.bin");
+const u16 gMetatileAttributes_PyramidInteriorS[] = INCBIN_U16("data/tilesets/secondary/pyramid_interior_s/metatile_attributes.bin");
+
+const u16 gMetatiles_SewerClear[] = INCBIN_U16("data/tilesets/secondary/sewer_clear/metatiles.bin");
+const u16 gMetatileAttributes_SewerClear[] = INCBIN_U16("data/tilesets/secondary/sewer_clear/metatile_attributes.bin");

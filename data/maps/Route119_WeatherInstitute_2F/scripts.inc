@@ -4,6 +4,8 @@
 .set LOCALID_SCIENTIST, 5
 .set LOCALID_GRUNT_3, 7
 .set LOCALID_GRUNT_4, 8
+.set LOCALID_RYE, 9
+.set LOCALID_DASH, 10
 
 Route119_WeatherInstitute_2F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route119_WeatherInstitute_2F_OnTransition
@@ -57,6 +59,11 @@ Route119_WeatherInstitute_2F_EventScript_ShellyDefeated::
 	applymovement LOCALID_GRUNT_3, Route119_WeatherInstitute_2F_Movement_GruntApproachShelly
 	applymovement OBJ_EVENT_ID_PLAYER, Route119_WeatherInstitute_2F_Movement_ShovePlayerOutOfWay
 	waitmovement 0
+	addobject LOCALID_RYE
+	addobject LOCALID_DASH
+	applymovement LOCALID_DASH, Route119_WeatherInstitute_2F_Movement_DashApproach
+	applymovement LOCALID_RYE, Route119_WeatherInstitute_2F_Movement_RyeApproach
+	waitmovement 0
 	msgbox Route119_WeatherInstitute_2F_Text_TeamMagmaJustPassedBy, MSGBOX_DEFAULT
 	closemessage
 	playse SE_PIN
@@ -65,6 +72,10 @@ Route119_WeatherInstitute_2F_EventScript_ShellyDefeated::
 	applymovement LOCALID_SHELLY, Common_Movement_Delay48
 	waitmovement 0
 	msgbox Route119_WeatherInstitute_2F_Text_WeHaveToHurryToMtPyre, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_RYE, Common_Movement_WalkInPlaceFasterDown\
+	waitmovement 0
+	msgbox Route119_WeatherInstitute_2F_Text_RyeYeaRun, MSGBOX_DEFAULT
 	closemessage
 	setvar VAR_WEATHER_INSTITUTE_STATE, 1
 	clearflag FLAG_HIDE_WEATHER_INSTITUTE_2F_WORKERS
@@ -80,6 +91,18 @@ Route119_WeatherInstitute_2F_EventScript_ShellyDefeated::
 	applymovement OBJ_EVENT_ID_PLAYER, Route119_WeatherInstitute_2F_Movement_PlayerReturnToPosition
 	waitmovement 0
 	fadescreen FADE_FROM_BLACK
+	applymovement LOCALID_DASH, Route119_WeatherInstitute_2F_Movement_DashAndRyeApproach
+	applymovement LOCALID_RYE, Route119_WeatherInstitute_2F_Movement_DashAndRyeApproach
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceUp
+	waitmovement 0
+	msgbox Route119_WeatherInstitute_2F_Text_DashRyeTalkToPlayer, MSGBOX_DEFAULT
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_DASH
+	removeobject LOCALID_RYE
+	fadescreen FADE_FROM_BLACK
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	waitmovement 0
 	applymovement LOCALID_SCIENTIST, Route119_WeatherInstitute_2F_Movement_ScientistApproachPlayer
 	waitmovement 0
 	copyobjectxytoperm LOCALID_SCIENTIST
@@ -330,4 +353,61 @@ Route119_WeatherInstitute_2F_Text_NoAbnormalWeather:
 	.string "no longer being reported.\p"
 	.string "The occasional rainfall is a blessing,\n"
 	.string "really.$"
+
+
+
+
+Route119_WeatherInstitute_2F_Movement_RyeApproach:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_left
+	face_down
+	step_end
+
+Route119_WeatherInstitute_2F_Movement_DashApproach:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_left
+	walk_left
+	face_down
+	step_end
+
+Route119_WeatherInstitute_2F_Text_RyeYeaRun:
+	.string "Rye: Yea get running you Team\n"
+	.string "Aqua goons!$"
+
+Route119_WeatherInstitute_2F_Movement_DashAndRyeApproach:
+	walk_down
+	step_end
+
+Route119_WeatherInstitute_2F_Text_DashRyeTalkToPlayer:
+	.string "Dash: You doing alright?\p"
+	.string "Those guys just kept saying\n"
+	.string "they didn't know anything.\p"
+	.string "Rye: Yea, I didn't learn much\n"
+	.string "either.\p"
+	.string "Whatever it is, it's sure to\n"
+	.string "be a problem.\p"
+	.string "Dash: We'll keep an eye out.\p"
+	.string "Anyway, we should get going.\p"
+	.string "That Fortree badge isn't gonna\n"
+	.string "earn itself.\p"
+	.string "Dash & Rye: Bye, {PLAYER}!$"
 

@@ -67,6 +67,7 @@
 #define MAP_DEWFORD_ROUTE       (58 | (0 << 8))
 #define MAP_ROUTE135            (59 | (0 << 8))
 #define MAP_FALLARBOR_FOREST    (60 | (0 << 8))
+#define MAP_ANCIENT_PYRAMID     (61 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
@@ -220,6 +221,7 @@
 #define MAP_LILYCOVE_CITY_DEPARTMENT_STORE_5F       (20 | (13 << 8))
 #define MAP_LILYCOVE_CITY_DEPARTMENT_STORE_ROOFTOP  (21 | (13 << 8))
 #define MAP_LILYCOVE_CITY_DEPARTMENT_STORE_ELEVATOR (22 | (13 << 8))
+#define MAP_LILYCOVE_SEWER                          (23 | (13 << 8))
 
 // gMapGroup_IndoorMossdeep
 #define MAP_MOSSDEEP_CITY_GYM               (0 | (14 << 8))
