@@ -56,9 +56,9 @@
 #define FLAG_VIRIZION        0x2B // Virizion in Dewford Cave 2
 #define FLAG_RYE_GRANITE     0x2C // Hide Rye in Granite Cave
 #define FLAG_HIDE_RIVALS_112 0x2D // Hide Rivals after 112 encounter
-#define FLAG_UNUSED_0x02E    0x2E // Unused Flag
-#define FLAG_UNUSED_0x02F    0x2F // Unused Flag
-#define FLAG_UNUSED_0x030    0x30 // Unused Flag
+#define FLAG_FORCE_SHINY     0x2E // Unused Flag
+#define FLAG_HIDE_RIVALS_HIDEOUT_ENTRANCE    0x2F // Unused Flag
+#define FLAG_HIDE_HIDEOUT_HELPERS_M    0x30 // Unused Flag
 #define FLAG_UNUSED_0x031    0x31 // Unused Flag
 #define FLAG_UNUSED_0x032    0x32 // Unused Flag
 #define FLAG_UNUSED_0x033    0x33 // Unused Flag

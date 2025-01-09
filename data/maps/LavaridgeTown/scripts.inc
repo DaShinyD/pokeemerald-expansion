@@ -404,6 +404,6 @@ LavaridgeTown_Text_GymSign:
 	.string "“One with a fiery passion that burns!”$"
 
 LavaridgeTown_Text_HerbShopSign:
-	.string "POKéMON HERB SHOP\n"
-	.string "“Bitter taste--better cure!”$"
+	.string "POKéMON HELD ITEM SHOP\n"
+	.string "“We bought that dumb herb shop!”$"
 
