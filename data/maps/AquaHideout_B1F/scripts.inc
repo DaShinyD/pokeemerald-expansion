@@ -1,3 +1,5 @@
+.set LOCALID_DASH, 11
+
 AquaHideout_B1F_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, AquaHideout_B1F_OnResume
 	map_script MAP_SCRIPT_ON_TRANSITION, AquaHideout_B1F_OnTransition
@@ -158,3 +160,54 @@ AquaHideout_B1F_Text_Grunt7Defeat:
 AquaHideout_B1F_Text_Grunt7PostBattle:
 	.string "If you have a cool uniform, you look\n"
 	.string "good even in a loss, don't you think?$"
+
+
+@ My stuff
+
+AquaHideout_B1F_EventScript_DashWeAreHereToo::
+	lock
+	applymovement LOCALID_DASH, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_DASH, AquaHideout_B1F_Movement_ApproachPlayer
+	waitmovement 0
+	msgbox AquaHideout_B1F_Text_DashTalks, MSGBOX_DEFAULT
+	applymovement LOCALID_DASH, AquaHideout_B1F_Movement_Leave
+	waitmovement 0
+	removeobject LOCALID_DASH
+	setflag FLAG_HIDE_DASH_A_HIDEOUT
+	release
+	end
+
+AquaHideout_B1F_Movement_ApproachPlayer:
+	face_up
+	delay_4
+	walk_up
+	step_end
+
+AquaHideout_B1F_Text_DashTalks:
+	.string "{PLAYER}, glad to see you!\p"
+	.string "We saw what happened on the news\n"
+	.string "and found this place.\p"
+	.string "The leaders couldn't come this\n"
+	.string "time.\p"
+	.string "Rye and I are here to help you\n"
+	.string "though.\p"
+	.string "Sorry you had to face a few more\n"
+	.string "grunts since we're lacking on\l"
+	.string "manpower.\p"
+	.string "Stay safe, I'm gonna go ahead.$"
+
+AquaHideout_B1F_Movement_Leave:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	step_end

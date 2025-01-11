@@ -7,7 +7,7 @@
 #define TRAINER_SAWYER_1                      1
 #define TRAINER_GRUNT_AQUA_HIDEOUT_1          2
 #define TRAINER_GRUNT_AQUA_HIDEOUT_2          3
-#define TRAINER_GRUNT_AQUA_HIDEOUT_3          4
+#define TRAINER_GRUNT_AQUA_HIDEOUT_3          4 // now unused
 #define TRAINER_GRUNT_AQUA_HIDEOUT_4          5
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_1       6
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_2       7
@@ -31,7 +31,7 @@
 #define TRAINER_GRUNT_MT_PYRE_3              25
 #define TRAINER_DASH_LILYCOVE                26 // repurposed
 #define TRAINER_GRUNT_AQUA_HIDEOUT_5         27
-#define TRAINER_GRUNT_AQUA_HIDEOUT_6         28
+#define TRAINER_GRUNT_AQUA_HIDEOUT_6         28 // now unused
 #define TRAINER_FREDRICK                     29
 #define TRAINER_MATT                         30
 #define TRAINER_ZANDER                       31
@@ -196,7 +196,7 @@
 #define TRAINER_ATSUSHI                     190
 #define TRAINER_KIRK                        191
 #define TRAINER_GRUNT_AQUA_HIDEOUT_7        192
-#define TRAINER_GRUNT_AQUA_HIDEOUT_8        193
+#define TRAINER_GRUNT_AQUA_HIDEOUT_8        193 // now unused
 #define TRAINER_SHAWN                       194
 #define TRAINER_FERNANDO_1                  195
 #define TRAINER_DALTON_1                    196
@@ -719,21 +719,21 @@
 #define TRAINER_KAI                         713
 #define TRAINER_CHARLOTTE                   714
 #define TRAINER_DEANDRE                     715
-#define TRAINER_GRUNT_MAGMA_HIDEOUT_1       716
+#define TRAINER_GRUNT_MAGMA_HIDEOUT_1       716 // now unused
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_2       717
-#define TRAINER_GRUNT_MAGMA_HIDEOUT_3       718
-#define TRAINER_GRUNT_MAGMA_HIDEOUT_4       719
+#define TRAINER_GRUNT_MAGMA_HIDEOUT_3       718 // now unused
+#define TRAINER_GRUNT_MAGMA_HIDEOUT_4       719 // now unused
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_5       720
-#define TRAINER_GRUNT_MAGMA_HIDEOUT_6       721
-#define TRAINER_GRUNT_MAGMA_HIDEOUT_7       722
-#define TRAINER_GRUNT_MAGMA_HIDEOUT_8       723
+#define TRAINER_GRUNT_MAGMA_HIDEOUT_6       721 // now unused
+#define TRAINER_GRUNT_MAGMA_HIDEOUT_7       722 // now unused
+#define TRAINER_GRUNT_MAGMA_HIDEOUT_8       723 // now unused
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_9       724
-#define TRAINER_GRUNT_MAGMA_HIDEOUT_10      725
+#define TRAINER_GRUNT_MAGMA_HIDEOUT_10      725 // now unused
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_11      726
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_12      727
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_13      728
-#define TRAINER_GRUNT_MAGMA_HIDEOUT_14      729
-#define TRAINER_GRUNT_MAGMA_HIDEOUT_15      730
+#define TRAINER_GRUNT_MAGMA_HIDEOUT_14      729 // now unused
+#define TRAINER_GRUNT_MAGMA_HIDEOUT_15      730 // now unused
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_16      731
 #define TRAINER_TABITHA_MAGMA_HIDEOUT       732
 #define TRAINER_DARCY                       733

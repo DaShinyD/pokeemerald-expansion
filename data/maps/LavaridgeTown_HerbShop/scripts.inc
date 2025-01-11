@@ -4,7 +4,7 @@ LavaridgeTown_HerbShop_MapScripts::
 LavaridgeTown_HerbShop_EventScript_Clerk::
 	lock
 	faceplayer
-	goto_if_set FLAG_BADGE05_GET, LavaridgeTown_HerbShop_EventScript_SellItems
+	goto_if_set FLAG_BADGE04_GET, LavaridgeTown_HerbShop_EventScript_SellItems
 	msgbox LavaridgeTown_HerbShop_Text_AintGoodEnough, MSGBOX_DEFAULT
 	closemessage
 	release
@@ -12,9 +12,9 @@ LavaridgeTown_HerbShop_EventScript_Clerk::
 
 LavaridgeTown_HerbShop_Text_AintGoodEnough:
 	.string "Sorry, we can't sell to you\n"
-	.string "unless you have at least five\l"
+	.string "unless you have at least four\l"
 	.string "gym badges.\p"
-	.string "Come back with five and you can\n"
+	.string "Come back with four and you can\n"
 	.string "buy great competitive items.$"
 
 LavaridgeTown_HerbShop_EventScript_SellItems::
@@ -110,6 +110,41 @@ LavaridgeTown_CompItems_Mart_Pokemart:
 	.2byte ITEM_WIDE_LENS
 	.2byte ITEM_WISE_GLASSES
 	.2byte ITEM_ZOOM_LENS
+	.2byte ITEM_CALCIUM
+	.2byte ITEM_ZINC
+	.2byte ITEM_CARBOS
+	.2byte ITEM_PROTEIN
+	.2byte ITEM_IRON
+	.2byte ITEM_HP_UP
+	.2byte ITEM_PP_UP
+	.2byte ITEM_PP_MAX
+	.2byte ITEM_POMEG_BERRY
+	.2byte ITEM_KELPSY_BERRY
+	.2byte ITEM_QUALOT_BERRY
+	.2byte ITEM_HONDEW_BERRY
+	.2byte ITEM_GREPA_BERRY
+	.2byte ITEM_TAMATO_BERRY
+	.2byte ITEM_LONELY_MINT
+	.2byte ITEM_ADAMANT_MINT
+	.2byte ITEM_NAUGHTY_MINT
+	.2byte ITEM_BRAVE_MINT
+	.2byte ITEM_BOLD_MINT
+	.2byte ITEM_IMPISH_MINT
+	.2byte ITEM_LAX_MINT
+	.2byte ITEM_RELAXED_MINT
+	.2byte ITEM_MODEST_MINT
+	.2byte ITEM_MILD_MINT
+	.2byte ITEM_RASH_MINT
+	.2byte ITEM_QUIET_MINT
+	.2byte ITEM_CALM_MINT
+	.2byte ITEM_GENTLE_MINT
+	.2byte ITEM_CAREFUL_MINT
+	.2byte ITEM_SASSY_MINT
+	.2byte ITEM_TIMID_MINT
+	.2byte ITEM_HASTY_MINT
+	.2byte ITEM_JOLLY_MINT
+	.2byte ITEM_NAIVE_MINT
+	.2byte ITEM_SERIOUS_MINT
 	.2byte ITEM_NONE
 	release
 	end

@@ -5,6 +5,16 @@
 .set LOCALID_TABITHA, 5
 .set LOCALID_MAXIE, 6
 .set LOCALID_GROUDON_SLEEPING, 7
+.set LOCALID_MON1, 9
+.set LOCALID_MON2, 10
+.set LOCALID_DASH, 11
+.set LOCALID_RYE, 12
+.set LOCALID_RYEGRUNT, 13
+.set LOCALID_DASHGRUNT, 14
+.set LOCALID_MON3, 15
+.set LOCALID_MON4, 16
+.set LOCALID_RYEACTUAL, 17
+.set LOCALID_DASHACTUAL, 18
 
 MagmaHideout_4F_MapScripts::
 	.byte 0
@@ -69,6 +79,7 @@ MagmaHideout_4F_EventScript_Maxie::
 	clearflag FLAG_HIDE_SLATEPORT_CITY_GABBY_AND_TY
 	setvar VAR_SLATEPORT_CITY_STATE, 1
 	setflag FLAG_GROUDON_AWAKENED_MAGMA_HIDEOUT
+	setflag FLAG_HIDE_HIDEOUT_HELPERS_M
 	setvar VAR_SLATEPORT_HARBOR_STATE, 1
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_MAXIE
@@ -76,7 +87,33 @@ MagmaHideout_4F_EventScript_Maxie::
 	removeobject LOCALID_GRUNT_2
 	removeobject LOCALID_GRUNT_3
 	removeobject LOCALID_TABITHA
+	removeobject LOCALID_RYE
+	removeobject LOCALID_DASH
+	removeobject LOCALID_DASHGRUNT
+	removeobject LOCALID_RYEGRUNT
+	removeobject LOCALID_MON1
+	removeobject LOCALID_MON2
+	removeobject LOCALID_MON3
+	removeobject LOCALID_MON4
+	addobject LOCALID_DASHACTUAL
+	addobject LOCALID_RYEACTUAL
 	setflag FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS
+	fadescreen FADE_FROM_BLACK
+	delay 8
+	applymovement LOCALID_RYEACTUAL, MagmaHideout_4F_Movement_RyeApproach
+	applymovement LOCALID_DASHACTUAL, MagmaHideout_4F_Movement_DashApproach
+	waitmovement 0
+	delay 4
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	waitmovement 0
+	msgbox MagmaHideout_4F_Text_RyeTalks, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+	waitmovement 0
+	msgbox MagmaHideout_4F_Text_DashTalks, MSGBOX_DEFAULT
+	delay 4
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_DASHACTUAL
+	removeobject LOCALID_RYEACTUAL
 	fadescreen FADE_FROM_BLACK
 	releaseall
 	end
@@ -230,3 +267,57 @@ MagmaHideout_4F_Text_MaxieImGoingAfterGroudon:
 	.string "any need for this blasted volcano.\p"
 	.string "I am going after GROUDON, so this\n"
 	.string "is where we part!$"
+
+
+@ My stuff
+
+MagmaHideout_4F_Movement_RyeApproach:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	step_end
+
+MagmaHideout_4F_Movement_DashApproach:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_down
+	walk_right
+	walk_right
+	face_up
+	step_end
+
+MagmaHideout_4F_Text_RyeTalks:
+	.string "{PLAYER}!\p"
+	.string "You did it! That Maxie guy got\n"
+	.string "sent packing.\p"
+	.string "Hopefully this puts an end to\n"
+	.string "Team Magma for good.$"
+
+MagmaHideout_4F_Text_DashTalks:
+	.string "We all took care of the rest\n"
+	.string "of the grunts.\p"
+	.string "Your dad and the other leaders\n"
+	.string "went to let the authorities\l"
+	.string "know what happened.\p"
+	.string "Anyway, I'm glad we got through\n"
+	.string "this without anyone getting\l"
+	.string "hurt or anything.\p"
+	.string "You should get some rest and\n"
+	.string "take a break.\p"
+	.string "I heard there was some TV event\n"
+	.string "happening in Slateport.\p"
+	.string "Maybe that would be fun?\p"
+	.string "Well, we're gonna head out now.\p"
+	.string "Smell ya later, {PLAYER}.$"
+
