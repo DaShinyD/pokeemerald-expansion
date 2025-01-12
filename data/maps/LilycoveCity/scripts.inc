@@ -852,7 +852,7 @@ LilyCoveCity_EventScript_RivalsTalk::
 
 LilyCoveCity_Text_DashHi:
 	.string "Dash: Hey {PLAYER}!\p"
-	.string "We haven't seend you since the\n"
+	.string "We haven't seen you since the\n"
 	.string "Weather Institute.\p"
 	.string "What? You took on those goons\n"
 	.string "at Mt. Pyre? You should have\l"
