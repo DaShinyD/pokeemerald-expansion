@@ -161,17 +161,13 @@ DewfordTown_Gym_EventScript_BrawlyDefeated::
 	waitfanfare
 	closemessage
 	delay 30
-	goto_if_set FLAG_LEVEL_CAP_MASTER, DewfordTown_Gym_EventScript_IncreaseCap
+	setflag FLAG_LEVEL_CAP_TWO
 	setflag FLAG_ENABLE_BRAWLY_MATCH_CALL
 	setvar VAR_ROXANNE_CALL_STEP_COUNTER, 0
 	setflag FLAG_ENABLE_ROXANNE_FIRST_CALL
 	release
 	end
-
-DewfordTown_Gym_EventScript_IncreaseCap::
-	setflag FLAG_LEVEL_CAP_TWO
-	return
-
+	
 DewfordTown_Gym_EventScript_GiveBulkUp::
 	giveitem ITEM_TM_BULK_UP
 	goto_if_eq VAR_RESULT, 0, Common_EventScript_BagIsFull
