@@ -286,7 +286,8 @@ PlayersHouse_2F_Text_CapOrNo:
 	.string "...or B.\p"
 	.string "Would you like to play with\n"
 	.string "level caps enabled?\p"
-	.string "This cannot be changed.$"
+	.string "This cannot be changed.\p"
+	.string "The game is built around level caps.$"
 
 PlayersHouse_2F_EventScript_EnableCap::
 	msgbox PlayersHouse_2F_Text_CapEnabled1, MSGBOX_DEFAULT

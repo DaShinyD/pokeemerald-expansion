@@ -25,7 +25,7 @@
 #define TRAINER_GRUNT_WEATHER_INST_3         19
 #define TRAINER_GRUNT_MUSEUM_1               20
 #define TRAINER_GRUNT_MUSEUM_2               21
-#define TRAINER_GRUNT_SPACE_CENTER_1         22
+#define TRAINER_GRUNT_SPACE_CENTER_1         22 // now unused
 #define TRAINER_GRUNT_MT_PYRE_1              23
 #define TRAINER_GRUNT_MT_PYRE_2              24
 #define TRAINER_GRUNT_MT_PYRE_3              25
@@ -589,8 +589,8 @@
 #define TRAINER_KATHLEEN                    583
 #define TRAINER_CLIFFORD                    584
 #define TRAINER_NICHOLAS                    585
-#define TRAINER_GRUNT_SPACE_CENTER_3        586
-#define TRAINER_GRUNT_SPACE_CENTER_4        587
+#define TRAINER_GRUNT_SPACE_CENTER_3        586 // now unused
+#define TRAINER_GRUNT_SPACE_CENTER_4        587 // now unused
 #define TRAINER_GRUNT_SPACE_CENTER_5        588
 #define TRAINER_GRUNT_SPACE_CENTER_6        589
 #define TRAINER_GRUNT_SPACE_CENTER_7        590

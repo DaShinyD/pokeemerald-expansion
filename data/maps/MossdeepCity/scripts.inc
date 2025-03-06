@@ -4,6 +4,8 @@
 .set LOCALID_GRUNT_4, 13
 .set LOCALID_MAXIE, 14
 .set LOCALID_SCOTT, 16
+.set LOCALID_DASH, 18
+.set LOCALID_RYE, 19
 
 MossdeepCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, MossdeepCity_OnTransition
@@ -14,6 +16,7 @@ MossdeepCity_OnTransition:
 	clearflag FLAG_MOSSDEEP_GYM_SWITCH_2
 	clearflag FLAG_MOSSDEEP_GYM_SWITCH_3
 	clearflag FLAG_MOSSDEEP_GYM_SWITCH_4
+	setflag FLAG_HIDE_RIVALS_MOSSDEEP
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
 	end
 
@@ -103,6 +106,7 @@ MossdeepCity_EventScript_TeamMagmaEnterSpaceCenter::
 	delay 30
 	setvar VAR_MOSSDEEP_CITY_STATE, 2
 	setflag FLAG_HIDE_MOSSDEEP_CITY_TEAM_MAGMA
+	setvar VAR_RIVALS_MOSSDEEP_SPACE, 1
 	releaseall
 	end
 
@@ -432,4 +436,204 @@ MossdeepCity_Text_SootopolisNewGymLeader:
 	.string "LEADER come in.\p"
 	.string "People tell me the new LEADER once\n"
 	.string "mentored WALLACE.$"
+
+
+
+MosdeepCity_EventScript_RivalsComeHelpL::
+	lock
+	addobject LOCALID_DASH
+	addobject LOCALID_RYE
+	msgbox MossdeepCity_Text_RivalsHey, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+	waitmovement 0
+	applymovement LOCALID_RYE, MossdeepCity_Movement_RyeApproachL
+	applymovement LOCALID_DASH, MossdeepCity_Movement_DashApproachL
+	waitmovement 0
+	applymovement LOCALID_RYE, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	msgbox MossdeepCity_Text_RyeYo, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_DASH, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	msgbox MossdeepCity_Text_DashYo, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_DASH, MossdeepCity_Movement_DashLeaveL
+	applymovement LOCALID_RYE, MossdeepCity_Movement_RyeLeaveL
+	waitmovement 0
+	setvar VAR_RIVALS_MOSSDEEP_SPACE, 0
+	removeobject LOCALID_DASH
+	removeobject LOCALID_RYE
+	release
+	end
+
+MosdeepCity_EventScript_RivalsComeHelpR::
+	lock
+	addobject LOCALID_DASH
+	addobject LOCALID_RYE
+	msgbox MossdeepCity_Text_RivalsHey, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceDown
+	waitmovement 0
+	applymovement LOCALID_RYE, MossdeepCity_Movement_RyeApproachR
+	applymovement LOCALID_DASH, MossdeepCity_Movement_DashApproachR
+	waitmovement 0
+	applymovement LOCALID_RYE, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	msgbox MossdeepCity_Text_RyeYo, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_DASH, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	msgbox MossdeepCity_Text_DashYo, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_RYE, MossdeepCity_Movement_RyeLeaveR
+	applymovement LOCALID_DASH, MossdeepCity_Movement_DashLeaveR
+	waitmovement 0
+	setvar VAR_RIVALS_MOSSDEEP_SPACE, 0
+	removeobject LOCALID_DASH
+	removeobject LOCALID_RYE
+	release
+	end
+
+MossdeepCity_Text_RivalsHey:
+	.string "{PLAYER}! Wait up!$"
+
+MossdeepCity_Movement_RyeApproachL:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	step_end
+
+MossdeepCity_Movement_DashApproachL:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	step_end
+
+MossdeepCity_Movement_RyeApproachR:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	step_end
+
+MossdeepCity_Movement_DashApproachR:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	step_end
+
+MossdeepCity_Text_RyeYo:
+	.string "Rye: Hey, we just saw some of\n"
+	.string "those Magma guys go this way.\p"
+	.string "I can only imagine what sort evil\n"
+	.string "they plan to pull at the\l"
+	.string "Space Center.\p"
+	.string "We have to stop them.$"
+
+MossdeepCity_Text_DashYo:
+	.string "Dash: We're gonna go ahead.\p"
+	.string "Make sure you're ready, I'm sure\n"
+	.string "this will be a big battle.$"
+
+MossdeepCity_Movement_DashLeaveL:
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+MossdeepCity_Movement_RyeLeaveL:
+	walk_fast_right
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+MossdeepCity_Movement_RyeLeaveR:
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
+
+MossdeepCity_Movement_DashLeaveR:
+	walk_fast_left
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_right
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	step_end
 

@@ -32,65 +32,68 @@
         {
             {
 #line 15
-            .species = SPECIES_METANG,
+            .species = SPECIES_SKARMORY,
             .gender = TRAINER_MON_RANDOM_GENDER,
 #line 19
-            .ev = TRAINER_PARTY_EVS(0, 252, 252, 0, 6, 0),
+            .ev = TRAINER_PARTY_EVS(252, 0, 252, 0, 0, 0),
 #line 18
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 17
-            .lvl = 42,
+            .lvl = 67,
 #line 16
-            .nature = NATURE_BRAVE,
+            .nature = NATURE_IMPISH,
+            .heldItem = ITEM_ROCKY_HELMET,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
 #line 20
-                MOVE_LIGHT_SCREEN,
-                MOVE_PSYCHIC,
-                MOVE_REFLECT,
-                MOVE_METAL_CLAW,
+                MOVE_BODY_PRESS,
+                MOVE_IRON_DEFENSE,
+                MOVE_SPIKES,
+                MOVE_ROOST,
             },
             },
             {
 #line 25
-            .species = SPECIES_SKARMORY,
+            .species = SPECIES_AGGRON,
             .gender = TRAINER_MON_RANDOM_GENDER,
 #line 29
-            .ev = TRAINER_PARTY_EVS(252, 0, 0, 0, 6, 252),
+            .ev = TRAINER_PARTY_EVS(252, 0, 0, 0, 0, 252),
 #line 28
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 27
-            .lvl = 43,
+            .lvl = 67,
 #line 26
-            .nature = NATURE_IMPISH,
+            .nature = NATURE_CAREFUL,
+            .heldItem = ITEM_WEAKNESS_POLICY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
 #line 30
-                MOVE_TOXIC,
-                MOVE_AERIAL_ACE,
-                MOVE_PROTECT,
-                MOVE_STEEL_WING,
+                MOVE_CURSE,
+                MOVE_HEAVY_SLAM,
+                MOVE_BODY_PRESS,
+                MOVE_EARTHQUAKE,
             },
             },
             {
 #line 35
-            .species = SPECIES_AGGRON,
+            .species = SPECIES_METAGROSS,
             .gender = TRAINER_MON_RANDOM_GENDER,
 #line 39
-            .ev = TRAINER_PARTY_EVS(0, 252, 0, 0, 252, 6),
+            .ev = TRAINER_PARTY_EVS(252, 252, 0, 0, 0, 0),
 #line 38
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 37
-            .lvl = 44,
+            .lvl = 67,
 #line 36
             .nature = NATURE_ADAMANT,
+            .heldItem = ITEM_METAGROSSITE,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
 #line 40
-                MOVE_THUNDER,
-                MOVE_PROTECT,
-                MOVE_SOLAR_BEAM,
-                MOVE_DRAGON_CLAW,
+                MOVE_PSYCHIC_FANGS,
+                MOVE_EARTHQUAKE,
+                MOVE_HEAVY_SLAM,
+                MOVE_BULLET_PUNCH,
             },
             },
         },
