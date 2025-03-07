@@ -49,7 +49,7 @@
 #define TRAINER_ROSE_5                       43
 #define TRAINER_DUSTY_1                      44
 #define TRAINER_CHIP                         45
-#define TRAINER_FOSTER                       46
+#define TRAINER_FOSTER                       46 // now unused (route 105)
 #define TRAINER_DUSTY_2                      47
 #define TRAINER_DUSTY_3                      48
 #define TRAINER_DUSTY_4                      49
@@ -61,15 +61,15 @@
 #define TRAINER_GABBY_AND_TY_5               55
 #define TRAINER_GABBY_AND_TY_6               56
 #define TRAINER_LOLA_1                       57
-#define TRAINER_AUSTINA                      58
-#define TRAINER_GWEN                         59
+#define TRAINER_AUSTINA                      58 // now unused (route 109)
+#define TRAINER_GWEN                         59 // now unused (route 109)
 #define TRAINER_LOLA_2                       60
 #define TRAINER_LOLA_3                       61
 #define TRAINER_LOLA_4                       62
 #define TRAINER_LOLA_5                       63
 #define TRAINER_RICKY_1                      64
 #define TRAINER_SIMON                        65
-#define TRAINER_CHARLIE                      66
+#define TRAINER_CHARLIE                      66 // now unused (abandoned ship)
 #define TRAINER_RICKY_2                      67
 #define TRAINER_RICKY_3                      68
 #define TRAINER_RICKY_4                      69
@@ -91,7 +91,7 @@
 #define TRAINER_WILTON_3                     85
 #define TRAINER_WILTON_4                     86
 #define TRAINER_WILTON_5                     87
-#define TRAINER_WARREN                       88
+#define TRAINER_WARREN                       88 // now unused (route 133)
 #define TRAINER_MARY                         89
 #define TRAINER_ALEXIA                       90
 #define TRAINER_JODY                         91
@@ -140,51 +140,51 @@
 #define TRAINER_JESSICA_4                   134
 #define TRAINER_JESSICA_5                   135
 #define TRAINER_WINSTON_1                   136
-#define TRAINER_MOLLIE                      137
+#define TRAINER_MOLLIE                      137 // now unused (route 133)
 #define TRAINER_GARRET                      138
 #define TRAINER_WINSTON_2                   139
 #define TRAINER_WINSTON_3                   140
 #define TRAINER_WINSTON_4                   141
 #define TRAINER_WINSTON_5                   142
 #define TRAINER_STEVE_1                     143
-#define TRAINER_THALIA_1                    144
+#define TRAINER_THALIA_1                    144 // now unused (remove match) (abandoned ship)
 #define TRAINER_MARK                        145
 #define TRAINER_GRUNT_MT_CHIMNEY_1          146
 #define TRAINER_STEVE_2                     147
 #define TRAINER_STEVE_3                     148
 #define TRAINER_STEVE_4                     149
 #define TRAINER_STEVE_5                     150
-#define TRAINER_LUIS                        151
-#define TRAINER_DOMINIK                     152
-#define TRAINER_DOUGLAS                     153
-#define TRAINER_DARRIN                      154
-#define TRAINER_TONY_1                      155
-#define TRAINER_JEROME                      156
-#define TRAINER_MATTHEW                     157
-#define TRAINER_DAVID                       158
+#define TRAINER_LUIS                        151 // now unused (route 105)
+#define TRAINER_DOMINIK                     152 // now unused (route 105)
+#define TRAINER_DOUGLAS                     153 // now unused (route 106)
+#define TRAINER_DARRIN                      154 // now unused
+#define TRAINER_TONY_1                      155 // now unused (remove match)
+#define TRAINER_JEROME                      156 // now unused (route 108)
+#define TRAINER_MATTHEW                     157 // now unused (route 108)
+#define TRAINER_DAVID                       158 // now unused (route 109)
 #define TRAINER_SPENCER                     159
 #define TRAINER_ROLAND                      160
-#define TRAINER_NOLEN                       161
-#define TRAINER_STAN                        162
-#define TRAINER_BARRY                       163
-#define TRAINER_DEAN                        164
-#define TRAINER_RODNEY                      165
-#define TRAINER_RICHARD                     166
-#define TRAINER_HERMAN                      167
+#define TRAINER_NOLEN                       161 // now unused (route 125)
+#define TRAINER_STAN                        162 // now unused (route 125)
+#define TRAINER_BARRY                       163 // now unused (route 126)
+#define TRAINER_DEAN                        164 // now unused (route 126)
+#define TRAINER_RODNEY                      165 // now unused (route 130)
+#define TRAINER_RICHARD                     166 // now unused (route 131)
+#define TRAINER_HERMAN                      167 // now unused (route 131)
 #define TRAINER_SANTIAGO                    168
-#define TRAINER_GILBERT                     169
-#define TRAINER_FRANKLIN                    170
-#define TRAINER_KEVIN                       171
-#define TRAINER_JACK                        172
+#define TRAINER_GILBERT                     169 // now unused (route 132)
+#define TRAINER_FRANKLIN                    170 // now unused (route 133)
+#define TRAINER_KEVIN                       171 // now unused (route 131)
+#define TRAINER_JACK                        172 // now unused (route 134)
 #define TRAINER_DUDLEY                      173
 #define TRAINER_CHAD                        174
-#define TRAINER_TONY_2                      175
-#define TRAINER_TONY_3                      176
-#define TRAINER_TONY_4                      177
-#define TRAINER_TONY_5                      178
+#define TRAINER_TONY_2                      175 // now unused (remove match)
+#define TRAINER_TONY_3                      176 // now unused (remove match)
+#define TRAINER_TONY_4                      177 // now unused (remove match)
+#define TRAINER_TONY_5                      178 // now unused (remove match)
 #define TRAINER_TAKAO                       179
-#define TRAINER_HITOSHI                     180
-#define TRAINER_KIYO                        181
+#define TRAINER_HITOSHI                     180 // now unused (route 134)
+#define TRAINER_KIYO                        181 // now unused (route 132)
 #define TRAINER_KOICHI                      182
 #define TRAINER_NOB_1                       183
 #define TRAINER_NOB_2                       184
@@ -348,12 +348,12 @@
 #define TRAINER_NOLAN                       342
 #define TRAINER_BARNY                       343
 #define TRAINER_WADE                        344
-#define TRAINER_CARTER                      345
+#define TRAINER_CARTER                      345 // now unused (route 109)
 #define TRAINER_ELLIOT_2                    346
 #define TRAINER_ELLIOT_3                    347
 #define TRAINER_ELLIOT_4                    348
 #define TRAINER_ELLIOT_5                    349
-#define TRAINER_RONALD                      350
+#define TRAINER_RONALD                      350 // now unused (route 132)
 #define TRAINER_JACOB                       351
 #define TRAINER_ANTHONY                     352
 #define TRAINER_BENJAMIN_1                  353
@@ -377,36 +377,36 @@
 #define TRAINER_MARIA_3                     371
 #define TRAINER_MARIA_4                     372
 #define TRAINER_MARIA_5                     373
-#define TRAINER_CAMDEN                      374
-#define TRAINER_DEMETRIUS                   375
-#define TRAINER_ISAIAH_1                    376
-#define TRAINER_PABLO_1                     377
-#define TRAINER_CHASE                       378
-#define TRAINER_ISAIAH_2                    379
-#define TRAINER_ISAIAH_3                    380
-#define TRAINER_ISAIAH_4                    381
-#define TRAINER_ISAIAH_5                    382
-#define TRAINER_ISOBEL                      383
-#define TRAINER_DONNY                       384
-#define TRAINER_TALIA                       385
-#define TRAINER_KATELYN_1                   386
-#define TRAINER_ALLISON                     387
-#define TRAINER_KATELYN_2                   388
-#define TRAINER_KATELYN_3                   389
-#define TRAINER_KATELYN_4                   390
-#define TRAINER_KATELYN_5                   391
+#define TRAINER_CAMDEN                      374 // now unused (route 127)
+#define TRAINER_DEMETRIUS                   375 // now unused (abandoned ship)
+#define TRAINER_ISAIAH_1                    376 // now unused (remove match) (route 128)
+#define TRAINER_PABLO_1                     377 // now unused (remove match) (route 126)
+#define TRAINER_CHASE                       378 // now unused (route 129)
+#define TRAINER_ISAIAH_2                    379 // now unused (remove match) (route 128)
+#define TRAINER_ISAIAH_3                    380 // now unused (remove match) (route 128)
+#define TRAINER_ISAIAH_4                    381 // now unused (remove match) (route 128)
+#define TRAINER_ISAIAH_5                    382 // now unused (remove match) (route 128)
+#define TRAINER_ISOBEL                      383 // now unused (route 126)
+#define TRAINER_DONNY                       384 // now unused (route 127)
+#define TRAINER_TALIA                       385 // now unused (route 131)
+#define TRAINER_KATELYN_1                   386 // now unused (remove match) (route 128)
+#define TRAINER_ALLISON                     387 // now unused (route 129)
+#define TRAINER_KATELYN_2                   388 // now unused (remove match) (route 128)
+#define TRAINER_KATELYN_3                   389 // now unused (remove match) (route 128)
+#define TRAINER_KATELYN_4                   390 // now unused (remove match) (route 128)
+#define TRAINER_KATELYN_5                   391 // now unused (remove match) (route 128)
 #define TRAINER_NICOLAS_1                   392
 #define TRAINER_NICOLAS_2                   393
 #define TRAINER_NICOLAS_3                   394
 #define TRAINER_NICOLAS_4                   395
 #define TRAINER_NICOLAS_5                   396
-#define TRAINER_AARON                       397
+#define TRAINER_AARON                       397 // now unused (route 134)
 #define TRAINER_PERRY                       398
 #define TRAINER_HUGH                        399
 #define TRAINER_PHIL                        400
 #define TRAINER_JARED                       401
 #define TRAINER_HUMBERTO                    402
-#define TRAINER_PRESLEY                     403
+#define TRAINER_PRESLEY                     403 // now unused (route 125)
 #define TRAINER_EDWARDO                     404
 #define TRAINER_COLIN                       405
 #define TRAINER_ROBERT_1                    406
@@ -416,12 +416,12 @@
 #define TRAINER_ROBERT_3                    410
 #define TRAINER_ROBERT_4                    411
 #define TRAINER_ROBERT_5                    412
-#define TRAINER_ALEX                        413
-#define TRAINER_BECK                        414
+#define TRAINER_ALEX                        413 // now unused (route 134)
+#define TRAINER_BECK                        414 // now unused (route 133)
 #define TRAINER_YASU                        415
 #define TRAINER_TAKASHI                     416
 #define TRAINER_DIANNE                      417
-#define TRAINER_JANI                        418
+#define TRAINER_JANI                        418 // now unused (abandoned ship)
 #define TRAINER_LAO_1                       419
 #define TRAINER_LUNG                        420
 #define TRAINER_LAO_2                       421
@@ -444,30 +444,30 @@
 #define TRAINER_MADELINE_3                  438
 #define TRAINER_MADELINE_4                  439
 #define TRAINER_MADELINE_5                  440
-#define TRAINER_BEVERLY                     441
-#define TRAINER_IMANI                       442
-#define TRAINER_KYLA                        443
-#define TRAINER_DENISE                      444
-#define TRAINER_BETH                        445
-#define TRAINER_TARA                        446
-#define TRAINER_MISSY                       447
-#define TRAINER_ALICE                       448
+#define TRAINER_BEVERLY                     441 // now unused (route 105)
+#define TRAINER_IMANI                       442 // now unused (route 105)
+#define TRAINER_KYLA                        443 // now unused (route 106)
+#define TRAINER_DENISE                      444 // now unused
+#define TRAINER_BETH                        445 // now unused
+#define TRAINER_TARA                        446 // now unused (route 108)
+#define TRAINER_MISSY                       447 // now unused (route 108)
+#define TRAINER_ALICE                       448 // now unused (route 109)
 #define TRAINER_JENNY_1                     449
 #define TRAINER_GRACE                       450
-#define TRAINER_TANYA                       451
-#define TRAINER_SHARON                      452
-#define TRAINER_NIKKI                       453
-#define TRAINER_BRENDA                      454
-#define TRAINER_KATIE                       455
-#define TRAINER_SUSIE                       456
-#define TRAINER_KARA                        457
-#define TRAINER_DANA                        458
-#define TRAINER_SIENNA                      459
-#define TRAINER_DEBRA                       460
-#define TRAINER_LINDA                       461
+#define TRAINER_TANYA                       451 // now unused (route 125)
+#define TRAINER_SHARON                      452 // now unused (route 125)
+#define TRAINER_NIKKI                       453 // now unused (route 126)
+#define TRAINER_BRENDA                      454 // now unused (route 126)
+#define TRAINER_KATIE                       455 // now unused (route 130)
+#define TRAINER_SUSIE                       456 // now unused (route 131)
+#define TRAINER_KARA                        457 // now unused (route 131)
+#define TRAINER_DANA                        458 // now unused (route 132)
+#define TRAINER_SIENNA                      459 // now unused (route 126)
+#define TRAINER_DEBRA                       460 // now unused (route 133)
+#define TRAINER_LINDA                       461 // now unused (route 133)
 #define TRAINER_KAYLEE                      462
-#define TRAINER_LAUREL                      463
-#define TRAINER_CARLEE                      464
+#define TRAINER_LAUREL                      463 // now unused (route 134)
+#define TRAINER_CARLEE                      464 // now unused (route 128)
 #define TRAINER_JENNY_2                     465
 #define TRAINER_JENNY_3                     466
 #define TRAINER_JENNY_4                     467
@@ -495,26 +495,26 @@
 #define TRAINER_AMY_AND_LIV_6               489
 #define TRAINER_HUEY                        490
 #define TRAINER_EDMOND                      491
-#define TRAINER_ERNEST_1                    492
+#define TRAINER_ERNEST_1                    492 // now unused (need to remove match) (route 125)
 #define TRAINER_DWAYNE                      493
 #define TRAINER_PHILLIP                     494
-#define TRAINER_LEONARD                     495
+#define TRAINER_LEONARD                     495 // now unused (route 126)
 #define TRAINER_DUNCAN                      496
-#define TRAINER_ERNEST_2                    497
-#define TRAINER_ERNEST_3                    498
-#define TRAINER_ERNEST_4                    499
-#define TRAINER_ERNEST_5                    500
+#define TRAINER_ERNEST_2                    497 // now unused (need to remove match) (route 125)
+#define TRAINER_ERNEST_3                    498 // now unused (need to remove match) (route 125)
+#define TRAINER_ERNEST_4                    499 // now unused (need to remove match) (route 125)
+#define TRAINER_ERNEST_5                    500 // now unused (need to remove match) (route 125)
 #define TRAINER_ELI                         501
 #define TRAINER_ANNIKA                      502
 #define TRAINER_JAZMYN                      503
 #define TRAINER_JONAS                       504
 #define TRAINER_KAYLEY                      505
-#define TRAINER_AURON                       506
-#define TRAINER_KELVIN                      507
-#define TRAINER_MARLEY                      508
-#define TRAINER_REYNA                       509
-#define TRAINER_HUDSON                      510
-#define TRAINER_CONOR                       511
+#define TRAINER_AURON                       506 // now unused (route 125)
+#define TRAINER_KELVIN                      507 // now unused (route 134)
+#define TRAINER_MARLEY                      508 // now unused (route 134)
+#define TRAINER_REYNA                       509 // now unused (route 134)
+#define TRAINER_HUDSON                      510 // now unused (route 134)
+#define TRAINER_CONOR                       511 // now unused (route 133)
 #define TRAINER_EDWIN_1                     512
 #define TRAINER_HECTOR                      513
 #define TRAINER_TABITHA_MOSSDEEP            514
@@ -550,7 +550,7 @@
 #define TRAINER_ISAAC_5                     544
 #define TRAINER_LYDIA_1                     545
 #define TRAINER_HALLE                       546
-#define TRAINER_GARRISON                    547
+#define TRAINER_GARRISON                    547 // now unused (abandoned ship)
 #define TRAINER_LYDIA_2                     548
 #define TRAINER_LYDIA_3                     549
 #define TRAINER_LYDIA_4                     550
@@ -580,10 +580,10 @@
 #define TRAINER_CRISTIAN                    574
 #define TRAINER_SYLVIA                      575
 #define TRAINER_LEONARDO                    576
-#define TRAINER_ATHENA                      577
-#define TRAINER_HARRISON                    578
+#define TRAINER_ATHENA                      577 // now unused (route 127)
+#define TRAINER_HARRISON                    578 // now unused (route 128)
 #define TRAINER_GRUNT_MT_CHIMNEY_2          579
-#define TRAINER_CLARENCE                    580
+#define TRAINER_CLARENCE                    580 // now unused (route 129)
 #define TRAINER_TERRY                       581
 #define TRAINER_NATE                        582
 #define TRAINER_KATHLEEN                    583
@@ -597,11 +597,11 @@
 #define TRAINER_MACEY                       591
 #define TRAINER_BRENDAN_RUSTBORO_TREECKO    592
 #define TRAINER_BRENDAN_RUSTBORO_MUDKIP     593
-#define TRAINER_PAXTON                      594
+#define TRAINER_PAXTON                      594 // now unused (route 132)
 #define TRAINER_ISABELLA                    595
 #define TRAINER_GRUNT_WEATHER_INST_5        596
 #define TRAINER_TABITHA_MT_CHIMNEY          597
-#define TRAINER_JONATHAN                    598
+#define TRAINER_JONATHAN                    598 // now unused (route 132)
 #define TRAINER_BRENDAN_RUSTBORO_TORCHIC    599
 #define TRAINER_MAY_RUSTBORO_MUDKIP         600
 #define TRAINER_MAXIE_MAGMA_HIDEOUT         601
@@ -645,11 +645,11 @@
 #define TRAINER_TRENT_5                     639
 #define TRAINER_DEZ_AND_LUKE                640
 #define TRAINER_LEA_AND_JED                 641
-#define TRAINER_KIRA_AND_DAN_1              642
-#define TRAINER_KIRA_AND_DAN_2              643
-#define TRAINER_KIRA_AND_DAN_3              644
-#define TRAINER_KIRA_AND_DAN_4              645
-#define TRAINER_KIRA_AND_DAN_5              646
+#define TRAINER_KIRA_AND_DAN_1              642 // now unused (remove match) (abandoned ship)
+#define TRAINER_KIRA_AND_DAN_2              643 // now unused (remove match) (abandoned ship)
+#define TRAINER_KIRA_AND_DAN_3              644 // now unused (remove match) (abandoned ship)
+#define TRAINER_KIRA_AND_DAN_4              645 // now unused (remove match) (abandoned ship)
+#define TRAINER_KIRA_AND_DAN_5              646 // now unused (remove match) (abandoned ship)
 #define TRAINER_JOHANNA                     647
 #define TRAINER_GERALD                      648
 #define TRAINER_VIVIAN                      649
@@ -670,32 +670,32 @@
 #define TRAINER_MAY_LILYCOVE_MUDKIP         664
 #define TRAINER_MAY_LILYCOVE_TREECKO        665
 #define TRAINER_MAY_LILYCOVE_TORCHIC        666
-#define TRAINER_JONAH                       667
-#define TRAINER_HENRY                       668
-#define TRAINER_ROGER                       669
-#define TRAINER_ALEXA                       670
-#define TRAINER_RUBEN                       671
-#define TRAINER_KOJI_1                      672
-#define TRAINER_WAYNE                       673
-#define TRAINER_AIDAN                       674
-#define TRAINER_REED                        675
-#define TRAINER_TISHA                       676
+#define TRAINER_JONAH                       667 // now unused (route 127)
+#define TRAINER_HENRY                       668 // now unused (route 127)
+#define TRAINER_ROGER                       669 // now unused (route 127)
+#define TRAINER_ALEXA                       670 // now unused (route 128)
+#define TRAINER_RUBEN                       671 // now unused (route 128)
+#define TRAINER_KOJI_1                      672 // now unused (remove match) (route 127)
+#define TRAINER_WAYNE                       673 // now unused (route 128)
+#define TRAINER_AIDAN                       674 // now unused (route 127)
+#define TRAINER_REED                        675 // now unused (route 129)
+#define TRAINER_TISHA                       676 // now unused (route 129)
 #define TRAINER_TORI_AND_TIA                677
-#define TRAINER_KIM_AND_IRIS                678
+#define TRAINER_KIM_AND_IRIS                678 // now unused (route 125)
 #define TRAINER_TYRA_AND_IVY                679
-#define TRAINER_MEL_AND_PAUL                680
+#define TRAINER_MEL_AND_PAUL                680 // now unused (route 109)
 #define TRAINER_JOHN_AND_JAY_1              681
 #define TRAINER_JOHN_AND_JAY_2              682
 #define TRAINER_JOHN_AND_JAY_3              683
 #define TRAINER_JOHN_AND_JAY_4              684
 #define TRAINER_JOHN_AND_JAY_5              685
-#define TRAINER_RELI_AND_IAN                686
+#define TRAINER_RELI_AND_IAN                686 // now unused (route 131)
 #define TRAINER_LILA_AND_ROY_1              687
 #define TRAINER_LILA_AND_ROY_2              688
 #define TRAINER_LILA_AND_ROY_3              689
 #define TRAINER_LILA_AND_ROY_4              690
 #define TRAINER_LILA_AND_ROY_5              691
-#define TRAINER_LISA_AND_RAY                692
+#define TRAINER_LISA_AND_RAY                692 // now unused
 #define TRAINER_CHRIS                       693
 #define TRAINER_DAWSON                      694
 #define TRAINER_SARAH                       695
@@ -736,16 +736,16 @@
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_15      730 // now unused
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_16      731
 #define TRAINER_TABITHA_MAGMA_HIDEOUT       732
-#define TRAINER_DARCY                       733
+#define TRAINER_DARCY                       733 // now unused (route 132)
 #define TRAINER_MAXIE_MOSSDEEP              734
 #define TRAINER_PETE                        735
 #define TRAINER_ISABELLE                    736
-#define TRAINER_ANDRES_1                    737
-#define TRAINER_JOSUE                       738
-#define TRAINER_CAMRON                      739
-#define TRAINER_CORY_1                      740
-#define TRAINER_CAROLINA                    741
-#define TRAINER_ELIJAH                      742
+#define TRAINER_ANDRES_1                    737 // now unused (remove match) (route 105)
+#define TRAINER_JOSUE                       738 // now unused (route 105)
+#define TRAINER_CAMRON                      739 // now unused
+#define TRAINER_CORY_1                      740 // now unused (remove match) (route 108)
+#define TRAINER_CAROLINA                    741 // now unused (route 108)
+#define TRAINER_ELIJAH                      742 // now unused (route 109)
 #define TRAINER_CELIA                       743
 #define TRAINER_BRYAN                       744
 #define TRAINER_BRANDEN                     745
@@ -761,7 +761,7 @@
 #define TRAINER_MELINA                      755
 #define TRAINER_BRANDI                      756
 #define TRAINER_AISHA                       757
-#define TRAINER_MAKAYLA                     758
+#define TRAINER_MAKAYLA                     758 // now unused (route 132)
 #define TRAINER_FABIAN                      759
 #define TRAINER_DAYTON                      760
 #define TRAINER_RACHEL                      761
@@ -815,22 +815,22 @@
 #define TRAINER_NOLAND                      809
 #define TRAINER_LUCY                        810
 #define TRAINER_BRANDON                     811
-#define TRAINER_ANDRES_2                    812
-#define TRAINER_ANDRES_3                    813
-#define TRAINER_ANDRES_4                    814
-#define TRAINER_ANDRES_5                    815
-#define TRAINER_CORY_2                      816
-#define TRAINER_CORY_3                      817
-#define TRAINER_CORY_4                      818
-#define TRAINER_CORY_5                      819
-#define TRAINER_PABLO_2                     820
-#define TRAINER_PABLO_3                     821
-#define TRAINER_PABLO_4                     822
-#define TRAINER_PABLO_5                     823
-#define TRAINER_KOJI_2                      824
-#define TRAINER_KOJI_3                      825
-#define TRAINER_KOJI_4                      826
-#define TRAINER_KOJI_5                      827
+#define TRAINER_ANDRES_2                    812 // now unused (remove match) (route 105)
+#define TRAINER_ANDRES_3                    813 // now unused (remove match) (route 105)
+#define TRAINER_ANDRES_4                    814 // now unused (remove match) (route 105)
+#define TRAINER_ANDRES_5                    815 // now unused (remove match) (route 105)
+#define TRAINER_CORY_2                      816 // now unused (remove match) (route 108)
+#define TRAINER_CORY_3                      817 // now unused (remove match) (route 108)
+#define TRAINER_CORY_4                      818 // now unused (remove match) (route 108)
+#define TRAINER_CORY_5                      819 // now unused (remove match) (route 108)
+#define TRAINER_PABLO_2                     820 // now unused (remove match) (route 126)
+#define TRAINER_PABLO_3                     821 // now unused (remove match) (route 126)
+#define TRAINER_PABLO_4                     822 // now unused (remove match) (route 126)
+#define TRAINER_PABLO_5                     823 // now unused (remove match) (route 126)
+#define TRAINER_KOJI_2                      824 // now unused (remove match) (route 127)
+#define TRAINER_KOJI_3                      825 // now unused (remove match) (route 127)
+#define TRAINER_KOJI_4                      826 // now unused (remove match) (route 127)
+#define TRAINER_KOJI_5                      827 // now unused (remove match) (route 127)
 #define TRAINER_CRISTIN_2                   828
 #define TRAINER_CRISTIN_3                   829
 #define TRAINER_CRISTIN_4                   830
@@ -847,10 +847,10 @@
 #define TRAINER_GABRIELLE_3                 841
 #define TRAINER_GABRIELLE_4                 842
 #define TRAINER_GABRIELLE_5                 843
-#define TRAINER_THALIA_2                    844
-#define TRAINER_THALIA_3                    845
-#define TRAINER_THALIA_4                    846
-#define TRAINER_THALIA_5                    847
+#define TRAINER_THALIA_2                    844 // now unused (remove match) (abandoned ship)
+#define TRAINER_THALIA_3                    845 // now unused (remove match) (abandoned ship)
+#define TRAINER_THALIA_4                    846 // now unused (remove match) (abandoned ship)
+#define TRAINER_THALIA_5                    847 // now unused (remove match) (abandoned ship)
 #define TRAINER_MARIELA                     848
 #define TRAINER_ALVARO                      849
 #define TRAINER_EVERETT                     850
