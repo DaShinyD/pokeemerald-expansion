@@ -62,7 +62,7 @@
 #define FLAG_HIDE_DASH_A_HIDEOUT    0x31 // Magma hideout hide dash after
 #define FLAG_HIDE_HIDEOUT_HELPERS_A    0x32 // Magma hideout hide helpers after
 #define FLAG_HIDE_RIVALS_MOSSDEEP    0x33 // Hide rivals before trigger
-#define FLAG_UNUSED_0x034    0x34 // Unused Flag
+#define FLAG_HIDE_RIVALS_CAVE_OF_ORIGIN    0x34 // Hide rivals in cave of origin before trigger
 #define FLAG_UNUSED_0x035    0x35 // Unused Flag
 #define FLAG_UNUSED_0x036    0x36 // Unused Flag
 #define FLAG_UNUSED_0x037    0x37 // Unused Flag

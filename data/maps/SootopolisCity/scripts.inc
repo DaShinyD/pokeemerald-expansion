@@ -925,6 +925,8 @@ SootopolisCity_EventScript_StevenHelpedWallace::
 SootopolisCity_EventScript_StevenLeadPlayerCaveOfOrigin::
 	msgbox SootopolisCity_Text_InvolvedWithCrisisComeWithMe, MSGBOX_DEFAULT
 	closemessage
+	setvar VAR_RIVALS_CAVE_OF_ORIGIN, 1
+	setflag FLAG_HIDE_RIVALS_CAVE_OF_ORIGIN
 	call_if_eq VAR_FACING, DIR_WEST, SootopolisCity_EventScript_StartWalkToCaveOfOriginWest
 	call_if_eq VAR_FACING, DIR_NORTH, SootopolisCity_EventScript_StartWalkToCaveOfOriginNorth
 	msgbox SootopolisCity_Text_DoesThisMakeYourFearPokemon, MSGBOX_DEFAULT

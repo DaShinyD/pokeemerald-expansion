@@ -102,8 +102,8 @@
 #define VAR_RIVALS_MOSSDEEP_SPACE                        0x4052 // Rivals helping in Mossdeep trigger
 #define VAR_LAVARIDGE_TOWN_STATE                         0x4053
 #define VAR_CURRENT_SECRET_BASE                          0x4054 // was probably allocated for VAR_FALLARBOR_TOWN_STATE at one point
-#define VAR_VERDANTURF_TOWN_STATE                        0x4055 // Unused Var
-#define VAR_PACIFIDLOG_TOWN_STATE                        0x4056 // Unused Var
+#define VAR_SEAFLOOR_CALL                                0x4055 // Phone call in Seafloor Cavern
+#define VAR_RIVALS_CAVE_OF_ORIGIN                        0x4056 // Rivals appearing in Cave of Origin
 #define VAR_PETALBURG_CITY_STATE                         0x4057
 #define VAR_SLATEPORT_CITY_STATE                         0x4058
 #define VAR_MAUVILLE_CITY_STATE                          0x4059 // Unused Var
