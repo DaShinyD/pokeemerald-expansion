@@ -1,4 +1,5 @@
 .set LOCALID_MOVE_RELEARNER, 1
+.set LOCALID_WELCOME_GUY, 2
 
 FallarborTown_MoveRelearnersHouse_MapScripts::
 	.byte 0
@@ -96,4 +97,261 @@ FallarborTown_MoveRelearnersHouse_Text_ComeBackWithHeartScale:
 FallarborTown_MoveRelearnersHouse_Text_CantTeachEgg:
 	.string "Hunh? There isn't a single move that\n"
 	.string "I can teach an EGG.$"
+
+
+
+
+
+
+FallarborTown_MoveRelearnersHouse_EventScript_WelcomeToClubL::
+	lock
+	applymovement LOCALID_WELCOME_GUY, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_WELCOME_GUY, FallarborTown_MoveRelearnersHouse_Movement_WalkToPlayerL
+	waitmovement 0
+	msgbox FallarborTown_MoveRelearnersHouse_Text_WelcomeBattleClub, MSGBOX_DEFAULT
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, FallarborTown_MoveRelearnersHouse_Movement_CameraPanToBattlersL
+	waitmovement 0
+	setobjectxyperm LOCALID_WELCOME_GUY, 3, 11
+	special DrawWholeMapView
+	msgbox FallarborTown_MoveRelearnersHouse_Text_ExplainTrainers, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_CAMERA, FallarborTown_MoveRelearnersHouse_Movement_CameraPanBackL
+	waitmovement 0
+	applymovement LOCALID_WELCOME_GUY, Common_Movement_FacePlayer
+	waitmovement 0
+	special RemoveCameraObject
+	msgbox FallarborTown_MoveRelearnersHouse_Text_ThatsAll, MSGBOX_DEFAULT
+	applymovement LOCALID_WELCOME_GUY, FallarborTown_MoveRelearnersHouse_Movement_WalkAwayL
+	waitmovement 0
+	setvar VAR_BATTLE_CLUB_INTRO, 1
+	release
+	end
+	
+FallarborTown_MoveRelearnersHouse_EventScript_WelcomeToClubR::
+	lock
+	applymovement LOCALID_WELCOME_GUY, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_WELCOME_GUY, FallarborTown_MoveRelearnersHouse_Movement_WalkToPlayerR
+	waitmovement 0
+	msgbox FallarborTown_MoveRelearnersHouse_Text_WelcomeBattleClub, MSGBOX_DEFAULT
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, FallarborTown_MoveRelearnersHouse_Movement_CameraPanToBattlersR
+	waitmovement 0
+	setobjectxyperm LOCALID_WELCOME_GUY, 4, 11
+	special DrawWholeMapView
+	msgbox FallarborTown_MoveRelearnersHouse_Text_ExplainTrainers, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_CAMERA, FallarborTown_MoveRelearnersHouse_Movement_CameraPanBackR
+	waitmovement 0
+	applymovement LOCALID_WELCOME_GUY, Common_Movement_FacePlayer
+	waitmovement 0
+	special RemoveCameraObject
+	msgbox FallarborTown_MoveRelearnersHouse_Text_ThatsAll, MSGBOX_DEFAULT
+	applymovement LOCALID_WELCOME_GUY, FallarborTown_MoveRelearnersHouse_Movement_WalkAwayR
+	waitmovement 0
+	setvar VAR_BATTLE_CLUB_INTRO, 1
+	release
+	end
+
+FallarborTown_MoveRelearnersHouse_Movement_WalkToPlayerL:
+	delay_8
+	walk_down
+	walk_down
+	walk_down
+	walk_left
+	face_down
+	step_end
+
+FallarborTown_MoveRelearnersHouse_Movement_WalkToPlayerR:
+	delay_8
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+FallarborTown_MoveRelearnersHouse_Text_WelcomeBattleClub:
+	.string "Hello there! Welcome to the Battle Club!\p"
+	.string "Here, we train Pokemon to be the best\n"
+	.string "they can possibly be.\p"
+	.string "Take a look over to the right.$"
+
+FallarborTown_MoveRelearnersHouse_Movement_CameraPanToBattlersL:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+FallarborTown_MoveRelearnersHouse_Movement_CameraPanToBattlersR:
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+
+FallarborTown_MoveRelearnersHouse_Text_ExplainTrainers:
+	.string "On the left, you have the HP, ATK, and\n"
+	.string "DEF trainers.\p"
+	.string "On the right, you have the SPE, SPATK\n"
+	.string "and SPDEF trainers.\p"
+	.string "Lastly, in the middle is the EXP\n"
+	.string "trainer.\p"
+	.string "You can battle each trainer\n"
+	.string "repeatedly.$"
+
+FallarborTown_MoveRelearnersHouse_Movement_CameraPanBackL:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+FallarborTown_MoveRelearnersHouse_Movement_CameraPanBackR:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	step_end
+
+FallarborTown_MoveRelearnersHouse_Text_ThatsAll:
+	.string "That's everything. Come talk to me\n"
+	.string "for training items.\p"
+	.string "Good luck on your training!$"
+
+FallarborTown_MoveRelearnersHouse_Movement_WalkAwayL:
+	walk_right
+	walk_up
+	walk_up
+	walk_up
+	face_right
+	step_end
+
+FallarborTown_MoveRelearnersHouse_Movement_WalkAwayR:
+	walk_up
+	walk_up
+	walk_up
+	face_right
+	step_end
+
+FallarborTown_MoveRelearnersHouse_EventScript_WelcomeGuyGiveItems::
+	lock
+	faceplayer
+	goto_if_set FLAG_POWER_ITEMS, FallarborTown_MoveRelearnersHouse_EventScript_HowAreYou
+	msgbox FallarborTown_MoveRelearnersHouse_Text_TakeThese, MSGBOX_DEFAULT
+	giveitem ITEM_POWER_BRACER
+	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
+	giveitem ITEM_POWER_ANKLET
+	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
+	giveitem ITEM_POWER_BAND
+	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
+	giveitem ITEM_POWER_BELT
+	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
+	giveitem ITEM_POWER_WEIGHT
+	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
+	giveitem ITEM_POWER_LENS
+	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
+	setflag FLAG_POWER_ITEMS
+	release
+	end
+
+FallarborTown_MoveRelearnersHouse_Text_TakeThese:
+	.string "Take these power items!$"
+
+FallarborTown_MoveRelearnersHouse_EventScript_HowAreYou::
+	lock
+	faceplayer
+	msgbox FallarborTown_MoveRelearnersHouse_Text_TrainingHard, MSGBOX_DEFAULT
+	release
+	end
+
+FallarborTown_MoveRelearnersHouse_Text_TrainingHard:
+	.string "Training hard?$"
+
+FallarborTown_MoveRelearnersHouse_Text_GenericDefeat:
+	.string "Nice one.$"
+
+FallarborTown_MoveRelearnersHouse_EventScript_HPTrainer::
+	lock
+	faceplayer
+	msgbox FallarborTown_MoveRelearnersHouse_Text_WouldLikeToBattleHP, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, FallarborTown_MoveRelearnersHouse_EventScript_HPBattle
+	goto_if_eq VAR_RESULT, NO, FallarborTown_MoveRelearnersHouse_EventScript_HPNoBattle
+	release
+	end
+
+FallarborTown_MoveRelearnersHouse_Text_WouldLikeToBattleHP:
+	.string "Would you like to train HP EVs?$"
+
+FallarborTown_MoveRelearnersHouse_EventScript_HPBattle::
+	trainerbattle_no_intro TRAINER_HPTRAIN, FallarborTown_MoveRelearnersHouse_Text_GenericDefeat
+	release
+	end
+
+FallarborTown_MoveRelearnersHouse_EventScript_HPNoBattle::
+	release
+	end
 

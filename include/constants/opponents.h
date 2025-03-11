@@ -11,13 +11,13 @@
 #define TRAINER_GRUNT_AQUA_HIDEOUT_4          5
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_1       6
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_2       7
-#define TRAINER_GRUNT_SEAFLOOR_CAVERN_3       8
+#define TRAINER_GRUNT_SEAFLOOR_CAVERN_3       8 // now unused
 #define TRAINER_GABRIELLE_1                   9
 #define TRAINER_GRUNT_PETALBURG_WOODS        10
 #define TRAINER_MARCEL                       11
 #define TRAINER_ALBERTO                      12
 #define TRAINER_ED                           13
-#define TRAINER_GRUNT_SEAFLOOR_CAVERN_4      14
+#define TRAINER_GRUNT_SEAFLOOR_CAVERN_4      14 // now unused
 #define TRAINER_DECLAN                       15
 #define TRAINER_GRUNT_RUSTURF_TUNNEL         16
 #define TRAINER_RYE_LILYCOVE                 17 // repurposed
@@ -49,7 +49,7 @@
 #define TRAINER_ROSE_5                       43
 #define TRAINER_DUSTY_1                      44
 #define TRAINER_CHIP                         45
-#define TRAINER_FOSTER                       46 // now unused (route 105)
+#define TRAINER_HPTRAIN                      46 // now HP Trainer in Battle Club
 #define TRAINER_DUSTY_2                      47
 #define TRAINER_DUSTY_3                      48
 #define TRAINER_DUSTY_4                      49
@@ -118,10 +118,10 @@
 #define TRAINER_VALERIE_4                   112
 #define TRAINER_VALERIE_5                   113
 #define TRAINER_CINDY_1                     114
-#define TRAINER_DAPHNE                      115
+#define TRAINER_DAPHNE                      115 // now unused
 #define TRAINER_GRUNT_SPACE_CENTER_2        116
 #define TRAINER_CINDY_2                     117
-#define TRAINER_BRIANNA                     118
+#define TRAINER_BRIANNA                     118 // now unused
 #define TRAINER_NAOMI                       119
 #define TRAINER_CINDY_3                     120
 #define TRAINER_CINDY_4                     121
@@ -131,10 +131,10 @@
 #define TRAINER_SHEILA                      125
 #define TRAINER_SHIRLEY                     126
 #define TRAINER_JESSICA_1                   127
-#define TRAINER_CONNIE                      128
-#define TRAINER_BRIDGET                     129
-#define TRAINER_OLIVIA                      130
-#define TRAINER_TIFFANY                     131
+#define TRAINER_CONNIE                      128 // now unused
+#define TRAINER_BRIDGET                     129 // now unused
+#define TRAINER_OLIVIA                      130 // now unused
+#define TRAINER_TIFFANY                     131 // now unused
 #define TRAINER_JESSICA_2                   132
 #define TRAINER_JESSICA_3                   133
 #define TRAINER_JESSICA_4                   134
@@ -304,7 +304,7 @@
 #define TRAINER_MIGUEL_5                    298
 #define TRAINER_VICTORIA                    299
 #define TRAINER_VANESSA                     300
-#define TRAINER_BETHANY                     301
+#define TRAINER_BETHANY                     301 // now unused
 #define TRAINER_ISABEL_1                    302
 #define TRAINER_ISABEL_2                    303
 #define TRAINER_ISABEL_3                    304
@@ -505,7 +505,7 @@
 #define TRAINER_ERNEST_4                    499 // now unused (need to remove match) (route 125)
 #define TRAINER_ERNEST_5                    500 // now unused (need to remove match) (route 125)
 #define TRAINER_ELI                         501
-#define TRAINER_ANNIKA                      502
+#define TRAINER_ANNIKA                      502 // now unused
 #define TRAINER_JAZMYN                      503
 #define TRAINER_JONAS                       504
 #define TRAINER_KAYLEY                      505
@@ -616,8 +616,8 @@
 #define TRAINER_HALEY_5                     610
 #define TRAINER_SALLY                       611
 #define TRAINER_ROBIN                       612
-#define TRAINER_ANDREA                      613
-#define TRAINER_CRISSY                      614
+#define TRAINER_ANDREA                      613 // now unused
+#define TRAINER_CRISSY                      614 // now unused
 #define TRAINER_RICK                        615
 #define TRAINER_LYLE                        616
 #define TRAINER_JOSE                        617

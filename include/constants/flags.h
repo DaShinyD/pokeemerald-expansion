@@ -63,8 +63,8 @@
 #define FLAG_HIDE_HIDEOUT_HELPERS_A    0x32 // Magma hideout hide helpers after
 #define FLAG_HIDE_RIVALS_MOSSDEEP    0x33 // Hide rivals before trigger
 #define FLAG_HIDE_RIVALS_CAVE_OF_ORIGIN    0x34 // Hide rivals in cave of origin before trigger
-#define FLAG_UNUSED_0x035    0x35 // Unused Flag
-#define FLAG_UNUSED_0x036    0x36 // Unused Flag
+#define FLAG_STRAITS_SKY_PILLAR    0x35 // Straits Sky Pillar
+#define FLAG_POWER_ITEMS     0x36 // Power items Battle Club
 #define FLAG_UNUSED_0x037    0x37 // Unused Flag
 #define FLAG_UNUSED_0x038    0x38 // Unused Flag
 #define FLAG_UNUSED_0x039    0x39 // Unused Flag

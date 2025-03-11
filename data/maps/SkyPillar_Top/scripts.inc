@@ -1,4 +1,5 @@
 .set LOCALID_RAYQUAZA_SLEEPING, 1
+.set LOCALID_STRAITS, 3
 
 SkyPillar_Top_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, SkyPillar_Top_OnResume
@@ -22,7 +23,6 @@ SkyPillar_Top_OnTransition:
 	end
 
 SkyPillar_Top_EventScript_SetCleanLayout::
-	setmaplayoutindex LAYOUT_SKY_PILLAR_TOP_CLEAN
 	setobjectmovementtype LOCALID_RAYQUAZA_SLEEPING, MOVEMENT_TYPE_FACE_DOWN
 	return
 
@@ -182,4 +182,55 @@ SkyPillar_Top_Movement_CameraPanDown:
 
 SkyPillar_Top_Text_RayquazaFlewOff:
 	.string "The awakened RAYQUAZA flew off…$"
+
+
+
+SkyPillar_Top_EventScript_StraitsAppear::
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceRight
+	waitmovement 0
+	msgbox SkyPillar_Top_Text_StraitsMono, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_STRAITS, SkyPillar_Top_Movement_ApproachPlayer
+	waitmovement 0
+	msgbox SkyPillar_Top_Text_ExcuseMe, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, SkyPillar_Top_Movement_PlayerBack
+	waitmovement 0
+	applymovement LOCALID_STRAITS, SkyPillar_Top_Movement_Leave
+	waitmovement 0
+	removeobject LOCALID_STRAITS
+	setvar VAR_STRAITS_SKY_PILLAR, 1
+	setflag FLAG_STRAITS_SKY_PILLAR
+	release
+	end
+
+SkyPillar_Top_Text_StraitsMono:
+	.string "A glorious, godly beast.\p"
+	.string "Soon, you will fulfill your role.$"
+
+SkyPillar_Top_Movement_ApproachPlayer:
+	walk_left
+	step_end
+
+SkyPillar_Top_Text_ExcuseMe:
+	.string "Excuse me.$"
+
+SkyPillar_Top_Movement_PlayerBack:
+	walk_left
+	face_right
+	step_end
+
+SkyPillar_Top_Movement_Leave:
+	walk_left
+	walk_down
+	walk_down
+	walk_down
+	walk_down
+	walk_right
+	walk_right
+	walk_right
+	walk_right
+	walk_up
+	step_end
 
