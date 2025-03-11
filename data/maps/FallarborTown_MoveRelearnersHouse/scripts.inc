@@ -339,19 +339,125 @@ FallarborTown_MoveRelearnersHouse_EventScript_HPTrainer::
 	faceplayer
 	msgbox FallarborTown_MoveRelearnersHouse_Text_WouldLikeToBattleHP, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, FallarborTown_MoveRelearnersHouse_EventScript_HPBattle
-	goto_if_eq VAR_RESULT, NO, FallarborTown_MoveRelearnersHouse_EventScript_HPNoBattle
+	goto_if_eq VAR_RESULT, NO, FallarborTown_MoveRelearnersHouse_EventScript_NoBattle
 	release
 	end
 
+FallarborTown_MoveRelearnersHouse_EventScript_ATKTrainer::
+	lock
+	faceplayer
+	msgbox FallarborTown_MoveRelearnersHouse_Text_WouldLikeToBattleATK, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, FallarborTown_MoveRelearnersHouse_EventScript_ATKBattle
+	goto_if_eq VAR_RESULT, NO, FallarborTown_MoveRelearnersHouse_EventScript_NoBattle
+	release
+	end
+
+FallarborTown_MoveRelearnersHouse_EventScript_DEFTrainer::
+	lock
+	faceplayer
+	msgbox FallarborTown_MoveRelearnersHouse_Text_WouldLikeToBattleDEF, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, FallarborTown_MoveRelearnersHouse_EventScript_DEFBattle
+	goto_if_eq VAR_RESULT, NO, FallarborTown_MoveRelearnersHouse_EventScript_NoBattle
+	release
+	end
+
+FallarborTown_MoveRelearnersHouse_EventScript_SPETrainer::
+	lock
+	faceplayer
+	msgbox FallarborTown_MoveRelearnersHouse_Text_WouldLikeToBattleSPE, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, FallarborTown_MoveRelearnersHouse_EventScript_SPEBattle
+	goto_if_eq VAR_RESULT, NO, FallarborTown_MoveRelearnersHouse_EventScript_NoBattle
+	release
+	end
+
+FallarborTown_MoveRelearnersHouse_EventScript_SPATKTrainer::
+	lock
+	faceplayer
+	msgbox FallarborTown_MoveRelearnersHouse_Text_WouldLikeToBattleSPATK, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, FallarborTown_MoveRelearnersHouse_EventScript_SPATKBattle
+	goto_if_eq VAR_RESULT, NO, FallarborTown_MoveRelearnersHouse_EventScript_NoBattle
+	release
+	end
+
+FallarborTown_MoveRelearnersHouse_EventScript_SPDEFTrainer::
+	lock
+	faceplayer
+	msgbox FallarborTown_MoveRelearnersHouse_Text_WouldLikeToBattleSPDEF, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, FallarborTown_MoveRelearnersHouse_EventScript_SPDEFBattle
+	goto_if_eq VAR_RESULT, NO, FallarborTown_MoveRelearnersHouse_EventScript_NoBattle
+	release
+	end
+
+FallarborTown_MoveRelearnersHouse_EventScript_EXPTrainer::
+	lock
+	faceplayer
+	msgbox FallarborTown_MoveRelearnersHouse_Text_WouldLikeToBattleEXP, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, FallarborTown_MoveRelearnersHouse_EventScript_EXPBattle
+	goto_if_eq VAR_RESULT, NO, FallarborTown_MoveRelearnersHouse_EventScript_NoBattle
+	release
+	end
+
+
 FallarborTown_MoveRelearnersHouse_Text_WouldLikeToBattleHP:
 	.string "Would you like to train HP EVs?$"
+
+FallarborTown_MoveRelearnersHouse_Text_WouldLikeToBattleATK:
+	.string "Would you like to train ATK EVs?$"
+
+FallarborTown_MoveRelearnersHouse_Text_WouldLikeToBattleDEF:
+	.string "Would you like to train DEF EVs?$"
+
+FallarborTown_MoveRelearnersHouse_Text_WouldLikeToBattleSPE:
+	.string "Would you like to train SPE EVs?$"
+
+FallarborTown_MoveRelearnersHouse_Text_WouldLikeToBattleSPATK:
+	.string "Would you like to train SPATK EVs?$"
+
+FallarborTown_MoveRelearnersHouse_Text_WouldLikeToBattleSPDEF:
+	.string "Would you like to train SPDEF EVs?$"
+
+FallarborTown_MoveRelearnersHouse_Text_WouldLikeToBattleEXP:
+	.string "Would you like to train EXP?\p"
+	.string "Please note, this is meant for\n"
+	.string "people on the level cap setting.\p"
+	.string "Would you still like to continue?$"
 
 FallarborTown_MoveRelearnersHouse_EventScript_HPBattle::
 	trainerbattle_no_intro TRAINER_HPTRAIN, FallarborTown_MoveRelearnersHouse_Text_GenericDefeat
 	release
 	end
 
-FallarborTown_MoveRelearnersHouse_EventScript_HPNoBattle::
+FallarborTown_MoveRelearnersHouse_EventScript_ATKBattle::
+	trainerbattle_no_intro TRAINER_ATKTRAIN, FallarborTown_MoveRelearnersHouse_Text_GenericDefeat
+	release
+	end
+
+FallarborTown_MoveRelearnersHouse_EventScript_DEFBattle::
+	trainerbattle_no_intro TRAINER_DEFTRAIN, FallarborTown_MoveRelearnersHouse_Text_GenericDefeat
+	release
+	end
+
+FallarborTown_MoveRelearnersHouse_EventScript_SPEBattle::
+	trainerbattle_no_intro TRAINER_SPETRAIN, FallarborTown_MoveRelearnersHouse_Text_GenericDefeat
+	release
+	end
+
+FallarborTown_MoveRelearnersHouse_EventScript_SPATKBattle::
+	trainerbattle_no_intro TRAINER_SPATKTRAIN, FallarborTown_MoveRelearnersHouse_Text_GenericDefeat
+	release
+	end
+
+FallarborTown_MoveRelearnersHouse_EventScript_SPDEFBattle::
+	trainerbattle_no_intro TRAINER_SPDEFTRAIN, FallarborTown_MoveRelearnersHouse_Text_GenericDefeat
+	release
+	end
+
+FallarborTown_MoveRelearnersHouse_EventScript_EXPBattle::
+	trainerbattle_no_intro TRAINER_EXPTRAIN, FallarborTown_MoveRelearnersHouse_Text_GenericDefeat
+	release
+	end
+
+FallarborTown_MoveRelearnersHouse_EventScript_NoBattle::
 	release
 	end
 

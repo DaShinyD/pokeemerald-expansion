@@ -65,7 +65,7 @@
 #define FLAG_HIDE_RIVALS_CAVE_OF_ORIGIN    0x34 // Hide rivals in cave of origin before trigger
 #define FLAG_STRAITS_SKY_PILLAR    0x35 // Straits Sky Pillar
 #define FLAG_POWER_ITEMS     0x36 // Power items Battle Club
-#define FLAG_UNUSED_0x037    0x37 // Unused Flag
+#define FLAG_NINJA_DITTO     0x37 // Ninja kid give ditto
 #define FLAG_UNUSED_0x038    0x38 // Unused Flag
 #define FLAG_UNUSED_0x039    0x39 // Unused Flag
 #define FLAG_UNUSED_0x03A    0x3A // Unused Flag

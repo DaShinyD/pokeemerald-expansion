@@ -444,18 +444,18 @@
 #define TRAINER_MADELINE_3                  438
 #define TRAINER_MADELINE_4                  439
 #define TRAINER_MADELINE_5                  440
-#define TRAINER_BEVERLY                     441 // now unused (route 105)
-#define TRAINER_IMANI                       442 // now unused (route 105)
+#define TRAINER_ATKTRAIN                    441 // now attack trainer in battle club
+#define TRAINER_DEFTRAIN                    442 // now defense trainer in battle club
 #define TRAINER_KYLA                        443 // now unused (route 106)
 #define TRAINER_DENISE                      444 // now unused
 #define TRAINER_BETH                        445 // now unused
-#define TRAINER_TARA                        446 // now unused (route 108)
-#define TRAINER_MISSY                       447 // now unused (route 108)
+#define TRAINER_SPETRAIN                    446 // now speed trainer in battle club
+#define TRAINER_SPATKTRAIN                  447 // now special attack trainer in battle club
 #define TRAINER_ALICE                       448 // now unused (route 109)
 #define TRAINER_JENNY_1                     449
 #define TRAINER_GRACE                       450
-#define TRAINER_TANYA                       451 // now unused (route 125)
-#define TRAINER_SHARON                      452 // now unused (route 125)
+#define TRAINER_SPDEFTRAIN                  451 // now special defense trainer in battle club
+#define TRAINER_EXPTRAIN                    452 // now experience trainer in battle club
 #define TRAINER_NIKKI                       453 // now unused (route 126)
 #define TRAINER_BRENDA                      454 // now unused (route 126)
 #define TRAINER_KATIE                       455 // now unused (route 130)
