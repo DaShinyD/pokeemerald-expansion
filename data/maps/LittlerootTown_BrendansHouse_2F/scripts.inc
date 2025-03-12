@@ -319,7 +319,7 @@ PlayersHouse_2F_Text_CapEnabled1:
 	.string "caps are as follow from\p"
 	.string "badge 1 to the elite 4.\p"
 	.string "18, 24, 36, 48, 50, 58, 67, 75,\n"
-	.string "82, 100.$"
+	.string "85, 100.$"
 
 PlayersHouse_2F_Text_ClockIsStopped:
 	.string "The clock is stopped…\p"

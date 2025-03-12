@@ -109,7 +109,7 @@
 #define VAR_STRAITS_SKY_PILLAR                           0x4059 // Straights monologue Sky Pillar
 #define VAR_RUSTBORO_CITY_STATE                          0x405A
 #define VAR_BATTLE_CLUB_INTRO                            0x405B // Welcome intro to Battle Club
-#define VAR_LILYCOVE_CITY_STATE                          0x405C // Unused Var
+#define VAR_LEAGUE_RIVALS                                0x405C // Rivals say hey at league
 #define VAR_MOSSDEEP_CITY_STATE                          0x405D
 #define VAR_SOOTOPOLIS_CITY_STATE                        0x405E
 #define VAR_EVER_GRANDE_CITY_STATE                       0x405F // Unused Var

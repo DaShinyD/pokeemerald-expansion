@@ -65,6 +65,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EverGrandeCity_PokemonLeague_1F_EventScript_DoorGuard",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_DASH",
+      "x": 10,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EverGrandeCity_PokemonLeague_1F_EventScript_Dash",
+      "flag": "FLAG_LEAGUE_DASH"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_RYE",
+      "x": 9,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EverGrandeCity_PokemonLeague_1F_EventScript_Rye",
+      "flag": "FLAG_LEAGUE_RYE"
     }
   ],
   "warp_events": [
@@ -105,7 +131,24 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_LEAGUE_RIVALS",
+      "var_value": "0",
+      "script": "EverGrandeCity_PokemonLeague_1F_EventScript_RivalsFight"
+    },
+    {
+      "type": "trigger",
+      "x": 9,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_LEAGUE_RIVALS",
+      "var_value": "0",
+      "script": "EverGrandeCity_PokemonLeague_1F_EventScript_RivalsFight"
+    }
   ],
   "bg_events": [
 
