@@ -1270,3 +1270,7 @@ MysteryGift_Text_ReceivedGiftMon:
 	.include "data/maps/AncientPyramid/scripts.inc"
 
 	.include "data/maps/LilycoveSewer/scripts.inc"
+
+	.include "data/maps/Champion_Club/scripts.inc"
+
+	.include "data/maps/Champion_Club_Center/scripts.inc"

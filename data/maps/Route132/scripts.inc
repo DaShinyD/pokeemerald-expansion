@@ -25,9 +25,3 @@ Route132_EventScript_Darcy::
 	trainerbattle_single TRAINER_DARCY, Route132_Text_DarcyIntro, Route132_Text_DarcyDefeat
 	msgbox Route132_Text_DarcyPostBattle, MSGBOX_AUTOCLOSE
 	end
-
-Route132_EventScript_Makayla::
-	trainerbattle_single TRAINER_MAKAYLA, Route132_Text_MakaylaIntro, Route132_Text_MakaylaDefeat
-	msgbox Route132_Text_MakaylaPostBattle, MSGBOX_AUTOCLOSE
-	end
-

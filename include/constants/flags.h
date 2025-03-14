@@ -68,8 +68,8 @@
 #define FLAG_NINJA_DITTO     0x37 // Ninja kid give ditto
 #define FLAG_LEAGUE_RYE      0x38 // Rye at the League
 #define FLAG_LEAGUE_DASH     0x39 // Dash at the League
-#define FLAG_UNUSED_0x03A    0x3A // Unused Flag
-#define FLAG_UNUSED_0x03B    0x3B // Unused Flag
+#define FLAG_BASE_CHAMP_SET  0x3A // The base flag used for numerous things related to being champ, including title defense, etc
+#define FLAG_CHAMP_BLOCK     0x3B // Champion Club blocker
 #define FLAG_UNUSED_0x03C    0x3C // Unused Flag
 #define FLAG_UNUSED_0x03D    0x3D // Unused Flag
 #define FLAG_UNUSED_0x03E    0x3E // Unused Flag

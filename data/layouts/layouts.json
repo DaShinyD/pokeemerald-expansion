@@ -4520,6 +4520,26 @@
       "secondary_tileset": "gTileset_SewerClear",
       "border_filepath": "data/layouts/LilycoveSewer/border.bin",
       "blockdata_filepath": "data/layouts/LilycoveSewer/map.bin"
+    },
+    {
+      "id": "LAYOUT_CHAMPION_CLUB",
+      "name": "Champion_Club_Layout",
+      "width": 44,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_CableClub",
+      "border_filepath": "data/layouts/Champion_Club/border.bin",
+      "blockdata_filepath": "data/layouts/Champion_Club/map.bin"
+    },
+    {
+      "id": "LAYOUT_CHAMPION_CLUB_CENTER",
+      "name": "Champion_Club_Center_Layout",
+      "width": 14,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Champion_Club_Center/border.bin",
+      "blockdata_filepath": "data/layouts/Champion_Club_Center/map.bin"
     }
   ]
 }

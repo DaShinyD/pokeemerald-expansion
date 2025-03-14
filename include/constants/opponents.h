@@ -761,7 +761,7 @@
 #define TRAINER_MELINA                      755
 #define TRAINER_BRANDI                      756
 #define TRAINER_AISHA                       757
-#define TRAINER_MAKAYLA                     758 // now unused (route 132)
+#define TRAINER_JAKE                        758 // now unused (route 132) (makayla)
 #define TRAINER_FABIAN                      759
 #define TRAINER_DAYTON                      760
 #define TRAINER_RACHEL                      761
