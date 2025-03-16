@@ -68,6 +68,8 @@
 #define MAP_ROUTE135            (59 | (0 << 8))
 #define MAP_FALLARBOR_FOREST    (60 | (0 << 8))
 #define MAP_ANCIENT_PYRAMID     (61 | (0 << 8))
+#define MAP_DESERT_VILLAGE      (62 | (0 << 8))
+#define MAP_ANCIENT_PYARMID2    (63 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))

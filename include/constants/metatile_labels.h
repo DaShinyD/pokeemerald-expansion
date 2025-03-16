@@ -432,6 +432,16 @@
 #define METATILE_PokemonCenter_Floor_ShadowTop           0x21E
 #define METATILE_PokemonCenter_Floor_ShadowTop_Alt       0x2DC
 
+// gTileset_PyramidInteriorP
+#define METATILE_PyramidInteriorP_Pillar_Left_1   0x114
+#define METATILE_PyramidInteriorP_Pillar_Left_2   0x10C
+#define METATILE_PyramidInteriorP_Pillar_Left_3   0x104
+#define METATILE_PyramidInteriorP_Pillar_Middle   0x105
+#define METATILE_PyramidInteriorP_Pillar_Right_1  0x116
+#define METATILE_PyramidInteriorP_Pillar_Right_2  0x10E
+#define METATILE_PyramidInteriorP_Pillar_Right_3  0x106
+#define METATILE_PyramidInteriorP_Pyramid_Floor   0x001
+
 // gTileset_Rustboro
 #define METATILE_Rustboro_Door_Gray  0x21F
 #define METATILE_Rustboro_Door_Tan   0x22F

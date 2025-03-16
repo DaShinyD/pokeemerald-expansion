@@ -727,3 +727,62 @@ Route111_Text_TrainerHillSign:
 	.string "“Scale the heights, you hot-blooded\n"
 	.string "TRAINERS!”$"
 
+
+
+
+Route111_EventScript_VillageBlockers::
+	lock
+	faceplayer
+	goto_if_set FLAG_WENT_VILLAGE, Route111_EventScript_GoToVillage
+	goto_if_set FLAG_BADGE08_GET, Route111_EventScript_VillageYes
+	msgbox Route111_Text_GetStronger, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+Route111_Text_GetStronger:
+	.string "Sorry, but our village is this\n"
+	.string "way.\p"
+	.string "We are very secluded as we have an\n"
+	.string "issue with a strong Pokemon.\p"
+	.string "Perhaps come back if you manage to\n"
+	.string "get 8 badges.$"
+
+Route111_EventScript_VillageYes::
+	msgbox Route111_Text_LookStrong, MSGBOX_DEFAULT
+	closemessage
+	msgbox Route111_Text_ComeToVillage, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route111_EventScript_GoToVillage
+	msgbox Route111_Text_ComeBackIfWant, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+Route111_Text_LookStrong:
+	.string "You look strong enough to help us.\p"
+	.string "There is a Pokemon that is\n"
+	.string "threatening our village.\p"
+	.string "It has incredible power.$"
+
+Route111_Text_ComeToVillage:
+	.string "Would you like to come to our\n"
+	.string "village to help?$"
+
+Route111_Text_ComeBackIfWant:
+	.string "I see.$"
+
+Route111_EventScript_GoToVillage::
+	msgbox Route111_Text_LetsGo, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_WENT_VILLAGE
+	warp MAP_DESERT_VILLAGE, 19, 21
+	waitstate
+	release
+	end
+
+Route111_Text_LetsGo:
+	.string "Amazing, thank you, trainer.\p"
+	.string "On arrival, find our explorer.\p"
+	.string "He can lead you to the Pyramid\n"
+	.string "where the Pokemon is.$"
+

@@ -114,10 +114,10 @@
 #define VAR_SOOTOPOLIS_CITY_STATE                        0x405E
 #define VAR_CHAMPION_CLUB_ENTER                          0x405F // First entry into Champion Club
 #define VAR_ROUTE101_STATE                               0x4060
-#define VAR_ROUTE102_STATE                               0x4061 // Unused Var
-#define VAR_ROUTE103_STATE                               0x4062 // Unused Var
+#define VAR_RAIKOU_ENCOUNTER                             0x4061 // Raikou encounter in New Mauville
+#define VAR_RAIKOU_MAD                                   0x4062 // Raikou mad or calm
 #define VAR_ROUTE104_STATE                               0x4063
-#define VAR_ROUTE105_STATE                               0x4064 // Unused Var
+#define VAR_SAVE_RAIKOU                                  0x4064 // Save before Raikou
 #define VAR_ROUTE106_STATE                               0x4065 // Unused Var
 #define VAR_ROUTE107_STATE                               0x4066 // Unused Var
 #define VAR_ROUTE108_STATE                               0x4067 // Unused Var

@@ -2907,7 +2907,7 @@
       "width": 27,
       "height": 24,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Rustboro",
+      "secondary_tileset": "gTileset_rustboro2",
       "border_filepath": "data/layouts/SouthernIsland_Interior/border.bin",
       "blockdata_filepath": "data/layouts/SouthernIsland_Interior/map.bin"
     },
@@ -4027,7 +4027,7 @@
       "width": 29,
       "height": 26,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Fortree",
+      "secondary_tileset": "gTileset_fortree2",
       "border_filepath": "data/layouts/FarawayIsland_Interior/border.bin",
       "blockdata_filepath": "data/layouts/FarawayIsland_Interior/map.bin"
     },
@@ -4207,7 +4207,7 @@
       "width": 21,
       "height": 24,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Dewford",
+      "secondary_tileset": "gTileset_dewford2",
       "border_filepath": "data/layouts/NavelRock_Exterior/border.bin",
       "blockdata_filepath": "data/layouts/NavelRock_Exterior/map.bin"
     },
@@ -4540,6 +4540,26 @@
       "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/Champion_Club_Center/border.bin",
       "blockdata_filepath": "data/layouts/Champion_Club_Center/map.bin"
+    },
+    {
+      "id": "LAYOUT_DESERT_VILLAGE",
+      "name": "DesertVillage_Layout",
+      "width": 38,
+      "height": 24,
+      "primary_tileset": "gTileset_general2",
+      "secondary_tileset": "gTileset_desertvillage",
+      "border_filepath": "data/layouts/DesertVillage/border.bin",
+      "blockdata_filepath": "data/layouts/DesertVillage/map.bin"
+    },
+    {
+      "id": "LAYOUT_ANCIENT_PYARMID2",
+      "name": "AncientPyarmid2_Layout",
+      "width": 23,
+      "height": 18,
+      "primary_tileset": "gTileset_PyramidInteriorP",
+      "secondary_tileset": "gTileset_PyramidInteriorS",
+      "border_filepath": "data/layouts/AncientPyarmid2/border.bin",
+      "blockdata_filepath": "data/layouts/AncientPyarmid2/map.bin"
     }
   ]
 }

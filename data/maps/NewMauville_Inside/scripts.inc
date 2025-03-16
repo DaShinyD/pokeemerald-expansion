@@ -1,3 +1,5 @@
+.set LOCALID_RAIKOU, 9
+
 NewMauville_Inside_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, NewMauville_Inside_OnResume
 	map_script MAP_SCRIPT_ON_TRANSITION, NewMauville_Inside_OnTransition
@@ -261,3 +263,101 @@ NewMauville_Inside_Text_SteppedOnSwitchGeneratorStopped:
 	.string "… … … … … … … …\p"
 	.string "The generator appears to have\n"
 	.string "stopped…$"
+
+
+
+NewMauville_Inside_EventScript_Save::
+	lock
+	msgbox NewMauville_Inside_Text_AdvisedSave, MSGBOX_DEFAULT
+	closemessage
+	call Common_EventScript_SaveGame
+	setvar VAR_SAVE_RAIKOU, 1
+	release
+	end
+
+NewMauville_Inside_Text_AdvisedSave:
+	.string "It is advised to save before\n"
+	.string "moving forward.$"
+
+NewMauville_Inside_EventScript_RaikouEvent::
+	lock
+	setvar VAR_RAIKOU_ENCOUNTER, 1
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_Delay48
+	waitmovement 0
+	msgbox NewMauville_Inside_Text_OhARaikou, MSGBOX_DEFAULT
+	closemessage
+	playmoncry SPECIES_RAIKOU, CRY_MODE_ENCOUNTER
+	applymovement LOCALID_RAIKOU, Common_Movement_WalkInPlaceFasterLeft
+	waitmovement 0
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_Delay48
+	waitmovement 0
+	waitmoncry
+	setwildbattle SPECIES_RAIKOU, 40
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, NewMauville_Inside_EventScript_RaikouCalm
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, NewMauville_Inside_EventScript_RaikouPissed
+	end
+
+NewMauville_Inside_Text_OhARaikou:
+	.string "It's a Raikou!\p"
+	.string "This must be what stopped the\n"
+	.string "generator from working.$"
+
+NewMauville_Inside_Movement_Approach:
+	walk_left
+	walk_left
+	step_end
+
+NewMauville_Inside_EventScript_RaikouCalm::
+	msgbox NewMauville_Inside_Text_RaikouCalmedDown, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_RAIKOU
+	setflag FLAG_RAIKOU
+	fadescreen FADE_FROM_BLACK
+	setvar VAR_RAIKOU_MAD, 1
+	release
+	end
+
+NewMauville_Inside_Text_RaikouCalmedDown:
+	.string "Raikou calmed down and left.$"
+
+NewMauville_Inside_EventScript_RaikouPissed:
+	msgbox NewMauville_Inside_Text_RaikouStillMad, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+NewMauville_Inside_Text_RaikouStillMad:
+	.string "Raikou still looks angry.$"
+
+NewMauville_Inside_EventScript_RaikouNoPass::
+	lock
+	msgbox NewMauville_Inside_Text_RaikouStillMad, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, NewMauville_Inside_Movement_StepBack
+	waitmovement 0
+	release
+	end
+
+NewMauville_Inside_Movement_StepBack:
+	walk_left
+	step_end
+
+NewMauville_Inside_EventScript_RaikouFight::
+	lock
+	faceplayer
+	playmoncry SPECIES_RAIKOU, CRY_MODE_ENCOUNTER
+	waitmoncry
+	setwildbattle SPECIES_RAIKOU, 40
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, NewMauville_Inside_EventScript_RaikouCalm
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, NewMauville_Inside_EventScript_RaikouPissed
+	end
+

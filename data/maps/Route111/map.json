@@ -638,7 +638,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Route111_EventScript_VillageBlockers",
       "flag": "0"
     },
     {
@@ -651,7 +651,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Route111_EventScript_VillageBlockers",
       "flag": "0"
     }
   ],
@@ -689,6 +689,13 @@
       "y": 113,
       "elevation": 0,
       "dest_map": "MAP_TRAINER_HILL_ENTRANCE",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 32,
+      "y": 52,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE111",
       "dest_warp_id": "0"
     }
   ],

@@ -70,10 +70,10 @@
 #define FLAG_LEAGUE_DASH     0x39 // Dash at the League
 #define FLAG_BASE_CHAMP_SET  0x3A // The base flag used for numerous things related to being champ, including title defense, etc
 #define FLAG_CHAMP_BLOCK     0x3B // Champion Club blocker
-#define FLAG_UNUSED_0x03C    0x3C // Unused Flag
-#define FLAG_UNUSED_0x03D    0x3D // Unused Flag
-#define FLAG_UNUSED_0x03E    0x3E // Unused Flag
-#define FLAG_UNUSED_0x03F    0x3F // Unused Flag
+#define FLAG_RAIKOU          0x3C // Raikou New Mauville
+#define FLAG_ZYGARDE         0x3D // Zygarde Pyramid
+#define FLAG_WENT_VILLAGE    0x3E // Went to desert village
+#define FLAG_MET_EXPLORER    0x3F // Met explorer in village
 #define FLAG_UNUSED_0x040    0x40 // Unused Flag
 #define FLAG_UNUSED_0x041    0x41 // Unused Flag
 #define FLAG_UNUSED_0x042    0x42 // Unused Flag

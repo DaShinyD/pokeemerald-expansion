@@ -1274,3 +1274,7 @@ MysteryGift_Text_ReceivedGiftMon:
 	.include "data/maps/Champion_Club/scripts.inc"
 
 	.include "data/maps/Champion_Club_Center/scripts.inc"
+
+	.include "data/maps/DesertVillage/scripts.inc"
+
+	.include "data/maps/AncientPyarmid2/scripts.inc"

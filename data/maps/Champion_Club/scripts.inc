@@ -130,16 +130,29 @@ Champion_Club_EventScript_JakeBattleSetup::
 Champion_Club_Text_JakeLetsFight:
 	.string "Announcer: The battle between Jake\n"
 	.string "and {PLAYER} will now begin!\p"
-	.string "Jake: My Umbreon and I will take\n"
-	.string "you down.$"
+	.string "Jake: Umbreon and I will beat you.$"
 
 Champion_Club_EventScript_JakeBattle::
-	trainerbattle_no_intro TRAINER_JAKE, Champion_Club_Text_JakeDefeat
-	goto Champion_Club_EventScript_JakeBeat
+	trainerbattle_no_intro_no_whiteout TRAINER_JAKE, Champion_Club_Text_JakeDefeat
+	goto Champion_Club_EventScript_JakeBattleDone
 	end
 
 Champion_Club_Text_JakeDefeat:
 	.string "It ain't easy being cheesy.$"
+
+Champion_Club_EventScript_JakeBattleDone::
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq Champion_Club_EventScript_JakeBeat
+	msgbox Champion_Club_Text_TheWinnerJake, MSGBOX_DEFAULT
+	closemessage
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCameraBack
+	waitmovement 0
+	special RemoveCameraObject
+	special HealPlayerParty
+	release
+	end
 
 Champion_Club_EventScript_JakeBeat::
 	msgbox Champion_Club_Text_TheWinnerPlayer, MSGBOX_DEFAULT
@@ -148,9 +161,13 @@ Champion_Club_EventScript_JakeBeat::
 	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCameraBack
 	waitmovement 0
 	special RemoveCameraObject
+	special HealPlayerParty
 	release
 	end
 
 Champion_Club_Text_TheWinnerPlayer:
 	.string "The winner is {PLAYER}!$"
+
+Champion_Club_Text_TheWinnerJake:
+	.string "The winner is Jake!$"
 
