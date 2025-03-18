@@ -292,6 +292,15 @@ const u32 gTrainerPalette_Sky[] = INCBIN_U32("graphics/trainers/front_pics/sky.g
 const u32 gTrainerFrontPic_Jake[] = INCBIN_U32("graphics/trainers/front_pics/jake.4bpp.lz");
 const u32 gTrainerPalette_Jake[] = INCBIN_U32("graphics/trainers/front_pics/jake.gbapal.lz");
 
+const u32 gTrainerFrontPic_Percy[] = INCBIN_U32("graphics/trainers/front_pics/percy.4bpp.lz");
+const u32 gTrainerPalette_Percy[] = INCBIN_U32("graphics/trainers/front_pics/percy.gbapal.lz");
+
+const u32 gTrainerFrontPic_StrataGrunt[] = INCBIN_U32("graphics/trainers/front_pics/grunt.4bpp.lz");
+const u32 gTrainerPalette_StrataGrunt[] = INCBIN_U32("graphics/trainers/front_pics/grunt.gbapal.lz");
+
+const u32 gTrainerFrontPic_StrataLeader[] = INCBIN_U32("graphics/trainers/front_pics/leader.4bpp.lz");
+const u32 gTrainerPalette_StrataLeader[] = INCBIN_U32("graphics/trainers/front_pics/leader.gbapal.lz");
+
 const u8 gTrainerBackPic_Brendan[] = INCBIN_U8("graphics/trainers/back_pics/brendan.4bpp");
 const u8 gTrainerBackPic_May[] = INCBIN_U8("graphics/trainers/back_pics/may.4bpp");
 const u8 gTrainerBackPic_Red[] = INCBIN_U8("graphics/trainers/back_pics/red.4bpp");
@@ -417,6 +426,8 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(RYE, Rye),
     TRAINER_SPRITE(SKY, Sky),
     TRAINER_SPRITE(JAKE, Jake),
+    TRAINER_SPRITE(STRATA_GRUNT, StrataGrunt),
+    TRAINER_SPRITE(STRATA_LEADER, StrataLeader),
 };
 
 static const union AnimCmd sAnimCmd_Hoenn[] =

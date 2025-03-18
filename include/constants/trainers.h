@@ -112,7 +112,10 @@
 #define TRAINER_PIC_RYE                   94
 #define TRAINER_PIC_SKY                   95
 #define TRAINER_PIC_JAKE                  96
-#define TRAINER_PIC_COUNT                 97
+#define TRAINER_PIC_PERCY                 97
+#define TRAINER_PIC_STRATA_GRUNT          98
+#define TRAINER_PIC_STRATA_LEADER         99
+#define TRAINER_PIC_COUNT                 100
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0

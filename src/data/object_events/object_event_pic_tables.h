@@ -1404,3 +1404,38 @@ static const struct SpriteFrameImage sPicTable_Jake[] = {
     overworld_frame(gObjectEventPic_Jake, 2, 4, 8),
 };
 
+static const struct SpriteFrameImage sPicTable_Percy[] = {
+    overworld_frame(gObjectEventPic_Percy, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Percy, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Percy, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Percy, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Percy, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Percy, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Percy, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Percy, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Percy, 2, 4, 8),
+};
+
+static const struct SpriteFrameImage sPicTable_StrataGrunt[] = {
+    overworld_frame(gObjectEventPic_StrataGrunt, 2, 4, 0),
+    overworld_frame(gObjectEventPic_StrataGrunt, 2, 4, 1),
+    overworld_frame(gObjectEventPic_StrataGrunt, 2, 4, 2),
+    overworld_frame(gObjectEventPic_StrataGrunt, 2, 4, 3),
+    overworld_frame(gObjectEventPic_StrataGrunt, 2, 4, 4),
+    overworld_frame(gObjectEventPic_StrataGrunt, 2, 4, 5),
+    overworld_frame(gObjectEventPic_StrataGrunt, 2, 4, 6),
+    overworld_frame(gObjectEventPic_StrataGrunt, 2, 4, 7),
+    overworld_frame(gObjectEventPic_StrataGrunt, 2, 4, 8),
+};
+
+static const struct SpriteFrameImage sPicTable_StrataLeader[] = {
+    overworld_frame(gObjectEventPic_StrataLeader, 2, 4, 0),
+    overworld_frame(gObjectEventPic_StrataLeader, 2, 4, 1),
+    overworld_frame(gObjectEventPic_StrataLeader, 2, 4, 2),
+    overworld_frame(gObjectEventPic_StrataLeader, 2, 4, 3),
+    overworld_frame(gObjectEventPic_StrataLeader, 2, 4, 4),
+    overworld_frame(gObjectEventPic_StrataLeader, 2, 4, 5),
+    overworld_frame(gObjectEventPic_StrataLeader, 2, 4, 6),
+    overworld_frame(gObjectEventPic_StrataLeader, 2, 4, 7),
+    overworld_frame(gObjectEventPic_StrataLeader, 2, 4, 8),
+};

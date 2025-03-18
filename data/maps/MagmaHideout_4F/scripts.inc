@@ -98,6 +98,7 @@ MagmaHideout_4F_EventScript_Maxie::
 	addobject LOCALID_DASHACTUAL
 	addobject LOCALID_RYEACTUAL
 	setflag FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS
+	setflag FLAG_HIDE_STRATA_SKY_PILLAR
 	fadescreen FADE_FROM_BLACK
 	delay 8
 	applymovement LOCALID_RYEACTUAL, MagmaHideout_4F_Movement_RyeApproach

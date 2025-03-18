@@ -633,6 +633,16 @@ $(OBJEVENTGFXDIR)/people/Sky.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/Jake.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4	
 
+$(OBJEVENTGFXDIR)/people/percy.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4	
+
+$(OBJEVENTGFXDIR)/people/grunt.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4	
+
+$(OBJEVENTGFXDIR)/people/leader.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4	
+
+
 
 $(FLDEFFGFXDIR)/arrow.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 2

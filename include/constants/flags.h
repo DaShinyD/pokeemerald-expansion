@@ -74,7 +74,7 @@
 #define FLAG_ZYGARDE         0x3D // Zygarde Pyramid
 #define FLAG_WENT_VILLAGE    0x3E // Went to desert village
 #define FLAG_MET_EXPLORER    0x3F // Met explorer in village
-#define FLAG_UNUSED_0x040    0x40 // Unused Flag
+#define FLAG_HIDE_STRATA_SKY_PILLAR    0x40 // Hide strata grunt at sky pillar
 #define FLAG_UNUSED_0x041    0x41 // Unused Flag
 #define FLAG_UNUSED_0x042    0x42 // Unused Flag
 #define FLAG_UNUSED_0x043    0x43 // Unused Flag

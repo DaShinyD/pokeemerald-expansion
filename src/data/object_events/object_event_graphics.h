@@ -396,6 +396,15 @@ const u32 gObjectEventPic_Sky[] = INCBIN_U32("graphics/object_events/pics/people
 const u16 gObjectEventPal_Jake[] = INCBIN_U16("graphics/object_events/pics/people/Jake.gbapal");
 const u32 gObjectEventPic_Jake[] = INCBIN_U32("graphics/object_events/pics/people/Jake.4bpp");
 
+const u16 gObjectEventPal_Percy[] = INCBIN_U16("graphics/object_events/pics/people/percy.gbapal");
+const u32 gObjectEventPic_Percy[] = INCBIN_U32("graphics/object_events/pics/people/percy.4bpp");
+
+const u16 gObjectEventPal_StrataGrunt[] = INCBIN_U16("graphics/object_events/pics/people/grunt.gbapal");
+const u32 gObjectEventPic_StrataGrunt[] = INCBIN_U32("graphics/object_events/pics/people/grunt.4bpp");
+
+const u16 gObjectEventPal_StrataLeader[] = INCBIN_U16("graphics/object_events/pics/people/leader.gbapal");
+const u32 gObjectEventPic_StrataLeader[] = INCBIN_U32("graphics/object_events/pics/people/leader.4bpp");
+
 #if OW_FOLLOWERS_POKEBALLS
 const u32 gObjectEventPic_MasterBall[] = INCBIN_U32("graphics/object_events/pics/misc/ball_master.4bpp");
 const u32 gObjectEventPic_UltraBall[] = INCBIN_U32("graphics/object_events/pics/misc/ball_ultra.4bpp");
