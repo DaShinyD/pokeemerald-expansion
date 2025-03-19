@@ -12079,10 +12079,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #if P_GEN_2_CROSS_EVOS
     [SPECIES_HITMONTOP] =
     {
-        .baseHP        = 60,
-        .baseAttack    = 115,
+        .baseHP        = 70,
+        .baseAttack    = 130,
         .baseDefense   = 100,
-        .baseSpeed     = 80,
+        .baseSpeed     = 90,
         .baseSpAttack  = 35,
         .baseSpDefense = 110,
         .types = MON_TYPES(TYPE_FIGHTING),

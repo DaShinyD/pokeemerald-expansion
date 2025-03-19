@@ -1018,3 +1018,19 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "I gave you?\p"
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
+
+
+LittlerootTown_EventScript_ScientistGarden::
+	lock
+	faceplayer
+	msgbox LittlerootTown_Text_ThisIsGarden, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+LittlerootTown_Text_ThisIsGarden:
+	.string "This is Professor Birch's personal\n"
+	.string "garden.\p"
+	.string "Unfortunately, you can't enter unless\n"
+	.string "you have a pokedex.$"
+

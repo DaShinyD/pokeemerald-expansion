@@ -4560,6 +4560,46 @@
       "secondary_tileset": "gTileset_PyramidInteriorS",
       "border_filepath": "data/layouts/AncientPyarmid2/border.bin",
       "blockdata_filepath": "data/layouts/AncientPyarmid2/map.bin"
+    },
+    {
+      "id": "LAYOUT_BIRCH_GARDEN",
+      "name": "BirchGarden_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_petalburg2",
+      "border_filepath": "data/layouts/BirchGarden/border.bin",
+      "blockdata_filepath": "data/layouts/BirchGarden/map.bin"
+    },
+    {
+      "id": "LAYOUT_BIRCH_GARDEN2",
+      "name": "BirchGarden2_Layout",
+      "width": 12,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_petalburg2",
+      "border_filepath": "data/layouts/BirchGarden2/border.bin",
+      "blockdata_filepath": "data/layouts/BirchGarden2/map.bin"
+    },
+    {
+      "id": "LAYOUT_BIRCH_GARDEN3",
+      "name": "BirchGarden3_Layout",
+      "width": 14,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_petalburg2",
+      "border_filepath": "data/layouts/BirchGarden3/border.bin",
+      "blockdata_filepath": "data/layouts/BirchGarden3/map.bin"
+    },
+    {
+      "id": "LAYOUT_LEADER_CLUB",
+      "name": "LeaderClub_Layout",
+      "width": 27,
+      "height": 24,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PetalburgGym",
+      "border_filepath": "data/layouts/LeaderClub/border.bin",
+      "blockdata_filepath": "data/layouts/LeaderClub/map.bin"
     }
   ]
 }

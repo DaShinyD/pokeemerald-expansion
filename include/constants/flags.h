@@ -75,14 +75,14 @@
 #define FLAG_WENT_VILLAGE    0x3E // Went to desert village
 #define FLAG_MET_EXPLORER    0x3F // Met explorer in village
 #define FLAG_HIDE_STRATA_SKY_PILLAR    0x40 // Hide strata grunt at sky pillar
-#define FLAG_UNUSED_0x041    0x41 // Unused Flag
-#define FLAG_UNUSED_0x042    0x42 // Unused Flag
-#define FLAG_UNUSED_0x043    0x43 // Unused Flag
-#define FLAG_UNUSED_0x044    0x44 // Unused Flag
-#define FLAG_UNUSED_0x045    0x45 // Unused Flag
-#define FLAG_UNUSED_0x046    0x46 // Unused Flag
-#define FLAG_UNUSED_0x047    0x47 // Unused Flag
-#define FLAG_UNUSED_0x048    0x48 // Unused Flag
+#define FLAG_BEAT_JAKE       0x41 // Unused Flag
+#define FLAG_BEAT_SKY        0x42 // Unused Flag
+#define FLAG_BEAT_PERCY      0x43 // Unused Flag
+#define FLAG_BEAT_TONY       0x44 // Unused Flag
+#define FLAG_BEAT_ALEC       0x45 // Unused Flag
+#define FLAG_BEAT_SAM        0x46 // Unused Flag
+#define FLAG_BEAT_JOEY       0x47 // Unused Flag
+#define FLAG_BEAT_MORDE      0x48 // Unused Flag
 #define FLAG_UNUSED_0x049    0x49 // Unused Flag
 #define FLAG_UNUSED_0x04A    0x4A // Unused Flag
 #define FLAG_UNUSED_0x04B    0x4B // Unused Flag

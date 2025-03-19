@@ -99,7 +99,10 @@
     "FallarborForest",
     "AncientPyramid",
     "DesertVillage",
-    "AncientPyarmid2"
+    "AncientPyarmid2",
+    "BirchGarden",
+    "BirchGarden2",
+    "BirchGarden3"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -304,7 +307,8 @@
     "EverGrandeCity_PokemonCenter_2F",
     "EverGrandeCity_PokemonLeague_2F",
     "Champion_Club",
-    "Champion_Club_Center"
+    "Champion_Club_Center",
+    "LeaderClub"
   ],
   "gMapGroup_IndoorRoute104": [
     "Route104_MrBrineysHouse",

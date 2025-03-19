@@ -70,6 +70,9 @@
 #define MAP_ANCIENT_PYRAMID     (61 | (0 << 8))
 #define MAP_DESERT_VILLAGE      (62 | (0 << 8))
 #define MAP_ANCIENT_PYARMID2    (63 | (0 << 8))
+#define MAP_BIRCH_GARDEN        (64 | (0 << 8))
+#define MAP_BIRCH_GARDEN2       (65 | (0 << 8))
+#define MAP_BIRCH_GARDEN3       (66 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
@@ -275,6 +278,7 @@
 #define MAP_EVER_GRANDE_CITY_POKEMON_LEAGUE_2F (14 | (16 << 8))
 #define MAP_CHAMPION_CLUB                      (15 | (16 << 8))
 #define MAP_CHAMPION_CLUB_CENTER               (16 | (16 << 8))
+#define MAP_LEADER_CLUB                        (17 | (16 << 8))
 
 // gMapGroup_IndoorRoute104
 #define MAP_ROUTE104_MR_BRINEYS_HOUSE         (0 | (17 << 8))

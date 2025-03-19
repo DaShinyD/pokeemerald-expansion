@@ -69,7 +69,12 @@ Champion_Club_EventScript_DeskClerk::
 Champion_Club_Text_HowIsIt:
 	.string "Are you enjoying your time here?$"
 
-@ Begin trainer stuff
+
+
+
+@ Non Battle Dialogue
+
+
 
 
 
@@ -162,6 +167,7 @@ Champion_Club_EventScript_JakeBeat::
 	waitmovement 0
 	special RemoveCameraObject
 	special HealPlayerParty
+	setflag FLAG_BEAT_JAKE
 	release
 	end
 
@@ -171,3 +177,138 @@ Champion_Club_Text_TheWinnerPlayer:
 Champion_Club_Text_TheWinnerJake:
 	.string "The winner is Jake!$"
 
+@ Percy
+
+Champion_Club_EventScript_ParsleyChallenge::
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	waitmovement 0
+	msgbox Champion_Club_Text_WantToChallengeParsley, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Champion_Club_EventScript_ParsleyBattleSetup
+	goto_if_eq VAR_RESULT, NO, Champion_Club_EventScript_DenyBattle
+	end
+
+Champion_Club_Text_WantToChallengeParsley:
+	.string "Would you like to challenge Master\n"
+	.string "Trainer Parsley?$"
+
+Champion_Club_EventScript_ParsleyBattleSetup::
+	closemessage
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCamera
+	waitmovement 0
+	msgbox Champion_Club_Text_ParsleyLetsFight, MSGBOX_DEFAULT
+	closemessage
+	special RemoveCameraObject
+	goto Champion_Club_EventScript_ParsleyBattle
+	end
+
+Champion_Club_Text_ParsleyLetsFight:
+	.string "Announcer: The battle between Parsley\n"
+	.string "and {PLAYER} will now begin!\p"
+	.string "Parsley: Let's do this.$"
+
+Champion_Club_EventScript_ParsleyBattle::
+	trainerbattle_no_intro_no_whiteout TRAINER_PERCY, Champion_Club_Text_ParsleyDefeat
+	goto Champion_Club_EventScript_ParsleyBattleDone
+	end
+
+Champion_Club_Text_ParsleyDefeat:
+	.string "I need my vape.$"
+
+Champion_Club_EventScript_ParsleyBattleDone::
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq Champion_Club_EventScript_ParsleyBeat
+	msgbox Champion_Club_Text_TheWinnerParsley, MSGBOX_DEFAULT
+	closemessage
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCameraBack
+	waitmovement 0
+	special RemoveCameraObject
+	special HealPlayerParty
+	release
+	end
+
+Champion_Club_EventScript_ParsleyBeat::
+	msgbox Champion_Club_Text_TheWinnerPlayer, MSGBOX_DEFAULT
+	closemessage
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCameraBack
+	waitmovement 0
+	special RemoveCameraObject
+	special HealPlayerParty
+	setflag FLAG_BEAT_PERCY
+	release
+	end
+
+Champion_Club_Text_TheWinnerParsley:
+	.string "The winner is Parsley!$"
+
+@ Sky
+
+Champion_Club_EventScript_SkyChallenge::
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	waitmovement 0
+	msgbox Champion_Club_Text_WantToChallengeSky, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Champion_Club_EventScript_SkyBattleSetup
+	goto_if_eq VAR_RESULT, NO, Champion_Club_EventScript_DenyBattle
+	end
+
+Champion_Club_Text_WantToChallengeSky:
+	.string "Would you like to challenge Master\n"
+	.string "Trainer Sky?$"
+
+Champion_Club_EventScript_SkyBattleSetup::
+	closemessage
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCamera
+	waitmovement 0
+	msgbox Champion_Club_Text_SkyLetsFight, MSGBOX_DEFAULT
+	closemessage
+	special RemoveCameraObject
+	goto Champion_Club_EventScript_SkyBattle
+	end
+
+Champion_Club_Text_SkyLetsFight:
+	.string "Announcer: The battle between Sky\n"
+	.string "and {PLAYER} will now begin!\p"
+	.string "Sky: Are you challenging me?$"
+
+Champion_Club_EventScript_SkyBattle::
+	trainerbattle_no_intro_no_whiteout TRAINER_SKY, Champion_Club_Text_SkyDefeat
+	goto Champion_Club_EventScript_SkyBattleDone
+	end
+
+Champion_Club_Text_SkyDefeat:
+	.string "Back to Best Buy...$"
+
+Champion_Club_EventScript_SkyBattleDone::
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq Champion_Club_EventScript_SkyBeat
+	msgbox Champion_Club_Text_TheWinnerSky, MSGBOX_DEFAULT
+	closemessage
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCameraBack
+	waitmovement 0
+	special RemoveCameraObject
+	special HealPlayerParty
+	release
+	end
+
+Champion_Club_EventScript_SkyBeat::
+	msgbox Champion_Club_Text_TheWinnerPlayer, MSGBOX_DEFAULT
+	closemessage
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCameraBack
+	waitmovement 0
+	special RemoveCameraObject
+	special HealPlayerParty
+	setflag FLAG_BEAT_SKY
+	release
+	end
+
+Champion_Club_Text_TheWinnerSky:
+	.string "The winner is Sky!$"

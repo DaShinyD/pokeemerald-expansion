@@ -134,6 +134,20 @@
       "elevation": 0,
       "dest_map": "MAP_CHAMPION_CLUB",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 75,
+      "y": 44,
+      "elevation": 0,
+      "dest_map": "MAP_LEADER_CLUB",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 80,
+      "y": 52,
+      "elevation": 0,
+      "dest_map": "MAP_EVER_GRANDE_CITY",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

@@ -285,3 +285,9 @@ const u16 gMetatileAttributes_PyramidInteriorS[] = INCBIN_U16("data/tilesets/sec
 
 const u16 gMetatiles_SewerClear[] = INCBIN_U16("data/tilesets/secondary/sewer_clear/metatiles.bin");
 const u16 gMetatileAttributes_SewerClear[] = INCBIN_U16("data/tilesets/secondary/sewer_clear/metatile_attributes.bin");
+
+const u16 gMetatiles_FireRedInside[] = INCBIN_U16("data/tilesets/primary/fire_red_inside/metatiles.bin");
+const u16 gMetatileAttributes_FireRedInside[] = INCBIN_U16("data/tilesets/primary/fire_red_inside/metatile_attributes.bin");
+
+const u16 gMetatiles_FireRedInsideSecondary[] = INCBIN_U16("data/tilesets/secondary/fire_red_inside_secondary/metatiles.bin");
+const u16 gMetatileAttributes_FireRedInsideSecondary[] = INCBIN_U16("data/tilesets/secondary/fire_red_inside_secondary/metatile_attributes.bin");

@@ -25,16 +25,6 @@ Route105_OnFrame:
 	map_script_2 VAR_SHOULD_END_ABNORMAL_WEATHER, 1, AbnormalWeather_EventScript_EndEventAndCleanup_1
 	.2byte 0
 
-Route105_EventScript_Luis::
-	trainerbattle_single TRAINER_LUIS, Route105_Text_LuisIntro, Route105_Text_LuisDefeated
-	msgbox Route105_Text_LuisPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route105_EventScript_Dominik::
-	trainerbattle_single TRAINER_DOMINIK, Route105_Text_DominikIntro, Route105_Text_DominikDefeated
-	msgbox Route105_Text_DominikPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 Route105_EventScript_Josue::
 	trainerbattle_single TRAINER_JOSUE, Route105_Text_JosueIntro, Route105_Text_JosueDefeated
 	msgbox Route105_Text_JosuePostBattle, MSGBOX_AUTOCLOSE

@@ -1278,3 +1278,11 @@ MysteryGift_Text_ReceivedGiftMon:
 	.include "data/maps/DesertVillage/scripts.inc"
 
 	.include "data/maps/AncientPyarmid2/scripts.inc"
+
+	.include "data/maps/BirchGarden/scripts.inc"
+
+	.include "data/maps/BirchGarden2/scripts.inc"
+
+	.include "data/maps/BirchGarden3/scripts.inc"
+
+	.include "data/maps/LeaderClub/scripts.inc"

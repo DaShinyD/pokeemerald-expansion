@@ -426,6 +426,7 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(RYE, Rye),
     TRAINER_SPRITE(SKY, Sky),
     TRAINER_SPRITE(JAKE, Jake),
+    TRAINER_SPRITE(PERCY, Percy),
     TRAINER_SPRITE(STRATA_GRUNT, StrataGrunt),
     TRAINER_SPRITE(STRATA_LEADER, StrataLeader),
 };

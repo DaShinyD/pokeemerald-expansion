@@ -2128,3 +2128,41 @@ const u16 gTilesetPalettes_SewerClear[][16] =
 };
 
 const u32 gTilesetTiles_SewerClear[] = INCBIN_U32("data/tilesets/secondary/sewer_clear/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_FireRedInside[][16] =
+{
+    INCBIN_U16("data/tilesets/primary/fire_red_inside/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/primary/fire_red_inside/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/primary/fire_red_inside/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/primary/fire_red_inside/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/primary/fire_red_inside/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/primary/fire_red_inside/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/primary/fire_red_inside/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/primary/fire_red_inside/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/primary/fire_red_inside/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/primary/fire_red_inside/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/primary/fire_red_inside/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/primary/fire_red_inside/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/primary/fire_red_inside/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_FireRedInside[] = INCBIN_U32("data/tilesets/primary/fire_red_inside/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_FireRedInsideSecondary[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/fire_red_inside_secondary/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/fire_red_inside_secondary/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/fire_red_inside_secondary/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/fire_red_inside_secondary/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/fire_red_inside_secondary/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/fire_red_inside_secondary/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/fire_red_inside_secondary/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/fire_red_inside_secondary/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/fire_red_inside_secondary/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/fire_red_inside_secondary/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/fire_red_inside_secondary/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/fire_red_inside_secondary/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/fire_red_inside_secondary/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_FireRedInsideSecondary[] = INCBIN_U32("data/tilesets/secondary/fire_red_inside_secondary/tiles.4bpp.lz");

@@ -143,6 +143,9 @@ Debug_EventScript_Script_1::
 	end
 
 Debug_EventScript_Script_2::
+	setflag FLAG_FORCE_SHINY
+	setwildbattle SPECIES_SWAMPERT, 40
+	dowildbattle
 	release
 	end
 

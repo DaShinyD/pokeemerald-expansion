@@ -1111,3 +1111,25 @@ const struct Tileset gTileset_SewerClear =
     .metatileAttributes = gMetatileAttributes_SewerClear,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_FireRedInside =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_FireRedInside,
+    .palettes = gTilesetPalettes_FireRedInside,
+    .metatiles = gMetatiles_FireRedInside,
+    .metatileAttributes = gMetatileAttributes_FireRedInside,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_FireRedInsideSecondary =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_FireRedInsideSecondary,
+    .palettes = gTilesetPalettes_FireRedInsideSecondary,
+    .metatiles = gMetatiles_FireRedInsideSecondary,
+    .metatileAttributes = gMetatileAttributes_FireRedInsideSecondary,
+    .callback = NULL,
+};
