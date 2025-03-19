@@ -291,3 +291,6 @@ const u16 gMetatileAttributes_FireRedInside[] = INCBIN_U16("data/tilesets/primar
 
 const u16 gMetatiles_FireRedInsideSecondary[] = INCBIN_U16("data/tilesets/secondary/fire_red_inside_secondary/metatiles.bin");
 const u16 gMetatileAttributes_FireRedInsideSecondary[] = INCBIN_U16("data/tilesets/secondary/fire_red_inside_secondary/metatile_attributes.bin");
+
+const u16 gMetatiles_DistortionWorld[] = INCBIN_U16("data/tilesets/secondary/distortion_world/metatiles.bin");
+const u16 gMetatileAttributes_DistortionWorld[] = INCBIN_U16("data/tilesets/secondary/distortion_world/metatile_attributes.bin");

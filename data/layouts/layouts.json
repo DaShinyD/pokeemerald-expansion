@@ -4607,7 +4607,7 @@
       "width": 20,
       "height": 20,
       "primary_tileset": "gTileset_FireRedInside",
-      "secondary_tileset": "gTileset_FireRedInsideSecondary",
+      "secondary_tileset": "gTileset_DistortionWorld",
       "border_filepath": "data/layouts/TesterMap/border.bin",
       "blockdata_filepath": "data/layouts/TesterMap/map.bin"
     }
