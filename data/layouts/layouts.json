@@ -4610,6 +4610,16 @@
       "secondary_tileset": "gTileset_DistortionWorld",
       "border_filepath": "data/layouts/TesterMap/border.bin",
       "blockdata_filepath": "data/layouts/TesterMap/map.bin"
+    },
+    {
+      "id": "LAYOUT_THUNDER_DRAGON_CAVE",
+      "name": "ThunderDragonCave_Layout",
+      "width": 21,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/ThunderDragonCave/border.bin",
+      "blockdata_filepath": "data/layouts/ThunderDragonCave/map.bin"
     }
   ]
 }

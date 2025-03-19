@@ -1288,3 +1288,5 @@ MysteryGift_Text_ReceivedGiftMon:
 	.include "data/maps/LeaderClub/scripts.inc"
 
 	.include "data/maps/TesterMap/scripts.inc"
+
+	.include "data/maps/ThunderDragonCave/scripts.inc"

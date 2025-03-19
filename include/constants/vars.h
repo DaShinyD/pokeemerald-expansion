@@ -118,7 +118,7 @@
 #define VAR_RAIKOU_MAD                                   0x4062 // Raikou mad or calm
 #define VAR_ROUTE104_STATE                               0x4063
 #define VAR_SAVE_RAIKOU                                  0x4064 // Save before Raikou
-#define VAR_ROUTE106_STATE                               0x4065 // Unused Var
+#define VAR_REGI_CAVE_STATE                              0x4065 // Rock selection puzzle state in Regidrago cave
 #define VAR_ROUTE107_STATE                               0x4066 // Unused Var
 #define VAR_ROUTE108_STATE                               0x4067 // Unused Var
 #define VAR_ROUTE109_STATE                               0x4068 // Unused Var

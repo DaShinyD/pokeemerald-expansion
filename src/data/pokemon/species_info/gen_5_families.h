@@ -754,12 +754,12 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
 
     [SPECIES_WATCHOG] =
     {
-        .baseHP        = 60,
+        .baseHP        = 90,
         .baseAttack    = 85,
-        .baseDefense   = 69,
-        .baseSpeed     = 77,
+        .baseDefense   = 99,
+        .baseSpeed     = 97,
         .baseSpAttack  = 60,
-        .baseSpDefense = 69,
+        .baseSpDefense = 99,
         .types = MON_TYPES(TYPE_NORMAL),
         .catchRate = 255,
         .expYield = 147,
@@ -6045,12 +6045,12 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
 
     [SPECIES_CINCCINO] =
     {
-        .baseHP        = 75,
-        .baseAttack    = 95,
-        .baseDefense   = 60,
+        .baseHP        = 85,
+        .baseAttack    = 105,
+        .baseDefense   = 70,
         .baseSpeed     = 115,
         .baseSpAttack  = 65,
-        .baseSpDefense = 60,
+        .baseSpDefense = 80,
         .types = MON_TYPES(TYPE_NORMAL),
         .catchRate = 60,
         .expYield = 165,

@@ -156,7 +156,7 @@
 #define TRAINER_STEVE_5                     150
 #define TRAINER_SKY                         151 // now Sky (previously Luis)
 #define TRAINER_PERCY                       152 // now Percy (previously Dominik)
-#define TRAINER_DOUGLAS                     153 // now unused (route 106)
+#define TRAINER_JOEY2                       153 // now Joey (previously douglas)
 #define TRAINER_DARRIN                      154 // now unused
 #define TRAINER_TONY_1                      155 // now unused (remove match)
 #define TRAINER_JEROME                      156 // now unused (route 108)

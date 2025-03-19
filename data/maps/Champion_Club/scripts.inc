@@ -312,3 +312,71 @@ Champion_Club_EventScript_SkyBeat::
 
 Champion_Club_Text_TheWinnerSky:
 	.string "The winner is Sky!$"
+
+@ Joey
+
+Champion_Club_EventScript_JoeyChallenge::
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	waitmovement 0
+	msgbox Champion_Club_Text_WantToChallengeJoey, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Champion_Club_EventScript_JoeyBattleSetup
+	goto_if_eq VAR_RESULT, NO, Champion_Club_EventScript_DenyBattle
+	end
+
+Champion_Club_Text_WantToChallengeJoey:
+	.string "Would you like to challenge Master\n"
+	.string "Trainer Joey?$"
+
+Champion_Club_EventScript_JoeyBattleSetup::
+	closemessage
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCamera
+	waitmovement 0
+	msgbox Champion_Club_Text_JoeyLetsFight, MSGBOX_DEFAULT
+	closemessage
+	special RemoveCameraObject
+	goto Champion_Club_EventScript_JoeyBattle
+	end
+
+Champion_Club_Text_JoeyLetsFight:
+	.string "Announcer: The battle between Joey\n"
+	.string "and {PLAYER} will now begin!\p"
+	.string "Joey: My Raticate is best.$"
+
+Champion_Club_EventScript_JoeyBattle::
+	trainerbattle_no_intro_no_whiteout TRAINER_JOEY2, Champion_Club_Text_JoeyDefeat
+	goto Champion_Club_EventScript_JoeyBattleDone
+	end
+
+Champion_Club_Text_JoeyDefeat:
+	.string "But Raticate is top!$"
+
+Champion_Club_EventScript_JoeyBattleDone::
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq Champion_Club_EventScript_JoeyBeat
+	msgbox Champion_Club_Text_TheWinnerJoey, MSGBOX_DEFAULT
+	closemessage
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCameraBack
+	waitmovement 0
+	special RemoveCameraObject
+	special HealPlayerParty
+	release
+	end
+
+Champion_Club_EventScript_JoeyBeat::
+	msgbox Champion_Club_Text_TheWinnerPlayer, MSGBOX_DEFAULT
+	closemessage
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCameraBack
+	waitmovement 0
+	special RemoveCameraObject
+	special HealPlayerParty
+	setflag FLAG_BEAT_JOEY
+	release
+	end
+
+Champion_Club_Text_TheWinnerJoey:
+	.string "The winner is Joey!$"

@@ -83,8 +83,8 @@
 #define FLAG_BEAT_SAM        0x46 // Unused Flag
 #define FLAG_BEAT_JOEY       0x47 // Unused Flag
 #define FLAG_BEAT_MORDE      0x48 // Unused Flag
-#define FLAG_UNUSED_0x049    0x49 // Unused Flag
-#define FLAG_UNUSED_0x04A    0x4A // Unused Flag
+#define FLAG_REGIDRAGO       0x49 // Regidrago
+#define FLAG_REGIELEKI       0x4A // Regieleki
 #define FLAG_UNUSED_0x04B    0x4B // Unused Flag
 #define FLAG_UNUSED_0x04C    0x4C // Unused Flag
 #define FLAG_UNUSED_0x04D    0x4D // Unused Flag

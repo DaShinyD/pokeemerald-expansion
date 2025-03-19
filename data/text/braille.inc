@@ -115,3 +115,14 @@ AncientTomb_Braille_ShineInTheMiddle:
 	.braille "INHERIT OUR\n"
 	.braille "WILL, SHINE\n"
 	.braille "IN THE MIDDLE.$"
+
+ThunderDragonCave_Braille_Clock:
+	brailleformat 3, 0, 25, 19, 6, 3
+	.braille "TICK TOCK\n"
+	.braille "FIVE\n"
+	.braille "SEVEN\n"
+	.braille "TWO\n"
+	.braille "THREE\n"
+	.braille "ELEVEN\n"
+	.braille "EIGHT$"
+

@@ -279,6 +279,7 @@
 #define MAP_CHAMPION_CLUB                      (15 | (16 << 8))
 #define MAP_CHAMPION_CLUB_CENTER               (16 | (16 << 8))
 #define MAP_LEADER_CLUB                        (17 | (16 << 8))
+#define MAP_THUNDER_DRAGON_CAVE                (18 | (16 << 8))
 
 // gMapGroup_IndoorRoute104
 #define MAP_ROUTE104_MR_BRINEYS_HOUSE         (0 | (17 << 8))

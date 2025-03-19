@@ -982,8 +982,8 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 
     [SPECIES_LINOONE] =
     {
-        .baseHP        = 78,
-        .baseAttack    = 70,
+        .baseHP        = 100,
+        .baseAttack    = 90,
         .baseDefense   = 61,
         .baseSpeed     = 100,
         .baseSpAttack  = 50,
