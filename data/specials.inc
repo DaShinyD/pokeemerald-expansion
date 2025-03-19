@@ -557,4 +557,5 @@ gSpecials::
 	def_special CheckStarter
 	def_special EnterMysteryGiftCode
 	def_special GetMysteryGiftFeedback
+	def_special HasAllRegisInParty
 	

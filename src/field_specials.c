@@ -1293,6 +1293,43 @@ bool8 CheckStarter(void)
     return 0;
 }
 
+// Checks for all regis in player party
+bool8 HasAllRegisInParty(void)
+{
+    int i;
+    bool8 hasRegisteel = FALSE;
+    bool8 hasRegice = FALSE;
+    bool8 hasRegirock = FALSE;
+    bool8 hasRegidrago = FALSE;
+    bool8 hasRegieleki = FALSE;
+
+    // Loop through the player's party
+    for (i = 0; i < PARTY_SIZE; i++) {
+        // Access species of the current Pokémon in the party
+        u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL);
+        
+        // Check if the species matches any of the Regi Pokémon
+        if (species == SPECIES_REGISTEEL) {
+            hasRegisteel = TRUE;
+        }
+        if (species == SPECIES_REGICE) {
+            hasRegice = TRUE;
+        }
+        if (species == SPECIES_REGIROCK) {
+            hasRegirock = TRUE;
+        }
+        if (species == SPECIES_REGIDRAGO) {
+            hasRegidrago = TRUE;
+        }
+        if (species == SPECIES_REGIELEKI) {
+            hasRegieleki = TRUE;
+        }
+    }
+
+    // Return TRUE only if all six Regi Pokémon are found in the player's party, FALSE if ANY are missing
+    return hasRegisteel && hasRegice && hasRegirock && hasRegidrago && hasRegieleki;
+}
+
 void IsGrassTypeInParty(void)
 {
     u8 i;

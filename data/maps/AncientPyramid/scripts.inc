@@ -44,3 +44,4 @@ AncientPyramid_EventScript_Trigger2::
 	fadescreen FADE_FROM_BLACK
 	release
 	end
+

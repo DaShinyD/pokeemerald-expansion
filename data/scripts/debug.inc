@@ -150,10 +150,18 @@ Debug_EventScript_Script_2::
 	end
 
 Debug_EventScript_Script_3::
+	givemon SPECIES_REGIROCK, 100
+	givemon SPECIES_REGISTEEL, 100
+	givemon SPECIES_REGICE, 100
+	givemon SPECIES_REGIDRAGO, 100
+	givemon SPECIES_REGIELEKI, 100
 	release
 	end
 
 Debug_EventScript_Script_4::
+	specialvar VAR_RESULT, HasAllRegisInParty
+	goto_if_eq VAR_RESULT, TRUE, Debug_EventScript_ItWorked_Text
+	goto_if_eq VAR_RESULT, FALSE, Debug_EventScript_ItDidntWorked_Text
 	release
 	end
 
@@ -452,5 +460,25 @@ Debug_EventScript_EWRAMCounters::
 Debug_EventScript_EWRAMCounters_Text::
 	.string "Follower Steps: {STR_VAR_1}.\n"
 	.string "Fishing Chain: {STR_VAR_2}.$"
+
+Debug_EventScript_ItWorked_Text::
+	lock
+	msgbox Debug_Text_ItWorked, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+Debug_EventScript_ItDidntWorked_Text::
+	lock
+	msgbox Debug_Text_ItDidntWorked, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+Debug_Text_ItWorked::
+	.string "Yes.$"
+
+Debug_Text_ItDidntWorked::
+	.string "No.$"
 
 .endif

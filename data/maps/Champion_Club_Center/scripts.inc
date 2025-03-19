@@ -10,3 +10,4 @@ Champion_Club_Center_EventScript_Nurse::
 	waitbuttonpress
 	release
 	end
+

@@ -85,7 +85,7 @@
 #define FLAG_BEAT_MORDE      0x48 // Unused Flag
 #define FLAG_REGIDRAGO       0x49 // Regidrago
 #define FLAG_REGIELEKI       0x4A // Regieleki
-#define FLAG_UNUSED_0x04B    0x4B // Unused Flag
+#define FLAG_SOLVED_REGID    0x4B // Solved regidrago puzzle
 #define FLAG_UNUSED_0x04C    0x4C // Unused Flag
 #define FLAG_UNUSED_0x04D    0x4D // Unused Flag
 #define FLAG_UNUSED_0x04E    0x4E // Unused Flag

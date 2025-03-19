@@ -2,7 +2,21 @@
 .set LOCALID_REGIELEKI, 2
 
 ThunderDragonCave_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, ThunderDragonCave_OnLoad
 	.byte 0
+
+ThunderDragonCave_OnLoad:
+	call_if_set FLAG_SOLVED_REGID, ThunderDragonCave_EventScript_OpenDoor
+	end
+
+ThunderDragonCave_EventScript_OpenDoor:
+	setmetatile 9, 13, METATILE_Cave_SealedChamberEntrance_TopLeft, TRUE
+	setmetatile 10, 13, METATILE_Cave_SealedChamberEntrance_TopMid, TRUE
+	setmetatile 11, 13, METATILE_Cave_SealedChamberEntrance_TopRight, TRUE
+	setmetatile 9, 14, METATILE_Cave_SealedChamberEntrance_BottomLeft, TRUE
+	setmetatile 10, 14, METATILE_Cave_SealedChamberEntrance_BottomMid, FALSE
+	setmetatile 11, 14, METATILE_Cave_SealedChamberEntrance_BottomRight, TRUE
+	return
 
 ThunderDragonCave_EventScript_BrailleHint::
 	lockall
