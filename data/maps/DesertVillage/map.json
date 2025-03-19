@@ -3,7 +3,7 @@
   "name": "DesertVillage",
   "layout": "LAYOUT_DESERT_VILLAGE",
   "music": "MUS_ROUTE110",
-  "region_map_section": "MAPSEC_ROUTE_135",
+  "region_map_section": "MAPSEC_DESERT_VILLAGE",
   "requires_flash": false,
   "weather": "WEATHER_SANDSTORM",
   "map_type": "MAP_TYPE_TOWN",

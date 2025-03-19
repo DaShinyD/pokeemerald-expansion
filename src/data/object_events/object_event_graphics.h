@@ -405,6 +405,54 @@ const u32 gObjectEventPic_StrataGrunt[] = INCBIN_U32("graphics/object_events/pic
 const u16 gObjectEventPal_StrataLeader[] = INCBIN_U16("graphics/object_events/pics/people/leader.gbapal");
 const u32 gObjectEventPic_StrataLeader[] = INCBIN_U32("graphics/object_events/pics/people/leader.4bpp");
 
+const u16 gObjectEventPal_Brock[] = INCBIN_U16("graphics/object_events/pics/people/kanto/brock.gbapal");
+const u32 gObjectEventPic_Brock[] = INCBIN_U32("graphics/object_events/pics/people/kanto/brock.4bpp");
+
+const u16 gObjectEventPal_Misty[] = INCBIN_U16("graphics/object_events/pics/people/kanto/misty.gbapal");
+const u32 gObjectEventPic_Misty[] = INCBIN_U32("graphics/object_events/pics/people/kanto/misty.4bpp");
+
+const u16 gObjectEventPal_Surge[] = INCBIN_U16("graphics/object_events/pics/people/kanto/surge.gbapal");
+const u32 gObjectEventPic_Surge[] = INCBIN_U32("graphics/object_events/pics/people/kanto/surge.4bpp");
+
+const u16 gObjectEventPal_Erika[] = INCBIN_U16("graphics/object_events/pics/people/kanto/erika.gbapal");
+const u32 gObjectEventPic_Erika[] = INCBIN_U32("graphics/object_events/pics/people/kanto/erika.4bpp");
+
+const u16 gObjectEventPal_Koga[] = INCBIN_U16("graphics/object_events/pics/people/kanto/koga.gbapal");
+const u32 gObjectEventPic_Koga[] = INCBIN_U32("graphics/object_events/pics/people/kanto/koga.4bpp");
+
+const u16 gObjectEventPal_Sabrina[] = INCBIN_U16("graphics/object_events/pics/people/kanto/sabrina.gbapal");
+const u32 gObjectEventPic_Sabrina[] = INCBIN_U32("graphics/object_events/pics/people/kanto/sabrina.4bpp");
+
+const u16 gObjectEventPal_Blaine[] = INCBIN_U16("graphics/object_events/pics/people/kanto/blaine.gbapal");
+const u32 gObjectEventPic_Blaine[] = INCBIN_U32("graphics/object_events/pics/people/kanto/blaine.4bpp");
+
+const u16 gObjectEventPal_Blue[] = INCBIN_U16("graphics/object_events/pics/people/kanto/blue.gbapal");
+const u32 gObjectEventPic_Blue[] = INCBIN_U32("graphics/object_events/pics/people/kanto/blue.4bpp");
+
+const u16 gObjectEventPal_Falkner[] = INCBIN_U16("graphics/object_events/pics/people/johto/falkner.gbapal");
+const u32 gObjectEventPic_Falkner[] = INCBIN_U32("graphics/object_events/pics/people/johto/falkner.4bpp");
+
+const u16 gObjectEventPal_Bugsy[] = INCBIN_U16("graphics/object_events/pics/people/johto/bugsy.gbapal");
+const u32 gObjectEventPic_Bugsy[] = INCBIN_U32("graphics/object_events/pics/people/johto/bugsy.4bpp");
+
+const u16 gObjectEventPal_Whitney[] = INCBIN_U16("graphics/object_events/pics/people/johto/whitney.gbapal");
+const u32 gObjectEventPic_Whitney[] = INCBIN_U32("graphics/object_events/pics/people/johto/whitney.4bpp");
+
+const u16 gObjectEventPal_Morty[] = INCBIN_U16("graphics/object_events/pics/people/johto/morty.gbapal");
+const u32 gObjectEventPic_Morty[] = INCBIN_U32("graphics/object_events/pics/people/johto/morty.4bpp");
+
+const u16 gObjectEventPal_Chuck[] = INCBIN_U16("graphics/object_events/pics/people/johto/chuck.gbapal");
+const u32 gObjectEventPic_Chuck[] = INCBIN_U32("graphics/object_events/pics/people/johto/chuck.4bpp");
+
+const u16 gObjectEventPal_Jasmine[] = INCBIN_U16("graphics/object_events/pics/people/johto/jasmine.gbapal");
+const u32 gObjectEventPic_Jasmine[] = INCBIN_U32("graphics/object_events/pics/people/johto/jasmine.4bpp");
+
+const u16 gObjectEventPal_Pryce[] = INCBIN_U16("graphics/object_events/pics/people/johto/pryce.gbapal");
+const u32 gObjectEventPic_Pryce[] = INCBIN_U32("graphics/object_events/pics/people/johto/pryce.4bpp");
+
+const u16 gObjectEventPal_Clair[] = INCBIN_U16("graphics/object_events/pics/people/johto/clair.gbapal");
+const u32 gObjectEventPic_Clair[] = INCBIN_U32("graphics/object_events/pics/people/johto/clair.4bpp");
+
 #if OW_FOLLOWERS_POKEBALLS
 const u32 gObjectEventPic_MasterBall[] = INCBIN_U32("graphics/object_events/pics/misc/ball_master.4bpp");
 const u32 gObjectEventPic_UltraBall[] = INCBIN_U32("graphics/object_events/pics/misc/ball_ultra.4bpp");

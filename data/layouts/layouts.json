@@ -4600,6 +4600,16 @@
       "secondary_tileset": "gTileset_PetalburgGym",
       "border_filepath": "data/layouts/LeaderClub/border.bin",
       "blockdata_filepath": "data/layouts/LeaderClub/map.bin"
+    },
+    {
+      "id": "LAYOUT_TESTER_MAP",
+      "name": "TesterMap_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_FireRedInside",
+      "secondary_tileset": "gTileset_FireRedInsideSecondary",
+      "border_filepath": "data/layouts/TesterMap/border.bin",
+      "blockdata_filepath": "data/layouts/TesterMap/map.bin"
     }
   ]
 }

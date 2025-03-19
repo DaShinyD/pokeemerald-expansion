@@ -115,7 +115,23 @@
 #define TRAINER_PIC_PERCY                 97
 #define TRAINER_PIC_STRATA_GRUNT          98
 #define TRAINER_PIC_STRATA_LEADER         99
-#define TRAINER_PIC_COUNT                 100
+#define TRAINER_PIC_BROCK                 100
+#define TRAINER_PIC_MISTY                 101
+#define TRAINER_PIC_SURGE                 102
+#define TRAINER_PIC_ERIKA                 103
+#define TRAINER_PIC_KOGA                  104
+#define TRAINER_PIC_SABRINA               105
+#define TRAINER_PIC_BLAINE                106
+#define TRAINER_PIC_BLUE                  107
+#define TRAINER_PIC_FALKNER               108
+#define TRAINER_PIC_BUGSY                 109
+#define TRAINER_PIC_WHITNEY               110
+#define TRAINER_PIC_MORTY                 111
+#define TRAINER_PIC_CHUCK                 112
+#define TRAINER_PIC_JASMINE               113
+#define TRAINER_PIC_PRYCE                 114
+#define TRAINER_PIC_CLAIR                 115
+#define TRAINER_PIC_COUNT                 116
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0

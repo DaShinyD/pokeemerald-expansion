@@ -219,7 +219,10 @@
 #define MAPSEC_ROUTE_135                    0xD7
 #define MAPSEC_DAYCARE_GARDEN               0xD8
 #define MAPSEC_DEWFORD_CAVE                 0xD9
-#define MAPSEC_NONE                         0xDA
+#define MAPSEC_ANCIENT_PYRAMID              0xDA
+#define MAPSEC_BIRCH_GARDEN                 0xDB
+#define MAPSEC_DESERT_VILLAGE               0xDC
+#define MAPSEC_NONE                         0xDD
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

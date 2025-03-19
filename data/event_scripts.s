@@ -1286,3 +1286,5 @@ MysteryGift_Text_ReceivedGiftMon:
 	.include "data/maps/BirchGarden3/scripts.inc"
 
 	.include "data/maps/LeaderClub/scripts.inc"
+
+	.include "data/maps/TesterMap/scripts.inc"

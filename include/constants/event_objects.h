@@ -249,11 +249,27 @@
 #define OBJ_EVENT_GFX_PERCY                      245
 #define OBJ_EVENT_GFX_STRATA_GRUNT               246
 #define OBJ_EVENT_GFX_STRATA_LEADER              247
+#define OBJ_EVENT_GFX_BROCK                      248
+#define OBJ_EVENT_GFX_MISTY                      249
+#define OBJ_EVENT_GFX_SURGE                      250
+#define OBJ_EVENT_GFX_ERIKA                      251
+#define OBJ_EVENT_GFX_KOGA                       252
+#define OBJ_EVENT_GFX_SABRINA                    253
+#define OBJ_EVENT_GFX_BLAINE                     254
+#define OBJ_EVENT_GFX_BLUE                       255
+#define OBJ_EVENT_GFX_FALKNER                    256
+#define OBJ_EVENT_GFX_BUGSY                      257
+#define OBJ_EVENT_GFX_WHITNEY                    258
+#define OBJ_EVENT_GFX_MORTY                      259
+#define OBJ_EVENT_GFX_CHUCK                      260
+#define OBJ_EVENT_GFX_JASMINE                    261
+#define OBJ_EVENT_GFX_PRYCE                      262
+#define OBJ_EVENT_GFX_CLAIR                      263
 
 // NOTE: The maximum amount of object events has been expanded from 255 to 65535.
 // Since dynamic graphics ids still require at least 16 free values, the actual limit
 // is 65519, but even considering follower Pokémon, this should be more than enough :)
-#define NUM_OBJ_EVENT_GFX                        248
+#define NUM_OBJ_EVENT_GFX                        264
 
 
 // These are dynamic object gfx ids.
@@ -391,6 +407,22 @@
 #define OBJ_EVENT_PAL_TAG_PERCY                   0x1129
 #define OBJ_EVENT_PAL_TAG_STRATA_GRUNT            0x112A
 #define OBJ_EVENT_PAL_TAG_STRATA_LEADER           0x112B
+#define OBJ_EVENT_PAL_TAG_BROCK                   0x112C
+#define OBJ_EVENT_PAL_TAG_MISTY                   0x112D
+#define OBJ_EVENT_PAL_TAG_SURGE                   0x112E
+#define OBJ_EVENT_PAL_TAG_ERIKA                   0x112F
+#define OBJ_EVENT_PAL_TAG_KOGA                    0x1130
+#define OBJ_EVENT_PAL_TAG_SABRINA                 0x1131
+#define OBJ_EVENT_PAL_TAG_BLAINE                  0x1132
+#define OBJ_EVENT_PAL_TAG_BLUE                    0x1133
+#define OBJ_EVENT_PAL_TAG_FALKNER                 0x1134
+#define OBJ_EVENT_PAL_TAG_BUGSY                   0x1135
+#define OBJ_EVENT_PAL_TAG_WHITNEY                 0x1136
+#define OBJ_EVENT_PAL_TAG_MORTY                   0x1137
+#define OBJ_EVENT_PAL_TAG_CHUCK                   0x1138
+#define OBJ_EVENT_PAL_TAG_JASMINE                 0x1139
+#define OBJ_EVENT_PAL_TAG_PRYCE                   0x113A
+#define OBJ_EVENT_PAL_TAG_CLAIR                   0x113B
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla
