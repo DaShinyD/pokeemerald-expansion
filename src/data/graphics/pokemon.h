@@ -22041,3 +22041,11 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     const u32 gMonFrontPic_Egg[] = INCBIN_U32("graphics/pokemon/egg/anim_front.4bpp.lz");
     const u32 gMonPalette_Egg[] = INCBIN_U32("graphics/pokemon/egg/normal.gbapal.lz");
     const u8 gMonIcon_Egg[] = INCBIN_U8("graphics/pokemon/egg/icon.4bpp");
+
+    const u32 gMonFrontPic_Lediastra[] = INCBIN_U32("graphics/pokemon/lediastra/anim_front.4bpp.lz");
+    const u32 gMonBackPic_Lediastra[] = INCBIN_U32("graphics/pokemon/lediastra/back.4bpp.lz");
+    const u32 gMonPalette_Lediastra[] = INCBIN_U32("graphics/pokemon/lediastra/normal.gbapal.lz");
+    const u32 gMonShinyPalette_Lediastra[] = INCBIN_U32("graphics/pokemon/lediastra/shiny.gbapal.lz");
+    const u8 gMonIcon_Lediastra[] = INCBIN_U8("graphics/pokemon/lediastra/icon.4bpp");
+    const u8 gMonFootprint_Lediastra[] = INCBIN_U8("graphics/pokemon/lediastra/footprint.1bpp");
+

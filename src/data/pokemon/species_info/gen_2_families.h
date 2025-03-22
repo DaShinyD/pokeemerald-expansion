@@ -928,7 +928,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_BUG),
-        .abilities = { ABILITY_SWARM, ABILITY_EARLY_BIRD, ABILITY_RATTLED },
+        .abilities = { ABILITY_SWARM, ABILITY_IRON_FIST, ABILITY_RATTLED },
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("Ledyba"),
         .cryId = CRY_LEDYBA,
@@ -994,7 +994,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_BUG),
-        .abilities = { ABILITY_SWARM, ABILITY_EARLY_BIRD, ABILITY_IRON_FIST },
+        .abilities = { ABILITY_SWARM, ABILITY_IRON_FIST, ABILITY_IRON_FIST },
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("Ledian"),
         .cryId = CRY_LEDIAN,
@@ -1040,7 +1040,9 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sLedianLevelUpLearnset,
         .teachableLearnset = sLedianTeachableLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_LEDIASTRA}),
     },
+
 #endif //P_FAMILY_LEDYBA
 
 #if P_FAMILY_SPINARAK
