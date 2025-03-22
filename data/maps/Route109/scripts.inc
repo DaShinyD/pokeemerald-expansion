@@ -374,11 +374,6 @@ Route109_EventScript_TrainerTipsSign::
 	msgbox Route109_Text_TrainerTipsSign, MSGBOX_SIGN
 	end
 
-Route109_EventScript_David::
-	trainerbattle_single TRAINER_DAVID, Route109_Text_DavidIntro, Route109_Text_DavidDefeated
-	msgbox Route109_Text_DavidPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 Route109_EventScript_Alice::
 	trainerbattle_single TRAINER_ALICE, Route109_Text_AliceIntro, Route109_Text_AliceDefeated
 	msgbox Route109_Text_AlicePostBattle, MSGBOX_AUTOCLOSE

@@ -16,11 +16,6 @@ Route134_EventScript_Laurel::
 	msgbox Route134_Text_LaurelPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route134_EventScript_Alex::
-	trainerbattle_single TRAINER_ALEX, Route134_Text_AlexIntro, Route134_Text_AlexDefeat
-	msgbox Route134_Text_AlexPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 Route134_EventScript_Aaron::
 	trainerbattle_single TRAINER_AARON, Route134_Text_AaronIntro, Route134_Text_AaronDefeat
 	msgbox Route134_Text_AaronPostBattle, MSGBOX_AUTOCLOSE

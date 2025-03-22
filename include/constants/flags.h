@@ -79,16 +79,16 @@
 #define FLAG_BEAT_SKY        0x42 // Unused Flag
 #define FLAG_BEAT_PERCY      0x43 // Unused Flag
 #define FLAG_BEAT_TONY       0x44 // Unused Flag
-#define FLAG_BEAT_ALEC       0x45 // Unused Flag
+#define FLAG_BEAT_ALEX       0x45 // Unused Flag
 #define FLAG_BEAT_SAM        0x46 // Unused Flag
 #define FLAG_BEAT_JOEY       0x47 // Unused Flag
 #define FLAG_BEAT_MORDE      0x48 // Unused Flag
 #define FLAG_REGIDRAGO       0x49 // Regidrago
 #define FLAG_REGIELEKI       0x4A // Regieleki
 #define FLAG_SOLVED_REGID    0x4B // Solved regidrago puzzle
-#define FLAG_UNUSED_0x04C    0x4C // Unused Flag
-#define FLAG_UNUSED_0x04D    0x4D // Unused Flag
-#define FLAG_UNUSED_0x04E    0x4E // Unused Flag
+#define FLAG_HIDE_STRATA_LEADER    0x4C // Hide strata leader for strata storyline at sky pillar entrance
+#define FLAG_START_STRATA    0x4D // Start Strata event
+#define FLAG_STRATA_1        0x4E // Strata checkpoint 1
 #define FLAG_UNUSED_0x04F    0x4F // Unused Flag
 
 // Scripts

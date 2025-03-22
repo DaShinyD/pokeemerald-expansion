@@ -102,7 +102,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "Champion_Club_EventScript_AlexChallenge",
       "flag": "0"
     },
     {
@@ -156,7 +156,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Champion_Club_EventScript_MordeChallenge"
     },
     {
       "type": "trigger",
@@ -219,7 +219,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Champion_Club_EventScript_SamChallenge"
     },
     {
       "type": "trigger",

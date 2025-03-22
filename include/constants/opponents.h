@@ -159,9 +159,9 @@
 #define TRAINER_JOEY2                       153 // now Joey (previously douglas)
 #define TRAINER_DARRIN                      154 // now unused
 #define TRAINER_TONY_1                      155 // now unused (remove match)
-#define TRAINER_JEROME                      156 // now unused (route 108)
+#define TRAINER_MORDE                       156 // now Morde (previously Jerome)
 #define TRAINER_MATTHEW                     157 // now unused (route 108)
-#define TRAINER_DAVID                       158 // now unused (route 109)
+#define TRAINER_SAM                         158 // now Sam (previously David)
 #define TRAINER_SPENCER                     159
 #define TRAINER_ROLAND                      160
 #define TRAINER_NOLEN                       161 // now unused (route 125)
@@ -416,7 +416,7 @@
 #define TRAINER_ROBERT_3                    410
 #define TRAINER_ROBERT_4                    411
 #define TRAINER_ROBERT_5                    412
-#define TRAINER_ALEX                        413 // now unused (route 134)
+#define TRAINER_ALEX                        413 // now Alex (previously alex)
 #define TRAINER_BECK                        414 // now unused (route 133)
 #define TRAINER_YASU                        415
 #define TRAINER_TAKASHI                     416

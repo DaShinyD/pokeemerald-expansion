@@ -61,6 +61,7 @@ ThunderDragonCave_EventScript_Rock8::
 	setmetatile 11, 14, METATILE_Cave_SealedChamberEntrance_BottomRight, TRUE
 	special DrawWholeMapView
 	playse SE_BANG
+	setflag FLAG_SOLVED_REGID
 	end
 
 ThunderDragonCave_EventScript_Reset::

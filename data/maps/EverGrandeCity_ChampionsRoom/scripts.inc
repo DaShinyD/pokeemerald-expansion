@@ -137,6 +137,7 @@ EverGrandeCity_ChampionsRoom_EventScript_BirchArrivesExitForHoF::
 	setflag FLAG_HIDE_PETALBURG_GYM_GREETER
 	setflag FLAG_BASE_CHAMP_SET
 	setflag FLAG_LEVEL_CAP_NINE
+	setflag FLAG_START_STRATA
 	warp MAP_EVER_GRANDE_CITY_HALL_OF_FAME, 7, 16
 	waitstate
 	releaseall

@@ -380,3 +380,207 @@ Champion_Club_EventScript_JoeyBeat::
 
 Champion_Club_Text_TheWinnerJoey:
 	.string "The winner is Joey!$"
+
+@ Morde
+
+Champion_Club_EventScript_MordeChallenge::
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	waitmovement 0
+	msgbox Champion_Club_Text_WantToChallengeMorde, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Champion_Club_EventScript_MordeBattleSetup
+	goto_if_eq VAR_RESULT, NO, Champion_Club_EventScript_DenyBattle
+	end
+
+Champion_Club_Text_WantToChallengeMorde:
+	.string "Would you like to challenge Master\n"
+	.string "Trainer Morde?$"
+
+Champion_Club_EventScript_MordeBattleSetup::
+	closemessage
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCamera
+	waitmovement 0
+	msgbox Champion_Club_Text_MordeLetsFight, MSGBOX_DEFAULT
+	closemessage
+	special RemoveCameraObject
+	goto Champion_Club_EventScript_MordeBattle
+	end
+
+Champion_Club_Text_MordeLetsFight:
+	.string "Announcer: The battle between Morde\n"
+	.string "and {PLAYER} will now begin!\p"
+	.string "Morde: I love big mons.$"
+
+Champion_Club_EventScript_MordeBattle::
+	trainerbattle_no_intro_no_whiteout TRAINER_MORDE, Champion_Club_Text_MordeDefeat
+	goto Champion_Club_EventScript_MordeBattleDone
+	end
+
+Champion_Club_Text_MordeDefeat:
+	.string "How could you top my Kaiju?$"
+
+Champion_Club_EventScript_MordeBattleDone::
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq Champion_Club_EventScript_MordeBeat
+	msgbox Champion_Club_Text_TheWinnerMorde, MSGBOX_DEFAULT
+	closemessage
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCameraBack
+	waitmovement 0
+	special RemoveCameraObject
+	special HealPlayerParty
+	release
+	end
+
+Champion_Club_EventScript_MordeBeat::
+	msgbox Champion_Club_Text_TheWinnerPlayer, MSGBOX_DEFAULT
+	closemessage
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCameraBack
+	waitmovement 0
+	special RemoveCameraObject
+	special HealPlayerParty
+	setflag FLAG_BEAT_MORDE
+	release
+	end
+
+Champion_Club_Text_TheWinnerMorde:
+	.string "The winner is Morde!$"
+
+@ Sam
+
+Champion_Club_EventScript_SamChallenge::
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	waitmovement 0
+	msgbox Champion_Club_Text_WantToChallengeSam, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Champion_Club_EventScript_SamBattleSetup
+	goto_if_eq VAR_RESULT, NO, Champion_Club_EventScript_DenyBattle
+	end
+
+Champion_Club_Text_WantToChallengeSam:
+	.string "Would you like to challenge Master\n"
+	.string "Trainer Sam?$"
+
+Champion_Club_EventScript_SamBattleSetup::
+	closemessage
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCamera
+	waitmovement 0
+	msgbox Champion_Club_Text_SamLetsFight, MSGBOX_DEFAULT
+	closemessage
+	special RemoveCameraObject
+	goto Champion_Club_EventScript_SamBattle
+	end
+
+Champion_Club_Text_SamLetsFight:
+	.string "Announcer: The battle between Sam\n"
+	.string "and {PLAYER} will now begin!\p"
+	.string "Sam: My Pokemon are beautiful.$"
+
+Champion_Club_EventScript_SamBattle::
+	trainerbattle_no_intro_no_whiteout TRAINER_SAM, Champion_Club_Text_SamDefeat
+	goto Champion_Club_EventScript_SamBattleDone
+	end
+
+Champion_Club_Text_SamDefeat:
+	.string "My poor babies...$"
+
+Champion_Club_EventScript_SamBattleDone::
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq Champion_Club_EventScript_SamBeat
+	msgbox Champion_Club_Text_TheWinnerSam, MSGBOX_DEFAULT
+	closemessage
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCameraBack
+	waitmovement 0
+	special RemoveCameraObject
+	special HealPlayerParty
+	release
+	end
+
+Champion_Club_EventScript_SamBeat::
+	msgbox Champion_Club_Text_TheWinnerPlayer, MSGBOX_DEFAULT
+	closemessage
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCameraBack
+	waitmovement 0
+	special RemoveCameraObject
+	special HealPlayerParty
+	setflag FLAG_BEAT_SAM
+	release
+	end
+
+Champion_Club_Text_TheWinnerSam:
+	.string "The winner is Sam!$"
+
+@ Alex
+
+Champion_Club_EventScript_AlexChallenge::
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	waitmovement 0
+	msgbox Champion_Club_Text_WantToChallengeAlex, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Champion_Club_EventScript_AlexBattleSetup
+	goto_if_eq VAR_RESULT, NO, Champion_Club_EventScript_DenyBattle
+	end
+
+Champion_Club_Text_WantToChallengeAlex:
+	.string "Would you like to challenge Master\n"
+	.string "Trainer Alex?$"
+
+Champion_Club_EventScript_AlexBattleSetup::
+	closemessage
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCamera
+	waitmovement 0
+	msgbox Champion_Club_Text_AlexLetsFight, MSGBOX_DEFAULT
+	closemessage
+	special RemoveCameraObject
+	goto Champion_Club_EventScript_AlexBattle
+	end
+
+Champion_Club_Text_AlexLetsFight:
+	.string "Announcer: The battle between Alex\n"
+	.string "and {PLAYER} will now begin!\p"
+	.string "Alex: It's time to duel.$"
+
+Champion_Club_EventScript_AlexBattle::
+	trainerbattle_no_intro_no_whiteout TRAINER_ALEX, Champion_Club_Text_AlexDefeat
+	goto Champion_Club_EventScript_AlexBattleDone
+	end
+
+Champion_Club_Text_AlexDefeat:
+	.string "I have no pathetic Pokemon.$"
+
+Champion_Club_EventScript_AlexBattleDone::
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq Champion_Club_EventScript_AlexBeat
+	msgbox Champion_Club_Text_TheWinnerAlex, MSGBOX_DEFAULT
+	closemessage
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCameraBack
+	waitmovement 0
+	special RemoveCameraObject
+	special HealPlayerParty
+	release
+	end
+
+Champion_Club_EventScript_AlexBeat::
+	msgbox Champion_Club_Text_TheWinnerPlayer, MSGBOX_DEFAULT
+	closemessage
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCameraBack
+	waitmovement 0
+	special RemoveCameraObject
+	special HealPlayerParty
+	setflag FLAG_BEAT_ALEX
+	release
+	end
+
+Champion_Club_Text_TheWinnerAlex:
+	.string "The winner is Alex!$"
