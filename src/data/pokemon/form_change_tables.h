@@ -38,6 +38,9 @@ static const struct FormChange sBlastoiseFormChangeTable[] = {
 #if P_FAMILY_CATERPIE
 static const struct FormChange sButterfreeFormChangeTable[] =
 {
+#if P_MEGA_EVOLUTIONS
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_BUTTERFREE_MEGA, ITEM_BUTTERFRENITE},
+#endif
 #if P_GIGANTAMAX_FORMS
     {FORM_CHANGE_BATTLE_GIGANTAMAX, SPECIES_BUTTERFREE_GIGANTAMAX},
 #endif
@@ -95,6 +98,9 @@ static const struct FormChange sAlakazamFormChangeTable[] = {
 #if P_FAMILY_MACHOP
 static const struct FormChange sMachampFormChangeTable[] =
 {
+#if P_MEGA_EVOLUTIONS
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_MACHAMP_MEGA, ITEM_MACHAMPITE},
+#endif
 #if P_GIGANTAMAX_FORMS
     {FORM_CHANGE_BATTLE_GIGANTAMAX, SPECIES_MACHAMP_GIGANTAMAX},
 #endif
@@ -137,6 +143,9 @@ static const struct FormChange sSteelixFormChangeTable[] = {
 #if P_FAMILY_KRABBY
 static const struct FormChange sKinglerFormChangeTable[] =
 {
+#if P_MEGA_EVOLUTIONS
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_KINGLER_MEGA, ITEM_KINGLERITE},
+#endif
 #if P_GIGANTAMAX_FORMS
     {FORM_CHANGE_BATTLE_GIGANTAMAX, SPECIES_KINGLER_GIGANTAMAX},
 #endif
@@ -184,6 +193,9 @@ static const struct FormChange sGyaradosFormChangeTable[] = {
 
 #if P_FAMILY_LAPRAS
 static const struct FormChange sLaprasFormChangeTable[] = {
+#if P_MEGA_EVOLUTIONS
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_LAPRAS_MEGA, ITEM_LAPRASITE},
+#endif
 #if P_GIGANTAMAX_FORMS
     {FORM_CHANGE_BATTLE_GIGANTAMAX, SPECIES_LAPRAS_GIGANTAMAX},
 #endif
@@ -211,6 +223,9 @@ static const struct FormChange sAerodactylFormChangeTable[] = {
 
 #if P_FAMILY_SNORLAX
 static const struct FormChange sSnorlaxFormChangeTable[] = {
+#if P_MEGA_EVOLUTIONS
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_SNORLAX_MEGA, ITEM_SNORLAXITE},
+#endif
 #if P_GIGANTAMAX_FORMS
     {FORM_CHANGE_BATTLE_GIGANTAMAX, SPECIES_SNORLAX_GIGANTAMAX},
 #endif
@@ -1136,6 +1151,9 @@ static const struct FormChange sToxtricityLowKeyFormChangeTable[] =
 #if P_FAMILY_SIZZLIPEDE
 static const struct FormChange sCentiskorchFormChangeTable[] =
 {
+#if P_MEGA_EVOLUTIONS
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_CENTISKORCH_MEGA, ITEM_CENTISKORCHITE},
+#endif
 #if P_GIGANTAMAX_FORMS
     {FORM_CHANGE_BATTLE_GIGANTAMAX, SPECIES_CENTISKORCH_GIGANTAMAX},
 #endif

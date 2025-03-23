@@ -22049,3 +22049,10 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     const u8 gMonIcon_Lediastra[] = INCBIN_U8("graphics/pokemon/lediastra/icon.4bpp");
     const u8 gMonFootprint_Lediastra[] = INCBIN_U8("graphics/pokemon/lediastra/footprint.1bpp");
 
+    const u32 gMonFrontPic_LaprasMega[] = INCBIN_U32("graphics/pokemon/lapras/mega/front.4bpp.lz");
+    const u32 gMonBackPic_LaprasMega[] = INCBIN_U32("graphics/pokemon/lapras/mega/back.4bpp.lz");
+    const u32 gMonPalette_LaprasMega[] = INCBIN_U32("graphics/pokemon/lapras/mega/normal.gbapal.lz");
+    const u32 gMonShinyPalette_LaprasMega[] = INCBIN_U32("graphics/pokemon/lapras/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_LaprasMega[] = INCBIN_U8("graphics/pokemon/lapras/mega/icon.4bpp");
+    const u8 gMonFootprint_LaprasMega[] = INCBIN_U8("graphics/pokemon/lapras/mega/footprint.1bpp");
+

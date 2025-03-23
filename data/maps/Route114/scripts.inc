@@ -209,7 +209,6 @@ Route114_EventScript_SellStones::
 	goto_if_set FLAG_BATTLE_ITEMS, Route114_EventScript_SellStones1
 	msgbox Route114_Text_GiveBattleItems, MSGBOX_DEFAULT
 	giveitem ITEM_MEGA_RING
-	giveitem ITEM_DYNAMAX_BAND
 	msgbox Route114_Text_ThereYaGo, MSGBOX_DEFAULT
 	setflag FLAG_BATTLE_ITEMS
 	pokemart MegaStone_Mart_Pokemart
@@ -222,8 +221,8 @@ Route114_Text_GiveBattleItems:
 	.string "young trainer, but you don't\l"
 	.string "have any battle power items!\p"
 	.string "I'm talking about the mega\n"
-	.string "ring and dynamax band.\p"
-	.string "Here, let me give you a pair.$"
+	.string "ring.\p"
+	.string "Here, let me give you one.$"
 
 Route114_Text_ThereYaGo:
 	.string "These items and mega stones\p"
@@ -244,6 +243,10 @@ MegaStone_Mart_Pokemart:
 	.2byte ITEM_CHARIZARDITE_X
 	.2byte ITEM_CHARIZARDITE_Y
 	.2byte ITEM_BLASTOISINITE
+	.2byte ITEM_BUTTERFRENITE
+	.2byte ITEM_SNORLAXITE
+	.2byte ITEM_KINGLERITE
+	.2byte ITEM_MACHAMPITE
 	.2byte ITEM_BEEDRILLITE
 	.2byte ITEM_PIDGEOTITE
 	.2byte ITEM_ALAKAZITE
@@ -252,6 +255,7 @@ MegaStone_Mart_Pokemart:
 	.2byte ITEM_KANGASKHANITE
 	.2byte ITEM_PINSIRITE
 	.2byte ITEM_GYARADOSITE
+	.2byte ITEM_LAPRASITE
 	.2byte ITEM_AERODACTYLITE
 	.2byte ITEM_MEWTWONITE_X
 	.2byte ITEM_MEWTWONITE_Y
@@ -287,6 +291,7 @@ MegaStone_Mart_Pokemart:
 	.2byte ITEM_GALLADITE
 	.2byte ITEM_AUDINITE
 	.2byte ITEM_DIANCITE
+	.2byte ITEM_CENTISKORCHITE
 	.2byte ITEM_NONE
 	release
 	end

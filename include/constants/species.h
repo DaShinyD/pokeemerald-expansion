@@ -1629,8 +1629,14 @@
 #define SPECIES_URSHIFU_RAPID_STRIKE_STYLE_GIGANTAMAX   1522
 #define SPECIES_MIMIKYU_TOTEM_BUSTED                    1523
 #define SPECIES_LEDIASTRA                               1524
+#define SPECIES_LAPRAS_MEGA                             1525
+#define SPECIES_KINGLER_MEGA                            1526
+#define SPECIES_SNORLAX_MEGA                            1527
+#define SPECIES_MACHAMP_MEGA                            1528
+#define SPECIES_CENTISKORCH_MEGA                        1529
+#define SPECIES_BUTTERFREE_MEGA                         1530
 
-#define SPECIES_EGG (SPECIES_LEDIASTRA + 1)
+#define SPECIES_EGG (SPECIES_BUTTERFREE_MEGA + 1)
 
 #define NUM_SPECIES SPECIES_EGG
 
