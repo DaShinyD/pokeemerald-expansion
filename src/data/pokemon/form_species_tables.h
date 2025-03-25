@@ -596,9 +596,30 @@ static const u16 sMewtwoFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_MEWTWO
 
+#if P_FAMILY_TOTODILE
+static const u16 sFeraligatrFormSpeciesIdTable[] = {
+    SPECIES_FERALIGATR,
+#if P_MEGA_EVOLUTIONS
+    SPECIES_FERALIGATR_MEGA,
+#endif
+};
+#endif //P_FAMILY_TOTODILE
+
+#if P_FAMILY_CHIKORITA
+static const u16 sMeganiumFormSpeciesIdTable[] = {
+    SPECIES_MEGANIUM,
+#if P_MEGA_EVOLUTIONS
+    SPECIES_MEGANIUM_MEGA,
+#endif
+};
+#endif //P_FAMILY_CHIKORITA
+
 #if P_FAMILY_CYNDAQUIL
 static const u16 sTyphlosionFormSpeciesIdTable[] = {
     SPECIES_TYPHLOSION,
+#if P_MEGA_EVOLUTIONS
+    SPECIES_TYPHLOSION_MEGA,
+#endif
 #if P_HISUIAN_FORMS
     SPECIES_TYPHLOSION_HISUIAN,
 #endif

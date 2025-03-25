@@ -1003,11 +1003,14 @@
 #define ITEM_KINGLERITE 831
 #define ITEM_BUTTERFRENITE 832
 #define ITEM_CENTISKORCHITE 833
+#define ITEM_FERALIGATRITE 834
+#define ITEM_TYPHLOSIONITE 835
+#define ITEM_MEGANIUMITE 836
 
 // HOPO BERRY
 // LEGEND PLATE
 
-#define ITEMS_COUNT 834
+#define ITEMS_COUNT 837
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

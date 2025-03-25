@@ -22056,3 +22056,24 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     const u8 gMonIcon_LaprasMega[] = INCBIN_U8("graphics/pokemon/lapras/mega/icon.4bpp");
     const u8 gMonFootprint_LaprasMega[] = INCBIN_U8("graphics/pokemon/lapras/mega/footprint.1bpp");
 
+    const u32 gMonFrontPic_FeraligatrMega[] = INCBIN_U32("graphics/pokemon/feraligatr/mega/front.4bpp.lz");
+    const u32 gMonBackPic_FeraligatrMega[] = INCBIN_U32("graphics/pokemon/feraligatr/mega/back.4bpp.lz");
+    const u32 gMonPalette_FeraligatrMega[] = INCBIN_U32("graphics/pokemon/feraligatr/mega/normal.gbapal.lz");
+    const u32 gMonShinyPalette_FeraligatrMega[] = INCBIN_U32("graphics/pokemon/feraligatr/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_FeraligatrMega[] = INCBIN_U8("graphics/pokemon/feraligatr/mega/icon.4bpp");
+    const u8 gMonFootprint_FeraligatrMega[] = INCBIN_U8("graphics/pokemon/feraligatr/mega/footprint.1bpp");
+
+    const u32 gMonFrontPic_MeganiumMega[] = INCBIN_U32("graphics/pokemon/meganium/mega/front.4bpp.lz");
+    const u32 gMonBackPic_MeganiumMega[] = INCBIN_U32("graphics/pokemon/meganium/mega/back.4bpp.lz");
+    const u32 gMonPalette_MeganiumMega[] = INCBIN_U32("graphics/pokemon/meganium/mega/normal.gbapal.lz");
+    const u32 gMonShinyPalette_MeganiumMega[] = INCBIN_U32("graphics/pokemon/meganium/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_MeganiumMega[] = INCBIN_U8("graphics/pokemon/meganium/mega/icon.4bpp");
+    const u8 gMonFootprint_MeganiumMega[] = INCBIN_U8("graphics/pokemon/meganium/mega/footprint.1bpp");
+
+    const u32 gMonFrontPic_TyphlosionMega[] = INCBIN_U32("graphics/pokemon/typhlosion/mega/front.4bpp.lz");
+    const u32 gMonBackPic_TyphlosionMega[] = INCBIN_U32("graphics/pokemon/typhlosion/mega/back.4bpp.lz");
+    const u32 gMonPalette_TyphlosionMega[] = INCBIN_U32("graphics/pokemon/typhlosion/mega/normal.gbapal.lz");
+    const u32 gMonShinyPalette_TyphlosionMega[] = INCBIN_U32("graphics/pokemon/typhlosion/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_TyphlosionMega[] = INCBIN_U8("graphics/pokemon/typhlosion/mega/icon.4bpp");
+    const u8 gMonFootprint_TyphlosionMega[] = INCBIN_U8("graphics/pokemon/typhlosion/mega/footprint.1bpp");
+

@@ -243,6 +243,30 @@ static const struct FormChange sMewtwoFormChangeTable[] = {
 };
 #endif //P_FAMILY_MEWTWO
 
+#if P_FAMILY_CHIKORITA
+static const struct FormChange sMeganiumFormChangeTable[] = {
+#if P_MEGA_EVOLUTIONS
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_MEGANIUM_MEGA, ITEM_MEGANIUMITE},
+#endif
+};
+#endif //P_FAMILY_CHIKORITA
+
+#if P_FAMILY_CYNDAQUIL
+static const struct FormChange sTyphlosionFormChangeTable[] = {
+#if P_MEGA_EVOLUTIONS
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_TYPHLOSION_MEGA, ITEM_TYPHLOSIONITE},
+#endif
+};
+#endif //P_FAMILY_CYNDAQUIL
+
+#if P_FAMILY_TOTODILE
+static const struct FormChange sFeraligatrFormChangeTable[] = {
+#if P_MEGA_EVOLUTIONS
+    {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_FERALIGATR_MEGA, ITEM_FERALIGATRITE},
+#endif
+};
+#endif //P_FAMILY_TOTODILE
+
 #if P_FAMILY_MAREEP
 static const struct FormChange sAmpharosFormChangeTable[] = {
 #if P_MEGA_EVOLUTIONS

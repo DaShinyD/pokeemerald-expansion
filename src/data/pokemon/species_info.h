@@ -604,5 +604,223 @@ const struct SpeciesInfo gSpeciesInfo[] =
     },
 #endif
 #endif
+
+#if P_FAMILY_TOTODILE
+#if P_MEGA_EVOLUTIONS
+    [SPECIES_FERALIGATR_MEGA] =
+    {
+        .baseHP        = 85,
+        .baseAttack    = 135,
+        .baseDefense   = 120,
+        .baseSpeed     = 78,
+        .baseSpAttack  = 79,
+        .baseSpDefense = 93,
+        .types = MON_TYPES(TYPE_WATER, TYPE_DARK),
+        .catchRate = 45,
+    #if P_UPDATED_EXP_YIELDS >= GEN_8
+        .expYield = 265,
+    #elif P_UPDATED_EXP_YIELDS >= GEN_5
+        .expYield = 239,
+    #else
+        .expYield = 210,
+    #endif
+        .evYield_Attack = 2,
+        .evYield_Defense = 1,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_WATER_1),
+        .abilities = { ABILITY_TORRENT, ABILITY_NONE, ABILITY_SHEER_FORCE },
+        .bodyColor = BODY_COLOR_BLUE,
+        .speciesName = _("Feraligatr"),
+        .cryId = CRY_FERALIGATR,
+        .natDexNum = NATIONAL_DEX_FERALIGATR,
+        .categoryName = _("Big Jaw"),
+        .height = 23,
+        .weight = 888,
+        .description = COMPOUND_STRING(
+            "It opens its huge mouth to intimidate\n"
+            "enemies. In battle, it runs using its thick\n"
+            "and powerful hind legs to charge the\n"
+            "foe with incredible speed."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 342,
+        .trainerOffset = 7,
+        .frontPic = gMonFrontPic_FeraligatrMega,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 1,
+        .frontAnimFrames = sAnims_FeraligatrMega,
+        .frontAnimId = ANIM_H_SHAKE,
+        .frontAnimDelay = 5,
+        .backPic = gMonBackPic_FeraligatrMega,
+        .backPicSize = MON_COORDS_SIZE(56, 64),
+        .backPicYOffset = 2,
+        .backAnimId = BACK_ANIM_V_SHAKE,
+        .palette = gMonPalette_FeraligatrMega,
+        .shinyPalette = gMonShinyPalette_FeraligatrMega,
+        .iconSprite = gMonIcon_FeraligatrMega,
+        .iconPalIndex = 0,
+        FOOTPRINT(Feraligatr)
+        OVERWORLD(
+            sPicTable_Feraligatr,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_Feraligatr,
+            gShinyOverworldPalette_Feraligatr
+        )
+        .levelUpLearnset = sFeraligatrLevelUpLearnset,
+        .teachableLearnset = sFeraligatrTeachableLearnset,
+        .formSpeciesIdTable = sFeraligatrFormSpeciesIdTable,
+        .formChangeTable = sFeraligatrFormChangeTable,
+    },
+#endif
+#endif
+
+#if P_FAMILY_CYNDAQUIL
+#if P_MEGA_EVOLUTIONS
+    [SPECIES_TYPHLOSION_MEGA] =
+    {
+        .baseHP        = 90,
+        .baseAttack    = 84,
+        .baseDefense   = 78,
+        .baseSpeed     = 120,
+        .baseSpAttack  = 130,
+        .baseSpDefense = 85,
+        .types = MON_TYPES(TYPE_FIRE, TYPE_GROUND),
+        .catchRate = 45,
+        .expYield = TYPHLOSION_EXP_YIELD,
+        .evYield_SpAttack = 3,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
+        .abilities = { ABILITY_BLAZE, ABILITY_NONE, ABILITY_FLASH_FIRE },
+        .bodyColor = BODY_COLOR_YELLOW,
+        .speciesName = _("Typhlosion"),
+        .cryId = CRY_TYPHLOSION,
+        .natDexNum = NATIONAL_DEX_TYPHLOSION,
+        .categoryName = _("Volcano"),
+        .height = 17,
+        .weight = 795,
+        .description = COMPOUND_STRING(
+            "It can hide behind a shimmering heat haze\n"
+            "that it creates using its intense flames.\n"
+            "Typhlosion create blazing explosive\n"
+            "blasts that burn everything to cinders."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 268,
+        .trainerOffset = 1,
+        .frontPic = gMonFrontPic_TyphlosionMega,
+        .frontPicSize = MON_COORDS_SIZE(56, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_TyphlosionMega,
+        .frontAnimId = ANIM_V_SHAKE,
+        .frontAnimDelay = 20,
+        .backPic = gMonBackPic_TyphlosionMega,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 3,
+        .backAnimId = BACK_ANIM_SHAKE_GLOW_RED,
+        .palette = gMonPalette_TyphlosionMega,
+        .shinyPalette = gMonShinyPalette_TyphlosionMega,
+        .iconSprite = gMonIcon_TyphlosionMega,
+        .iconPalIndex = 3,
+        FOOTPRINT(Typhlosion)
+        OVERWORLD(
+            sPicTable_Typhlosion,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_Typhlosion,
+            gShinyOverworldPalette_Typhlosion
+        )
+        .levelUpLearnset = sTyphlosionLevelUpLearnset,
+        .teachableLearnset = sTyphlosionTeachableLearnset,
+        .formSpeciesIdTable = sTyphlosionFormSpeciesIdTable,
+        .formChangeTable = sTyphlosionFormChangeTable,
+    },
+#endif
+#endif
+
+#if P_FAMILY_CHIKORITA
+#if P_MEGA_EVOLUTIONS
+    [SPECIES_MEGANIUM_MEGA] =
+    {
+        .baseHP        = 100,
+        .baseAttack    = 82,
+        .baseDefense   = 130,
+        .baseSpeed     = 80,
+        .baseSpAttack  = 83,
+        .baseSpDefense = 130,
+        .types = MON_TYPES(TYPE_GRASS, TYPE_FAIRY),
+        .catchRate = 45,
+    #if P_UPDATED_EXP_YIELDS >= GEN_8
+        .expYield = 263,
+    #elif P_UPDATED_EXP_YIELDS >= GEN_5
+        .expYield = 236,
+    #else
+        .expYield = 208,
+    #endif
+        .evYield_Defense = 1,
+        .evYield_SpDefense = 2,
+        .genderRatio = PERCENT_FEMALE(12.5),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MONSTER, EGG_GROUP_GRASS),
+        .abilities = { ABILITY_OVERGROW, ABILITY_NONE, ABILITY_LEAF_GUARD },
+        .bodyColor = BODY_COLOR_GREEN,
+        .speciesName = _("Meganium"),
+        .cryId = CRY_MEGANIUM,
+        .natDexNum = NATIONAL_DEX_MEGANIUM,
+        .categoryName = _("Herb"),
+        .height = 18,
+        .weight = 1005,
+        .description = COMPOUND_STRING(
+            "The fragrance of a Meganium's flower\n"
+            "soothes and calms emotions. In battle,\n"
+            "it gives off more of its becalming scent\n"
+            "to blunt the foe's fighting spirit."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 277,
+        .trainerOffset = 1,
+        .frontPic = gMonFrontPic_MeganiumMega,
+        .frontPicFemale = gMonFrontPic_MeganiumMega,
+        .frontPicSize = MON_COORDS_SIZE(48, 64),
+        .frontPicSizeFemale = MON_COORDS_SIZE(48, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_MeganiumMega,
+        .frontAnimId = ANIM_GROW_VIBRATE,
+        .backPic = gMonBackPic_MeganiumMega,
+        .backPicFemale = gMonBackPic_MeganiumMega,
+        .backPicSize = MON_COORDS_SIZE(56, 64),
+        .backPicSizeFemale = MON_COORDS_SIZE(56, 64),
+        .backPicYOffset = 2,
+        .backAnimId = BACK_ANIM_V_SHAKE,
+        .palette = gMonPalette_MeganiumMega,
+        .shinyPalette = gMonShinyPalette_MeganiumMega,
+        .iconSprite = gMonIcon_MeganiumMega,
+        .iconPalIndex = 1,
+        FOOTPRINT(Meganium)
+        OVERWORLD(
+            sPicTable_Meganium,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_Meganium,
+            gShinyOverworldPalette_Meganium
+        )
+        .levelUpLearnset = sMeganiumLevelUpLearnset,
+        .teachableLearnset = sMeganiumTeachableLearnset,
+        .formSpeciesIdTable = sMeganiumFormSpeciesIdTable,
+        .formChangeTable = sMeganiumFormChangeTable,
+    },
+#endif
+#endif
 };
 

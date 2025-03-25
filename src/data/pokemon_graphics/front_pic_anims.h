@@ -10151,6 +10151,12 @@ static const union AnimCmd sAnim_Lediastra_1[] =
 
 PLACEHOLDER_ANIM_SINGLE_FRAME(LaprasMega);
 
+PLACEHOLDER_ANIM_SINGLE_FRAME(TyphlosionMega);
+
+PLACEHOLDER_ANIM_SINGLE_FRAME(FeraligatrMega);
+
+PLACEHOLDER_ANIM_SINGLE_FRAME(MeganiumMega);
+
 static const union AnimCmd sAnim_Egg_1[] =
 {
     ANIMCMD_FRAME(0, 6),
@@ -12826,4 +12832,7 @@ SINGLE_ANIMATION(Pecharunt);
 #endif //P_FAMILY_PECHARUNT
 SINGLE_ANIMATION(Lediastra);
 SINGLE_ANIMATION(LaprasMega);
+SINGLE_ANIMATION(TyphlosionMega);
+SINGLE_ANIMATION(FeraligatrMega);
+SINGLE_ANIMATION(MeganiumMega);
 SINGLE_ANIMATION(Egg);

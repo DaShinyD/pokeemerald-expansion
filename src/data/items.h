@@ -5592,6 +5592,57 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_MewtwoniteY,
     },
 
+    [ITEM_FERALIGATRITE] =
+    {
+        .name = _("Feraligatrite"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = COMPOUND_STRING(
+            "This stone enables\n"
+            "Feraligatr to\n"
+            "Mega in battle."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+        .iconPic = gItemIcon_Gyaradosite,
+        .iconPalette = gItemIconPalette_Gyaradosite,
+    },
+
+    [ITEM_TYPHLOSIONITE] =
+    {
+        .name = _("Typhlosionite"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = COMPOUND_STRING(
+            "This stone enables\n"
+            "Typhlosion to\n"
+            "Mega in battle."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+        .iconPic = gItemIcon_Cameruptite,
+        .iconPalette = gItemIconPalette_Cameruptite,
+    },
+
+    [ITEM_MEGANIUMITE] =
+    {
+        .name = _("Meganiumite"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = COMPOUND_STRING(
+            "This stone enables\n"
+            "Meganium to\n"
+            "Mega in battle."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+        .iconPic = gItemIcon_Diancite,
+        .iconPalette = gItemIconPalette_Diancite,
+    },
+
     [ITEM_AMPHAROSITE] =
     {
         .name = _("Ampharosite"),

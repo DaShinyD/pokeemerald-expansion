@@ -1635,8 +1635,11 @@
 #define SPECIES_MACHAMP_MEGA                            1528
 #define SPECIES_CENTISKORCH_MEGA                        1529
 #define SPECIES_BUTTERFREE_MEGA                         1530
+#define SPECIES_FERALIGATR_MEGA                         1531
+#define SPECIES_TYPHLOSION_MEGA                         1532
+#define SPECIES_MEGANIUM_MEGA                           1533
 
-#define SPECIES_EGG (SPECIES_BUTTERFREE_MEGA + 1)
+#define SPECIES_EGG (SPECIES_MEGANIUM_MEGA + 1)
 
 #define NUM_SPECIES SPECIES_EGG
 
