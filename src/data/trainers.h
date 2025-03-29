@@ -32237,6 +32237,12 @@ F_TRAINER_FEMALE |
             .lvl = 10,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            .moves = {
+                MOVE_POISON_STING,
+                MOVE_PIN_MISSILE,
+                MOVE_BUG_BITE,
+                MOVE_POISON_STING,
+            },
             },
             {
             .species = SPECIES_SHELLDER,

@@ -1638,8 +1638,58 @@
 #define SPECIES_FERALIGATR_MEGA                         1531
 #define SPECIES_TYPHLOSION_MEGA                         1532
 #define SPECIES_MEGANIUM_MEGA                           1533
+#define SPECIES_AQUAR                                   1534
+#define SPECIES_AQUARIA                                 1535
+#define SPECIES_AQUARIUS                                1536
+#define SPECIES_CRYSTAL_ONIX                            1537
+#define SPECIES_CRYSTAL_STEELIX                         1538
+#define SPECIES_DELICLAUS                               1539
+#define SPECIES_DIALKIA                                 1540
+#define SPECIES_DARG                                    1541
+#define SPECIES_DARGO                                   1542
+#define SPECIES_DARGON                                  1543
+#define SPECIES_INSECTEON                               1544
+#define SPECIES_MYSTEON                                 1545
+#define SPECIES_BRAWLEON                                1546
+#define SPECIES_AEREON                                  1547
+#define SPECIES_WISPEON                                 1548
+#define SPECIES_ANCEON                                  1549
+#define SPECIES_VEXEON                                  1550
+#define SPECIES_OMNEON                                  1551
+#define SPECIES_TOXEON                                  1552
+#define SPECIES_BOULDEON                                1553
+#define SPECIES_METALLEON                               1554
+#define SPECIES_FAKE_GROUDON                            1555
+#define SPECIES_ABRA_HOENNIAN                           1556
+#define SPECIES_KADABRA_HOENNIAN                        1557
+#define SPECIES_ALAKAZAM_HOENNIAN                       1558
+#define SPECIES_BULBASAUR_HOENNIAN                      1559
+#define SPECIES_IVYSAUR_HOENNIAN                        1560
+#define SPECIES_VENUSAUR_HOENNIAN                       1561
+#define SPECIES_MUDKIP_HOENNIAN                         1562
+#define SPECIES_MARSHTOMP_HOENNIAN                      1563
+#define SPECIES_SWAMPERT_HOENNIAN                       1564
+#define SPECIES_PIDGEY_HOENNIAN                         1565
+#define SPECIES_PIDGEOTTO_HOENNIAN                      1566
+#define SPECIES_PIDGEOT_HOENNIAN                        1567
+#define SPECIES_GOROCHU                                 1568
+#define SPECIES_HELIX                                   1569
+#define SPECIES_NUMEL_HOENNIAN                          1570
+#define SPECIES_CAMERUPT_HOENNIAN                       1571
+#define SPECIES_PONYTA_HOENNIAN                         1572
+#define SPECIES_RAPIDASH_HOENNIAN                       1573
+#define SPECIES_KINGKARP                                1574
+#define SPECIES_GYARADOS_HOENNIAN                       1575
+#define SPECIES_MILOTIC_HOENNIAN                        1576
+#define SPECIES_POLICROAK                               1577
+#define SPECIES_REGIALPHA                               1578
+#define SPECIES_SHADOW_LUGIA                            1579
+#define SPECIES_SHUCKLE_HOENNIAN                        1580
+#define SPECIES_UNOWN_GOD                               1581
+#define SPECIES_GROWLITHE_HOENNIAN                      1582
+#define SPECIES_ARCANINE_HOENNIAN                       1583
 
-#define SPECIES_EGG (SPECIES_MEGANIUM_MEGA + 1)
+#define SPECIES_EGG (SPECIES_ARCANINE_HOENNIAN + 1)
 
 #define NUM_SPECIES SPECIES_EGG
 

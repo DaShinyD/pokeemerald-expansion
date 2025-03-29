@@ -2293,7 +2293,6 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sEkansLevelUpLearnset,
         .teachableLearnset = sEkansTeachableLearnset,
-        .eggMoveLearnset = sEkansEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 22, SPECIES_ARBOK}),
     },
 
@@ -3506,6 +3505,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sRaichuLevelUpLearnset,
         .teachableLearnset = sRaichuTeachableLearnset,
         .formSpeciesIdTable = sRaichuFormSpeciesIdTable,
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_THUNDER_STONE, SPECIES_GOROCHU}),
     },
 
 #if P_ALOLAN_FORMS
@@ -7120,6 +7120,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sPoliwhirlLevelUpLearnset,
         .teachableLearnset = sPoliwhirlTeachableLearnset,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_WATER_STONE, SPECIES_POLIWRATH},
+                                {EVO_LEVEL, 35, SPECIES_POLICROAK},
                                 {EVO_TRADE_ITEM, ITEM_KINGS_ROCK, SPECIES_POLITOED},
                                 {EVO_ITEM, ITEM_KINGS_ROCK, SPECIES_POLITOED}),
     },
@@ -15124,7 +15125,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .tmIlliterate = TRUE,
         .levelUpLearnset = sMagikarpLevelUpLearnset,
         .teachableLearnset = sMagikarpTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_GYARADOS}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_GYARADOS},
+                                {EVO_ITEM, ITEM_WATER_STONE, SPECIES_KINGKARP}),
     },
 
     [SPECIES_GYARADOS] =
@@ -15517,7 +15519,17 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
                                 {EVO_ITEM, ITEM_MOON_STONE, SPECIES_UMBREON},
                                 {EVO_ITEM, ITEM_LEAF_STONE, SPECIES_LEAFEON},
                                 {EVO_ITEM, ITEM_ICE_STONE, SPECIES_GLACEON},
-                                {EVO_ITEM, ITEM_SHINY_STONE, SPECIES_SYLVEON}),
+                                {EVO_ITEM, ITEM_SHINY_STONE, SPECIES_SYLVEON},
+                                {EVO_ITEM, ITEM_OVAL_STONE, SPECIES_INSECTEON},
+                                {EVO_ITEM, ITEM_KINGS_ROCK, SPECIES_BRAWLEON},
+                                {EVO_ITEM, ITEM_PRISM_SCALE, SPECIES_AEREON},
+                                {EVO_ITEM, ITEM_REAPER_CLOTH, SPECIES_WISPEON},
+                                {EVO_ITEM, ITEM_DUSK_STONE, SPECIES_TOXEON},
+                                {EVO_ITEM, ITEM_PROTECTOR, SPECIES_BOULDEON},
+                                {EVO_ITEM, ITEM_DAWN_STONE, SPECIES_ANCEON},
+                                {EVO_ITEM, ITEM_METAL_COAT, SPECIES_METALLEON},
+                                {EVO_LEVEL, 30, SPECIES_VEXEON},
+                                {EVO_ITEM, ITEM_DRAGON_SCALE, SPECIES_MYSTEON}),
     },
 
 #if P_GIGANTAMAX_FORMS
