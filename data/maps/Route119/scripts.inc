@@ -3,6 +3,7 @@
 .set LOCALID_SCOTT, 43
 .set LOCALID_DASH, 45
 .set LOCALID_RYE, 44
+.set LOCALID_STRATA_GRUNT, 46
 
 Route119_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, Route119_OnResume
@@ -673,4 +674,49 @@ Route119_Movement_RyeFollowDash:
 	face_up
 	walk_up
 	step_end
+
+Route119_EventScript_StrataGrunt::
+	lock
+	faceplayer
+	msgbox Route119_Text_StrataGrunt, MSGBOX_DEFAULT
+	closemessage
+	goto Route119_EventScript_StrataGruntFight
+	end
+
+Route119_Text_StrataGrunt:
+	.string "Lucky me, it seems it's my turn to\n"
+	.string "entertain the hero.\p"
+	.string "What do you hope to accomplish by\n"
+	.string "defying us?\p"
+	.string "Whatever.\p"
+	.string "Come at me.$"
+
+Route119_EventScript_StrataGruntFight::
+	trainerbattle_no_intro TRAINER_STRATA_GRUNT_3, Route119_Text_StrataGruntDefeat
+	goto Route119_EventScript_StrataGruntLeave
+	end
+
+Route119_Text_StrataGruntDefeat:
+	.string "Tssk.$"
+
+Route119_EventScript_StrataGruntLeave::
+	msgbox Route119_Text_StrataGruntBye, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_STRATA_GRUNT
+	setflag FLAG_STRATA_HIDE_3
+	clearflag FLAG_STRATA_PRE
+	fadescreen FADE_FROM_BLACK
+	release
+	end
+
+Route119_Text_StrataGruntBye:
+	.string "No matter how many of us you\n"
+	.string "beat, we can't be stopped.\p"
+	.string "Straits is too strong.\p"
+	.string "You'll never figure anything out.\p"
+	.string "Our main party is already probably\n"
+	.string "done at Birch's Gard--\p"
+	.string "...\p"
+	.string "I've said too much.$"
 

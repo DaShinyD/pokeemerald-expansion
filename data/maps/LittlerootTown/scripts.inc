@@ -135,6 +135,7 @@ LittlerootTown_EventScript_StepOffTruckFemale::
 	end
 
 LittlerootTown_EventScript_GoInsideWithMom::
+	setflag FLAG_STRATA_PRE
 	delay 15
 	playse SE_LEDGE
 	applymovement OBJ_EVENT_ID_PLAYER, LittlerootTown_Movement_PlayerStepOffTruck

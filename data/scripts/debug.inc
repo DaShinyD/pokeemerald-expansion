@@ -143,8 +143,7 @@ Debug_EventScript_Script_1::
 	end
 
 Debug_EventScript_Script_2::
-	setwildbattle SPECIES_LEDIASTRA, 40
-	dowildbattle
+	setflag FLAG_HIDE_WALLY_STRATA
 	release
 	end
 

@@ -353,3 +353,23 @@ Route103_Text_RouteSign:
 	.string "ROUTE 103\n"
 	.string "{DOWN_ARROW} OLDALE TOWN$"
 
+
+
+Route103_EventScript_HikerWarn::
+	lock
+	faceplayer
+	msgbox Route103_Text_DangerousPeople, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+Route103_Text_DangerousPeople:
+	.string "I wouldn't go this way, I saw some\n"
+	.string "suspicious people on the mountain.\p"
+	.string "Team something or another they\n"
+	.string "called themselves.\p"
+	.string "I heard them talking about the\n"
+	.string "Mauville Power Plant.\p"
+	.string "Also, Ever Grande City and\n"
+	.string "the Weather Institute.$"
+

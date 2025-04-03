@@ -61,8 +61,8 @@
 #define TRAINER_GABBY_AND_TY_5               55
 #define TRAINER_GABBY_AND_TY_6               56
 #define TRAINER_LOLA_1                       57
-#define TRAINER_AUSTINA                      58 // now unused (route 109)
-#define TRAINER_GWEN                         59 // now unused (route 109)
+#define TRAINER_STRATA_ADMIN_1               58 // now Strata Admin 1 (previously austina route 109)
+#define TRAINER_STRATA_ADMIN_2               59 // now Strata Admin 2 (previously gwen route 109)
 #define TRAINER_LOLA_2                       60
 #define TRAINER_LOLA_3                       61
 #define TRAINER_LOLA_4                       62
@@ -719,16 +719,16 @@
 #define TRAINER_KAI                         713
 #define TRAINER_CHARLOTTE                   714
 #define TRAINER_DEANDRE                     715
-#define TRAINER_GRUNT_MAGMA_HIDEOUT_1       716 // now unused
+#define TRAINER_STRATA_GRUNT_1              716 // now Strata Grunt 1 (previously magma hideout grunt 1)
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_2       717
-#define TRAINER_GRUNT_MAGMA_HIDEOUT_3       718 // now unused
-#define TRAINER_GRUNT_MAGMA_HIDEOUT_4       719 // now unused
+#define TRAINER_STRATA_GRUNT_2              718 // now Strata Grunt 2 (previously magma hideout grunt 3)
+#define TRAINER_STRATA_GRUNT_3              719 // now Strata Grunt 3 (previously magma hideout grunt 4)
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_5       720
-#define TRAINER_GRUNT_MAGMA_HIDEOUT_6       721 // now unused
-#define TRAINER_GRUNT_MAGMA_HIDEOUT_7       722 // now unused
-#define TRAINER_GRUNT_MAGMA_HIDEOUT_8       723 // now unused
+#define TRAINER_STRATA_GRUNT_4              721 // now Strata Grunt 4 (previously magma hideout grunt 6)
+#define TRAINER_STRATA_GRUNT_5              722 // now Strata Grunt 5 (previously magma hideout grunt 7)
+#define TRAINER_MONEY_MAN                   723 // now Money Man (previously magma hideout grunt 8)
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_9       724
-#define TRAINER_GRUNT_MAGMA_HIDEOUT_10      725 // now unused
+#define TRAINER_STRATA_GRUNT_6              725 // now Strata Grunt 6 (previously magma hideout grunt 10)
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_11      726
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_12      727
 #define TRAINER_GRUNT_MAGMA_HIDEOUT_13      728

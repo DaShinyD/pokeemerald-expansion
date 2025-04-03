@@ -2,6 +2,7 @@
 .set LOCALID_RIVAL, 28
 .set LOCALID_RIVAL_ON_BIKE, 29
 .set LOCALID_BIRCH, 36
+.set LOCALID_STRATA_GRUNT, 37
 
 Route110_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, Route110_OnResume
@@ -991,4 +992,42 @@ Route110_Text_KeepAnEyeOutForRival:
 	.string "… … … … … …\p"
 	.string "Well, I had better get going.\n"
 	.string "See you again, {PLAYER}{KUN}!$"
+
+Route110_EventScript_StrataGrunt::
+	lock
+	faceplayer
+	msgbox Route110_Text_StrataGrunt, MSGBOX_DEFAULT
+	closemessage
+	goto Route110_EventScript_StrataGruntFight
+	end
+
+Route110_Text_StrataGrunt:
+	.string "Hehehe, so you're poking your nose\n"
+	.string "around huh?\p"
+	.string "Let's see if you can stop us then.$"
+
+Route110_EventScript_StrataGruntFight::
+	trainerbattle_no_intro TRAINER_STRATA_GRUNT_1, Route110_Text_StrataGruntDefeat
+	goto Route110_EventScript_StrataGruntLeave
+	end
+
+Route110_Text_StrataGruntDefeat:
+	.string "Tssk.$"
+
+Route110_EventScript_StrataGruntLeave::
+	msgbox Route110_Text_StrataGruntBye, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_STRATA_GRUNT
+	setflag FLAG_STRATA_HIDE_1
+	clearflag FLAG_STRATA_HIDE_2
+	fadescreen FADE_FROM_BLACK
+	release
+	end
+
+Route110_Text_StrataGruntBye:
+	.string "Whatever, not like you can figure\n"
+	.string "out our plans, even when they\l"
+	.string "stare you in the face.\p"
+	.string "Have fun trying to find us.$"
 

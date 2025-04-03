@@ -461,3 +461,19 @@ FallarborTown_MoveRelearnersHouse_EventScript_NoBattle::
 	release
 	end
 
+FallarborTown_MoveRelearnersHouse_EventScript_MoneyMan::
+	lock
+	faceplayer
+	msgbox FallarborTown_MoveRelearnersHouse_Text_ImTheMoneyMan, MSGBOX_DEFAULT
+	closemessage
+	goto FallarborTown_MoveRelearnersHouse_EventScript_MoneyManBattle
+	end
+
+FallarborTown_MoveRelearnersHouse_Text_ImTheMoneyMan:
+	.string "Ay I'm the money man!$"
+
+FallarborTown_MoveRelearnersHouse_EventScript_MoneyManBattle::
+	trainerbattle_no_intro TRAINER_MONEY_MAN, FallarborTown_MoveRelearnersHouse_Text_GenericDefeat
+	release
+	end
+

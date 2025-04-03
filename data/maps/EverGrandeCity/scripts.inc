@@ -1,4 +1,5 @@
 .set LOCALID_CHAMPBLOCK, 1
+.set LOCALID_STRATA_GRUNT, 7
 
 EverGrandeCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, EverGrandeCity_OnTransition
@@ -87,3 +88,44 @@ EverGrandeCity_Movement_Leave:
 	walk_right
 	walk_right
 	step_end
+
+EverGrandeCity_EventScript_StrataGrunt::
+	lock
+	faceplayer
+	msgbox EverGrandeCity_Text_StrataGrunt, MSGBOX_DEFAULT
+	closemessage
+	goto EverGrandeCity_EventScript_StrataGruntFight
+	end
+
+EverGrandeCity_Text_StrataGrunt:
+	.string "You managed to stir some trouble at\n"
+	.string "the Power Plant huh?\p"
+	.string "You won't need to worry anymore\n"
+	.string "once I'm done with you.$"
+
+EverGrandeCity_EventScript_StrataGruntFight::
+	trainerbattle_no_intro TRAINER_STRATA_GRUNT_2, EverGrandeCity_Text_StrataGruntDefeat
+	goto EverGrandeCity_EventScript_StrataGruntLeave
+	end
+
+EverGrandeCity_Text_StrataGruntDefeat:
+	.string "Tssk.$"
+
+EverGrandeCity_EventScript_StrataGruntLeave::
+	msgbox EverGrandeCity_Text_StrataGruntBye, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_STRATA_GRUNT
+	setflag FLAG_STRATA_HIDE_2
+	clearflag FLAG_STRATA_HIDE_3
+	fadescreen FADE_FROM_BLACK
+	release
+	end
+
+EverGrandeCity_Text_StrataGruntBye:
+	.string "You're just wasting your time\n"
+	.string "here anyway.\p"
+	.string "Straits will bring power to\n"
+	.string "all, equally.\p"
+	.string "Try and stop us.$"
+

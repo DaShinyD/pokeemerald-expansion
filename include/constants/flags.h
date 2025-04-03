@@ -89,7 +89,7 @@
 #define FLAG_HIDE_STRATA_LEADER    0x4C // Hide strata leader for strata storyline at sky pillar entrance
 #define FLAG_START_STRATA    0x4D // Start Strata event
 #define FLAG_STRATA_1        0x4E // Strata checkpoint 1
-#define FLAG_UNUSED_0x04F    0x4F // Unused Flag
+#define FLAG_STRATA_FINALE   0x4F // Strata finale
 
 // Scripts
 #define FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL  0x50
@@ -674,11 +674,11 @@
 #define FLAG_HIDE_WALLY_LILYCOVE  0x273 // Unused Flag
 #define FLAG_HIDE_DASH_LILYCOVE 0x274 // Unused Flag
 #define FLAG_HIDE_RYE_LILYCOVE  0x275 // Unused Flag
-#define FLAG_UNUSED_0x276  0x276 // Unused Flag
-#define FLAG_UNUSED_0x277  0x277 // Unused Flag
-#define FLAG_UNUSED_0x278  0x278 // Unused Flag
-#define FLAG_UNUSED_0x279  0x279 // Unused Flag
-#define FLAG_UNUSED_0x27A  0x27A // Unused Flag
+#define FLAG_HIDE_WALLY_STRATA  0x276 // Hide Wally for Strata double
+#define FLAG_STRATA_HIDE_1 0x277 // Strata Grunt 1 hidden info
+#define FLAG_STRATA_HIDE_2 0x278 // Strata Grunt 2 hidden info
+#define FLAG_STRATA_HIDE_3 0x279 // Strata Grunt 3 hidden info
+#define FLAG_STRATA_PRE    0x27A // Pre finale flag for Grunts at Birch Garden
 #define FLAG_UNUSED_0x27B  0x27B // Unused Flag
 #define FLAG_UNUSED_0x27C  0x27C // Unused Flag
 #define FLAG_UNUSED_0x27D  0x27D // Unused Flag

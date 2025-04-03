@@ -431,16 +431,6 @@ Route109_EventScript_LolaRematch::
 	msgbox Route109_Text_LolaRematchPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route109_EventScript_Austina::
-	trainerbattle_single TRAINER_AUSTINA, Route109_Text_AustinaIntro, Route109_Text_AustinaDefeated
-	msgbox Route109_Text_AustinaPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route109_EventScript_Gwen::
-	trainerbattle_single TRAINER_GWEN, Route109_Text_GwenIntro, Route109_Text_GwenDefeated
-	msgbox Route109_Text_GwenPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 Route109_EventScript_Carter::
 	trainerbattle_single TRAINER_CARTER, Route109_Text_CarterIntro, Route109_Text_CarterDefeated
 	msgbox Route109_Text_CarterPostBattle, MSGBOX_AUTOCLOSE

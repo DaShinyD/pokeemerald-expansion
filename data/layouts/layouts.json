@@ -4620,6 +4620,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/ThunderDragonCave/border.bin",
       "blockdata_filepath": "data/layouts/ThunderDragonCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE136",
+      "name": "Route136_Layout",
+      "width": 60,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_petalburg2",
+      "border_filepath": "data/layouts/Route136/border.bin",
+      "blockdata_filepath": "data/layouts/Route136/map.bin"
     }
   ]
 }

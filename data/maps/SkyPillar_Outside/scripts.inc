@@ -208,6 +208,10 @@ SkyPillar_Outside_EventScript_StrataGrunt::
 	removeobject LOCALID_GRUNT3
 	removeobject LOCALID_GRUNT3
 	setflag FLAG_STRATA_1
+	setflag FLAG_HIDE_WALLY_STRATA
+	clearflag FLAG_STRATA_HIDE_1
+	msgbox SkyPillar_Outside_Text_CamCall, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
 
@@ -327,4 +331,28 @@ SkyPillar_Outside_EventScript_NoPass::
 
 SkyPillar_Outside_Text_Nope:
 	.string "Don't even think about it.$"
+
+SkyPillar_Outside_Text_CamCall:
+	.string "Ring ring.\p"
+	.string "Ring ring.\p"
+	.string "A phone call from Cam!\p"
+	.string "Cam: Hello, {PLAYER}?\p"
+	.string "Listen, I've been hearing some bad\n"
+	.string "things.\p"
+	.string "There's talk about another Team\n"
+	.string "making moves.\p"
+	.string "...\p"
+	.string "What???\p"
+	.string "You just met the Leader?\p"
+	.string "What complete coincidental and\n"
+	.string "unplanned timing!\p"
+	.string "Listen, we'll be right behind\n"
+	.string "you this time.\p"
+	.string "I heard there's a hiker who saw\n"
+	.string "some of their guys.\p"
+	.string "I think he was on Route 103 near\n"
+	.string "the mountain.\p"
+	.string "I'll poke around to see if I can find\n"
+	.string "out whats up.\p"
+	.string "TTYL.$"
 
