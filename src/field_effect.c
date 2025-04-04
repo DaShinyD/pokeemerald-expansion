@@ -1025,7 +1025,7 @@ bool8 FldEff_PokecenterHeal(void)
     task->tFirstBallX = 93;
     task->tFirstBallY = 36;
     task->tMonitorX = 124;
-    task->tMonitorY = 24;
+    task->tMonitorY = 20;
     return FALSE;
 }
 
