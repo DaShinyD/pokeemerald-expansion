@@ -27,6 +27,7 @@ static const TaskFunc sBattleIntroSlideFuncs[] =
     [BATTLE_TERRAIN_GRASS]      = BattleIntroSlide1,
     [BATTLE_TERRAIN_LONG_GRASS] = BattleIntroSlide1,
     [BATTLE_TERRAIN_SAND]       = BattleIntroSlide2,
+    [BATTLE_TERRAIN_BEACH]       = BattleIntroSlide2,
     [BATTLE_TERRAIN_UNDERWATER] = BattleIntroSlide2,
     [BATTLE_TERRAIN_WATER]      = BattleIntroSlide2,
     [BATTLE_TERRAIN_POND]       = BattleIntroSlide1,
