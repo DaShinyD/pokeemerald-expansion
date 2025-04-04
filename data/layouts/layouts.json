@@ -4607,7 +4607,7 @@
       "width": 20,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_petalburg2",
+      "secondary_tileset": "gTileset_Altar",
       "border_filepath": "data/layouts/TesterMap/border.bin",
       "blockdata_filepath": "data/layouts/TesterMap/map.bin"
     },

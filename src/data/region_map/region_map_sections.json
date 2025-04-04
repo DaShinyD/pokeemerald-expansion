@@ -1737,10 +1737,42 @@
       "height": 1
     },
     {
+      "map_section": "MAPSEC_ROUTE_136",
+      "name": "ROUTE 136",
+      "x": 7,
+      "y": 7,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_BIRCH_GARDEN",
+      "name": "BIRCH GARDEN",
+      "x": 3,
+      "y": 11,
+      "width": 1,
+      "height": 1
+    },
+    {
       "map_section": "MAPSEC_ROUTE_135",
       "name": "ROUTE 135",
       "x": 9,
+      "y": 2,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_DESERT_VILLAGE",
+      "name": "DESERT VILLAGE",
+      "x": 9,
       "y": 3,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_ANCIENT_PYRAMID",
+      "name": "ANCIENT PYRAMID",
+      "x": 9,
+      "y": 1,
       "width": 1,
       "height": 1
     }

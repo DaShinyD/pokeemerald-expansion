@@ -222,7 +222,8 @@
 #define MAPSEC_ANCIENT_PYRAMID              0xDA
 #define MAPSEC_BIRCH_GARDEN                 0xDB
 #define MAPSEC_DESERT_VILLAGE               0xDC
-#define MAPSEC_NONE                         0xDD
+#define MAPSEC_ROUTE_136                    0xDD
+#define MAPSEC_NONE                         0xDE
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

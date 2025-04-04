@@ -2185,3 +2185,22 @@ const u16 gTilesetPalettes_DistortionWorld[][16] =
 };
 
 const u32 gTilesetTiles_DistortionWorld[] = INCBIN_U32("data/tilesets/secondary/distortion_world/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Altar[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/altar/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/altar/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/altar/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/altar/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/altar/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/altar/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/altar/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/altar/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/altar/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/altar/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/altar/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/altar/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/altar/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Altar[] = INCBIN_U32("data/tilesets/secondary/altar/tiles.4bpp.lz");
