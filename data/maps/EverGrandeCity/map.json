@@ -161,6 +161,13 @@
       "elevation": 0,
       "dest_map": "MAP_THUNDER_DRAGON_CAVE",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 60,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_CHAMPION_CLUB_CENTER",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
