@@ -83,11 +83,6 @@ const u8 gText_MatchCallBlackBelt_Nob_Pokemon[] = _("FIGHTING type.");
 const u8 gText_MatchCallBlackBelt_Nob_Intro1[] = _("Not to brag, but I can bust");
 const u8 gText_MatchCallBlackBelt_Nob_Intro2[] = _("ten roof tiles!");
 
-const u8 gText_MatchCallBlackBelt_Koji_Strategy[] = _("Witness karate power!");
-const u8 gText_MatchCallBlackBelt_Koji_Pokemon[] = _("My partners in training!");
-const u8 gText_MatchCallBlackBelt_Koji_Intro1[] = _("Let us discuss matters of");
-const u8 gText_MatchCallBlackBelt_Koji_Intro2[] = _("the world with bare fists!");
-
 const u8 gText_MatchCallGuitarist_Fernando_Strategy[] = _("Rock to stunning sounds!");
 const u8 gText_MatchCallGuitarist_Fernando_Pokemon[] = _("Electric-and-sound combo!");
 const u8 gText_MatchCallGuitarist_Fernando_Intro1[] = _("My compositions will shock");
@@ -407,7 +402,6 @@ const u8 *const gMatchCallFlavorTexts[REMATCH_TABLE_ENTRIES][CHECK_PAGE_ENTRY_CO
     [REMATCH_STEVE] = MCFLAVOR(PokeManiac_Steve),
     [REMATCH_TONY] = MCFLAVOR(Swimmer_Tony),
     [REMATCH_NOB] = MCFLAVOR(BlackBelt_Nob),
-    [REMATCH_KOJI] = MCFLAVOR(BlackBelt_Koji),
     [REMATCH_FERNANDO] = MCFLAVOR(Guitarist_Fernando),
     [REMATCH_DALTON] = MCFLAVOR(Guitarist_Dalton),
     [REMATCH_BERNIE] = MCFLAVOR(Kindler_Bernie),

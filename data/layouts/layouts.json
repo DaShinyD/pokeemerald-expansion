@@ -594,8 +594,8 @@
     {
       "id": "LAYOUT_HOUSE2",
       "name": "House2_Layout",
-      "width": 30,
-      "height": 14,
+      "width": 11,
+      "height": 8,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/House2/border.bin",
@@ -4630,6 +4630,16 @@
       "secondary_tileset": "gTileset_petalburg2",
       "border_filepath": "data/layouts/Route136/border.bin",
       "blockdata_filepath": "data/layouts/Route136/map.bin"
+    },
+    {
+      "id": "LAYOUT_BATTLE_CLUB",
+      "name": "BattleClub_Layout",
+      "width": 30,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/BattleClub/border.bin",
+      "blockdata_filepath": "data/layouts/BattleClub/map.bin"
     }
   ]
 }

@@ -78,7 +78,7 @@
 #define FLAG_BEAT_JAKE       0x41 // Unused Flag
 #define FLAG_BEAT_SKY        0x42 // Unused Flag
 #define FLAG_BEAT_PERCY      0x43 // Unused Flag
-#define FLAG_BEAT_TONY       0x44 // Unused Flag
+#define FLAG_BEAT_PENA       0x44 // Unused Flag
 #define FLAG_BEAT_ALEX       0x45 // Unused Flag
 #define FLAG_BEAT_SAM        0x46 // Unused Flag
 #define FLAG_BEAT_JOEY       0x47 // Unused Flag
@@ -679,8 +679,8 @@
 #define FLAG_STRATA_HIDE_2 0x278 // Strata Grunt 2 hidden info
 #define FLAG_STRATA_HIDE_3 0x279 // Strata Grunt 3 hidden info
 #define FLAG_STRATA_PRE    0x27A // Pre finale flag for Grunts at Birch Garden
-#define FLAG_UNUSED_0x27B  0x27B // Unused Flag
-#define FLAG_UNUSED_0x27C  0x27C // Unused Flag
+#define FLAG_STRATA_FINALE_HIDE  0x27B // Hide all Strata after finale
+#define FLAG_ROUTE136_CAVE 0x27C // Set Distorion World entrance after Strata Finale
 #define FLAG_UNUSED_0x27D  0x27D // Unused Flag
 #define FLAG_UNUSED_0x27E  0x27E // Unused Flag
 #define FLAG_UNUSED_0x27F  0x27F // Unused Flag

@@ -115,6 +115,7 @@
 #define MAP_FALLARBOR_TOWN_POKEMON_CENTER_2F       (5 | (5 << 8))
 #define MAP_FALLARBOR_TOWN_COZMOS_HOUSE            (6 | (5 << 8))
 #define MAP_FALLARBOR_TOWN_MOVE_RELEARNERS_HOUSE   (7 | (5 << 8))
+#define MAP_BATTLE_CLUB                            (8 | (5 << 8))
 
 // gMapGroup_IndoorVerdanturf
 #define MAP_VERDANTURF_TOWN_BATTLE_TENT_LOBBY       (0 | (6 << 8))

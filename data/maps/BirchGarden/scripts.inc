@@ -105,7 +105,7 @@ BirchGarden_EventScript_StrataGrunt3Leave::
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_STRATA_GRUNT
 	setflag FLAG_STRATA_PRE
-	clearflag FLAG_STRATA_FINALE
+	setflag FLAG_STRATA_FINALE
 	fadescreen FADE_FROM_BLACK
 	release
 	end

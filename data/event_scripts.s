@@ -1292,3 +1292,5 @@ MysteryGift_Text_ReceivedGiftMon:
 	.include "data/maps/ThunderDragonCave/scripts.inc"
 
 	.include "data/maps/Route136/scripts.inc"
+
+	.include "data/maps/BattleClub/scripts.inc"

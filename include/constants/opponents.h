@@ -348,12 +348,12 @@
 #define TRAINER_NOLAN                       342
 #define TRAINER_BARNY                       343
 #define TRAINER_WADE                        344
-#define TRAINER_CARTER                      345 // now unused (route 109)
+#define TRAINER_STRAITS                     345 // now Straits (previously Carter route 109)
 #define TRAINER_ELLIOT_2                    346
 #define TRAINER_ELLIOT_3                    347
 #define TRAINER_ELLIOT_4                    348
 #define TRAINER_ELLIOT_5                    349
-#define TRAINER_RONALD                      350 // now unused (route 132)
+#define TRAINER_PENA                        350 // now Pena (previously Ronald route 132)
 #define TRAINER_JACOB                       351
 #define TRAINER_ANTHONY                     352
 #define TRAINER_BENJAMIN_1                  353
@@ -675,7 +675,7 @@
 #define TRAINER_ROGER                       669 // now unused (route 127)
 #define TRAINER_ALEXA                       670 // now unused (route 128)
 #define TRAINER_RUBEN                       671 // now unused (route 128)
-#define TRAINER_KOJI_1                      672 // now unused (remove match) (route 127)
+#define TRAINER_STRATA_MOUNTAIN_1           672 // now Strata Mountain Grunt 1 (previously Koji, route 127, match call)
 #define TRAINER_WAYNE                       673 // now unused (route 128)
 #define TRAINER_AIDAN                       674 // now unused (route 127)
 #define TRAINER_REED                        675 // now unused (route 129)
@@ -827,10 +827,10 @@
 #define TRAINER_PABLO_3                     821 // now unused (remove match) (route 126)
 #define TRAINER_PABLO_4                     822 // now unused (remove match) (route 126)
 #define TRAINER_PABLO_5                     823 // now unused (remove match) (route 126)
-#define TRAINER_KOJI_2                      824 // now unused (remove match) (route 127)
-#define TRAINER_KOJI_3                      825 // now unused (remove match) (route 127)
-#define TRAINER_KOJI_4                      826 // now unused (remove match) (route 127)
-#define TRAINER_KOJI_5                      827 // now unused (remove match) (route 127)
+#define TRAINER_STRATA_MOUNTAIN_2           824 // now Strata Mountain Grunt 2 (previously Koji, route 127, match call)
+#define TRAINER_STRATA_MOUNTAIN_3           825 // now Strata Mountain Grunt 3 (previously Koji, route 127, match call)
+#define TRAINER_STRATA_MOUNTAIN_4           826 // now Strata Mountain Grunt 4 (previously Koji, route 127, match call)
+#define TRAINER_STRATA_MOUNTAIN_5           827 // now Strata Mountain Grunt 5 (previously Koji, route 127, match call)
 #define TRAINER_CRISTIN_2                   828
 #define TRAINER_CRISTIN_3                   829
 #define TRAINER_CRISTIN_4                   830

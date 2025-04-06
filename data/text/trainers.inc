@@ -4106,34 +4106,6 @@ Route127_Text_AidanPostBattle:
 	.string "You can spot them easily from the sky\n"
 	.string "because of their darker color.$"
 
-Route127_Text_KojiIntro:
-	.string "Run in your bare feet.\n"
-	.string "That will toughen up your soles!$"
-
-Route127_Text_KojiDefeat:
-	.string "Yowch!\n"
-	.string "I got a pebble under a toenail!$"
-
-Route127_Text_KojiPostBattle:
-	.string "Going barefoot feels great.\n"
-	.string "But your RUNNING SHOES are cool, too.$"
-
-Route127_Text_KojiRegister:
-	.string "This is what I do to people who beat me!\n"
-	.string "I hope we can do this again.$"
-
-Route127_Text_KojiRematchIntro:
-	.string "I still run in my bare feet daily.\n"
-	.string "My soles are tough!$"
-
-Route127_Text_KojiRematchDefeat:
-	.string "Yowch!\n"
-	.string "Pebbles dug into my arches!$"
-
-Route127_Text_KojiPostRematch:
-	.string "Want to go barefoot for a while?\n"
-	.string "So I can try your RUNNING SHOES?$"
-
 Route127_Text_AthenaIntro:
 	.string "We should have a slow and methodical\n"
 	.string "match.$"

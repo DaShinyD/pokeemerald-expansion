@@ -165,7 +165,7 @@
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Champion_Club_EventScript_PenaChallenge"
     },
     {
       "type": "trigger",

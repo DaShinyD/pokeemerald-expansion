@@ -584,3 +584,72 @@ Champion_Club_EventScript_AlexBeat::
 
 Champion_Club_Text_TheWinnerAlex:
 	.string "The winner is Alex!$"
+
+@ Pena
+
+Champion_Club_EventScript_PenaChallenge::
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_FaceLeft
+	waitmovement 0
+	msgbox Champion_Club_Text_WantToChallengePena, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Champion_Club_EventScript_PenaBattleSetup
+	goto_if_eq VAR_RESULT, NO, Champion_Club_EventScript_DenyBattle
+	end
+
+Champion_Club_Text_WantToChallengePena:
+	.string "Would you like to challenge Master\n"
+	.string "Trainer Pena?$"
+
+Champion_Club_EventScript_PenaBattleSetup::
+	closemessage
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCamera
+	waitmovement 0
+	msgbox Champion_Club_Text_PenaLetsFight, MSGBOX_DEFAULT
+	closemessage
+	special RemoveCameraObject
+	goto Champion_Club_EventScript_PenaBattle
+	end
+
+Champion_Club_Text_PenaLetsFight:
+	.string "Announcer: The battle between Pena\n"
+	.string "and {PLAYER} will now begin!\p"
+	.string "Pena: Gooning time.$"
+
+Champion_Club_EventScript_PenaBattle::
+	trainerbattle_no_intro_no_whiteout TRAINER_PENA, Champion_Club_Text_PenaDefeat
+	goto Champion_Club_EventScript_PenaBattleDone
+	end
+
+Champion_Club_Text_PenaDefeat:
+	.string "Out gooned in front of the huzz.$"
+
+Champion_Club_EventScript_PenaBattleDone::
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_eq Champion_Club_EventScript_PenaBeat
+	msgbox Champion_Club_Text_TheWinnerPena, MSGBOX_DEFAULT
+	closemessage
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCameraBack
+	waitmovement 0
+	special RemoveCameraObject
+	special HealPlayerParty
+	release
+	end
+
+Champion_Club_EventScript_PenaBeat::
+	msgbox Champion_Club_Text_TheWinnerPlayer, MSGBOX_DEFAULT
+	closemessage
+	special SpawnCameraObject
+	applymovement OBJ_EVENT_ID_CAMERA, Champion_Club_Movement_MoveBattleCameraBack
+	waitmovement 0
+	special RemoveCameraObject
+	special HealPlayerParty
+	setflag FLAG_BEAT_PENA
+	release
+	end
+
+Champion_Club_Text_TheWinnerPena:
+	.string "The winner is Pena!$"
+
