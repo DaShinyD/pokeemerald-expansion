@@ -2467,6 +2467,16 @@ void ShowScrollableMultichoice(void)
         break;
     case SCROLL_MULTI_SS_TIDAL_DESTINATION:
         task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+        task->tNumItems = 8;
+        task->tLeft = 19;
+        task->tTop = 1;
+        task->tWidth = 10;
+        task->tHeight = 12;
+        task->tKeepOpenAfterSelect = FALSE;
+        task->tTaskId = taskId;
+        break;
+    case SCROLL_MULTI_SS_TIDAL_DESTINATION_LESS:
+        task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
         task->tNumItems = 7;
         task->tLeft = 19;
         task->tTop = 1;
@@ -2627,6 +2637,17 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_Exit
     },
     [SCROLL_MULTI_SS_TIDAL_DESTINATION] =
+    {
+        gText_SlateportCity,
+        gText_BattleFrontier,
+        gText_SouthernIsland,
+        gText_NavelRock,
+        gText_BirthIsland,
+        gText_FarawayIsland,
+        gText_Vermillion,
+        gText_Exit
+    },
+    [SCROLL_MULTI_SS_TIDAL_DESTINATION_LESS] =
     {
         gText_SlateportCity,
         gText_BattleFrontier,

@@ -874,6 +874,15 @@ static void CreateLilycoveSSTidalMultichoice(void)
         }
     }
 
+        if (FlagGet(FLAG_GO_RED) == TRUE)
+{
+        if (gSpecialVar_0x8004 == 0)
+        {
+        sLilycoveSSTidalSelections[selectionCount] = SSTIDAL_SELECTION_VERMILLION;
+        selectionCount++;
+        }
+}
+
     sLilycoveSSTidalSelections[selectionCount] = SSTIDAL_SELECTION_EXIT;
     selectionCount++;
 
@@ -886,6 +895,11 @@ static void CreateLilycoveSSTidalMultichoice(void)
     if (count == SSTIDAL_SELECTION_COUNT)
     {
         gSpecialVar_0x8004 = SCROLL_MULTI_SS_TIDAL_DESTINATION;
+        ShowScrollableMultichoice();
+    }
+    else if (count == 7)
+    {
+        gSpecialVar_0x8004 = SCROLL_MULTI_SS_TIDAL_DESTINATION_LESS;
         ShowScrollableMultichoice();
     }
     else

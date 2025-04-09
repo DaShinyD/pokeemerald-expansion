@@ -4640,6 +4640,56 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/BattleClub/border.bin",
       "blockdata_filepath": "data/layouts/BattleClub/map.bin"
+    },
+    {
+      "id": "LAYOUT_VERMILLION_CITY",
+      "name": "VermillionCity_Layout",
+      "width": 56,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_dewford2",
+      "border_filepath": "data/layouts/VermillionCity/border.bin",
+      "blockdata_filepath": "data/layouts/VermillionCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE6",
+      "name": "Route6_Layout",
+      "width": 24,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_petalburg2",
+      "border_filepath": "data/layouts/Route6/border.bin",
+      "blockdata_filepath": "data/layouts/Route6/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEWMAP_1",
+      "name": "NewMap1_Layout",
+      "width": 8,
+      "height": 43,
+      "primary_tileset": "gTileset_FireRedInside",
+      "secondary_tileset": "gTileset_PokemonCenter2",
+      "border_filepath": "data/layouts/NewMap1/border.bin",
+      "blockdata_filepath": "data/layouts/NewMap1/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE5",
+      "name": "Route5_Layout",
+      "width": 48,
+      "height": 48,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_petalburg2",
+      "border_filepath": "data/layouts/Route5/border.bin",
+      "blockdata_filepath": "data/layouts/Route5/map.bin"
+    },
+    {
+      "id": "LAYOUT_CERULEAN_CITY",
+      "name": "CeruleanCity_Layout",
+      "width": 48,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_petalburg2",
+      "border_filepath": "data/layouts/CeruleanCity/border.bin",
+      "blockdata_filepath": "data/layouts/CeruleanCity/map.bin"
     }
   ]
 }

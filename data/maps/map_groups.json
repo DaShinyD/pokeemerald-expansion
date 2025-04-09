@@ -33,7 +33,8 @@
     "gMapGroup_IndoorRoute113",
     "gMapGroup_IndoorRoute123",
     "gMapGroup_IndoorRoute119",
-    "gMapGroup_IndoorRoute124"
+    "gMapGroup_IndoorRoute124",
+    "gMapGroup_Kanto"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -643,5 +644,12 @@
   ],
   "gMapGroup_IndoorRoute124": [
     "Route124_DivingTreasureHuntersHouse"
+  ],
+  "gMapGroup_Kanto": [
+    "VermillionCity",
+    "Route6",
+    "NewMap1",
+    "Route5",
+    "CeruleanCity"
   ]
 }

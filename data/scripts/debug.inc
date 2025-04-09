@@ -143,7 +143,7 @@ Debug_EventScript_Script_1::
 	end
 
 Debug_EventScript_Script_2::
-	setflag FLAG_HIDE_WALLY_STRATA
+	setflag FLAG_GO_RED
 	release
 	end
 

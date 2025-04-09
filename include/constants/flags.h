@@ -681,7 +681,7 @@
 #define FLAG_STRATA_PRE    0x27A // Pre finale flag for Grunts at Birch Garden
 #define FLAG_STRATA_FINALE_HIDE  0x27B // Hide all Strata after finale
 #define FLAG_ROUTE136_CAVE 0x27C // Set Distorion World entrance after Strata Finale
-#define FLAG_UNUSED_0x27D  0x27D // Unused Flag
+#define FLAG_GO_RED        0x27D // Allows you to go to Vermillion in search of Red
 #define FLAG_UNUSED_0x27E  0x27E // Unused Flag
 #define FLAG_UNUSED_0x27F  0x27F // Unused Flag
 #define FLAG_UNUSED_0x280  0x280 // Unused Flag

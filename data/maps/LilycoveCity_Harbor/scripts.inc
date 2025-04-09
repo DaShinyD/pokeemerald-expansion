@@ -51,7 +51,8 @@ LilycoveCity_Harbor_EventScript_FerryRegularLocationSelect::
 	case 3, LilycoveCity_Harbor_EventScript_GoToNavelRock
 	case 4, LilycoveCity_Harbor_EventScript_GoToBirthIsland
 	case 5, LilycoveCity_Harbor_EventScript_GoToFarawayIsland
-	case 6, LilycoveCity_Harbor_EventScript_ExitSailSelect
+	case 6, LilycoveCity_Harbor_EventScript_GoToVermillion
+	case 7, LilycoveCity_Harbor_EventScript_ExitSailSelect
 	case MULTI_B_PRESSED, LilycoveCity_Harbor_EventScript_ExitSailSelect
 	end
 
@@ -79,6 +80,13 @@ LilycoveCity_Harbor_EventScript_GoToBirthIsland::
 LilycoveCity_Harbor_EventScript_GoToFarawayIsland::
 	call LilycoveCity_Harbor_EventScript_BoardFerry
 	warp MAP_FARAWAY_ISLAND_ENTRANCE, 13, 38
+	waitstate
+	release
+	end
+
+LilycoveCity_Harbor_EventScript_GoToVermillion::
+	call LilycoveCity_Harbor_EventScript_BoardFerry
+	warp MAP_VERMILLION_CITY, 13, 38
 	waitstate
 	release
 	end

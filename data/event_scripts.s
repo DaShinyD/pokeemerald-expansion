@@ -1294,3 +1294,13 @@ MysteryGift_Text_ReceivedGiftMon:
 	.include "data/maps/Route136/scripts.inc"
 
 	.include "data/maps/BattleClub/scripts.inc"
+
+	.include "data/maps/VermillionCity/scripts.inc"
+
+	.include "data/maps/Route6/scripts.inc"
+
+	.include "data/maps/NewMap1/scripts.inc"
+
+	.include "data/maps/Route5/scripts.inc"
+
+	.include "data/maps/CeruleanCity/scripts.inc"

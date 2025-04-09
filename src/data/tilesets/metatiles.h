@@ -297,3 +297,9 @@ const u16 gMetatileAttributes_DistortionWorld[] = INCBIN_U16("data/tilesets/seco
 
 const u16 gMetatiles_Altar[] = INCBIN_U16("data/tilesets/secondary/altar/metatiles.bin");
 const u16 gMetatileAttributes_Altar[] = INCBIN_U16("data/tilesets/secondary/altar/metatile_attributes.bin");
+
+const u16 gMetatiles_VermillionCity[] = INCBIN_U16("data/tilesets/secondary/vermillion_city/metatiles.bin");
+const u16 gMetatileAttributes_VermillionCity[] = INCBIN_U16("data/tilesets/secondary/vermillion_city/metatile_attributes.bin");
+
+const u16 gMetatiles_KantoGeneral[] = INCBIN_U16("data/tilesets/primary/kanto_general/metatiles.bin");
+const u16 gMetatileAttributes_KantoGeneral[] = INCBIN_U16("data/tilesets/primary/kanto_general/metatile_attributes.bin");
