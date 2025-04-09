@@ -4690,6 +4690,26 @@
       "secondary_tileset": "gTileset_petalburg2",
       "border_filepath": "data/layouts/CeruleanCity/border.bin",
       "blockdata_filepath": "data/layouts/CeruleanCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_VERMILLION_CITY_CENTER",
+      "name": "VermillionCity_Center_Layout",
+      "width": 16,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter2",
+      "border_filepath": "data/layouts/VermillionCity_Center/border.bin",
+      "blockdata_filepath": "data/layouts/VermillionCity_Center/map.bin"
+    },
+    {
+      "id": "LAYOUT_VERMILLION_CITY_POKEMART",
+      "name": "VermillionCity_Pokemart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/VermillionCity_Pokemart/border.bin",
+      "blockdata_filepath": "data/layouts/VermillionCity_Pokemart/map.bin"
     }
   ]
 }

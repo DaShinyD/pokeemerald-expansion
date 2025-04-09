@@ -121,7 +121,7 @@
 #define VAR_REGI_CAVE_STATE                              0x4065 // Rock selection puzzle state in Regidrago cave
 #define VAR_BIRCH_GARDEN_STATE                           0x4066 // Var for Strata Grunts in Birch Garden
 #define VAR_ROUTE136_STATE                               0x4067 // Route136 State
-#define VAR_ROUTE109_STATE                               0x4068 // Unused Var
+#define VAR_LINK_THING                                   0x4068 // Funny Link event in Vermillion
 #define VAR_ROUTE110_STATE                               0x4069
 #define VAR_ROUTE111_STATE                               0x406A // Unused Var
 #define VAR_ROUTE112_STATE                               0x406B // Unused Var

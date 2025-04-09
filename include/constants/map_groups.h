@@ -621,6 +621,12 @@
 #define MAP_ROUTE5          (3 | (34 << 8))
 #define MAP_CERULEAN_CITY   (4 | (34 << 8))
 
-#define MAP_GROUPS_COUNT 35
+// gMapGroup_IndoorVermillion
+#define MAP_VERMILLION_CITY_CENTER   (0 | (35 << 8))
+#define MAP_VERMILLION_CITY_POKEMART (1 | (35 << 8))
+
+// gMapGroup_IndoorCerulean
+
+#define MAP_GROUPS_COUNT 37
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

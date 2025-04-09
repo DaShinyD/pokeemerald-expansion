@@ -405,6 +405,9 @@ const u32 gObjectEventPic_Sam[] = INCBIN_U32("graphics/object_events/pics/people
 const u16 gObjectEventPal_Pena[] = INCBIN_U16("graphics/object_events/pics/people/pena.gbapal");
 const u32 gObjectEventPic_Pena[] = INCBIN_U32("graphics/object_events/pics/people/pena.4bpp");
 
+const u16 gObjectEventPal_Link[] = INCBIN_U16("graphics/object_events/pics/people/link.gbapal");
+const u32 gObjectEventPic_Link[] = INCBIN_U32("graphics/object_events/pics/people/link.4bpp");
+
 const u16 gObjectEventPal_StrataGrunt[] = INCBIN_U16("graphics/object_events/pics/people/grunt.gbapal");
 const u32 gObjectEventPic_StrataGrunt[] = INCBIN_U32("graphics/object_events/pics/people/grunt.4bpp");
 

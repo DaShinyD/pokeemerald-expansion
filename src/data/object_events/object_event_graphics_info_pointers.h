@@ -243,6 +243,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Jake;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Percy;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sam;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Pena;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Link;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_StrataGrunt;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_StrataLeader;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Brock;
@@ -522,6 +523,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_PERCY] =                    &gObjectEventGraphicsInfo_Percy,
     [OBJ_EVENT_GFX_SAM] =                      &gObjectEventGraphicsInfo_Sam,
     [OBJ_EVENT_GFX_PENA] =                     &gObjectEventGraphicsInfo_Pena,
+    [OBJ_EVENT_GFX_LINK] =                     &gObjectEventGraphicsInfo_Link,
     [OBJ_EVENT_GFX_STRATA_GRUNT] =             &gObjectEventGraphicsInfo_StrataGrunt,
     [OBJ_EVENT_GFX_STRATA_LEADER] =            &gObjectEventGraphicsInfo_StrataLeader,
     [OBJ_EVENT_GFX_BROCK] =                    &gObjectEventGraphicsInfo_Brock,

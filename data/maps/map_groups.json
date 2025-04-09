@@ -34,7 +34,9 @@
     "gMapGroup_IndoorRoute123",
     "gMapGroup_IndoorRoute119",
     "gMapGroup_IndoorRoute124",
-    "gMapGroup_Kanto"
+    "gMapGroup_Kanto",
+    "gMapGroup_IndoorVermillion",
+    "gMapGroup_IndoorCerulean"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -651,5 +653,12 @@
     "NewMap1",
     "Route5",
     "CeruleanCity"
+  ],
+  "gMapGroup_IndoorVermillion": [
+    "VermillionCity_Center",
+    "VermillionCity_Pokemart"
+  ],
+  "gMapGroup_IndoorCerulean": [
+
   ]
 }

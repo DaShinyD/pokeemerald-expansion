@@ -1,5 +1,14 @@
+.set LOCALID_SNORLAX, 1
+.set LOCALID_LINK, 11
+.set LOCALID_SNORLAX_STAND, 12
+
 VermillionCity_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Vermillion_City_OnTransition
 	.byte 0
+
+Vermillion_City_OnTransition:
+	setflag FLAG_SNORLAX
+	end
 
 VermillionCity_EventScript_Locked::
 	msgbox VermillionCity_Text_Locked, MSGBOX_SIGN
@@ -22,7 +31,7 @@ VermillionCity_EventScript_Hotel::
 	end
 
 VermillionCity_Text_Hotel:
-	.string "VERMILLION HOTEL:\n"
+	.string "VERMILION HOTEL:\n"
 	.string "OPEN SOON$"
 
 VermillionCity_EventScript_MachampMan::
@@ -47,7 +56,7 @@ VermillionCity_EventScript_CitySign::
 	end
 
 VermillionCity_Text_CitySign:
-	.string "VERMILLION CITY:\p"
+	.string "VERMILION CITY:\p"
 	.string "NOT MUCH GOING ON$"
 
 VermillionCity_EventScript_FanClubSign::
@@ -63,7 +72,7 @@ VermillionCity_EventScript_GymSign::
 	end
 
 VermillionCity_Text_GymSign:
-	.string "VERMILLION CITY GYM:\p"
+	.string "VERMILION CITY GYM:\p"
 	.string "HOME OF THE WAR HERO$"
 
 VermillionCity_EventScript_Fisher1::
@@ -116,4 +125,135 @@ VermillionCity_Text_GuitarGuy:
 	.string "the Champion club.\p"
 	.string "It's so boring when gym season\n"
 	.string "isn't happening.$"
+
+VermillionCity_EventScript_LinkA::
+	lock
+	addobject LOCALID_LINK
+	applymovement LOCALID_LINK, VermillionCity_Movement_WalkToSnorlax
+	waitmovement 0
+	playbgm MUS_RG_POKE_FLUTE, FALSE
+	fadescreen FADE_TO_BLACK
+	msgbox VermillionCity_Text_PlaysFlute, MSGBOX_AUTOCLOSE
+	removeobject LOCALID_SNORLAX
+	addobject LOCALID_SNORLAX_STAND
+	delay 30
+	fadedefaultbgm
+	fadescreen FADE_FROM_BLACK
+	applymovement LOCALID_LINK, VermillionCity_Movement_WalkPastSnorlax
+	applymovement OBJ_EVENT_ID_PLAYER, VermillionCity_Movement_StepBack
+	waitmovement 0
+	fadescreen FADE_TO_BLACK
+	addobject LOCALID_SNORLAX
+	removeobject LOCALID_SNORLAX_STAND
+	msgbox VermillionCity_Text_BackToSleep, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_FROM_BLACK
+	applymovement OBJ_EVENT_ID_PLAYER, VermillionCity_Movement_FaceLink
+	waitmovement 0
+	applymovement LOCALID_LINK, VermillionCity_Movement_FacePlayer
+	waitmovement 0
+	msgbox VermillionCity_Text_AskLink, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_LINK, VermillionCity_Movement_Leave
+	waitmovement 0
+	removeobject LOCALID_LINK
+	setvar VAR_LINK_THING, 1
+	release
+	end
+
+VermillionCity_EventScript_LinkB::
+	lock
+	addobject LOCALID_LINK
+	applymovement LOCALID_LINK, VermillionCity_Movement_WalkToSnorlax
+	waitmovement 0
+	playbgm MUS_RG_POKE_FLUTE, FALSE
+	fadescreen FADE_TO_BLACK
+	msgbox VermillionCity_Text_PlaysFlute, MSGBOX_AUTOCLOSE
+	removeobject LOCALID_SNORLAX
+	addobject LOCALID_SNORLAX_STAND
+	delay 30
+	fadedefaultbgm
+	fadescreen FADE_FROM_BLACK
+	applymovement LOCALID_LINK, VermillionCity_Movement_WalkPastSnorlax
+	waitmovement 0
+	fadescreen FADE_TO_BLACK
+	addobject LOCALID_SNORLAX
+	removeobject LOCALID_SNORLAX_STAND
+	msgbox VermillionCity_Text_BackToSleep, MSGBOX_DEFAULT
+	closemessage
+	fadescreen FADE_FROM_BLACK
+	applymovement OBJ_EVENT_ID_PLAYER, VermillionCity_Movement_FaceLink
+	waitmovement 0
+	applymovement LOCALID_LINK, VermillionCity_Movement_FacePlayer
+	waitmovement 0
+	msgbox VermillionCity_Text_AskLink, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_LINK, VermillionCity_Movement_Leave
+	waitmovement 0
+	removeobject LOCALID_LINK
+	setvar VAR_LINK_THING, 1
+	release
+	end
+
+VermillionCity_Movement_WalkToSnorlax:
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+VermillionCity_Text_PlaysFlute:
+	.string "The weirdly dressed boy plays an\n"
+	.string "instrument, waking up the Snorlax!$"
+
+VermillionCity_Movement_WalkPastSnorlax:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+VermillionCity_Text_BackToSleep:
+	.string "The Snorlax quickly goes back to\n"
+	.string "sleep.$"
+
+VermillionCity_Movement_FaceLink:
+	face_left
+	step_end
+
+VermillionCity_Movement_FacePlayer:
+	face_right
+	step_end
+
+VermillionCity_Text_AskLink:
+	.string "{PLAYER}: Hey do you think that\n"
+	.string "I could use--\p"
+	.string "Kid: HA HU HEH HA HYAA\p"
+	.string "...\p"
+	.string "{PLAYER}: Nevermind.$"
+
+VermillionCity_Movement_Leave:
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	walk_left
+	step_end
+
+VermillionCity_Movement_StepBack:
+	walk_left
+	walk_down
+	face_up
+	step_end
 

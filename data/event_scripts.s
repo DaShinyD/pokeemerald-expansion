@@ -1304,3 +1304,7 @@ MysteryGift_Text_ReceivedGiftMon:
 	.include "data/maps/Route5/scripts.inc"
 
 	.include "data/maps/CeruleanCity/scripts.inc"
+
+	.include "data/maps/VermillionCity_Center/scripts.inc"
+
+	.include "data/maps/VermillionCity_Pokemart/scripts.inc"

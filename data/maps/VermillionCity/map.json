@@ -2,8 +2,8 @@
   "id": "MAP_VERMILLION_CITY",
   "name": "VermillionCity",
   "layout": "LAYOUT_VERMILLION_CITY",
-  "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "music": "MUS_SLATEPORT",
+  "region_map_section": "MAPSEC_VERMILION_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_TOWN",
@@ -149,6 +149,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "VermillionCity_EventScript_Fisher1",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LINK",
+      "x": 55,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SNORLAX)",
+      "x": 43,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_SNORLAX"
     }
   ],
   "warp_events": [
@@ -158,10 +184,41 @@
       "elevation": 0,
       "dest_map": "MAP_VERMILLION_CITY",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 13,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_VERMILLION_CITY_CENTER",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 28,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_VERMILLION_CITY_POKEMART",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 41,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_LINK_THING",
+      "var_value": "0",
+      "script": "VermillionCity_EventScript_LinkB"
+    },
+    {
+      "type": "trigger",
+      "x": 41,
+      "y": 18,
+      "elevation": 0,
+      "var": "VAR_LINK_THING",
+      "var_value": "0",
+      "script": "VermillionCity_EventScript_LinkA"
+    }
   ],
   "bg_events": [
     {
@@ -190,14 +247,6 @@
     },
     {
       "type": "sign",
-      "x": 28,
-      "y": 25,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
-    },
-    {
-      "type": "sign",
       "x": 11,
       "y": 19,
       "elevation": 0,
@@ -222,19 +271,11 @@
     },
     {
       "type": "sign",
-      "x": 33,
+      "x": 30,
       "y": 18,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "VermillionCity_EventScript_CitySign"
-    },
-    {
-      "type": "sign",
-      "x": 28,
-      "y": 25,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "VermillionCity_EventScript_Locked"
     },
     {
       "type": "sign",
@@ -251,6 +292,14 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "VermillionCity_EventScript_Snorlax"
+    },
+    {
+      "type": "sign",
+      "x": 28,
+      "y": 25,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "VermillionCity_EventScript_Locked"
     }
   ]
 }
