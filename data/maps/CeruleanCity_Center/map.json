@@ -1,9 +1,9 @@
 {
-  "id": "MAP_VERMILLION_CITY_CENTER",
-  "name": "VermillionCity_Center",
-  "layout": "LAYOUT_VERMILLION_CITY_CENTER",
+  "id": "MAP_CERULEAN_CITY_CENTER",
+  "name": "CeruleanCity_Center",
+  "layout": "LAYOUT_CERULEAN_CITY_CENTER",
   "music": "MUS_POKE_CENTER",
-  "region_map_section": "MAPSEC_VERMILION_CITY",
+  "region_map_section": "MAPSEC_CERULEAN_CITY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",
@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "VermillionCity_Center_EventScript_Nurse",
+      "script": "CeruleanCity_Center_EventScript_Nurse",
       "flag": "0"
     }
   ],
@@ -33,7 +33,7 @@
       "x": 8,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_VERMILLION_CITY",
+      "dest_map": "MAP_CERULEAN_CITY",
       "dest_warp_id": "1"
     }
   ],

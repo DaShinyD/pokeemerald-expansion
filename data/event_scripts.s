@@ -1308,3 +1308,9 @@ MysteryGift_Text_ReceivedGiftMon:
 	.include "data/maps/VermillionCity_Center/scripts.inc"
 
 	.include "data/maps/VermillionCity_Pokemart/scripts.inc"
+
+	.include "data/maps/VermillionHarber/scripts.inc"
+
+	.include "data/maps/CeruleanCity_Center/scripts.inc"
+
+	.include "data/maps/CeruleanCity_Pokemart/scripts.inc"

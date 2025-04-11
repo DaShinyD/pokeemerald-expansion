@@ -4710,6 +4710,36 @@
       "secondary_tileset": "gTileset_Shop",
       "border_filepath": "data/layouts/VermillionCity_Pokemart/border.bin",
       "blockdata_filepath": "data/layouts/VermillionCity_Pokemart/map.bin"
+    },
+    {
+      "id": "LAYOUT_VERMILLION_HARBER",
+      "name": "VermillionHarber_Layout",
+      "width": 17,
+      "height": 13,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_IslandHarbor",
+      "border_filepath": "data/layouts/VermillionHarber/border.bin",
+      "blockdata_filepath": "data/layouts/VermillionHarber/map.bin"
+    },
+    {
+      "id": "LAYOUT_CERULEAN_CITY_CENTER",
+      "name": "CeruleanCity_Center_Layout",
+      "width": 16,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter2",
+      "border_filepath": "data/layouts/CeruleanCity_Center/border.bin",
+      "blockdata_filepath": "data/layouts/CeruleanCity_Center/map.bin"
+    },
+    {
+      "id": "LAYOUT_CERULEAN_CITY_POKEMART",
+      "name": "CeruleanCity_Pokemart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/CeruleanCity_Pokemart/border.bin",
+      "blockdata_filepath": "data/layouts/CeruleanCity_Pokemart/map.bin"
     }
   ]
 }

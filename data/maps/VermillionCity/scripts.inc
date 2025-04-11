@@ -56,7 +56,7 @@ VermillionCity_EventScript_CitySign::
 	end
 
 VermillionCity_Text_CitySign:
-	.string "VERMILION CITY:\p"
+	.string "VERMILION CITY:\n"
 	.string "NOT MUCH GOING ON$"
 
 VermillionCity_EventScript_FanClubSign::
@@ -64,7 +64,7 @@ VermillionCity_EventScript_FanClubSign::
 	end
 
 VermillionCity_Text_FanClubSign:
-	.string "POKEMON FAN CLUB:\p"
+	.string "POKEMON FAN CLUB:\n"
 	.string "WE <3 RAPIDASH$"
 
 VermillionCity_EventScript_GymSign::
@@ -72,7 +72,7 @@ VermillionCity_EventScript_GymSign::
 	end
 
 VermillionCity_Text_GymSign:
-	.string "VERMILION CITY GYM:\p"
+	.string "VERMILION CITY GYM:\n"
 	.string "HOME OF THE WAR HERO$"
 
 VermillionCity_EventScript_Fisher1::

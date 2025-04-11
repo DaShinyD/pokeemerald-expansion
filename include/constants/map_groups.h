@@ -624,8 +624,11 @@
 // gMapGroup_IndoorVermillion
 #define MAP_VERMILLION_CITY_CENTER   (0 | (35 << 8))
 #define MAP_VERMILLION_CITY_POKEMART (1 | (35 << 8))
+#define MAP_VERMILLION_HARBER        (2 | (35 << 8))
 
 // gMapGroup_IndoorCerulean
+#define MAP_CERULEAN_CITY_CENTER   (0 | (36 << 8))
+#define MAP_CERULEAN_CITY_POKEMART (1 | (36 << 8))
 
 #define MAP_GROUPS_COUNT 37
 

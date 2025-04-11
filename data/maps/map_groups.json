@@ -656,9 +656,11 @@
   ],
   "gMapGroup_IndoorVermillion": [
     "VermillionCity_Center",
-    "VermillionCity_Pokemart"
+    "VermillionCity_Pokemart",
+    "VermillionHarber"
   ],
   "gMapGroup_IndoorCerulean": [
-
+    "CeruleanCity_Center",
+    "CeruleanCity_Pokemart"
   ]
 }
