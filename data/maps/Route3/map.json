@@ -17,6 +17,11 @@
       "map": "MAP_ROUTE4",
       "offset": 58,
       "direction": "up"
+    },
+    {
+      "map": "MAP_PEWTER_CITY",
+      "offset": -11,
+      "direction": "left"
     }
   ],
   "object_events": [

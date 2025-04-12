@@ -4780,6 +4780,56 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/NewMap2/border.bin",
       "blockdata_filepath": "data/layouts/NewMap2/map.bin"
+    },
+    {
+      "id": "LAYOUT_PEWTER_CITY",
+      "name": "PewterCity_Layout",
+      "width": 52,
+      "height": 44,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/PewterCity/border.bin",
+      "blockdata_filepath": "data/layouts/PewterCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_PEWTER_CITY_CENTER",
+      "name": "PewterCity_Center_Layout",
+      "width": 16,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter2",
+      "border_filepath": "data/layouts/PewterCity_Center/border.bin",
+      "blockdata_filepath": "data/layouts/PewterCity_Center/map.bin"
+    },
+    {
+      "id": "LAYOUT_PEWTER_CITY_POKEMART",
+      "name": "PewterCity_Pokemart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/PewterCity_Pokemart/border.bin",
+      "blockdata_filepath": "data/layouts/PewterCity_Pokemart/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE2",
+      "name": "Route2_Layout",
+      "width": 28,
+      "height": 100,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/Route2/border.bin",
+      "blockdata_filepath": "data/layouts/Route2/map.bin"
+    },
+    {
+      "id": "LAYOUT_VERIDIAN_CITY",
+      "name": "VeridianCity_Layout",
+      "width": 60,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_lilycove2",
+      "border_filepath": "data/layouts/VeridianCity/border.bin",
+      "blockdata_filepath": "data/layouts/VeridianCity/map.bin"
     }
   ]
 }

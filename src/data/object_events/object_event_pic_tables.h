@@ -1452,6 +1452,30 @@ static const struct SpriteFrameImage sPicTable_Link[] = {
     overworld_frame(gObjectEventPic_Link, 2, 4, 8),
 };
 
+static const struct SpriteFrameImage sPicTable_Nude[] = {
+    overworld_frame(gObjectEventPic_Nude, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Nude, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Nude, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Nude, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Nude, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Nude, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Nude, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Nude, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Nude, 2, 4, 8),
+};
+
+static const struct SpriteFrameImage sPicTable_Guard[] = {
+    overworld_frame(gObjectEventPic_Guard, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Guard, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Guard, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Guard, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Guard, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Guard, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Guard, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Guard, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Guard, 2, 4, 8),
+};
+
 static const struct SpriteFrameImage sPicTable_StrataGrunt[] = {
     overworld_frame(gObjectEventPic_StrataGrunt, 2, 4, 0),
     overworld_frame(gObjectEventPic_StrataGrunt, 2, 4, 1),

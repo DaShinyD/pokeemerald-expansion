@@ -1322,3 +1322,13 @@ MysteryGift_Text_ReceivedGiftMon:
 	.include "data/maps/Route3/scripts.inc"
 
 	.include "data/maps/NewMap2/scripts.inc"
+
+	.include "data/maps/PewterCity/scripts.inc"
+
+	.include "data/maps/PewterCity_Center/scripts.inc"
+
+	.include "data/maps/PewterCity_Pokemart/scripts.inc"
+
+	.include "data/maps/Route2/scripts.inc"
+
+	.include "data/maps/VeridianCity/scripts.inc"

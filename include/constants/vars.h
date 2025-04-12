@@ -124,7 +124,7 @@
 #define VAR_LINK_THING                                   0x4068 // Funny Link event in Vermillion
 #define VAR_ROUTE110_STATE                               0x4069
 #define VAR_HELIX_FIGHT                                  0x406A // Helix Guy Funny Event Mt Moon
-#define VAR_ROUTE112_STATE                               0x406B // Unused Var
+#define VAR_FAN_CLUB                                     0x406B // Fan club meme in Vermilion
 #define VAR_ROUTE113_STATE                               0x406C // Unused Var
 #define VAR_ROUTE114_STATE                               0x406D // Unused Var
 #define VAR_ROUTE115_STATE                               0x406E // Unused Var

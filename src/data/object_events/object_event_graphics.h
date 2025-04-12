@@ -408,6 +408,12 @@ const u32 gObjectEventPic_Pena[] = INCBIN_U32("graphics/object_events/pics/peopl
 const u16 gObjectEventPal_Link[] = INCBIN_U16("graphics/object_events/pics/people/link.gbapal");
 const u32 gObjectEventPic_Link[] = INCBIN_U32("graphics/object_events/pics/people/link.4bpp");
 
+const u16 gObjectEventPal_Nude[] = INCBIN_U16("graphics/object_events/pics/people/nude.gbapal");
+const u32 gObjectEventPic_Nude[] = INCBIN_U32("graphics/object_events/pics/people/nude.4bpp");
+
+const u16 gObjectEventPal_Guard[] = INCBIN_U16("graphics/object_events/pics/people/guard.gbapal");
+const u32 gObjectEventPic_Guard[] = INCBIN_U32("graphics/object_events/pics/people/guard.4bpp");
+
 const u16 gObjectEventPal_StrataGrunt[] = INCBIN_U16("graphics/object_events/pics/people/grunt.gbapal");
 const u32 gObjectEventPic_StrataGrunt[] = INCBIN_U32("graphics/object_events/pics/people/grunt.4bpp");
 

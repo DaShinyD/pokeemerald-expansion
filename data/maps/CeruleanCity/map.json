@@ -26,7 +26,7 @@
   ],
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "graphics_id": "OBJ_EVENT_GFX_GUARD",
       "x": 24,
       "y": 11,
       "elevation": 0,
@@ -65,7 +65,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_CAMPER",
+      "graphics_id": "OBJ_EVENT_GFX_GUARD",
       "x": 40,
       "y": 19,
       "elevation": 0,

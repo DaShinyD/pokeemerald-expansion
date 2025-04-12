@@ -622,6 +622,9 @@
 #define MAP_CERULEAN_CITY   (4 | (34 << 8))
 #define MAP_ROUTE4          (5 | (34 << 8))
 #define MAP_ROUTE3          (6 | (34 << 8))
+#define MAP_PEWTER_CITY     (7 | (34 << 8))
+#define MAP_ROUTE2          (8 | (34 << 8))
+#define MAP_VERIDIAN_CITY   (9 | (34 << 8))
 
 // gMapGroup_IndoorVermillion
 #define MAP_VERMILLION_CITY_CENTER   (0 | (35 << 8))
@@ -634,6 +637,12 @@
 #define MAP_CERULEAN_CITY_POKEMART (1 | (36 << 8))
 #define MAP_CERLUEAN_CAVE          (2 | (36 << 8))
 
-#define MAP_GROUPS_COUNT 37
+// gMapGroup_IndoorPewter
+#define MAP_PEWTER_CITY_CENTER   (0 | (37 << 8))
+#define MAP_PEWTER_CITY_POKEMART (1 | (37 << 8))
+
+// gMapGroup_IndoorVeridian
+
+#define MAP_GROUPS_COUNT 39
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

@@ -36,7 +36,9 @@
     "gMapGroup_IndoorRoute124",
     "gMapGroup_Kanto",
     "gMapGroup_IndoorVermillion",
-    "gMapGroup_IndoorCerulean"
+    "gMapGroup_IndoorCerulean",
+    "gMapGroup_IndoorPewter",
+    "gMapGroup_IndoorVeridian"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -654,7 +656,10 @@
     "Route5",
     "CeruleanCity",
     "Route4",
-    "Route3"
+    "Route3",
+    "PewterCity",
+    "Route2",
+    "VeridianCity"
   ],
   "gMapGroup_IndoorVermillion": [
     "VermillionCity_Center",
@@ -666,5 +671,12 @@
     "CeruleanCity_Center",
     "CeruleanCity_Pokemart",
     "CerlueanCave"
+  ],
+  "gMapGroup_IndoorPewter": [
+    "PewterCity_Center",
+    "PewterCity_Pokemart"
+  ],
+  "gMapGroup_IndoorVeridian": [
+
   ]
 }

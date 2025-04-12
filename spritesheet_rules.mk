@@ -645,6 +645,12 @@ $(OBJEVENTGFXDIR)/people/pena.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/link.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4	
 
+$(OBJEVENTGFXDIR)/people/nude.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4	
+
+$(OBJEVENTGFXDIR)/people/guard.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4	
+
 $(OBJEVENTGFXDIR)/people/grunt.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4	
 

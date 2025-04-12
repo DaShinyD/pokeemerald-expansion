@@ -8,6 +8,7 @@ VermillionCity_MapScripts::
 
 Vermillion_City_OnTransition:
 	setflag FLAG_SNORLAX
+	setflag FLAG_POLICE
 	end
 
 VermillionCity_EventScript_Locked::
