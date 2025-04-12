@@ -17,6 +17,11 @@
       "map": "MAP_ROUTE5",
       "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_ROUTE4",
+      "offset": 7,
+      "direction": "left"
     }
   ],
   "object_events": [
@@ -104,7 +109,7 @@
       "x": 1,
       "y": 9,
       "elevation": 0,
-      "dest_map": "MAP_CERULEAN_CITY",
+      "dest_map": "MAP_CERLUEAN_CAVE",
       "dest_warp_id": "0"
     },
     {

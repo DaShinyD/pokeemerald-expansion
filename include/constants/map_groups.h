@@ -620,15 +620,19 @@
 #define MAP_NEW_MAP1        (2 | (34 << 8))
 #define MAP_ROUTE5          (3 | (34 << 8))
 #define MAP_CERULEAN_CITY   (4 | (34 << 8))
+#define MAP_ROUTE4          (5 | (34 << 8))
+#define MAP_ROUTE3          (6 | (34 << 8))
 
 // gMapGroup_IndoorVermillion
 #define MAP_VERMILLION_CITY_CENTER   (0 | (35 << 8))
 #define MAP_VERMILLION_CITY_POKEMART (1 | (35 << 8))
 #define MAP_VERMILLION_HARBER        (2 | (35 << 8))
+#define MAP_NEW_MAP2                 (3 | (35 << 8))
 
 // gMapGroup_IndoorCerulean
 #define MAP_CERULEAN_CITY_CENTER   (0 | (36 << 8))
 #define MAP_CERULEAN_CITY_POKEMART (1 | (36 << 8))
+#define MAP_CERLUEAN_CAVE          (2 | (36 << 8))
 
 #define MAP_GROUPS_COUNT 37
 

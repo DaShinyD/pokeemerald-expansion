@@ -13215,31 +13215,23 @@ F_TRAINER_FEMALE |
             },
         },
     },
-    [TRAINER_CAMDEN] =
+    [TRAINER_TPP] =
     {
-        .trainerName = _("CAMDEN"),
-        .trainerClass = TRAINER_CLASS_TRIATHLETE,
-        .trainerPic = TRAINER_PIC_SWIMMING_TRIATHLETE_M,
+        .trainerName = _("TPP"),
+        .trainerClass = TRAINER_CLASS_RS_PROTAG,
+        .trainerPic = TRAINER_PIC_RED,
         .encounterMusic_gender = 
-            TRAINER_ENCOUNTER_MUSIC_SWIMMER,
+            TRAINER_ENCOUNTER_MUSIC_MALE,
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .partySize = 2,
+        .partySize = 1,
         .party = (const struct TrainerMon[])
         {
             {
-            .species = SPECIES_STARYU,
+            .species = SPECIES_HELIX,
             .gender = TRAINER_MON_RANDOM_GENDER,
-            .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-            .lvl = 33,
-            .nature = NATURE_HARDY,
-            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
-            },
-            {
-            .species = SPECIES_STARYU,
-            .gender = TRAINER_MON_RANDOM_GENDER,
-            .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-            .lvl = 33,
+            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+            .lvl = 100,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             },

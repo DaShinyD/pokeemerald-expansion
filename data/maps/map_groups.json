@@ -652,15 +652,19 @@
     "Route6",
     "NewMap1",
     "Route5",
-    "CeruleanCity"
+    "CeruleanCity",
+    "Route4",
+    "Route3"
   ],
   "gMapGroup_IndoorVermillion": [
     "VermillionCity_Center",
     "VermillionCity_Pokemart",
-    "VermillionHarber"
+    "VermillionHarber",
+    "NewMap2"
   ],
   "gMapGroup_IndoorCerulean": [
     "CeruleanCity_Center",
-    "CeruleanCity_Pokemart"
+    "CeruleanCity_Pokemart",
+    "CerlueanCave"
   ]
 }

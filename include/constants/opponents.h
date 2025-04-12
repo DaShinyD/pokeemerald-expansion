@@ -377,7 +377,7 @@
 #define TRAINER_MARIA_3                     371
 #define TRAINER_MARIA_4                     372
 #define TRAINER_MARIA_5                     373
-#define TRAINER_CAMDEN                      374 // now unused (route 127)
+#define TRAINER_TPP                         374 // now TPP (previously Camden Route 127)
 #define TRAINER_DEMETRIUS                   375 // now unused (abandoned ship)
 #define TRAINER_ISAIAH_1                    376 // now unused (remove match) (route 128)
 #define TRAINER_PABLO_1                     377 // now unused (remove match) (route 126)

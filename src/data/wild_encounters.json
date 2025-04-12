@@ -12537,6 +12537,75 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_CERLUEAN_CAVE",
+          "base_label": "gCerlueanCave0",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_ALAKAZAM"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_SNORLAX"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_ALAKAZAM"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_SNORLAX"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_ALAKAZAM"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_SNORLAX"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_BLISSEY"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_ALAKAZAM"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_SNORLAX"
+              }
+            ]
+          }
         }
       ]
     },

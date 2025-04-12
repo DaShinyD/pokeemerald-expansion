@@ -683,9 +683,9 @@
 #define FLAG_ROUTE136_CAVE 0x27C // Set Distorion World entrance after Strata Finale
 #define FLAG_GO_RED        0x27D // Allows you to go to Vermillion in search of Red
 #define FLAG_SNORLAX       0x27E // Hide standing Snorlax
-#define FLAG_UNUSED_0x27F  0x27F // Unused Flag
-#define FLAG_UNUSED_0x280  0x280 // Unused Flag
-#define FLAG_UNUSED_0x281  0x281 // Unused Flag
+#define FLAG_HIDE_TPP      0x27F // Hide TPP Mt Moon
+#define FLAG_MEW           0x280 // Mew Cerulean Cave
+#define FLAG_MEWTWO        0x281 // Mewtwo Cerulean Cave
 #define FLAG_UNUSED_0x282  0x282 // Unused Flag
 #define FLAG_UNUSED_0x283  0x283 // Unused Flag
 #define FLAG_UNUSED_0x284  0x284 // Unused Flag

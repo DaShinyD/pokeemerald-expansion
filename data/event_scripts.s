@@ -1314,3 +1314,11 @@ MysteryGift_Text_ReceivedGiftMon:
 	.include "data/maps/CeruleanCity_Center/scripts.inc"
 
 	.include "data/maps/CeruleanCity_Pokemart/scripts.inc"
+
+	.include "data/maps/Route4/scripts.inc"
+
+	.include "data/maps/CerlueanCave/scripts.inc"
+
+	.include "data/maps/Route3/scripts.inc"
+
+	.include "data/maps/NewMap2/scripts.inc"
