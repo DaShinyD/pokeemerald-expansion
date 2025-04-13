@@ -659,7 +659,9 @@
     "Route3",
     "PewterCity",
     "Route2",
-    "VeridianCity"
+    "VeridianCity",
+    "Route1",
+    "Route24"
   ],
   "gMapGroup_IndoorVermillion": [
     "VermillionCity_Center",
@@ -677,6 +679,6 @@
     "PewterCity_Pokemart"
   ],
   "gMapGroup_IndoorVeridian": [
-
+    "Viridian_PokemonLeague"
   ]
 }

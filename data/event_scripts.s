@@ -1332,3 +1332,9 @@ MysteryGift_Text_ReceivedGiftMon:
 	.include "data/maps/Route2/scripts.inc"
 
 	.include "data/maps/VeridianCity/scripts.inc"
+
+	.include "data/maps/Route1/scripts.inc"
+
+	.include "data/maps/Route24/scripts.inc"
+
+	.include "data/maps/Viridian_PokemonLeague/scripts.inc"

@@ -625,6 +625,8 @@
 #define MAP_PEWTER_CITY     (7 | (34 << 8))
 #define MAP_ROUTE2          (8 | (34 << 8))
 #define MAP_VERIDIAN_CITY   (9 | (34 << 8))
+#define MAP_ROUTE1          (10 | (34 << 8))
+#define MAP_ROUTE24         (11 | (34 << 8))
 
 // gMapGroup_IndoorVermillion
 #define MAP_VERMILLION_CITY_CENTER   (0 | (35 << 8))
@@ -642,6 +644,7 @@
 #define MAP_PEWTER_CITY_POKEMART (1 | (37 << 8))
 
 // gMapGroup_IndoorVeridian
+#define MAP_VIRIDIAN_POKEMON_LEAGUE (0 | (38 << 8))
 
 #define MAP_GROUPS_COUNT 39
 

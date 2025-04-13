@@ -4830,6 +4830,36 @@
       "secondary_tileset": "gTileset_lilycove2",
       "border_filepath": "data/layouts/VeridianCity/border.bin",
       "blockdata_filepath": "data/layouts/VeridianCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE1",
+      "name": "Route1_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_petalburg2",
+      "border_filepath": "data/layouts/Route1/border.bin",
+      "blockdata_filepath": "data/layouts/Route1/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE24",
+      "name": "Route24_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_petalburg2",
+      "border_filepath": "data/layouts/Route24/border.bin",
+      "blockdata_filepath": "data/layouts/Route24/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_POKEMON_LEAGUE",
+      "name": "Viridian_PokemonLeague_Layout",
+      "width": 19,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter2",
+      "border_filepath": "data/layouts/Viridian_PokemonLeague/border.bin",
+      "blockdata_filepath": "data/layouts/Viridian_PokemonLeague/map.bin"
     }
   ]
 }
