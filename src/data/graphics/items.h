@@ -1884,6 +1884,16 @@ const u32 gItemIconPalette_AuroraTicket[] = INCBIN_U32("graphics/items/icon_pale
 const u32 gItemIcon_OldSeaMap[] = INCBIN_U32("graphics/items/icons/old_sea_map.4bpp.lz");
 const u32 gItemIconPalette_OldSeaMap[] = INCBIN_U32("graphics/items/icon_palettes/old_sea_map.gbapal.lz");
 
+const u32 gItemIcon_BoulderBadge[] = INCBIN_U32("graphics/items/icons/boulderbadge.4bpp.lz");
+const u32 gItemIcon_CascadeBadge[] = INCBIN_U32("graphics/items/icons/cascadebadge.4bpp.lz");
+const u32 gItemIcon_ThunderBadge[] = INCBIN_U32("graphics/items/icons/thunderbadge.4bpp.lz");
+const u32 gItemIcon_RainbowBadge[] = INCBIN_U32("graphics/items/icons/rainbowbadge.4bpp.lz");
+const u32 gItemIcon_SoulBadge[] = INCBIN_U32("graphics/items/icons/soulbadge.4bpp.lz");
+const u32 gItemIcon_MarshBadge[] = INCBIN_U32("graphics/items/icons/marshbadge.4bpp.lz");
+const u32 gItemIcon_VolcanoBadge[] = INCBIN_U32("graphics/items/icons/volcanobadge.4bpp.lz");
+const u32 gItemIcon_EarthBadge[] = INCBIN_U32("graphics/items/icons/earthbadge.4bpp.lz");
+const u32 gItemIconPalette_Badges[] = INCBIN_U32("graphics/items/icon_palettes/badges.gbapal.lz");
+
 const u32 gItemIcon_Letter[] = INCBIN_U32("graphics/items/icons/letter.4bpp.lz");
 
 const u32 gItemIcon_DevonParts[] = INCBIN_U32("graphics/items/icons/devon_parts.4bpp.lz");

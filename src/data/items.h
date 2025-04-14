@@ -12721,6 +12721,126 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_OldSeaMap,
     },
 
+    [ITEM_BOULDER_BADGE] =
+    {
+        .name = _("Boulder Badge"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A colorless badge\n"
+            "from Kanto."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_BoulderBadge,
+        .iconPalette = gItemIconPalette_Badges,
+    },
+
+    [ITEM_CASCADE_BADGE] =
+    {
+        .name = _("Cascade Badge"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A colorless badge\n"
+            "from Kanto."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_CascadeBadge,
+        .iconPalette = gItemIconPalette_Badges,
+    },
+
+    [ITEM_THUNDER_BADGE] =
+    {
+        .name = _("Thunder Badge"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A colorless badge\n"
+            "from Kanto."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_ThunderBadge,
+        .iconPalette = gItemIconPalette_Badges,
+    },
+
+    [ITEM_RAINBOW_BADGE] =
+    {
+        .name = _("Rainbow Badge"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A colorless badge\n"
+            "from Kanto."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_RainbowBadge,
+        .iconPalette = gItemIconPalette_Badges,
+    },
+
+    [ITEM_SOUL_BADGE] =
+    {
+        .name = _("Soul Badge"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A colorless badge\n"
+            "from Kanto."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_SoulBadge,
+        .iconPalette = gItemIconPalette_Badges,
+    },
+
+    [ITEM_MARSH_BADGE] =
+    {
+        .name = _("Marsh Badge"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A colorless badge\n"
+            "from Kanto."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_MarshBadge,
+        .iconPalette = gItemIconPalette_Badges,
+    },
+
+    [ITEM_VOLCANO_BADGE] =
+    {
+        .name = _("Volcano Badge"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A colorless badge\n"
+            "from Kanto."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_VolcanoBadge,
+        .iconPalette = gItemIconPalette_Badges,
+    },
+
+    [ITEM_EARTH_BADGE] =
+    {
+        .name = _("Earth Badge"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A colorless badge\n"
+            "from Kanto."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_EarthBadge,
+        .iconPalette = gItemIconPalette_Badges,
+    },
+
     [ITEM_LETTER] =
     {
         .name = _("Letter"),

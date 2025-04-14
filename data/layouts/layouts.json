@@ -4860,6 +4860,16 @@
       "secondary_tileset": "gTileset_PokemonCenter2",
       "border_filepath": "data/layouts/Viridian_PokemonLeague/border.bin",
       "blockdata_filepath": "data/layouts/Viridian_PokemonLeague/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_MAP3",
+      "name": "NewMap3_Layout",
+      "width": 28,
+      "height": 38,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_DistortionWorld",
+      "border_filepath": "data/layouts/NewMap3/border.bin",
+      "blockdata_filepath": "data/layouts/NewMap3/map.bin"
     }
   ]
 }

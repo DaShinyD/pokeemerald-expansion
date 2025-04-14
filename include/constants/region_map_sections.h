@@ -223,7 +223,8 @@
 #define MAPSEC_BIRCH_GARDEN                 0xDB
 #define MAPSEC_DESERT_VILLAGE               0xDC
 #define MAPSEC_ROUTE_136                    0xDD
-#define MAPSEC_NONE                         0xDE
+#define MAPSEC_DISTORTION_WORLD             0xDE
+#define MAPSEC_NONE                         0xDF
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

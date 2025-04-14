@@ -1006,11 +1006,19 @@
 #define ITEM_FERALIGATRITE 834
 #define ITEM_TYPHLOSIONITE 835
 #define ITEM_MEGANIUMITE 836
+#define ITEM_BOULDER_BADGE 837
+#define ITEM_CASCADE_BADGE 838
+#define ITEM_THUNDER_BADGE 839
+#define ITEM_RAINBOW_BADGE 840
+#define ITEM_SOUL_BADGE 841
+#define ITEM_MARSH_BADGE 842
+#define ITEM_VOLCANO_BADGE 843
+#define ITEM_EARTH_BADGE 844
 
 // HOPO BERRY
 // LEGEND PLATE
 
-#define ITEMS_COUNT 837
+#define ITEMS_COUNT 845
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

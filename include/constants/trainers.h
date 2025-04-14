@@ -379,7 +379,9 @@
 #define TRAINER_CLASS_MASTER         0x42
 #define TRAINER_CLASS_TEAM_STRATA    0x43
 #define TRAINER_CLASS_STRATA_LEADER  0x44
-#define TRAINER_CLASS_COUNT          0x45
+#define TRAINER_CLASS_TEAM_ROCKET    0x45
+#define TRAINER_CLASS_MOB_BOSS       0x46
+#define TRAINER_CLASS_COUNT          0x47
 
 #define TRAINER_ENCOUNTER_MUSIC_MALE         0 // standard male encounter music
 #define TRAINER_ENCOUNTER_MUSIC_FEMALE       1 // standard female encounter music

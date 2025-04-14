@@ -688,7 +688,7 @@
 #define FLAG_MEWTWO        0x281 // Mewtwo Cerulean Cave
 #define FLAG_NUDE_GUY      0x282 // Hide Nude Guy after meme Vermilion
 #define FLAG_POLICE        0x283 // Hide Police before Nude Guy Scene
-#define FLAG_UNUSED_0x284  0x284 // Unused Flag
+#define FLAG_GIRATINA      0x284 // Hide Giratina
 #define FLAG_UNUSED_0x285  0x285 // Unused Flag
 #define FLAG_UNUSED_0x286  0x286 // Unused Flag
 #define FLAG_UNUSED_0x287  0x287 // Unused Flag

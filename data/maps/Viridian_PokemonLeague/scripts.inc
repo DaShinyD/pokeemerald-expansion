@@ -4,7 +4,12 @@
 .set LOCALID_GUARD_2, 4
 
 Viridian_PokemonLeague_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, Viridian_PokemonLeague_OnTransition
 	.byte 0
+
+Viridian_PokemonLeague_OnTransition:
+	setrespawn HEAL_LOCATION_VIRIDIAN_CITY
+	end
 
 Viridian_PokemonLeague_EventScript_Nurse::
 	lock
