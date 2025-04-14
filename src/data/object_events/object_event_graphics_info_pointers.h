@@ -243,6 +243,15 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Jake;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Percy;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sam;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Pena;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lorelei;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bruno;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Agatha;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lance;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Giovanni;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketM;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RocketF;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Red2;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Green;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Link;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Nude;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Guard;
@@ -525,6 +534,15 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_PERCY] =                    &gObjectEventGraphicsInfo_Percy,
     [OBJ_EVENT_GFX_SAM] =                      &gObjectEventGraphicsInfo_Sam,
     [OBJ_EVENT_GFX_PENA] =                     &gObjectEventGraphicsInfo_Pena,
+    [OBJ_EVENT_GFX_LORELEI] =                  &gObjectEventGraphicsInfo_Lorelei,
+    [OBJ_EVENT_GFX_BRUNO] =                    &gObjectEventGraphicsInfo_Bruno,
+    [OBJ_EVENT_GFX_AGATHA] =                   &gObjectEventGraphicsInfo_Agatha,
+    [OBJ_EVENT_GFX_LANCE] =                    &gObjectEventGraphicsInfo_Lance,
+    [OBJ_EVENT_GFX_GIOVANNI] =                 &gObjectEventGraphicsInfo_Giovanni,
+    [OBJ_EVENT_GFX_ROCKETM] =                  &gObjectEventGraphicsInfo_RocketM,
+    [OBJ_EVENT_GFX_ROCKETF] =                  &gObjectEventGraphicsInfo_RocketF,
+    [OBJ_EVENT_GFX_RED2] =                     &gObjectEventGraphicsInfo_Red2,
+    [OBJ_EVENT_GFX_GREEN] =                    &gObjectEventGraphicsInfo_Green,
     [OBJ_EVENT_GFX_LINK] =                     &gObjectEventGraphicsInfo_Link,
     [OBJ_EVENT_GFX_NUDE] =                     &gObjectEventGraphicsInfo_Nude,
     [OBJ_EVENT_GFX_GUARD] =                    &gObjectEventGraphicsInfo_Guard,

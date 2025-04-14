@@ -4870,6 +4870,106 @@
       "secondary_tileset": "gTileset_DistortionWorld",
       "border_filepath": "data/layouts/NewMap3/border.bin",
       "blockdata_filepath": "data/layouts/NewMap3/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_POKEMON_LEAGUE_HALL1",
+      "name": "Viridian_PokemonLeague_Hall1_Layout",
+      "width": 11,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/Viridian_PokemonLeague_Hall1/border.bin",
+      "blockdata_filepath": "data/layouts/Viridian_PokemonLeague_Hall1/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_POKEMON_LEAGUE_LORELEI_ROOM",
+      "name": "Viridian_PokemonLeague_LoreleiRoom_Layout",
+      "width": 13,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/Viridian_PokemonLeague_LoreleiRoom/border.bin",
+      "blockdata_filepath": "data/layouts/Viridian_PokemonLeague_LoreleiRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_POKEMON_LEAGUE_HALL2",
+      "name": "Viridian_PokemonLeague_Hall2_Layout",
+      "width": 11,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/Viridian_PokemonLeague_Hall2/border.bin",
+      "blockdata_filepath": "data/layouts/Viridian_PokemonLeague_Hall2/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_POKEMON_LEAGUE_BRUNO_ROOM",
+      "name": "Viridian_PokemonLeague_BrunoRoom_Layout",
+      "width": 13,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/Viridian_PokemonLeague_BrunoRoom/border.bin",
+      "blockdata_filepath": "data/layouts/Viridian_PokemonLeague_BrunoRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_POKEMON_LEAGUE_HALL3",
+      "name": "Viridian_PokemonLeague_Hall3_Layout",
+      "width": 11,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/Viridian_PokemonLeague_Hall3/border.bin",
+      "blockdata_filepath": "data/layouts/Viridian_PokemonLeague_Hall3/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_POKEMON_LEAGUE_AGATHA_ROOM",
+      "name": "Viridian_PokemonLeague_AgathaRoom_Layout",
+      "width": 13,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/Viridian_PokemonLeague_AgathaRoom/border.bin",
+      "blockdata_filepath": "data/layouts/Viridian_PokemonLeague_AgathaRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_POKEMON_LEAGUE_HALL4",
+      "name": "Viridian_PokemonLeague_Hall4_Layout",
+      "width": 11,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/Viridian_PokemonLeague_Hall4/border.bin",
+      "blockdata_filepath": "data/layouts/Viridian_PokemonLeague_Hall4/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_POKEMON_LEAGUE_LANCE_ROOM",
+      "name": "Viridian_PokemonLeague_LanceRoom_Layout",
+      "width": 13,
+      "height": 14,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/Viridian_PokemonLeague_LanceRoom/border.bin",
+      "blockdata_filepath": "data/layouts/Viridian_PokemonLeague_LanceRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_POKEMON_LEAGUE_HALL5",
+      "name": "Viridian_PokemonLeague_Hall5_Layout",
+      "width": 11,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/Viridian_PokemonLeague_Hall5/border.bin",
+      "blockdata_filepath": "data/layouts/Viridian_PokemonLeague_Hall5/map.bin"
+    },
+    {
+      "id": "LAYOUT_VIRIDIAN_POKEMON_LEAGUE_CHAMP_ROOM",
+      "name": "Viridian_PokemonLeague_ChampRoom_Layout",
+      "width": 13,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EliteFour",
+      "border_filepath": "data/layouts/Viridian_PokemonLeague_ChampRoom/border.bin",
+      "blockdata_filepath": "data/layouts/Viridian_PokemonLeague_ChampRoom/map.bin"
     }
   ]
 }

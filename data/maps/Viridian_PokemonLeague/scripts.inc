@@ -56,3 +56,39 @@ Viridian_PokemonLeague_Pokemart:
 	.2byte ITEM_NONE
 	release
 	end
+
+Viridian_PokemonLeague_EventScript_BadgeCheck::
+	lock
+	applymovement LOCALID_GUARD, Viridian_PokemonLeague_Movement_LookAtPlayer
+	waitmovement 0
+	msgbox Viridian_PokemonLeague_Text_LemmeCheck, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_GUARD, Viridian_PokemonLeague_Movement_LookBack
+	waitmovement 0
+	setvar VAR_INDIGO_LEAGUE, 1
+	release
+	end
+
+Viridian_PokemonLeague_Movement_LookAtPlayer:
+	face_right
+	step_end
+
+Viridian_PokemonLeague_Text_LemmeCheck:
+	.string "Hold on, let me check your badges.\p"
+	.string "...\p"
+	.string "Alright, you have all eight.\p"
+	.string "However, these are colorless, so\n"
+	.string "you may not earn the title.\p"
+	.string "Be warned, a new rule change has\n"
+	.string "been implemented.\p"
+	.string "Due to a back and forth between\n"
+	.string "two people, our champion is\l"
+	.string "actually champions.\p"
+	.string "With an s.\p"
+	.string "It will be a double battle.\p"
+	.string "Best of luck.$"
+
+Viridian_PokemonLeague_Movement_LookBack:
+	face_down
+	step_end
+

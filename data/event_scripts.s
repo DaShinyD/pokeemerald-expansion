@@ -1340,3 +1340,23 @@ MysteryGift_Text_ReceivedGiftMon:
 	.include "data/maps/Viridian_PokemonLeague/scripts.inc"
 
 	.include "data/maps/NewMap3/scripts.inc"
+
+	.include "data/maps/Viridian_PokemonLeague_Hall1/scripts.inc"
+
+	.include "data/maps/Viridian_PokemonLeague_LoreleiRoom/scripts.inc"
+
+	.include "data/maps/Viridian_PokemonLeague_Hall2/scripts.inc"
+
+	.include "data/maps/Viridian_PokemonLeague_BrunoRoom/scripts.inc"
+
+	.include "data/maps/Viridian_PokemonLeague_Hall3/scripts.inc"
+
+	.include "data/maps/Viridian_PokemonLeague_AgathaRoom/scripts.inc"
+
+	.include "data/maps/Viridian_PokemonLeague_Hall4/scripts.inc"
+
+	.include "data/maps/Viridian_PokemonLeague_LanceRoom/scripts.inc"
+
+	.include "data/maps/Viridian_PokemonLeague_Hall5/scripts.inc"
+
+	.include "data/maps/Viridian_PokemonLeague_ChampRoom/scripts.inc"

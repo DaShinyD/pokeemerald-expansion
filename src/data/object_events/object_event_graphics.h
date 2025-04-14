@@ -420,6 +420,33 @@ const u32 gObjectEventPic_StrataGrunt[] = INCBIN_U32("graphics/object_events/pic
 const u16 gObjectEventPal_StrataLeader[] = INCBIN_U16("graphics/object_events/pics/people/leader.gbapal");
 const u32 gObjectEventPic_StrataLeader[] = INCBIN_U32("graphics/object_events/pics/people/leader.4bpp");
 
+const u16 gObjectEventPal_Lorelei[] = INCBIN_U16("graphics/object_events/pics/people/kanto/lorelei.gbapal");
+const u32 gObjectEventPic_Lorelei[] = INCBIN_U32("graphics/object_events/pics/people/kanto/lorelei.4bpp");
+
+const u16 gObjectEventPal_Bruno[] = INCBIN_U16("graphics/object_events/pics/people/kanto/bruno.gbapal");
+const u32 gObjectEventPic_Bruno[] = INCBIN_U32("graphics/object_events/pics/people/kanto/bruno.4bpp");
+
+const u16 gObjectEventPal_Agatha[] = INCBIN_U16("graphics/object_events/pics/people/kanto/agatha.gbapal");
+const u32 gObjectEventPic_Agatha[] = INCBIN_U32("graphics/object_events/pics/people/kanto/agatha.4bpp");
+
+const u16 gObjectEventPal_Lance[] = INCBIN_U16("graphics/object_events/pics/people/kanto/lance.gbapal");
+const u32 gObjectEventPic_Lance[] = INCBIN_U32("graphics/object_events/pics/people/kanto/lance.4bpp");
+
+const u16 gObjectEventPal_Giovanni[] = INCBIN_U16("graphics/object_events/pics/people/kanto/giovanni.gbapal");
+const u32 gObjectEventPic_Giovanni[] = INCBIN_U32("graphics/object_events/pics/people/kanto/giovanni.4bpp");
+
+const u16 gObjectEventPal_RocketM[] = INCBIN_U16("graphics/object_events/pics/people/kanto/rocketm.gbapal");
+const u32 gObjectEventPic_RocketM[] = INCBIN_U32("graphics/object_events/pics/people/kanto/rocketm.4bpp");
+
+const u16 gObjectEventPal_RocketF[] = INCBIN_U16("graphics/object_events/pics/people/kanto/rocketf.gbapal");
+const u32 gObjectEventPic_RocketF[] = INCBIN_U32("graphics/object_events/pics/people/kanto/rocketf.4bpp");
+
+const u16 gObjectEventPal_Red2[] = INCBIN_U16("graphics/object_events/pics/people/kanto/red2.gbapal");
+const u32 gObjectEventPic_Red2[] = INCBIN_U32("graphics/object_events/pics/people/kanto/red2.4bpp");
+
+const u16 gObjectEventPal_Green[] = INCBIN_U16("graphics/object_events/pics/people/kanto/green.gbapal");
+const u32 gObjectEventPic_Green[] = INCBIN_U32("graphics/object_events/pics/people/kanto/green.4bpp");
+
 const u16 gObjectEventPal_Brock[] = INCBIN_U16("graphics/object_events/pics/people/kanto/brock.gbapal");
 const u32 gObjectEventPic_Brock[] = INCBIN_U32("graphics/object_events/pics/people/kanto/brock.4bpp");
 

@@ -147,7 +147,7 @@
 #define TRAINER_WINSTON_4                   141
 #define TRAINER_WINSTON_5                   142
 #define TRAINER_STEVE_1                     143
-#define TRAINER_THALIA_1                    144 // now unused (remove match) (abandoned ship)
+#define TRAINER_THALIA_1                    144 // now a gym leader (previously match call thalia (abandoned ship))
 #define TRAINER_MARK                        145
 #define TRAINER_GRUNT_MT_CHIMNEY_1          146
 #define TRAINER_STEVE_2                     147
@@ -645,11 +645,11 @@
 #define TRAINER_TRENT_5                     639
 #define TRAINER_DEZ_AND_LUKE                640
 #define TRAINER_LEA_AND_JED                 641
-#define TRAINER_KIRA_AND_DAN_1              642 // now unused (remove match) (abandoned ship)
-#define TRAINER_KIRA_AND_DAN_2              643 // now unused (remove match) (abandoned ship)
-#define TRAINER_KIRA_AND_DAN_3              644 // now unused (remove match) (abandoned ship)
-#define TRAINER_KIRA_AND_DAN_4              645 // now unused (remove match) (abandoned ship)
-#define TRAINER_KIRA_AND_DAN_5              646 // now unused (remove match) (abandoned ship)
+#define TRAINER_KIRA_AND_DAN_1              642 // now a gym leader (previously match call kira and dan (abandoned ship))
+#define TRAINER_KIRA_AND_DAN_2              643 // now a gym leader (previously match call kira and dan (abandoned ship))
+#define TRAINER_KIRA_AND_DAN_3              644 // now a gym leader (previously match call kira and dan (abandoned ship))
+#define TRAINER_KIRA_AND_DAN_4              645 // now a gym leader (previously match call kira and dan (abandoned ship))
+#define TRAINER_KIRA_AND_DAN_5              646 // now a gym leader (previously match call kira and dan (abandoned ship))
 #define TRAINER_JOHANNA                     647
 #define TRAINER_GERALD                      648
 #define TRAINER_VIVIAN                      649
@@ -847,10 +847,10 @@
 #define TRAINER_GABRIELLE_3                 841
 #define TRAINER_GABRIELLE_4                 842
 #define TRAINER_GABRIELLE_5                 843
-#define TRAINER_THALIA_2                    844 // now unused (remove match) (abandoned ship)
-#define TRAINER_THALIA_3                    845 // now unused (remove match) (abandoned ship)
-#define TRAINER_THALIA_4                    846 // now unused (remove match) (abandoned ship)
-#define TRAINER_THALIA_5                    847 // now unused (remove match) (abandoned ship)
+#define TRAINER_THALIA_2                    844 // now a gym leader (previously match call thalia (abandoned ship))
+#define TRAINER_THALIA_3                    845 // now a gym leader (previously match call thalia (abandoned ship))
+#define TRAINER_THALIA_4                    846 // now a gym leader (previously match call thalia (abandoned ship))
+#define TRAINER_THALIA_5                    847 // now a gym leader (previously match call thalia (abandoned ship))
 #define TRAINER_MARIELA                     848
 #define TRAINER_ALVARO                      849
 #define TRAINER_EVERETT                     850

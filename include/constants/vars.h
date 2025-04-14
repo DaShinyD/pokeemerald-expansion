@@ -125,8 +125,8 @@
 #define VAR_ROUTE110_STATE                               0x4069
 #define VAR_HELIX_FIGHT                                  0x406A // Helix Guy Funny Event Mt Moon
 #define VAR_FAN_CLUB                                     0x406B // Fan club meme in Vermilion
-#define VAR_ROUTE113_STATE                               0x406C // Unused Var
-#define VAR_ROUTE114_STATE                               0x406D // Unused Var
+#define VAR_INDIGO_LEAGUE                                0x406C // Indigo League Blockers/Checkers for badges
+#define VAR_LEADERS_CLUB                                 0x406D // Leaders club intro
 #define VAR_ROUTE115_STATE                               0x406E // Unused Var
 #define VAR_ROUTE116_STATE                               0x406F
 #define VAR_ROUTE117_STATE                               0x4070 // Unused Var

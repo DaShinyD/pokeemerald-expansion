@@ -680,6 +680,16 @@
     "PewterCity_Pokemart"
   ],
   "gMapGroup_IndoorVeridian": [
-    "Viridian_PokemonLeague"
+    "Viridian_PokemonLeague",
+    "Viridian_PokemonLeague_Hall1",
+    "Viridian_PokemonLeague_LoreleiRoom",
+    "Viridian_PokemonLeague_Hall2",
+    "Viridian_PokemonLeague_BrunoRoom",
+    "Viridian_PokemonLeague_Hall3",
+    "Viridian_PokemonLeague_AgathaRoom",
+    "Viridian_PokemonLeague_Hall4",
+    "Viridian_PokemonLeague_LanceRoom",
+    "Viridian_PokemonLeague_Hall5",
+    "Viridian_PokemonLeague_ChampRoom"
   ]
 }

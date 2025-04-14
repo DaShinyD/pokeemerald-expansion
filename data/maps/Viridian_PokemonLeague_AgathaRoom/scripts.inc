@@ -1,0 +1,31 @@
+Viridian_PokemonLeague_AgathaRoom_MapScripts::
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, Viridian_PokemonLeague_AgathaRoom_OnFrame
+	map_script MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE, Viridian_PokemonLeague_AgathaRoom_OnWarp
+	.byte 0
+
+Viridian_PokemonLeague_AgathaRoom_OnWarp:
+	map_script_2 VAR_TEMP_1, 0, Viridian_PokemonLeague_AgathaRoom_EventScript_PlayerTurnNorth
+	.2byte 0
+
+Viridian_PokemonLeague_AgathaRoom_EventScript_PlayerTurnNorth::
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_NORTH
+	end
+
+Viridian_PokemonLeague_AgathaRoom_OnFrame:
+	map_script_2 VAR_TEMP_1, 0, Viridian_PokemonLeague_AgathaRoom_EventScript_WalkInCloseDoor
+	.2byte 0
+
+Viridian_PokemonLeague_AgathaRoom_EventScript_WalkInCloseDoor::
+	lockall
+	call PokemonLeague_EliteFour_EventScript_WalkInCloseDoor
+	setvar VAR_TEMP_1, 1
+	releaseall
+	end
+
+Viridian_PokemonLeague_AgathaRoom_EventScript_Test::
+	lock
+	faceplayer
+	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
+	release
+	end
+

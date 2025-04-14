@@ -79,14 +79,14 @@
       "x": 12,
       "y": 1,
       "elevation": 0,
-      "dest_map": "MAP_VIRIDIAN_POKEMON_LEAGUE",
+      "dest_map": "MAP_VIRIDIAN_POKEMON_LEAGUE_HALL1",
       "dest_warp_id": "0"
     },
     {
       "x": 13,
       "y": 1,
       "elevation": 0,
-      "dest_map": "MAP_VIRIDIAN_POKEMON_LEAGUE",
+      "dest_map": "MAP_VIRIDIAN_POKEMON_LEAGUE_HALL1",
       "dest_warp_id": "0"
     }
   ],
@@ -96,18 +96,18 @@
       "x": 12,
       "y": 2,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_INDIGO_LEAGUE",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Viridian_PokemonLeague_EventScript_BadgeCheck"
     },
     {
       "type": "trigger",
       "x": 13,
       "y": 2,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_INDIGO_LEAGUE",
       "var_value": "0",
-      "script": "NULL"
+      "script": "Viridian_PokemonLeague_EventScript_BadgeCheck"
     }
   ],
   "bg_events": [
