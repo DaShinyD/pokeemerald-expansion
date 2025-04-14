@@ -301,6 +301,27 @@ const u32 gTrainerPalette_Sam[] = INCBIN_U32("graphics/trainers/front_pics/sam.g
 const u32 gTrainerFrontPic_Pena[] = INCBIN_U32("graphics/trainers/front_pics/pena.4bpp.lz");
 const u32 gTrainerPalette_Pena[] = INCBIN_U32("graphics/trainers/front_pics/pena.gbapal.lz");
 
+const u32 gTrainerFrontPic_Lorelei[] = INCBIN_U32("graphics/trainers/front_pics/kanto/lorelei.4bpp.lz");
+const u32 gTrainerPalette_Lorelei[] = INCBIN_U32("graphics/trainers/front_pics/kanto/lorelei.gbapal.lz");
+
+const u32 gTrainerFrontPic_Bruno[] = INCBIN_U32("graphics/trainers/front_pics/kanto/bruno.4bpp.lz");
+const u32 gTrainerPalette_Bruno[] = INCBIN_U32("graphics/trainers/front_pics/kanto/bruno.gbapal.lz");
+
+const u32 gTrainerFrontPic_Agatha[] = INCBIN_U32("graphics/trainers/front_pics/kanto/agatha.4bpp.lz");
+const u32 gTrainerPalette_Agatha[] = INCBIN_U32("graphics/trainers/front_pics/kanto/agatha.gbapal.lz");
+
+const u32 gTrainerFrontPic_Lance[] = INCBIN_U32("graphics/trainers/front_pics/kanto/lance.4bpp.lz");
+const u32 gTrainerPalette_Lance[] = INCBIN_U32("graphics/trainers/front_pics/kanto/lance.gbapal.lz");
+
+const u32 gTrainerFrontPic_Giovanni[] = INCBIN_U32("graphics/trainers/front_pics/kanto/giovanni.4bpp.lz");
+const u32 gTrainerPalette_Giovanni[] = INCBIN_U32("graphics/trainers/front_pics/kanto/giovanni.gbapal.lz");
+
+const u32 gTrainerFrontPic_RocketM[] = INCBIN_U32("graphics/trainers/front_pics/kanto/rocketm.4bpp.lz");
+const u32 gTrainerPalette_RocketM[] = INCBIN_U32("graphics/trainers/front_pics/kanto/rocketm.gbapal.lz");
+
+const u32 gTrainerFrontPic_RocketF[] = INCBIN_U32("graphics/trainers/front_pics/kanto/rocketf.4bpp.lz");
+const u32 gTrainerPalette_RocketF[] = INCBIN_U32("graphics/trainers/front_pics/kanto/rocketf.gbapal.lz");
+
 const u32 gTrainerFrontPic_StrataGrunt[] = INCBIN_U32("graphics/trainers/front_pics/grunt.4bpp.lz");
 const u32 gTrainerPalette_StrataGrunt[] = INCBIN_U32("graphics/trainers/front_pics/grunt.gbapal.lz");
 
@@ -501,6 +522,13 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(CLAIR, Clair),
     TRAINER_SPRITE(SAM, Sam),
     TRAINER_SPRITE(PENA, Pena),
+    TRAINER_SPRITE(LORELEI, Lorelei),
+    TRAINER_SPRITE(BRUNO, Bruno),
+    TRAINER_SPRITE(AGATHA, Agatha),
+    TRAINER_SPRITE(LANCE, Lance),
+    TRAINER_SPRITE(GIOVANNI, Giovanni),
+    TRAINER_SPRITE(ROCKETM, RocketM),
+    TRAINER_SPRITE(ROCKETF, RocketF),
 };
 
 static const union AnimCmd sAnimCmd_Hoenn[] =
