@@ -705,7 +705,7 @@
 #define FLAG_BEAT_JASMINE  0x292 // Self explanatory
 #define FLAG_BEAT_PRYCE    0x293 // Self explanatory
 #define FLAG_BEAT_CLAIR    0x294 // Self explanatory
-#define FLAG_UNUSED_0x295  0x295 // Unused Flag
+#define FLAG_LIGHTNING_M   0x295 // Lightning McQueen hide after joke
 #define FLAG_UNUSED_0x296  0x296 // Unused Flag
 #define FLAG_UNUSED_0x297  0x297 // Unused Flag
 #define FLAG_UNUSED_0x298  0x298 // Unused Flag

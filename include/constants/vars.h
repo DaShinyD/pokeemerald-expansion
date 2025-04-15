@@ -127,7 +127,7 @@
 #define VAR_FAN_CLUB                                     0x406B // Fan club meme in Vermilion
 #define VAR_INDIGO_LEAGUE                                0x406C // Indigo League Blockers/Checkers for badges
 #define VAR_LEADERS_CLUB                                 0x406D // Leaders club intro
-#define VAR_ROUTE115_STATE                               0x406E // Unused Var
+#define VAR_LIGHTNING_JOKE                               0x406E // Lightning McQueen
 #define VAR_ROUTE116_STATE                               0x406F
 #define VAR_ROUTE117_STATE                               0x4070 // Unused Var
 #define VAR_ROUTE118_STATE                               0x4071

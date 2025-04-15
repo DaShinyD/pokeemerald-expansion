@@ -1,3 +1,6 @@
+.set LOCALID_OLD_WOMAN, 7
+.set LOCALID_LIGHTNING, 8
+
 PewterCity_MapScripts::
 	.byte 0
 
@@ -39,4 +42,61 @@ PewterCity_EventScript_ShopBlock::
 PewterCity_Text_ShopBlock:
 	.string "We're still setting up shop.\p"
 	.string "Come back later.$"
+
+PewterCity_EventScript_LightningJoke::
+	lock
+	playse SE_PIN
+	applymovement LOCALID_OLD_WOMAN, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_OLD_WOMAN, Common_Movement_FaceRight
+	waitmovement 0
+	msgbox PewterCity_Text_BeCareful, MSGBOX_DEFAULT
+	closemessage
+	addobject LOCALID_LIGHTNING
+	msgbox PewterCity_Text_Kachow, MSGBOX_AUTOCLOSE
+	applymovement LOCALID_LIGHTNING, PewterCity_Movement_Crash
+	waitmovement 0
+	setvar VAR_0x8004, 1  @ vertical pan
+	setvar VAR_0x8005, 1  @ horizontal pan
+	setvar VAR_0x8006, 8  @ num shakes
+	setvar VAR_0x8007, 3  @ shake delay
+	special ShakeCamera
+	msgbox PewterCity_Text_Crash, MSGBOX_DEFAULT
+	msgbox PewterCity_Text_Kach_Ow, MSGBOX_DEFAULT
+	closemessage
+	setvar VAR_LIGHTNING_JOKE, 1
+	setflag FLAG_LIGHTNING_M
+	release
+	end
+
+PewterCity_Text_BeCareful:
+	.string "Old Woman: Be careful there!\p"
+	.string "These lamps tend to get struck by\n"
+	.string "lightning in this weather.\p"
+	.string "{COLOR RED}Low rumbling noise\p"
+	.string "{COLOR DARK_GRAY}Oh no, I hear it coming!$"
+
+PewterCity_Movement_Crash:
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	walk_faster_left
+	step_end
+
+PewterCity_Text_Kachow:
+	.string "KACHOW$"
+
+PewterCity_Text_Crash:
+	.string "CRASH$"
+
+PewterCity_Text_Kach_Ow:
+	.string "Kach-OW!$"
 

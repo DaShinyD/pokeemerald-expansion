@@ -1440,6 +1440,18 @@ static const struct SpriteFrameImage sPicTable_Pena[] = {
     overworld_frame(gObjectEventPic_Pena, 2, 4, 8),
 };
 
+static const struct SpriteFrameImage sPicTable_Lightning[] = {
+    overworld_frame(gObjectEventPic_Lightning, 8, 4, 0),
+    overworld_frame(gObjectEventPic_Lightning, 8, 4, 0),
+    overworld_frame(gObjectEventPic_Lightning, 8, 4, 0),
+    overworld_frame(gObjectEventPic_Lightning, 8, 4, 0),
+    overworld_frame(gObjectEventPic_Lightning, 8, 4, 0),
+    overworld_frame(gObjectEventPic_Lightning, 8, 4, 0),
+    overworld_frame(gObjectEventPic_Lightning, 8, 4, 0),
+    overworld_frame(gObjectEventPic_Lightning, 8, 4, 0),
+    overworld_frame(gObjectEventPic_Lightning, 8, 4, 0),
+};
+
 static const struct SpriteFrameImage sPicTable_Lorelei[] = {
     overworld_frame(gObjectEventPic_Lorelei, 2, 4, 0),
     overworld_frame(gObjectEventPic_Lorelei, 2, 4, 1),

@@ -5,7 +5,7 @@
   "music": "MUS_RG_PEWTER",
   "region_map_section": "MAPSEC_PEWTER_CITY",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
+  "weather": "WEATHER_RAIN_THUNDERSTORM",
   "map_type": "MAP_TYPE_CITY",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -80,7 +80,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 29,
-      "y": 34,
+      "y": 24,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_RIGHT_AND_LEFT",
       "movement_range_x": 2,
@@ -102,6 +102,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
+      "x": 20,
+      "y": 32,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_LIGHTNING",
+      "x": 33,
+      "y": 35,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_LIGHTNING_M"
     }
   ],
   "warp_events": [
@@ -121,7 +147,33 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 33,
+      "elevation": 0,
+      "var": "VAR_LIGHTNING_JOKE",
+      "var_value": "0",
+      "script": "PewterCity_EventScript_LightningJoke"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 33,
+      "elevation": 0,
+      "var": "VAR_LIGHTNING_JOKE",
+      "var_value": "0",
+      "script": "PewterCity_EventScript_LightningJoke"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 33,
+      "elevation": 0,
+      "var": "VAR_LIGHTNING_JOKE",
+      "var_value": "0",
+      "script": "PewterCity_EventScript_LightningJoke"
+    }
   ],
   "bg_events": [
     {

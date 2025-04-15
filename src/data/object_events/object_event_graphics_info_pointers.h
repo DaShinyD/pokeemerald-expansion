@@ -243,6 +243,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Jake;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Percy;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sam;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Pena;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lightning;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lorelei;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bruno;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Agatha;
@@ -535,6 +536,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SAM] =                      &gObjectEventGraphicsInfo_Sam,
     [OBJ_EVENT_GFX_PENA] =                     &gObjectEventGraphicsInfo_Pena,
     [OBJ_EVENT_GFX_LORELEI] =                  &gObjectEventGraphicsInfo_Lorelei,
+    [OBJ_EVENT_GFX_LIGHTNING] =                &gObjectEventGraphicsInfo_Lightning,
     [OBJ_EVENT_GFX_BRUNO] =                    &gObjectEventGraphicsInfo_Bruno,
     [OBJ_EVENT_GFX_AGATHA] =                   &gObjectEventGraphicsInfo_Agatha,
     [OBJ_EVENT_GFX_LANCE] =                    &gObjectEventGraphicsInfo_Lance,
