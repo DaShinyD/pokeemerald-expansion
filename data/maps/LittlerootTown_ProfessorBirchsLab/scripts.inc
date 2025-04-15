@@ -194,7 +194,6 @@ LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeToNationalDex::
 	waitmessage
 	waitfanfare
 	setflag FLAG_SYS_NATIONAL_DEX
-	special EnableNationalPokedex
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting2, MSGBOX_DEFAULT
 	closemessage
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCH
@@ -507,6 +506,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedex::
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_HeardYouBeatRivalTakePokedex, MSGBOX_DEFAULT
 	call LittlerootTown_ProfessorBirchsLab_EventScript_ReceivePokedex
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_ExplainPokedex, MSGBOX_DEFAULT
+	special EnableNationalPokedex
 	closemessage
 	applymovement LOCALID_RIVAL, LittlerootTown_ProfessorBirchsLab_Movement_RivalApproachPlayer
 	waitmovement 0

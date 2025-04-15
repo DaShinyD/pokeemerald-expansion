@@ -645,10 +645,10 @@
 #define TRAINER_TRENT_5                     639
 #define TRAINER_DEZ_AND_LUKE                640
 #define TRAINER_LEA_AND_JED                 641
-#define TRAINER_KIRA_AND_DAN_1              642 // now a gym leader (previously match call kira and dan (abandoned ship))
-#define TRAINER_KIRA_AND_DAN_2              643 // now a gym leader (previously match call kira and dan (abandoned ship))
-#define TRAINER_KIRA_AND_DAN_3              644 // now a gym leader (previously match call kira and dan (abandoned ship))
-#define TRAINER_KIRA_AND_DAN_4              645 // now a gym leader (previously match call kira and dan (abandoned ship))
+#define TRAINER_BROCK                       642 // now a gym leader (previously match call kira and dan (abandoned ship))
+#define TRAINER_MISTY                       643 // now a gym leader (previously match call kira and dan (abandoned ship))
+#define TRAINER_SURGE                       644 // now a gym leader (previously match call kira and dan (abandoned ship))
+#define TRAINER_ERIKA                       645 // now a gym leader (previously match call kira and dan (abandoned ship))
 #define TRAINER_KIRA_AND_DAN_5              646 // now a gym leader (previously match call kira and dan (abandoned ship))
 #define TRAINER_JOHANNA                     647
 #define TRAINER_GERALD                      648
