@@ -147,7 +147,7 @@
 #define TRAINER_WINSTON_4                   141
 #define TRAINER_WINSTON_5                   142
 #define TRAINER_STEVE_1                     143
-#define TRAINER_THALIA_1                    144 // now a gym leader (previously match call thalia (abandoned ship))
+#define TRAINER_SABRINA                     144 // now a gym leader (previously match call thalia (abandoned ship))
 #define TRAINER_MARK                        145
 #define TRAINER_GRUNT_MT_CHIMNEY_1          146
 #define TRAINER_STEVE_2                     147
@@ -649,7 +649,7 @@
 #define TRAINER_MISTY                       643 // now a gym leader (previously match call kira and dan (abandoned ship))
 #define TRAINER_SURGE                       644 // now a gym leader (previously match call kira and dan (abandoned ship))
 #define TRAINER_ERIKA                       645 // now a gym leader (previously match call kira and dan (abandoned ship))
-#define TRAINER_KIRA_AND_DAN_5              646 // now a gym leader (previously match call kira and dan (abandoned ship))
+#define TRAINER_KOGA                        646 // now a gym leader (previously match call kira and dan (abandoned ship))
 #define TRAINER_JOHANNA                     647
 #define TRAINER_GERALD                      648
 #define TRAINER_VIVIAN                      649
@@ -847,8 +847,8 @@
 #define TRAINER_GABRIELLE_3                 841
 #define TRAINER_GABRIELLE_4                 842
 #define TRAINER_GABRIELLE_5                 843
-#define TRAINER_THALIA_2                    844 // now a gym leader (previously match call thalia (abandoned ship))
-#define TRAINER_THALIA_3                    845 // now a gym leader (previously match call thalia (abandoned ship))
+#define TRAINER_BLAINE                      844 // now a gym leader (previously match call thalia (abandoned ship))
+#define TRAINER_BLUE                        845 // now a gym leader (previously match call thalia (abandoned ship))
 #define TRAINER_THALIA_4                    846 // now a gym leader (previously match call thalia (abandoned ship))
 #define TRAINER_THALIA_5                    847 // now a gym leader (previously match call thalia (abandoned ship))
 #define TRAINER_MARIELA                     848
