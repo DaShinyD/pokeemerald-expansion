@@ -74,6 +74,11 @@
 #define MAP_BIRCH_GARDEN2       (65 | (0 << 8))
 #define MAP_BIRCH_GARDEN3       (66 | (0 << 8))
 #define MAP_ROUTE136            (67 | (0 << 8))
+#define MAP_ROUTE137            (68 | (0 << 8))
+#define MAP_TRAVERSAL_PATH      (69 | (0 << 8))
+#define MAP_ROUTE138            (70 | (0 << 8))
+#define MAP_DOJO                (71 | (0 << 8))
+#define MAP_NEW_MAP4            (72 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
@@ -286,6 +291,7 @@
 // gMapGroup_IndoorRoute104
 #define MAP_ROUTE104_MR_BRINEYS_HOUSE         (0 | (17 << 8))
 #define MAP_ROUTE104_PRETTY_PETAL_FLOWER_SHOP (1 | (17 << 8))
+#define MAP_BEACH_CAVE                        (2 | (17 << 8))
 
 // gMapGroup_IndoorRoute111
 #define MAP_ROUTE111_WINSTRATE_FAMILYS_HOUSE (0 | (18 << 8))
@@ -578,6 +584,9 @@
 #define MAP_TRAINER_HILL_ELEVATOR                           (88 | (26 << 8))
 #define MAP_TESTER_MAP                                      (89 | (26 << 8))
 #define MAP_NEW_MAP3                                        (90 | (26 << 8))
+#define MAP_TESTER2                                         (91 | (26 << 8))
+#define MAP_NEW_MAP5                                        (92 | (26 << 8))
+#define MAP_SPACE                                           (93 | (26 << 8))
 
 // gMapGroup_IndoorRoute104Prototype
 #define MAP_ROUTE104_PROTOTYPE                          (0 | (27 << 8))

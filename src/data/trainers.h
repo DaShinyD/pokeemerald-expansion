@@ -4709,10 +4709,10 @@ F_TRAINER_FEMALE |
         .party = (const struct TrainerMon[])
         {
             {
-            .species = SPECIES_ARON,
+            .species = SPECIES_MAWILE,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-            .lvl = 19,
+            .lvl = 36,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             },
@@ -6297,10 +6297,10 @@ F_TRAINER_FEMALE |
         .party = (const struct TrainerMon[])
         {
             {
-            .species = SPECIES_MACHOP,
+            .species = SPECIES_MACHAMP,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-            .lvl = 19,
+            .lvl = 36,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             },
@@ -12094,26 +12094,26 @@ F_TRAINER_FEMALE |
         .party = (const struct TrainerMon[])
         {
             {
-            .species = SPECIES_MAGIKARP,
+            .species = SPECIES_GYARADOS,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-            .lvl = 16,
+            .lvl = 36,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             },
             {
-            .species = SPECIES_GOLDEEN,
+            .species = SPECIES_SEAKING,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-            .lvl = 17,
+            .lvl = 36,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             },
             {
-            .species = SPECIES_BARBOACH,
+            .species = SPECIES_WHISCASH,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-            .lvl = 18,
+            .lvl = 36,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             },
@@ -12254,10 +12254,10 @@ F_TRAINER_FEMALE |
         .party = (const struct TrainerMon[])
         {
             {
-            .species = SPECIES_BARBOACH,
+            .species = SPECIES_WHISCASH,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-            .lvl = 19,
+            .lvl = 36,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             },
@@ -15058,18 +15058,18 @@ F_TRAINER_FEMALE |
         .party = (const struct TrainerMon[])
         {
             {
-            .species = SPECIES_MEDITITE,
+            .species = SPECIES_HITMONCHAN,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-            .lvl = 18,
+            .lvl = 36,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             },
             {
-            .species = SPECIES_MAKUHITA,
+            .species = SPECIES_HITMONLEE,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .iv = TRAINER_PARTY_IVS(12, 12, 12, 12, 12, 12),
-            .lvl = 18,
+            .lvl = 36,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             },
@@ -17984,7 +17984,7 @@ F_TRAINER_FEMALE |
             .species = SPECIES_ZANGOOSE,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-            .lvl = 18,
+            .lvl = 36,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             },
@@ -17992,7 +17992,7 @@ F_TRAINER_FEMALE |
             .species = SPECIES_SEVIPER,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-            .lvl = 18,
+            .lvl = 36,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             },
@@ -27101,7 +27101,7 @@ F_TRAINER_FEMALE |
             },
         },
     },
-    [TRAINER_ANDRES_1] =
+    [TRAINER_WHITNEY] =
     {
         .trainerName = _("ANDRES"),
         .trainerClass = TRAINER_CLASS_RUIN_MANIAC,
@@ -27183,7 +27183,7 @@ F_TRAINER_FEMALE |
             },
         },
     },
-    [TRAINER_CORY_1] =
+    [TRAINER_CLAIR] =
     {
         .trainerName = _("CORY"),
         .trainerClass = TRAINER_CLASS_SAILOR,
@@ -27580,18 +27580,18 @@ F_TRAINER_FEMALE |
         .party = (const struct TrainerMon[])
         {
             {
-            .species = SPECIES_MEDITITE,
+            .species = SPECIES_MEDICHAM,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-            .lvl = 18,
+            .lvl = 36,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             },
             {
-            .species = SPECIES_SPOINK,
+            .species = SPECIES_GRUMPIG,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-            .lvl = 18,
+            .lvl = 36,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             },
@@ -31439,7 +31439,7 @@ F_TRAINER_FEMALE |
             },
         },
     },
-    [TRAINER_ANDRES_2] =
+    [TRAINER_MORTY] =
     {
         .trainerName = _("ANDRES"),
         .trainerClass = TRAINER_CLASS_RUIN_MANIAC,
@@ -31469,7 +31469,7 @@ F_TRAINER_FEMALE |
             },
         },
     },
-    [TRAINER_ANDRES_3] =
+    [TRAINER_CHUCK] =
     {
         .trainerName = _("ANDRES"),
         .trainerClass = TRAINER_CLASS_RUIN_MANIAC,
@@ -31507,7 +31507,7 @@ F_TRAINER_FEMALE |
             },
         },
     },
-    [TRAINER_ANDRES_4] =
+    [TRAINER_JASMINE2] =
     {
         .trainerName = _("ANDRES"),
         .trainerClass = TRAINER_CLASS_RUIN_MANIAC,
@@ -31545,7 +31545,7 @@ F_TRAINER_FEMALE |
             },
         },
     },
-    [TRAINER_ANDRES_5] =
+    [TRAINER_PRYCE] =
     {
         .trainerName = _("ANDRES"),
         .trainerClass = TRAINER_CLASS_RUIN_MANIAC,
@@ -31583,7 +31583,7 @@ F_TRAINER_FEMALE |
             },
         },
     },
-    [TRAINER_CORY_2] =
+    [TRAINER_LORELEI] =
     {
         .trainerName = _("CORY"),
         .trainerClass = TRAINER_CLASS_SAILOR,
@@ -31621,7 +31621,7 @@ F_TRAINER_FEMALE |
             },
         },
     },
-    [TRAINER_CORY_3] =
+    [TRAINER_BRUNO] =
     {
         .trainerName = _("CORY"),
         .trainerClass = TRAINER_CLASS_SAILOR,
@@ -31659,7 +31659,7 @@ F_TRAINER_FEMALE |
             },
         },
     },
-    [TRAINER_CORY_4] =
+    [TRAINER_AGATHA] =
     {
         .trainerName = _("CORY"),
         .trainerClass = TRAINER_CLASS_SAILOR,
@@ -31697,7 +31697,7 @@ F_TRAINER_FEMALE |
             },
         },
     },
-    [TRAINER_CORY_5] =
+    [TRAINER_LANCE] =
     {
         .trainerName = _("CORY"),
         .trainerClass = TRAINER_CLASS_SAILOR,
@@ -32939,7 +32939,7 @@ F_TRAINER_FEMALE |
             },
         },
     },
-    [TRAINER_THALIA_4] =
+    [TRAINER_FALKNER] =
     {
         .trainerName = _("THALIA"),
         .trainerClass = TRAINER_CLASS_BEAUTY,
@@ -32978,7 +32978,7 @@ F_TRAINER_FEMALE |
             },
         },
     },
-    [TRAINER_THALIA_5] =
+    [TRAINER_BUGSY] =
     {
         .trainerName = _("THALIA"),
         .trainerClass = TRAINER_CLASS_BEAUTY,
@@ -33117,7 +33117,7 @@ F_TRAINER_FEMALE |
         .trainerPic = TRAINER_PIC_LEAF,
         .encounterMusic_gender = 
 F_TRAINER_FEMALE | 
-            TRAINER_ENCOUNTER_MUSIC_MALE,
+            TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .doubleBattle = FALSE,
         .partySize = 1,
         .party = (const struct TrainerMon[])

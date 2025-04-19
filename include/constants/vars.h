@@ -129,7 +129,7 @@
 #define VAR_LEADERS_CLUB                                 0x406D // Leaders club intro
 #define VAR_LIGHTNING_JOKE                               0x406E // Lightning McQueen
 #define VAR_ROUTE116_STATE                               0x406F
-#define VAR_ROUTE117_STATE                               0x4070 // Unused Var
+#define VAR_OAK_BLOCKER                                  0x4070 // Oak blocker in Champion area
 #define VAR_ROUTE118_STATE                               0x4071
 #define VAR_ROUTE119_STATE                               0x4072
 #define VAR_ROUTE120_STATE                               0x4073 // Unused Var

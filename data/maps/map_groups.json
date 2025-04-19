@@ -108,7 +108,12 @@
     "BirchGarden",
     "BirchGarden2",
     "BirchGarden3",
-    "Route136"
+    "Route136",
+    "Route137",
+    "TraversalPath",
+    "Route138",
+    "Dojo",
+    "NewMap4"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -320,7 +325,8 @@
   ],
   "gMapGroup_IndoorRoute104": [
     "Route104_MrBrineysHouse",
-    "Route104_PrettyPetalFlowerShop"
+    "Route104_PrettyPetalFlowerShop",
+    "BeachCave"
   ],
   "gMapGroup_IndoorRoute111": [
     "Route111_WinstrateFamilysHouse",
@@ -612,7 +618,10 @@
     "NavelRock_Bottom",
     "TrainerHill_Elevator",
     "TesterMap",
-    "NewMap3"
+    "NewMap3",
+    "Tester2",
+    "NewMap5",
+    "Space"
   ],
   "gMapGroup_IndoorRoute104Prototype": [
     "Route104_Prototype",

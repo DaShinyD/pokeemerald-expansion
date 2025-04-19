@@ -2,11 +2,11 @@
   "id": "MAP_TESTER_MAP",
   "name": "TesterMap",
   "layout": "LAYOUT_TESTER_MAP",
-  "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "music": "MUS_RG_SEVII_CAVE",
+  "region_map_section": "MAPSEC_NAVEL_ROCK",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": false,
@@ -59,8 +59,8 @@
       "x": 22,
       "y": 35,
       "elevation": 0,
-      "dest_map": "MAP_TESTER_MAP",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_NAVEL_ROCK_FORK",
+      "dest_warp_id": "4"
     }
   ],
   "coord_events": [

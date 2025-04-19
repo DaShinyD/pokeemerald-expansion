@@ -740,10 +740,10 @@
 #define TRAINER_MAXIE_MOSSDEEP              734
 #define TRAINER_PETE                        735
 #define TRAINER_ISABELLE                    736
-#define TRAINER_ANDRES_1                    737 // now unused (remove match) (route 105)
+#define TRAINER_WHITNEY                     737 // now gym leader (previously andres, route 105, match call)
 #define TRAINER_JOSUE                       738 // now unused (route 105)
 #define TRAINER_CAMRON                      739 // now unused
-#define TRAINER_CORY_1                      740 // now unused (remove match) (route 108)
+#define TRAINER_CLAIR                       740 // now gym leader (previously cory, route 108, match call)
 #define TRAINER_CAROLINA                    741 // now unused (route 108)
 #define TRAINER_ELIJAH                      742 // now unused (route 109)
 #define TRAINER_CELIA                       743
@@ -815,14 +815,14 @@
 #define TRAINER_NOLAND                      809
 #define TRAINER_LUCY                        810
 #define TRAINER_BRANDON                     811
-#define TRAINER_ANDRES_2                    812 // now unused (remove match) (route 105)
-#define TRAINER_ANDRES_3                    813 // now unused (remove match) (route 105)
-#define TRAINER_ANDRES_4                    814 // now unused (remove match) (route 105)
-#define TRAINER_ANDRES_5                    815 // now unused (remove match) (route 105)
-#define TRAINER_CORY_2                      816 // now unused (remove match) (route 108)
-#define TRAINER_CORY_3                      817 // now unused (remove match) (route 108)
-#define TRAINER_CORY_4                      818 // now unused (remove match) (route 108)
-#define TRAINER_CORY_5                      819 // now unused (remove match) (route 108)
+#define TRAINER_MORTY                       812 // now gym leader (previously andres, route 105, match call)
+#define TRAINER_CHUCK                       813 // now gym leader (previously andres, route 105, match call)
+#define TRAINER_JASMINE2                    814 // now gym leader (previously andres, route 105, match call)
+#define TRAINER_PRYCE                       815 // now gym leader (previously andres, route 105, match call)
+#define TRAINER_LORELEI                     816 // now gym leader (previously cory, route 108, match call)
+#define TRAINER_BRUNO                       817 // now gym leader (previously cory, route 108, match call)
+#define TRAINER_AGATHA                      818 // now gym leader (previously cory, route 108, match call)
+#define TRAINER_LANCE                       819 // now gym leader (previously cory, route 108, match call)
 #define TRAINER_PABLO_2                     820 // now unused (remove match) (route 126)
 #define TRAINER_PABLO_3                     821 // now unused (remove match) (route 126)
 #define TRAINER_PABLO_4                     822 // now unused (remove match) (route 126)
@@ -849,8 +849,8 @@
 #define TRAINER_GABRIELLE_5                 843
 #define TRAINER_BLAINE                      844 // now a gym leader (previously match call thalia (abandoned ship))
 #define TRAINER_BLUE                        845 // now a gym leader (previously match call thalia (abandoned ship))
-#define TRAINER_THALIA_4                    846 // now a gym leader (previously match call thalia (abandoned ship))
-#define TRAINER_THALIA_5                    847 // now a gym leader (previously match call thalia (abandoned ship))
+#define TRAINER_FALKNER                     846 // now a gym leader (previously match call thalia (abandoned ship))
+#define TRAINER_BUGSY                       847 // now a gym leader (previously match call thalia (abandoned ship))
 #define TRAINER_MARIELA                     848
 #define TRAINER_ALVARO                      849
 #define TRAINER_EVERETT                     850

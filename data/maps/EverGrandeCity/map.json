@@ -35,8 +35,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ANABEL",
-      "x": 58,
-      "y": 5,
+      "x": 56,
+      "y": -7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -61,8 +61,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ANABEL",
-      "x": 74,
-      "y": 5,
+      "x": 56,
+      "y": -7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -275,18 +275,18 @@
       "x": 67,
       "y": 18,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_OAK_BLOCKER",
       "var_value": "0",
-      "script": "NULL"
+      "script": "EverGrandeCity_EventScript_OakBlock"
     },
     {
       "type": "trigger",
       "x": 65,
       "y": 18,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_OAK_BLOCKER",
       "var_value": "0",
-      "script": "NULL"
+      "script": "EverGrandeCity_EventScript_OakBlock"
     }
   ],
   "bg_events": [

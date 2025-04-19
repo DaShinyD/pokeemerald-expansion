@@ -43,6 +43,8 @@ LeaderClub_Text_Hi:
 	.string "Once you beat them all, you'll\n"
 	.string "get permission to take the\l"
 	.string "boat to Vermilion from Lilycove.\p"
+	.string "The Johto Leaders can be done in\n"
+	.string "any order.\p"
 	.string "That's all!\p"
 	.string "Best of luck.$"
 
@@ -470,4 +472,356 @@ LeaderClub_Text_NoBlue:
 	.string "Only a trainer who's visited the\n"
 	.string "Battle Frontier has the right to\l"
 	.string "face me.$"
+
+
+
+@ Begin Johto Leaders
+
+
+
+@ Falkner
+
+LeaderClub_EventScript_Falkner::
+	lock
+	faceplayer
+	goto_if_set FLAG_BEAT_FALKNER, LeaderClub_EventScript_FalknerAlreadyBeaten
+	msgbox LeaderClub_Text_FalknerIntro, MSGBOX_DEFAULT
+	closemessage
+	goto LeaderClub_EventScript_FalknerBattle
+	end
+
+LeaderClub_Text_FalknerIntro:
+	.string "Falkner's the name, birds are the\n"
+	.string "game.$"
+
+LeaderClub_EventScript_FalknerBattle::
+	trainerbattle_no_intro TRAINER_FALKNER, LeaderClub_Text_FalknerDefeat
+	goto LeaderClub_EventScript_FalknerAfter
+	end
+
+LeaderClub_Text_FalknerDefeat:
+	.string "Shot down!$"
+
+LeaderClub_EventScript_FalknerAfter::
+	msgbox LeaderClub_Text_FalknerAfter, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_BEAT_FALKNER
+	release
+	end
+
+LeaderClub_Text_FalknerAfter:
+	.string "You managed to clip my wings.$"
+
+LeaderClub_EventScript_FalknerAlreadyBeaten::
+	msgbox LeaderClub_Text_FalknerAlreadyBeaten, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+LeaderClub_Text_FalknerAlreadyBeaten:
+	.string "Hoenn sure is tough.$"
+
+
+
+@ Bugsy
+
+LeaderClub_EventScript_Bugsy::
+	lock
+	faceplayer
+	goto_if_set FLAG_BEAT_BUGSY, LeaderClub_EventScript_BugsyAlreadyBeaten
+	msgbox LeaderClub_Text_BugsyIntro, MSGBOX_DEFAULT
+	closemessage
+	goto LeaderClub_EventScript_BugsyBattle
+	end
+
+LeaderClub_Text_BugsyIntro:
+	.string "My name is Bug-sy.$"
+
+LeaderClub_EventScript_BugsyBattle::
+	trainerbattle_no_intro TRAINER_BUGSY, LeaderClub_Text_BugsyDefeat
+	goto LeaderClub_EventScript_BugsyAfter
+	end
+
+LeaderClub_Text_BugsyDefeat:
+	.string "Darn.$"
+
+LeaderClub_EventScript_BugsyAfter::
+	msgbox LeaderClub_Text_BugsyAfter, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_BEAT_BUGSY
+	release
+	end
+
+LeaderClub_Text_BugsyAfter:
+	.string "My poor bugs are squashed.$"
+
+LeaderClub_EventScript_BugsyAlreadyBeaten::
+	msgbox LeaderClub_Text_BugsyAlreadyBeaten, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+LeaderClub_Text_BugsyAlreadyBeaten:
+	.string "My bugs will evolve further.$"
+
+
+
+@ Whitney
+
+LeaderClub_EventScript_Whitney::
+	lock
+	faceplayer
+	goto_if_set FLAG_BEAT_WHITNEY, LeaderClub_EventScript_WhitneyAlreadyBeaten
+	msgbox LeaderClub_Text_WhitneyIntro, MSGBOX_DEFAULT
+	closemessage
+	goto LeaderClub_EventScript_WhitneyBattle
+	end
+
+LeaderClub_Text_WhitneyIntro:
+	.string "Don't you love cute Pokemon?$"
+
+LeaderClub_EventScript_WhitneyBattle::
+	trainerbattle_no_intro TRAINER_WHITNEY, LeaderClub_Text_WhitneyDefeat
+	goto LeaderClub_EventScript_WhitneyAfter
+	end
+
+LeaderClub_Text_WhitneyDefeat:
+	.string "My babies!$"
+
+LeaderClub_EventScript_WhitneyAfter::
+	msgbox LeaderClub_Text_WhitneyAfter, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_BEAT_WHITNEY
+	release
+	end
+
+LeaderClub_Text_WhitneyAfter:
+	.string "Your Pokemon shine so bright.$"
+
+LeaderClub_EventScript_WhitneyAlreadyBeaten::
+	msgbox LeaderClub_Text_WhitneyAlreadyBeaten, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+LeaderClub_Text_WhitneyAlreadyBeaten:
+	.string "It's okay my babies...$"
+
+
+
+@ Morty
+
+LeaderClub_EventScript_Morty::
+	lock
+	faceplayer
+	goto_if_set FLAG_BEAT_MORTY, LeaderClub_EventScript_MortyAlreadyBeaten
+	msgbox LeaderClub_Text_MortyIntro, MSGBOX_DEFAULT
+	closemessage
+	goto LeaderClub_EventScript_MortyBattle
+	end
+
+LeaderClub_Text_MortyIntro:
+	.string "BOO!$"
+
+LeaderClub_EventScript_MortyBattle::
+	trainerbattle_no_intro TRAINER_MORTY, LeaderClub_Text_MortyDefeat
+	goto LeaderClub_EventScript_MortyAfter
+	end
+
+LeaderClub_Text_MortyDefeat:
+	.string "Gah!$"
+
+LeaderClub_EventScript_MortyAfter::
+	msgbox LeaderClub_Text_MortyAfter, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_BEAT_MORTY
+	release
+	end
+
+LeaderClub_Text_MortyAfter:
+	.string "Looks like I got spooked.$"
+
+LeaderClub_EventScript_MortyAlreadyBeaten::
+	msgbox LeaderClub_Text_MortyAlreadyBeaten, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+LeaderClub_Text_MortyAlreadyBeaten:
+	.string "Here to scare me more?$"
+
+
+
+@ Chuck
+
+LeaderClub_EventScript_Chuck::
+	lock
+	faceplayer
+	goto_if_set FLAG_BEAT_CHUCK, LeaderClub_EventScript_ChuckAlreadyBeaten
+	msgbox LeaderClub_Text_ChuckIntro, MSGBOX_DEFAULT
+	closemessage
+	goto LeaderClub_EventScript_ChuckBattle
+	end
+
+LeaderClub_Text_ChuckIntro:
+	.string "I train every single day.\p"
+	.string "Come at me.$"
+
+LeaderClub_EventScript_ChuckBattle::
+	trainerbattle_no_intro TRAINER_CHUCK, LeaderClub_Text_ChuckDefeat
+	goto LeaderClub_EventScript_ChuckAfter
+	end
+
+LeaderClub_Text_ChuckDefeat:
+	.string "Impossible.$"
+
+LeaderClub_EventScript_ChuckAfter::
+	msgbox LeaderClub_Text_ChuckAfter, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_BEAT_CHUCK
+	release
+	end
+
+LeaderClub_Text_ChuckAfter:
+	.string "You're a tough one.$"
+
+LeaderClub_EventScript_ChuckAlreadyBeaten::
+	msgbox LeaderClub_Text_ChuckAlreadyBeaten, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+LeaderClub_Text_ChuckAlreadyBeaten:
+	.string "I need to train more.$"
+
+
+
+@ Jasmine
+
+LeaderClub_EventScript_Jasmine::
+	lock
+	faceplayer
+	goto_if_set FLAG_BEAT_JASMINE2, LeaderClub_EventScript_JasmineAlreadyBeaten
+	msgbox LeaderClub_Text_JasmineIntro, MSGBOX_DEFAULT
+	closemessage
+	goto LeaderClub_EventScript_JasmineBattle
+	end
+
+LeaderClub_Text_JasmineIntro:
+	.string "Um, erhm, uh, hi.\p"
+	.string "Oh a battle? Okay...$"
+
+LeaderClub_EventScript_JasmineBattle::
+	trainerbattle_no_intro TRAINER_JASMINE2, LeaderClub_Text_JasmineDefeat
+	goto LeaderClub_EventScript_JasmineAfter
+	end
+
+LeaderClub_Text_JasmineDefeat:
+	.string "Oh...$"
+
+LeaderClub_EventScript_JasmineAfter::
+	msgbox LeaderClub_Text_JasmineAfter, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_BEAT_JASMINE2
+	release
+	end
+
+LeaderClub_Text_JasmineAfter:
+	.string "Good battle...$"
+
+LeaderClub_EventScript_JasmineAlreadyBeaten::
+	msgbox LeaderClub_Text_JasmineAlreadyBeaten, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+LeaderClub_Text_JasmineAlreadyBeaten:
+	.string "I miss Amphy.$"
+
+
+
+@ Pryce
+
+LeaderClub_EventScript_Pryce::
+	lock
+	faceplayer
+	goto_if_set FLAG_BEAT_PRYCE, LeaderClub_EventScript_PryceAlreadyBeaten
+	msgbox LeaderClub_Text_PryceIntro, MSGBOX_DEFAULT
+	closemessage
+	goto LeaderClub_EventScript_PryceBattle
+	end
+
+LeaderClub_Text_PryceIntro:
+	.string "Hahhhh.\p"
+	.string "I'll freeze you, Hoenn Champ.$"
+
+LeaderClub_EventScript_PryceBattle::
+	trainerbattle_no_intro TRAINER_PRYCE, LeaderClub_Text_PryceDefeat
+	goto LeaderClub_EventScript_PryceAfter
+	end
+
+LeaderClub_Text_PryceDefeat:
+	.string "Frozen frick!$"
+
+LeaderClub_EventScript_PryceAfter::
+	msgbox LeaderClub_Text_PryceAfter, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_BEAT_PRYCE
+	release
+	end
+
+LeaderClub_Text_PryceAfter:
+	.string "You sure showed me.$"
+
+LeaderClub_EventScript_PryceAlreadyBeaten::
+	msgbox LeaderClub_Text_PryceAlreadyBeaten, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+LeaderClub_Text_PryceAlreadyBeaten:
+	.string "It's a little chilly in here.$"
+
+
+
+@ Clair
+
+LeaderClub_EventScript_Clair::
+	lock
+	faceplayer
+	goto_if_set FLAG_BEAT_CLAIR, LeaderClub_EventScript_ClairAlreadyBeaten
+	msgbox LeaderClub_Text_ClairIntro, MSGBOX_DEFAULT
+	closemessage
+	goto LeaderClub_EventScript_ClairBattle
+	end
+
+LeaderClub_Text_ClairIntro:
+	.string "Heh, try me.$"
+
+LeaderClub_EventScript_ClairBattle::
+	trainerbattle_no_intro TRAINER_CLAIR, LeaderClub_Text_ClairDefeat
+	goto LeaderClub_EventScript_ClairAfter
+	end
+
+LeaderClub_Text_ClairDefeat:
+	.string "No, NO!$"
+
+LeaderClub_EventScript_ClairAfter::
+	msgbox LeaderClub_Text_ClairAfter, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_BEAT_CLAIR
+	release
+	end
+
+LeaderClub_Text_ClairAfter:
+	.string "I'm still too weak.$"
+
+LeaderClub_EventScript_ClairAlreadyBeaten::
+	msgbox LeaderClub_Text_ClairAlreadyBeaten, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+LeaderClub_Text_ClairAlreadyBeaten:
+	.string "I wonder how Lance is...$"
 

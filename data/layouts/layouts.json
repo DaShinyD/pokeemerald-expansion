@@ -77,7 +77,7 @@
       "width": 60,
       "height": 60,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_sootopolis2",
+      "secondary_tileset": "gTileset_Sootopolis",
       "border_filepath": "data/layouts/SootopolisCity/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisCity/map.bin"
     },
@@ -317,7 +317,7 @@
       "width": 100,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_rustboro2",
+      "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/Route116/border.bin",
       "blockdata_filepath": "data/layouts/Route116/map.bin"
     },
@@ -4970,6 +4970,96 @@
       "secondary_tileset": "gTileset_EliteFour",
       "border_filepath": "data/layouts/Viridian_PokemonLeague_ChampRoom/border.bin",
       "blockdata_filepath": "data/layouts/Viridian_PokemonLeague_ChampRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_TESTER2",
+      "name": "Tester2_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Snow",
+      "secondary_tileset": "gTileset_petalburg2",
+      "border_filepath": "data/layouts/Tester2/border.bin",
+      "blockdata_filepath": "data/layouts/Tester2/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE137",
+      "name": "Route137_Layout",
+      "width": 60,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/Route137/border.bin",
+      "blockdata_filepath": "data/layouts/Route137/map.bin"
+    },
+    {
+      "id": "LAYOUT_TRAVERSAL_PATH",
+      "name": "TraversalPath_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_cavealt",
+      "secondary_tileset": "gTileset_cavealtsecondary",
+      "border_filepath": "data/layouts/TraversalPath/border.bin",
+      "blockdata_filepath": "data/layouts/TraversalPath/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE138",
+      "name": "Route138_Layout",
+      "width": 50,
+      "height": 50,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_dojoexterior",
+      "border_filepath": "data/layouts/Route138/border.bin",
+      "blockdata_filepath": "data/layouts/Route138/map.bin"
+    },
+    {
+      "id": "LAYOUT_DOJO",
+      "name": "Dojo_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_dojointerior",
+      "border_filepath": "data/layouts/Dojo/border.bin",
+      "blockdata_filepath": "data/layouts/Dojo/map.bin"
+    },
+    {
+      "id": "LAYOUT_BEACH_CAVE",
+      "name": "BeachCave_Layout",
+      "width": 40,
+      "height": 28,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_beachcave",
+      "border_filepath": "data/layouts/BeachCave/border.bin",
+      "blockdata_filepath": "data/layouts/BeachCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_MAP4",
+      "name": "NewMap4_Layout",
+      "width": 40,
+      "height": 28,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_volcano",
+      "border_filepath": "data/layouts/NewMap4/border.bin",
+      "blockdata_filepath": "data/layouts/NewMap4/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEW_MAP5",
+      "name": "NewMap5_Layout",
+      "width": 44,
+      "height": 36,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Altar",
+      "border_filepath": "data/layouts/NewMap5/border.bin",
+      "blockdata_filepath": "data/layouts/NewMap5/map.bin"
+    },
+    {
+      "id": "LAYOUT_SPACE",
+      "name": "Space_Layout",
+      "width": 44,
+      "height": 36,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_space",
+      "border_filepath": "data/layouts/Space/border.bin",
+      "blockdata_filepath": "data/layouts/Space/map.bin"
     }
   ]
 }

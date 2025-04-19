@@ -702,12 +702,12 @@
 #define FLAG_BEAT_WHITNEY  0x28F // Self explanatory
 #define FLAG_BEAT_MORTY    0x290 // Self explanatory
 #define FLAG_BEAT_CHUCK    0x291 // Self explanatory
-#define FLAG_BEAT_JASMINE  0x292 // Self explanatory
+#define FLAG_BEAT_JASMINE2 0x292 // Self explanatory
 #define FLAG_BEAT_PRYCE    0x293 // Self explanatory
 #define FLAG_BEAT_CLAIR    0x294 // Self explanatory
 #define FLAG_LIGHTNING_M   0x295 // Lightning McQueen hide after joke
-#define FLAG_UNUSED_0x296  0x296 // Unused Flag
-#define FLAG_UNUSED_0x297  0x297 // Unused Flag
+#define FLAG_PUZZLE_DONE   0x296 // Pyramid Puzzle Done
+#define FLAG_SUICUNE       0x297 // Suicune beach cave
 #define FLAG_UNUSED_0x298  0x298 // Unused Flag
 #define FLAG_UNUSED_0x299  0x299 // Unused Flag
 #define FLAG_UNUSED_0x29A  0x29A // Unused Flag

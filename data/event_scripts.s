@@ -1360,3 +1360,21 @@ MysteryGift_Text_ReceivedGiftMon:
 	.include "data/maps/Viridian_PokemonLeague_Hall5/scripts.inc"
 
 	.include "data/maps/Viridian_PokemonLeague_ChampRoom/scripts.inc"
+
+	.include "data/maps/Tester2/scripts.inc"
+
+	.include "data/maps/Route137/scripts.inc"
+
+	.include "data/maps/TraversalPath/scripts.inc"
+
+	.include "data/maps/Route138/scripts.inc"
+
+	.include "data/maps/Dojo/scripts.inc"
+
+	.include "data/maps/BeachCave/scripts.inc"
+
+	.include "data/maps/NewMap4/scripts.inc"
+
+	.include "data/maps/NewMap5/scripts.inc"
+
+	.include "data/maps/Space/scripts.inc"

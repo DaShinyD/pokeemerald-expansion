@@ -1,5 +1,31 @@
 AncientPyramid_MapScripts::
+	map_script MAP_SCRIPT_ON_LOAD, AncientPyramid_OnLoad
 	.byte 0
+
+AncientPyramid_OnLoad:
+	call_if_set FLAG_PUZZLE_DONE, AncientPYramid_EventScript_OpenDoors
+	end
+
+AncientPYramid_EventScript_OpenDoors::
+	setmetatile 15, 19, METATILE_PyramidInteriorP_Pillar_Right_1, TRUE
+	setmetatile 15, 18, METATILE_PyramidInteriorP_Pillar_Right_2, TRUE
+	setmetatile 15, 17, METATILE_PyramidInteriorP_Pillar_Right_3, TRUE
+	setmetatile 14, 17, METATILE_PyramidInteriorP_Pillar_Middle, FALSE
+	setmetatile 14, 18, METATILE_PyramidInteriorP_Pyramid_Floor, FALSE
+	setmetatile 14, 19, METATILE_PyramidInteriorP_Pyramid_Floor, FALSE
+	setmetatile 13, 17, METATILE_PyramidInteriorP_Pillar_Left_3, TRUE
+	setmetatile 13, 18, METATILE_PyramidInteriorP_Pillar_Left_2, TRUE
+	setmetatile 13, 19, METATILE_PyramidInteriorP_Pillar_Left_1, TRUE
+	setmetatile 15, 10, METATILE_PyramidInteriorP_Pillar_Right_1, TRUE
+	setmetatile 15, 9, METATILE_PyramidInteriorP_Pillar_Right_2, TRUE
+	setmetatile 15, 8, METATILE_PyramidInteriorP_Pillar_Right_3, TRUE
+	setmetatile 14, 8, METATILE_PyramidInteriorP_Pillar_Middle, FALSE
+	setmetatile 14, 9, METATILE_PyramidInteriorP_Pyramid_Floor, FALSE
+	setmetatile 14, 10, METATILE_PyramidInteriorP_Pyramid_Floor, FALSE
+	setmetatile 13, 8, METATILE_PyramidInteriorP_Pillar_Left_3, TRUE
+	setmetatile 13, 9, METATILE_PyramidInteriorP_Pillar_Left_2, TRUE
+	setmetatile 13, 10, METATILE_PyramidInteriorP_Pillar_Left_1, TRUE
+	return
 
 AncientPyramid_EventScript_Trigger1::
 	lock
@@ -42,6 +68,7 @@ AncientPyramid_EventScript_Trigger2::
 	special DrawWholeMapView
 	delay 10
 	fadescreen FADE_FROM_BLACK
+	setflag FLAG_PUZZLE_DONE
 	release
 	end
 

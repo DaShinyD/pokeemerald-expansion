@@ -1,5 +1,6 @@
 .set LOCALID_CHAMPBLOCK, 1
 .set LOCALID_STRATA_GRUNT, 7
+.set LOCALID_OAKBLOCK, 6
 
 EverGrandeCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, EverGrandeCity_OnTransition
@@ -128,4 +129,20 @@ EverGrandeCity_Text_StrataGruntBye:
 	.string "Straits will bring power to\n"
 	.string "all, equally.\p"
 	.string "Try and stop us.$"
+
+EverGrandeCity_EventScript_OakBlock::
+	lock
+	applymovement LOCALID_OAKBLOCK, Common_Movement_FacePlayer
+	waitmovement 0
+	msgbox EverGrandeCity_Text_NoGo, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	waitmovement 0
+	release
+	end
+
+EverGrandeCity_Text_NoGo:
+	.string "Sorry, but you can't go this way\n"
+	.string "unless you have incredible merits.\p"
+	.string "Try coming after achieving great\n"
+	.string "feats.$"
 
