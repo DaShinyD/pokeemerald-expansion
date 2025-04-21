@@ -1,5 +1,5 @@
 .set LOCALID_RAIKOU, 9
-
+.set LOCALID_RAIKOU_P, 10
 NewMauville_Inside_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, NewMauville_Inside_OnResume
 	map_script MAP_SCRIPT_ON_TRANSITION, NewMauville_Inside_OnTransition
@@ -359,5 +359,24 @@ NewMauville_Inside_EventScript_RaikouFight::
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, NewMauville_Inside_EventScript_RaikouCalm
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, NewMauville_Inside_EventScript_RaikouPissed
+	end
+
+NewMauville_Inside_EventScript_RaikouP::
+	lock
+	faceplayer
+	playmoncry SPECIES_RAGING_BOLT, CRY_MODE_ENCOUNTER
+	waitmoncry
+	setwildbattle SPECIES_RAGING_BOLT, 40
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, NewMauville_Inside_EventScript_RaikouPGone
+	release
+	end
+
+NewMauville_Inside_EventScript_RaikouPGone:
+	setflag FLAG_RAIKOU_P
+	removeobject LOCALID_RAIKOU_P
+	release
 	end
 

@@ -1783,6 +1783,54 @@
       "y": 7,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_BEACH_CAVE",
+      "name": "BEACH CAVE",
+      "x": 0,
+      "y": 9,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_ASTEROID",
+      "name": "ASTEROID",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_LAVA_DEPTHS",
+      "name": "LAVA DEPTHS",
+      "x": 6,
+      "y": 3,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_CHERRY_DOJO",
+      "name": "CHERRY DOJO",
+      "x": 3,
+      "y": 4,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_TRAVERSAL_PATH",
+      "name": "TRAVERSAL PATH",
+      "x": 2,
+      "y": 4,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_ROUTE_137",
+      "name": "ROUTE 137",
+      "x": 1,
+      "y": 4,
+      "width": 1,
+      "height": 1
     }
   ]
 }

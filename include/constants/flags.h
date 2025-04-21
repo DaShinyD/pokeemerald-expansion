@@ -709,19 +709,19 @@
 #define FLAG_PUZZLE_DONE   0x296 // Pyramid Puzzle Done
 #define FLAG_SUICUNE       0x297 // Suicune beach cave
 #define FLAG_LEVEL_CAP_TEN 0x298 // Level cap for 150
-#define FLAG_UNUSED_0x299  0x299 // Unused Flag
-#define FLAG_UNUSED_0x29A  0x29A // Unused Flag
-#define FLAG_UNUSED_0x29B  0x29B // Unused Flag
-#define FLAG_UNUSED_0x29C  0x29C // Unused Flag
-#define FLAG_UNUSED_0x29D  0x29D // Unused Flag
-#define FLAG_UNUSED_0x29E  0x29E // Unused Flag
-#define FLAG_UNUSED_0x29F  0x29F // Unused Flag
-#define FLAG_UNUSED_0x2A0  0x2A0 // Unused Flag
-#define FLAG_UNUSED_0x2A1  0x2A1 // Unused Flag
-#define FLAG_UNUSED_0x2A2  0x2A2 // Unused Flag
-#define FLAG_UNUSED_0x2A3  0x2A3 // Unused Flag
-#define FLAG_UNUSED_0x2A4  0x2A4 // Unused Flag
-#define FLAG_UNUSED_0x2A5  0x2A5 // Unused Flag
+#define FLAG_SUICUNE_P     0x299 // Suicune Paradox
+#define FLAG_ENTEI         0x29A // Assorted legendary
+#define FLAG_ENTEI_P       0x29B // Assorted legendary
+#define FLAG_RAIKOU_P      0x29C // Assorted legendary
+#define FLAG_MOLTRES       0x29D // Assorted legendary
+#define FLAG_MOLTRES_G     0x29E // Assorted legendary
+#define FLAG_ARTICUNO      0x29F // Assorted legendary
+#define FLAG_ARTICUNO_G    0x2A0 // Assorted legendary
+#define FLAG_ZAPDOS        0x2A1 // Assorted legendary
+#define FLAG_ZAPDOS_G      0x2A2 // Assorted legendary
+#define FLAG_SOLGALEO      0x2A3 // Assorted legendary
+#define FLAG_LUNALA        0x2A4 // Assorted legendary
+#define FLAG_KAIBA         0x2A5 // Kaiba Asteroid Meme
 #define FLAG_UNUSED_0x2A6  0x2A6 // Unused Flag
 #define FLAG_UNUSED_0x2A7  0x2A7 // Unused Flag
 #define FLAG_UNUSED_0x2A8  0x2A8 // Unused Flag
