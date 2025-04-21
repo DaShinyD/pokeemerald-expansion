@@ -4976,8 +4976,8 @@
       "name": "Tester2_Layout",
       "width": 20,
       "height": 20,
-      "primary_tileset": "gTileset_Snow",
-      "secondary_tileset": "gTileset_petalburg2",
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Contest",
       "border_filepath": "data/layouts/Tester2/border.bin",
       "blockdata_filepath": "data/layouts/Tester2/map.bin"
     },

@@ -282,6 +282,12 @@ extern const u32 gBattleTerrainPalette_StadiumWallace[];
 extern const u32 gBattleTerrainTiles_Beach[];
 extern const u32 gBattleTerrainTilemap_Beach[];
 extern const u32 gBattleTerrainPalette_Beach[];
+extern const u32 gBattleTerrainTiles_Space[];
+extern const u32 gBattleTerrainTilemap_Space[];
+extern const u32 gBattleTerrainPalette_Space[];
+extern const u32 gBattleTerrainTiles_Tournament[];
+extern const u32 gBattleTerrainTilemap_Tournament[];
+extern const u32 gBattleTerrainPalette_Tournament[];
 
 // Pokédex
 extern const u32 gPokedexInterface_Gfx[];

@@ -434,8 +434,10 @@
 #define BATTLE_TERRAIN_SPACE            20
 #define BATTLE_TERRAIN_ULTRA_SPACE      21
 #define BATTLE_TERRAIN_BEACH            22
+#define BATTLE_TERRAIN_SPACEME          23
+#define BATTLE_TERRAIN_TOURNAMENT       24
 
-#define BATTLE_TERRAIN_COUNT            23
+#define BATTLE_TERRAIN_COUNT            25
 
 #define B_WAIT_TIME_LONG        (B_WAIT_TIME_MULTIPLIER * 4)
 #define B_WAIT_TIME_MED         (B_WAIT_TIME_MULTIPLIER * 3)

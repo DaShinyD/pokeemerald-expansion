@@ -645,6 +645,20 @@ const struct BattleBackground sBattleTerrainTable[] =
         .tilemap = gBattleTerrainTilemap_Beach,
         .palette = gBattleTerrainPalette_Beach,
     },
+    
+    [BATTLE_TERRAIN_TOURNAMENT] =
+    {
+        .tileset = gBattleTerrainTiles_Tournament,
+        .tilemap = gBattleTerrainTilemap_Tournament,
+        .palette = gBattleTerrainPalette_Tournament,
+    },
+
+    [BATTLE_TERRAIN_SPACEME] =
+    {
+        .tileset = gBattleTerrainTiles_Space,
+        .tilemap = gBattleTerrainTilemap_Space,
+        .palette = gBattleTerrainPalette_Space,
+    },
 
     [BATTLE_TERRAIN_UNDERWATER] =
     {
