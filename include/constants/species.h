@@ -1688,8 +1688,9 @@
 #define SPECIES_UNOWN_GOD                               1581
 #define SPECIES_GROWLITHE_HOENNIAN                      1582
 #define SPECIES_ARCANINE_HOENNIAN                       1583
+#define SPECIES_SLIFER                                  1584
 
-#define SPECIES_EGG (SPECIES_ARCANINE_HOENNIAN + 1)
+#define SPECIES_EGG (SPECIES_SLIFER + 1)
 
 #define NUM_SPECIES SPECIES_EGG
 

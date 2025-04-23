@@ -124,9 +124,8 @@ struct PokemonSubstruct0
     u16 teraType:5; // 30 types.
     u16 heldItem:10; // 1023 items.
     u16 unused_02:6;
-    u32 experience:23;
+    u32 experience:24;
     u32 nickname11:8; // 11th character of nickname.
-    u32 unused_04:1;
     u8 ppBonuses;
     u8 friendship;
     u16 pokeball:6; // 63 balls.

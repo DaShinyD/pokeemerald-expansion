@@ -642,6 +642,9 @@ $(OBJEVENTGFXDIR)/people/sam.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/pena.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4	
 
+$(OBJEVENTGFXDIR)/people/yugi.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4	
+
 $(OBJEVENTGFXDIR)/people/link.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4	
 

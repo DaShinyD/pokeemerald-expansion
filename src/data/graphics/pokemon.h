@@ -22377,3 +22377,6 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     const u32 gMonShinyPalette_ArcanineH[] = INCBIN_U32("graphics/pokemon/arcanineh/shiny.gbapal.lz");
     const u8 gMonIcon_ArcanineH[] = INCBIN_U8("graphics/pokemon/arcanineh/icon.4bpp");
 
+    const u32 gMonFrontPic_Slifer[] = INCBIN_U32("graphics/pokemon/slifer/anim_front.4bpp.lz");
+    const u32 gMonPalette_Slifer[] = INCBIN_U32("graphics/pokemon/slifer/normal.gbapal.lz");
+

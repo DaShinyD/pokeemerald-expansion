@@ -3968,5 +3968,78 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .levelUpLearnset = sSharpedoLevelUpLearnset,
         .teachableLearnset = sSharpedoTeachableLearnset,
     },
+
+    [SPECIES_SLIFER] =
+    {
+        .baseHP        = 150,
+        .baseAttack    = 150,
+        .baseDefense   = 150,
+        .baseSpeed     = 150,
+        .baseSpAttack  = 150,
+        .baseSpDefense = 150,
+        .types = MON_TYPES(TYPE_DRAGON, TYPE_ELECTRIC),
+        .catchRate = 45,
+    #if P_UPDATED_EXP_YIELDS >= GEN_8
+        .expYield = 340,
+    #elif P_UPDATED_EXP_YIELDS >= GEN_5
+        .expYield = 306,
+    #else
+        .expYield = 220,
+    #endif
+        .evYield_Attack = 2,
+        .evYield_SpAttack = 1,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 120,
+        .friendship = 0,
+        .growthRate = GROWTH_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+        .abilities = { ABILITY_AIR_LOCK, ABILITY_NONE, ABILITY_NONE },
+        .bodyColor = BODY_COLOR_GREEN,
+        .speciesName = _("Slifer TSD"),
+        .cryId = CRY_RAYQUAZA,
+        .natDexNum = NATIONAL_DEX_RAYQUAZA,
+        .categoryName = _("Sky High"),
+        .height = 70,
+        .weight = 2065,
+        .description = COMPOUND_STRING(
+            "A Pokémon that flies endlessly in the\n"
+            "ozone layer. It is said it would descend\n"
+            "to the ground if Kyogre and Groudon\n"
+            "were to fight."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 448,
+        .trainerOffset = 12,
+        .frontPic = gMonFrontPic_Slifer,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_Rayquaza,
+        .frontAnimId = ANIM_H_SHAKE,
+        .frontAnimDelay = 60,
+        .enemyMonElevation = 6,
+        .backPic = gMonBackPic_Rayquaza,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_GROW_STUTTER,
+        .palette = gMonPalette_Slifer,
+        .shinyPalette = gMonShinyPalette_Rayquaza,
+        .iconSprite = gMonIcon_Rayquaza,
+        .iconPalIndex = 1,
+        FOOTPRINT(Rayquaza)
+        OVERWORLD(
+            sPicTable_Rayquaza,
+            SIZE_64x64,
+            SHADOW_SIZE_M,
+            TRACKS_NONE,
+            gOverworldPalette_Rayquaza,
+            gShinyOverworldPalette_Rayquaza
+        )
+        .isLegendary = TRUE,
+        .isFrontierBanned = TRUE,
+        .levelUpLearnset = sRayquazaLevelUpLearnset,
+        .teachableLearnset = sRayquazaTeachableLearnset,
+        .formSpeciesIdTable = sRayquazaFormSpeciesIdTable,
+        .formChangeTable = sRayquazaFormChangeTable,
+    },
 };
 

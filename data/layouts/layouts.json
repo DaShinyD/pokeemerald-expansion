@@ -5054,8 +5054,8 @@
     {
       "id": "LAYOUT_SPACE",
       "name": "Space_Layout",
-      "width": 44,
-      "height": 36,
+      "width": 80,
+      "height": 80,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_space",
       "border_filepath": "data/layouts/Space/border.bin",

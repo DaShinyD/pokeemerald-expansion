@@ -382,6 +382,7 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
     TRAINER_CLASS(STRATA_LEADER, "STRATA LEAD", 30),
     TRAINER_CLASS(TEAM_ROCKET, "TEAM ROCKET", 20),
     TRAINER_CLASS(MOB_BOSS, "MOB BOSS", 30, ITEM_MOON_BALL),
+    TRAINER_CLASS(DUELIST, "DUELIST", 0, ITEM_MASTER_BALL),
 };
 
 static void (* const sTurnActionsFuncsTable[])(void) =

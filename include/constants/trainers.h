@@ -140,7 +140,8 @@
 #define TRAINER_PIC_GIOVANNI              122
 #define TRAINER_PIC_ROCKETM               123
 #define TRAINER_PIC_ROCKETF               124
-#define TRAINER_PIC_COUNT                 125
+#define TRAINER_PIC_YUGI                  125
+#define TRAINER_PIC_COUNT                 126
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0
@@ -388,7 +389,8 @@
 #define TRAINER_CLASS_STRATA_LEADER  0x44
 #define TRAINER_CLASS_TEAM_ROCKET    0x45
 #define TRAINER_CLASS_MOB_BOSS       0x46
-#define TRAINER_CLASS_COUNT          0x47
+#define TRAINER_CLASS_DUELIST        0x47
+#define TRAINER_CLASS_COUNT          0x48
 
 #define TRAINER_ENCOUNTER_MUSIC_MALE         0 // standard male encounter music
 #define TRAINER_ENCOUNTER_MUSIC_FEMALE       1 // standard female encounter music

@@ -1440,6 +1440,18 @@ static const struct SpriteFrameImage sPicTable_Pena[] = {
     overworld_frame(gObjectEventPic_Pena, 2, 4, 8),
 };
 
+static const struct SpriteFrameImage sPicTable_Yugi[] = {
+    overworld_frame(gObjectEventPic_Yugi, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Yugi, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Yugi, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Yugi, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Yugi, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Yugi, 4, 4, 5),
+    overworld_frame(gObjectEventPic_Yugi, 4, 4, 6),
+    overworld_frame(gObjectEventPic_Yugi, 4, 4, 7),
+    overworld_frame(gObjectEventPic_Yugi, 4, 4, 8),
+};
+
 static const struct SpriteFrameImage sPicTable_Lightning[] = {
     overworld_frame(gObjectEventPic_Lightning, 8, 4, 0),
     overworld_frame(gObjectEventPic_Lightning, 8, 4, 0),
