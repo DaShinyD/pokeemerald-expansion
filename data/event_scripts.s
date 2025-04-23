@@ -1378,3 +1378,9 @@ MysteryGift_Text_ReceivedGiftMon:
 	.include "data/maps/NewMap5/scripts.inc"
 
 	.include "data/maps/Space/scripts.inc"
+
+	.include "data/maps/Route139/scripts.inc"
+
+	.include "data/maps/IcefallCity/scripts.inc"
+
+	.include "data/maps/PWT/scripts.inc"

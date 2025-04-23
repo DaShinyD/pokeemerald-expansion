@@ -17,6 +17,7 @@
     "gMapGroup_IndoorMossdeep",
     "gMapGroup_IndoorSootopolis",
     "gMapGroup_IndoorEverGrande",
+    "gMapGroup_IndoorIceFall",
     "gMapGroup_IndoorRoute104",
     "gMapGroup_IndoorRoute111",
     "gMapGroup_IndoorRoute112",
@@ -113,7 +114,9 @@
     "TraversalPath",
     "Route138",
     "Dojo",
-    "NewMap4"
+    "NewMap4",
+    "Route139",
+    "IcefallCity"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -322,6 +325,9 @@
     "Champion_Club_Center",
     "LeaderClub",
     "ThunderDragonCave"
+  ],
+  "gMapGroup_IndoorIceFall": [
+    "PWT"
   ],
   "gMapGroup_IndoorRoute104": [
     "Route104_MrBrineysHouse",

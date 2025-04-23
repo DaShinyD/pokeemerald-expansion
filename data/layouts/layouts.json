@@ -407,7 +407,7 @@
       "width": 80,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_mosdeep2",
+      "secondary_tileset": "gTileset_Mossdeep",
       "border_filepath": "data/layouts/Route125/border.bin",
       "blockdata_filepath": "data/layouts/Route125/map.bin"
     },
@@ -5060,6 +5060,36 @@
       "secondary_tileset": "gTileset_space",
       "border_filepath": "data/layouts/Space/border.bin",
       "blockdata_filepath": "data/layouts/Space/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE139",
+      "name": "Route139_Layout",
+      "width": 28,
+      "height": 50,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mossdeep",
+      "border_filepath": "data/layouts/Route139/border.bin",
+      "blockdata_filepath": "data/layouts/Route139/map.bin"
+    },
+    {
+      "id": "LAYOUT_ICEFALL_CITY",
+      "name": "IcefallCity_Layout",
+      "width": 60,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Mossdeep",
+      "border_filepath": "data/layouts/IcefallCity/border.bin",
+      "blockdata_filepath": "data/layouts/IcefallCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_PWT",
+      "name": "PWT_Layout",
+      "width": 40,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_BattleFrontier",
+      "border_filepath": "data/layouts/PWT/border.bin",
+      "blockdata_filepath": "data/layouts/PWT/map.bin"
     }
   ]
 }

@@ -608,7 +608,7 @@ Route136_Text_RivalsTalk:
 	.string "Dash: Well, we're gonna go.\p"
 	.string "If you need something to do, I\n"
 	.string "heard there's a tournament coming\l"
-	.string "to Grandeur City.\p"
+	.string "to IceFall City.\p"
 	.string "It's located above Shoal Cave.\p"
 	.string "Rye: Take care, great work as always.\p"
 	.string "Wally: I'm glad we could be here.\p"
