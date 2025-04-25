@@ -1293,6 +1293,46 @@ bool8 CheckStarter(void)
     return 0;
 }
 
+bool8 AreAllPartyMonsLevel200(void)
+{
+    int i;
+    u8 level;
+
+    for (i = 0; i < PARTY_SIZE; i++) {
+        // Check if there is a Pokémon in this party slot
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) == SPECIES_NONE)
+            continue; // Skip empty slots
+
+        // Get the level of the Pokémon
+        level = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL, NULL);
+
+        // If any Pokémon is not level 200, return FALSE
+        if (level != 200)
+            return FALSE;
+    }
+
+    // If loop completes, all valid Pokémon are level 200
+    return TRUE;
+}
+
+bool8 CheckIfPartySizeIsExactly4(void)
+{
+    int i;
+    u8 count = 0;
+
+    // Loop through the player's party to count valid Pokémon (not eggs, not empty slots)
+    for (i = 0; i < PARTY_SIZE; i++) {
+        // Check if there is a Pokémon in this party slot (skip empty slots or eggs)
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG, NULL) != SPECIES_NONE)
+        {
+            count++;
+        }
+    }
+
+    // Return TRUE if there are exactly 4 valid Pokémon, else return FALSE
+    return (count == 4);
+}
+
 // Checks for all regis in player party
 bool8 HasAllRegisInParty(void)
 {

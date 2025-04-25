@@ -327,7 +327,8 @@
     "ThunderDragonCave"
   ],
   "gMapGroup_IndoorIceFall": [
-    "PWT"
+    "PWT",
+    "PWT_Arena"
   ],
   "gMapGroup_IndoorRoute104": [
     "Route104_MrBrineysHouse",

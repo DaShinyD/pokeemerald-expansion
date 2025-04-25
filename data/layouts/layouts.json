@@ -4974,7 +4974,7 @@
     {
       "id": "LAYOUT_TESTER2",
       "name": "Tester2_Layout",
-      "width": 20,
+      "width": 19,
       "height": 20,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_Contest",
@@ -5100,6 +5100,16 @@
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/RocketShip/border.bin",
       "blockdata_filepath": "data/layouts/RocketShip/map.bin"
+    },
+    {
+      "id": "LAYOUT_PWT_ARENA",
+      "name": "PWT_Arena_Layout",
+      "width": 19,
+      "height": 25,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Contest",
+      "border_filepath": "data/layouts/PWT_Arena/border.bin",
+      "blockdata_filepath": "data/layouts/PWT_Arena/map.bin"
     }
   ]
 }

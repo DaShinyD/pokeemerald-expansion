@@ -732,14 +732,14 @@
 #define FLAG_TEAM_ROCKET   0x2AD // Hide Team Rocket after Giovanni
 #define FLAG_HIDE_SHIP_GUY 0x2AE // Ship guy for Space Adventure
 #define FLAG_HIDE_PWT      0x2AF // Hide PWT Guards
-#define FLAG_UNUSED_0x2B0  0x2B0 // Unused Flag
-#define FLAG_UNUSED_0x2B1  0x2B1 // Unused Flag
-#define FLAG_UNUSED_0x2B2  0x2B2 // Unused Flag
-#define FLAG_UNUSED_0x2B3  0x2B3 // Unused Flag
-#define FLAG_UNUSED_0x2B4  0x2B4 // Unused Flag
-#define FLAG_UNUSED_0x2B5  0x2B5 // Unused Flag
-#define FLAG_UNUSED_0x2B6  0x2B6 // Unused Flag
-#define FLAG_UNUSED_0x2B7  0x2B7 // Unused Flag
+#define FLAG_ATTENDANTS    0x2B0 // Hide attendants PWT
+#define FLAG_PWT_BEAT_100  0x2B1 // Beat PWT Level 100
+#define FLAG_PWT_BEAT_200  0x2B2 // Beat PWT Level 200 (1)
+#define FLAG_PWT_BEAT_200_2 0x2B3 // Beat PWT Level 200 (2)
+#define FLAG_PWT_BEAT_200_3 0x2B4 // Beat PWT Level 200 (3)
+#define FLAG_PWT_BEAT_200_4 0x2B5 // Beat PWT Level 200 (4)
+#define FLAG_PWT_BEAT_200_5 0x2B6 // Beat PWT Level 200 (5)
+#define FLAG_HIDE_PWT_A    0x2B7 // Hide PWT Actors
 #define FLAG_UNUSED_0x2B8  0x2B8 // Unused Flag
 #define FLAG_UNUSED_0x2B9  0x2B9 // Unused Flag
 #define FLAG_UNUSED_0x2BA  0x2BA // Unused Flag

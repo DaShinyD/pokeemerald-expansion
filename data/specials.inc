@@ -558,4 +558,6 @@ gSpecials::
 	def_special EnterMysteryGiftCode
 	def_special GetMysteryGiftFeedback
 	def_special HasAllRegisInParty
-	
+	def_special AreAllPartyMonsLevel200
+	def_special CheckIfPartySizeIsExactly4
+

@@ -291,7 +291,8 @@
 #define MAP_THUNDER_DRAGON_CAVE                (18 | (16 << 8))
 
 // gMapGroup_IndoorIceFall
-#define MAP_PWT (0 | (17 << 8))
+#define MAP_PWT       (0 | (17 << 8))
+#define MAP_PWT_ARENA (1 | (17 << 8))
 
 // gMapGroup_IndoorRoute104
 #define MAP_ROUTE104_MR_BRINEYS_HOUSE         (0 | (18 << 8))

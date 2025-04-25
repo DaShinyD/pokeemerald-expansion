@@ -166,7 +166,7 @@ Debug_EventScript_Script_3::
 	end
 
 Debug_EventScript_Script_4::
-	specialvar VAR_RESULT, HasAllRegisInParty
+	specialvar VAR_RESULT, AreAllPartyMonsLevel200
 	goto_if_eq VAR_RESULT, TRUE, Debug_EventScript_ItWorked_Text
 	goto_if_eq VAR_RESULT, FALSE, Debug_EventScript_ItDidntWorked_Text
 	release

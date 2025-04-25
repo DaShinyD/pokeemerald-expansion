@@ -808,7 +808,7 @@ u8 BattleSetup_GetTerrainId(void)
         return BATTLE_TERRAIN_SAND;
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SPACE) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(SPACE))
         return BATTLE_TERRAIN_SPACEME;
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(TESTER2) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(TESTER2))
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PWT_ARENA) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(PWT_ARENA))
         return BATTLE_TERRAIN_TOURNAMENT;
 
     return BATTLE_TERRAIN_PLAIN;
