@@ -563,6 +563,19 @@ void StartWallyTutorialBattle(void)
     CreateBattleStartTask(B_TRANSITION_SLICE, 0);
 }
 
+void StartBeedrillFinalHitBattle(void)
+{
+    u16 monData;
+    CreateMon(&gEnemyParty[0], SPECIES_LOPUNNY_MEGA, 200, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    monData = 1;
+    SetMonData(&gEnemyParty[0], MON_DATA_HP, &monData);
+    LockPlayerFieldControls();
+    gTrainerBattleOpponent_A = TRAINER_NONE;
+    gBattleTypeFlags = BATTLE_TYPE_14;
+    gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
+    CreateBattleStartTask(B_TRANSITION_SLICE, 0);
+}
+
 void BattleSetup_StartScriptedWildBattleWithFlag(u32 flags)
 {
     LockPlayerFieldControls();

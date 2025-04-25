@@ -185,6 +185,8 @@ static void InitSinglePlayerBtlControllers(void)
             gBattlerControllerFuncs[0] = SetControllerToWally;
         else if (IsAiVsAiBattle())
             gBattlerControllerFuncs[0] = SetControllerToPlayerPartner;
+        else if (gBattleTypeFlags & BATTLE_TYPE_14)
+        gBattlerControllerFuncs[0] = SetControllerToWally;
         else
             gBattlerControllerFuncs[0] = SetControllerToPlayer;
 

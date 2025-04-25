@@ -2,6 +2,7 @@
 .set LOCALID_DASH, 13
 .set LOCALID_SKY, 14
 .set LOCALID_JAKE, 15
+.set LOCALID_SAM, 16
 
 PWT_Arena_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, PWT_Arena_OnFrame
@@ -228,8 +229,8 @@ PWT_Arena_EventScript_TourneyContinued2::
 	applymovement LOCALID_JAKE, PWT_Arena_Movement_OppLeave
 	waitmovement 0
 	removeobject LOCALID_JAKE
-	addobject LOCALID_SKY
-	applymovement LOCALID_SKY, PWT_Arena_Movement_OppEnter
+	addobject LOCALID_DASH
+	applymovement LOCALID_DASH, PWT_Arena_Movement_OppEnter
 	waitmovement 0
 	msgbox PWT_Arena_Text_Round3, MSGBOX_AUTOCLOSE
 	special HealPlayerParty
@@ -242,31 +243,38 @@ PWT_Arena_Text_Another:
 	.string "Jake will be taking his leave.$"
 
 PWT_Arena_Text_Round3:
-	.string "Another Master Trainer enters, Sky!\p"
-	.string "Crowd: Yea, Sky!\p"
-	.string "These 2 trainers will be fighting\n"
-	.string "for the right to the final match.\p"
-	.string "Let's see who's will is stronger.\p"
-	.string "Trainers, enter battle!\p"
-	.string "Sky: Hmph, time to lose.$"
+	.string "This time, the opponent is Dash!\p"
+	.string "Crowd: ALRIGHT WOO!\p"
+	.string "These 2, along with Rye, traveled\n"
+	.string "this region together.\p"
+	.string "An intense rival match for our\p"
+	.string "semi finals.\p"
+	.string "Let's see which trainer will be\p"
+	.string "proceeding to the end, and\n"
+	.string "who is going home.\p"
+	.string "Dash: No matter what, let's give\n"
+	.string "them a good show.$"
 
 PWT_Arena_EventScript_Tourney1ThirdBattle:
-	trainerbattle_no_intro TRAINER_SKY, PWT_Arena_Text_SkyDefeat
+	trainerbattle_no_intro_no_whiteout TRAINER_DASH_102, PWT_Arena_Text_DashDefeat
 	goto PWT_Arena_EventScript_TourneyContinued3
 	end
 
-PWT_Arena_Text_SkyDefeat:
-	.string "Bugged, bugged I tell you!$"
+PWT_Arena_Text_DashDefeat:
+	.string "What an incredible battle.$"
 
 PWT_Arena_EventScript_TourneyContinued3::
 	special SpawnCameraObject
-	addobject LOCALID_SKY
-	msgbox PWT_Arena_Text_Finals, MSGBOX_AUTOCLOSE
-	applymovement LOCALID_SKY, PWT_Arena_Movement_OppLeave
-	waitmovement 0
-	removeobject LOCALID_SKY
 	addobject LOCALID_DASH
-	applymovement LOCALID_DASH, PWT_Arena_Movement_OppEnter
+	specialvar VAR_RESULT, GetBattleOutcome
+	compare VAR_RESULT, B_OUTCOME_WON
+	goto_if_ne PWT_Arena_EventScript_Lost
+	msgbox PWT_Arena_Text_Finals, MSGBOX_AUTOCLOSE
+	applymovement LOCALID_DASH, PWT_Arena_Movement_OppLeave
+	waitmovement 0
+	removeobject LOCALID_DASH
+	addobject LOCALID_SKY
+	applymovement LOCALID_SKY, PWT_Arena_Movement_OppEnter
 	waitmovement 0
 	msgbox PWT_Arena_Text_LastBattle, MSGBOX_AUTOCLOSE
 	special HealPlayerParty
@@ -275,40 +283,105 @@ PWT_Arena_EventScript_TourneyContinued3::
 
 PWT_Arena_Text_Finals:
 	.string "{PLAYER} continues the streak!\p"
-	.string "Master Trainer Sky has been removed\n"
+	.string "Dash has been removed\n"
 	.string "from this competition.\p"
-	.string "Congratulations to Sky for the\n"
+	.string "Congratulations to Dash for the\n"
 	.string "top 4 finish.$"
 
 PWT_Arena_Text_LastBattle:
 	.string "Now, for what everyone has been\n"
 	.string "waiting for.\p"
 	.string "The final match, the grand ending.\p"
-	.string "{PLAYER} vs Dash!\p"
-	.string "Crowd: YEAAAA. WOOOOO.\p"
-	.string "These 2, along with Rye, traveled\n"
-	.string "this region together.\p"
-	.string "Rivals, growing together.\p"
-	.string "What a fitting end to our very\n"
-	.string "first World Tournament.\p"
-	.string "You can't ask for better folks.\p"
-	.string "Let me remove myself, so that these\n"
-	.string "2 unbelievable trainers may end\l"
-	.string "this amazing showing.\p"
-	.string "IT'S TIME FOR THE FINALE.\p"
-	.string "Crowd: ALRIGHT YEA WOOOO!\p"
-	.string "Dash: No matter what, let's give\n"
-	.string "them a good show.$"
+	.string "{PLAYER} vs Sky!\p"
+	.string "Without further delay, let's get\n"
+	.string "this final match going!\p"
+	.string "Sky: Hmph, let's do this.$"
 
 PWT_Arena_EventScript_Tourney1Final::
-	trainerbattle_no_intro TRAINER_DASH_102, PWT_Arena_Text_DashDefeat
+	trainerbattle_no_intro TRAINER_SKY, PWT_Arena_Text_SkyDefeat
 	goto PWT_Arena_EventScript_Tourney1End
 	end
 
-PWT_Arena_Text_DashDefeat:
-	.string "What an incredible battle.$"
+PWT_Arena_Text_SkyDefeat:
+	.string "Bugged, bugged I tell you!$"
 
-PWT_Arena_EventScript_Tourney1End::
+PWT_Arena_EventScript_Lost::
+	addobject LOCALID_SAM
+	fadescreen FADE_TO_BLACK
+	setobjectxy OBJ_EVENT_ID_PLAYER, 4, 24
+	setobjectxy LOCALID_SAM, 5, 17
+	turnobject LOCALID_SAM, DIR_EAST
+	msgbox PWT_Arena_Text_Devastating, MSGBOX_AUTOCLOSE
+	fadescreen FADE_FROM_BLACK
+	msgbox PWT_Arena_Text_FinalsIntense, MSGBOX_AUTOCLOSE
+	special SavePlayerParty
+	special LoadMegaBeedrill
+	special StartBeedrillFinalHitBattle
+	waitstate
+	special LoadPlayerParty
+	msgbox PWT_Arena_Text_YourWinnerIsNotPlayer, MSGBOX_AUTOCLOSE
+	applymovement LOCALID_DASH, PWT_Arena_Movement_Jump
+	waitmovement 0
+	msgbox PWT_Arena_Text_ThanksForComing, MSGBOX_AUTOCLOSE
+	warp MAP_PWT, 22, 7
+	waitstate
 	release
 	end
+
+PWT_Arena_Text_Devastating:
+	.string "Oh my, what an upset.\p"
+	.string "Dash has knocked {PLAYER} out\n"
+	.string "of the tournament!\p"
+	.string "Dash will be going on to the finals.\p"
+	.string "Congratulations to {PLAYER} for a\n"
+	.string "top 3 finish.$"
+
+PWT_Arena_Text_FinalsIntense:
+	.string "An intense final match here, but\n"
+	.string "I think it's about to end.\p"
+	.string "2 mega Pokemon duking it out.\p"
+	.string "Here comes the finishing move!$"
+
+PWT_Arena_Text_YourWinnerIsNotPlayer:
+	.string "That's it!\p"
+	.string "The winner of the tournament is Dash!\p"
+	.string "Dash fought through 4 hard rounds of\n"
+	.string "fantastic trainers to get here.\p"
+	.string "Congratulations, Dash.$"
+
+PWT_Arena_Text_ThanksForComing:
+	.string "Thank you everyone for coming.\p"
+	.string "We hope to see you next time.$"
+
+PWT_Arena_EventScript_Tourney1End::
+	special SpawnCameraObject
+	addobject LOCALID_SKY
+	msgbox PWT_Arena_Text_PlayerDidIt, MSGBOX_DEFAULT
+	setflag FLAG_PWT_BEAT_200
+	warp MAP_PWT, 22, 7
+	waitstate
+	release
+	end
+
+PWT_Arena_Text_PlayerDidIt:
+	.string "Our winner is {PLAYER}!\p"
+	.string "The Hoenn Champ has done it.\p"
+	.string "Our first Hoenn PWT has had the\n"
+	.string "expected outcome.\p"
+	.string "{PLAYER} proves again that being\n"
+	.string "number 1 means STAYING number 1.\p"
+	.string "Congratulations to Sky for a top\n"
+	.string "2 finish and {PLAYER} for an\l"
+	.string "exceptional win.\p"
+	.string "Thank you everyone for coming.\p"
+	.string "Please join us again for our next\n"
+	.string "tournament.$"
+
+PWT_Arena_Movement_Jump:
+	jump_in_place_down
+	jump_in_place_down
+	jump_in_place_down
+	jump_in_place_down
+	jump_in_place_down
+	step_end
 
