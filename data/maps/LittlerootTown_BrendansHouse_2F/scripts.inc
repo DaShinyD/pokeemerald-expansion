@@ -287,7 +287,8 @@ PlayersHouse_2F_Text_CapOrNo:
 	.string "Would you like to play with\n"
 	.string "level caps enabled?\p"
 	.string "This cannot be changed.\p"
-	.string "The game is built around level caps.$"
+	.string "{COLOR RED}The game is built around level caps.{COLOR DARK_GRAY}\p"
+	.string "Level Caps?$"
 
 PlayersHouse_2F_EventScript_EnableCap::
 	msgbox PlayersHouse_2F_Text_CapEnabled1, MSGBOX_DEFAULT
@@ -319,7 +320,7 @@ PlayersHouse_2F_Text_CapEnabled1:
 	.string "Level caps enabled. The caps are as\n"
 	.string "follows.\p"
 	.string "18, 24, 36, 48, 50, 58, 67, 75, 85,\n"
-	.string "100, and lastly 150.$"
+	.string "100, and lastly 200.$"
 
 PlayersHouse_2F_Text_ClockIsStopped:
 	.string "The clock is stopped…\p"

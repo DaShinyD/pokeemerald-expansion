@@ -243,6 +243,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Jake;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Percy;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sam;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Pena;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Oak;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Yugi;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lightning;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lorelei;
@@ -536,6 +537,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_PERCY] =                    &gObjectEventGraphicsInfo_Percy,
     [OBJ_EVENT_GFX_SAM] =                      &gObjectEventGraphicsInfo_Sam,
     [OBJ_EVENT_GFX_PENA] =                     &gObjectEventGraphicsInfo_Pena,
+    [OBJ_EVENT_GFX_OAK] =                      &gObjectEventGraphicsInfo_Oak,
     [OBJ_EVENT_GFX_YUGI] =                     &gObjectEventGraphicsInfo_Yugi,
     [OBJ_EVENT_GFX_LORELEI] =                  &gObjectEventGraphicsInfo_Lorelei,
     [OBJ_EVENT_GFX_LIGHTNING] =                &gObjectEventGraphicsInfo_Lightning,

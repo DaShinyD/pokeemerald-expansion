@@ -380,7 +380,7 @@
 #define TRAINER_TPP                         374 // now TPP (previously Camden Route 127)
 #define TRAINER_DEMETRIUS                   375 // now unused (abandoned ship)
 #define TRAINER_ISAIAH_1                    376 // now unused (remove match) (route 128)
-#define TRAINER_PABLO_1                     377 // now unused (remove match) (route 126)
+#define TRAINER_ROCKET_1                    377 // now team rocket grunt 1
 #define TRAINER_CHASE                       378 // now unused (route 129)
 #define TRAINER_ISAIAH_2                    379 // now unused (remove match) (route 128)
 #define TRAINER_ISAIAH_3                    380 // now unused (remove match) (route 128)
@@ -670,9 +670,9 @@
 #define TRAINER_MAY_LILYCOVE_MUDKIP         664
 #define TRAINER_MAY_LILYCOVE_TREECKO        665
 #define TRAINER_MAY_LILYCOVE_TORCHIC        666
-#define TRAINER_JONAH                       667 // now unused (route 127)
-#define TRAINER_HENRY                       668 // now unused (route 127)
-#define TRAINER_ROGER                       669 // now unused (route 127)
+#define TRAINER_ROCKET_4                    667 // now Rocket Grunt 4 (previously Jonah 127)
+#define TRAINER_ROCKET_5                    668 // now Rocket Grunt 5 (previously Henry route 127)
+#define TRAINER_GIOVANNI                    669 // now Giovanni (previously Roger route 127)
 #define TRAINER_ALEXA                       670 // now unused (route 128)
 #define TRAINER_RUBEN                       671 // now unused (route 128)
 #define TRAINER_STRATA_MOUNTAIN_1           672 // now Strata Mountain Grunt 1 (previously Koji, route 127, match call)
@@ -823,10 +823,10 @@
 #define TRAINER_BRUNO                       817 // now gym leader (previously cory, route 108, match call)
 #define TRAINER_AGATHA                      818 // now gym leader (previously cory, route 108, match call)
 #define TRAINER_LANCE                       819 // now gym leader (previously cory, route 108, match call)
-#define TRAINER_PABLO_2                     820 // now unused (remove match) (route 126)
-#define TRAINER_PABLO_3                     821 // now unused (remove match) (route 126)
-#define TRAINER_PABLO_4                     822 // now unused (remove match) (route 126)
-#define TRAINER_PABLO_5                     823 // now unused (remove match) (route 126)
+#define TRAINER_ROCKET_7                    820 // now team rocket grunt 7
+#define TRAINER_ROCKET_6                    821 // now team rocket grunt 6
+#define TRAINER_ROCKET_2                    822 // now team rocket grunt 2
+#define TRAINER_ROCKET_3                    823 // now team rocket grunt 3
 #define TRAINER_STRATA_MOUNTAIN_2           824 // now Strata Mountain Grunt 2 (previously Koji, route 127, match call)
 #define TRAINER_STRATA_MOUNTAIN_3           825 // now Strata Mountain Grunt 3 (previously Koji, route 127, match call)
 #define TRAINER_STRATA_MOUNTAIN_4           826 // now Strata Mountain Grunt 4 (previously Koji, route 127, match call)

@@ -156,15 +156,12 @@ Debug_EventScript_Script_1::
 	end
 
 Debug_EventScript_Script_2::
-	setflag FLAG_GO_RED
+	setflag FLAG_TEAM_ROCKET
 	release
 	end
 
 Debug_EventScript_Script_3::
-	giveitem ITEM_MEGA_RING
-	givemon SPECIES_TYPHLOSION, 100, ITEM_TYPHLOSIONITE
-	givemon SPECIES_MEGANIUM, 100, ITEM_MEGANIUMITE
-	givemon SPECIES_FERALIGATR, 100, ITEM_FERALIGATRITE
+	setvar VAR_MOSSDEEP_ROCKET, 1
 	release
 	end
 

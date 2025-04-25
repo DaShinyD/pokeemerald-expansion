@@ -1795,7 +1795,7 @@
     {
       "map_section": "MAPSEC_ASTEROID",
       "name": "ASTEROID",
-      "x": 0,
+      "x": 22,
       "y": 0,
       "width": 1,
       "height": 1
@@ -1830,6 +1830,22 @@
       "x": 1,
       "y": 4,
       "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_MOSSDEEP_ROCKET",
+      "name": "MOSSDEEP ROCKET",
+      "x": 22,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_ICEFALL_CITY",
+      "name": "ICEFALL CITY",
+      "x": 24,
+      "y": 2,
+      "width": 2,
       "height": 1
     }
   ]

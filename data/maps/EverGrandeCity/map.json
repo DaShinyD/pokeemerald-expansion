@@ -35,7 +35,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ANABEL",
-      "x": 56,
+      "x": 54,
       "y": -7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -47,9 +47,9 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
-      "x": 56,
-      "y": -7,
+      "graphics_id": "OBJ_EVENT_GFX_GREEN",
+      "x": 68,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -60,9 +60,9 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
-      "x": 56,
-      "y": -7,
+      "graphics_id": "OBJ_EVENT_GFX_RED2",
+      "x": 64,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -73,7 +73,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_PROF_BIRCH",
+      "graphics_id": "OBJ_EVENT_GFX_OAK",
       "x": 66,
       "y": 0,
       "elevation": 0,

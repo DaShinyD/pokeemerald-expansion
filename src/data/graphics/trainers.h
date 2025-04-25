@@ -328,6 +328,9 @@ const u32 gTrainerPalette_StrataGrunt[] = INCBIN_U32("graphics/trainers/front_pi
 const u32 gTrainerFrontPic_StrataLeader[] = INCBIN_U32("graphics/trainers/front_pics/leader.4bpp.lz");
 const u32 gTrainerPalette_StrataLeader[] = INCBIN_U32("graphics/trainers/front_pics/leader.gbapal.lz");
 
+const u32 gTrainerFrontPic_Oak[] = INCBIN_U32("graphics/trainers/front_pics/kanto/oak.4bpp.lz");
+const u32 gTrainerPalette_Oak[] = INCBIN_U32("graphics/trainers/front_pics/kanto/oak.gbapal.lz");
+
 const u32 gTrainerFrontPic_Brock[] = INCBIN_U32("graphics/trainers/front_pics/kanto/brock.4bpp.lz");
 const u32 gTrainerPalette_Brock[] = INCBIN_U32("graphics/trainers/front_pics/kanto/brock.gbapal.lz");
 
@@ -378,6 +381,9 @@ const u32 gTrainerPalette_Clair[] = INCBIN_U32("graphics/trainers/front_pics/joh
 
 const u32 gTrainerFrontPic_Yugi[] = INCBIN_U32("graphics/trainers/front_pics/yugi.4bpp.lz");
 const u32 gTrainerPalette_Yugi[] = INCBIN_U32("graphics/trainers/front_pics/yugi.gbapal.lz");
+
+const u32 gTrainerFrontPic_GreenRed[] = INCBIN_U32("graphics/trainers/front_pics/greenred.4bpp.lz");
+const u32 gTrainerPalette_GreenRed[] = INCBIN_U32("graphics/trainers/front_pics/greenred.gbapal.lz");
 
 const u8 gTrainerBackPic_Brendan[] = INCBIN_U8("graphics/trainers/back_pics/brendan.4bpp");
 const u8 gTrainerBackPic_May[] = INCBIN_U8("graphics/trainers/back_pics/may.4bpp");
@@ -533,6 +539,8 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(ROCKETM, RocketM),
     TRAINER_SPRITE(ROCKETF, RocketF),
     TRAINER_SPRITE(YUGI, Yugi),
+    TRAINER_SPRITE(GREENRED, GreenRed),
+    TRAINER_SPRITE(OAK, Oak),
 };
 
 static const union AnimCmd sAnimCmd_Hoenn[] =

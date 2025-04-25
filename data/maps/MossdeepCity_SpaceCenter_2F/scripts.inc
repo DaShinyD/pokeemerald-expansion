@@ -8,6 +8,7 @@
 .set LOCALID_GRUNT_7, 7
 .set LOCALID_TABITHA, 8
 .set LOCALID_MAXIE, 9
+.set LOCALID_SHIP_GUY, 10
 
 MossdeepCity_SpaceCenter_2F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, MossdeepCity_SpaceCenter_2F_OnTransition
@@ -37,6 +38,7 @@ MossdeepCity_SpaceCenter_2F_EventScript_MoveDefeatedGrunts::
 
 MossdeepCity_SpaceCenter_2F_OnFrame:
 	map_script_2 VAR_MOSSDEEP_SPACE_CENTER_STATE, 1, MossdeepCity_SpaceCenter_2F_EventScript_ThreeMagmaGrunts
+	map_script_2 VAR_MOSSDEEP_ROCKET, 1, MossdeepCity_SpaceCenter_2F_EventScript_ShipTime
 	.2byte 0
 
 MossdeepCity_SpaceCenter_2F_EventScript_ThreeMagmaGrunts::
@@ -501,3 +503,76 @@ MossdeepCity_SpaceCenter_2F_Text_StevenThankYouComeSeeMeAtHome:
 	.string "after this.\p"
 	.string "Oh, yes, I don't live in RUSTBORO CITY.\n"
 	.string "I live right here on this island.$"
+
+
+MossdeepCity_SpaceCenter_2F_EventScript_ShipTime::
+	lock
+	setvar VAR_MOSSDEEP_ROCKET, 0
+	applymovement LOCALID_SHIP_GUY, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_SHIP_GUY, Common_Movement_FacePlayer
+	waitmovement 0
+	msgbox MossdeepCity_SpaceCenter_2F_Text_ComeHere, MSGBOX_AUTOCLOSE
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
+	waitmovement 0
+	msgbox MossdeepCity_SpaceCenter_2F_Text_TeamRocket, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MossdeepCity_SpaceCenter_2F_EventScript_Hurry
+	msgbox MossdeepCity_SpaceCenter_2F_Text_LetsGo, MSGBOX_AUTOCLOSE
+	warp MAP_ROCKET_SHIP, 13, 4
+	release
+	end
+
+MossdeepCity_SpaceCenter_2F_Text_ComeHere:
+	.string "Oh! You're here!\p"
+	.string "Quick come here I will explain.$"
+
+MossdeepCity_SpaceCenter_2F_Text_TeamRocket:
+	.string "Thank god you're here.\p"
+	.string "Listen, I'm sure you've heard of\n"
+	.string "Team Rocket, yes?\p"
+	.string "Those evil criminals have returned!\p"
+	.string "Their boss has been biding his time\n"
+	.string "and managed to secretly build a\l"
+	.string "rocket.\p"
+	.string "We've been tracking a few legendary\n"
+	.string "Pokemon on a nearby asteroid.\p"
+	.string "Apparently, when Team Magma broke\n"
+	.string "in here, one of their grunts was\l"
+	.string "actually a secret Rocket member.\p"
+	.string "He sent our data on the legendary\n"
+	.string "Pokemon to them.\p"
+	.string "Now, they've embarked on a mission\n"
+	.string "to use their power to make a comeback.\p"
+	.string "We need to leave immediately to stop\n"
+	.string "their plan.\p"
+	.string "We will take the rocket to their\n"
+	.string "location.\p"
+	.string "{COLOR RED}Obviously, you won't be able to\n"
+	.string "fly away, change your team, buy\l"
+	.string "items, or come back.\p"
+	.string "{COLOR DARK_GRAY}So are you ready?$"
+
+MossdeepCity_SpaceCenter_2F_Text_LetsGo:
+	.string "All hands prepare for liftoff!!$"
+
+MossdeepCity_SpaceCenter_2F_EventScript_Hurry::
+	msgbox MossdeepCity_SpaceCenter_2F_Text_Hurry
+	release
+	end
+
+MossdeepCity_SpaceCenter_2F_Text_Hurry:
+	.string "You must hurry then!$"
+
+MossdeepCity_SpaceCenter_2F_EventScript_Ready::
+	lock
+	faceplayer
+	msgbox MossdeepCity_SpaceCenter_2F_Text_ReadyNow, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MossdeepCity_SpaceCenter_2F_EventScript_Hurry
+	msgbox MossdeepCity_SpaceCenter_2F_Text_LetsGo, MSGBOX_AUTOCLOSE
+	warp MAP_ROCKET_SHIP, 13, 4
+	release
+	end
+
+MossdeepCity_SpaceCenter_2F_Text_ReadyNow:
+	.string "Are you ready now?$"
+

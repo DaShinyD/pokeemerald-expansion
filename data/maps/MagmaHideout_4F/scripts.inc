@@ -100,6 +100,7 @@ MagmaHideout_4F_EventScript_Maxie::
 	setflag FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS
 	setflag FLAG_HIDE_STRATA_SKY_PILLAR
 	setflag FLAG_HIDE_STRATA_LEADER
+	setflag FLAG_HIDE_SHIP_GUY
 	fadescreen FADE_FROM_BLACK
 	delay 8
 	applymovement LOCALID_RYEACTUAL, MagmaHideout_4F_Movement_RyeApproach

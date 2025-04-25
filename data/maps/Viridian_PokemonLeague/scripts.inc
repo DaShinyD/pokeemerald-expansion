@@ -61,11 +61,19 @@ Viridian_PokemonLeague_EventScript_BadgeCheck::
 	lock
 	applymovement LOCALID_GUARD, Viridian_PokemonLeague_Movement_LookAtPlayer
 	waitmovement 0
+	goto_if_set FLAG_INDIGO_BEAT, Viridian_PokemonLeague_EventScript_Nope
 	msgbox Viridian_PokemonLeague_Text_LemmeCheck, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_GUARD, Viridian_PokemonLeague_Movement_LookBack
 	waitmovement 0
-	setvar VAR_INDIGO_LEAGUE, 1
+	removeitem ITEM_BOULDER_BADGE
+	removeitem ITEM_CASCADE_BADGE
+	removeitem ITEM_THUNDER_BADGE
+	removeitem ITEM_RAINBOW_BADGE
+	removeitem ITEM_SOUL_BADGE
+	removeitem ITEM_MARSH_BADGE
+	removeitem ITEM_VOLCANO_BADGE
+	removeitem ITEM_EARTH_BADGE
 	release
 	end
 
@@ -91,4 +99,16 @@ Viridian_PokemonLeague_Text_LemmeCheck:
 Viridian_PokemonLeague_Movement_LookBack:
 	face_down
 	step_end
+
+Viridian_PokemonLeague_EventScript_Nope::
+	msgbox Viridian_PokemonLeague_Text_AlreadyBeat, MSGBOX_DEFAULT
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkDown
+	waitmovement 0
+	release
+	end
+
+Viridian_PokemonLeague_Text_AlreadyBeat:
+	.string "You've already won your challenge.\p"
+	.string "You can only come back if you\n"
+	.string "properly take on the gym challenge.$"
 

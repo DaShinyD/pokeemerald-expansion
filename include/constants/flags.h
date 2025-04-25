@@ -721,17 +721,17 @@
 #define FLAG_ZAPDOS_G      0x2A2 // Assorted legendary
 #define FLAG_SOLGALEO      0x2A3 // Assorted legendary
 #define FLAG_LUNALA        0x2A4 // Assorted legendary
-#define FLAG_KAIBA         0x2A5 // Kaiba Asteroid Meme
-#define FLAG_UNUSED_0x2A6  0x2A6 // Unused Flag
-#define FLAG_UNUSED_0x2A7  0x2A7 // Unused Flag
-#define FLAG_UNUSED_0x2A8  0x2A8 // Unused Flag
-#define FLAG_UNUSED_0x2A9  0x2A9 // Unused Flag
-#define FLAG_UNUSED_0x2AA  0x2AA // Unused Flag
-#define FLAG_UNUSED_0x2AB  0x2AB // Unused Flag
-#define FLAG_UNUSED_0x2AC  0x2AC // Unused Flag
-#define FLAG_UNUSED_0x2AD  0x2AD // Unused Flag
-#define FLAG_UNUSED_0x2AE  0x2AE // Unused Flag
-#define FLAG_UNUSED_0x2AF  0x2AF // Unused Flag
+#define FLAG_YUGI          0x2A5 // Yugi tournament meme
+#define FLAG_INDIGO_BEAT   0x2A6 // Beat Red and Green
+#define FLAG_BEAT_LORELEI  0x2A7 // Lorelei
+#define FLAG_BEAT_BRUNO    0x2A8 // Bruno
+#define FLAG_BEAT_AGATHA   0x2A9 // Agatha
+#define FLAG_BEAT_LANCE    0x2AA // Lance
+#define FLAG_SPACESHIP_PT1 0x2AB // Already gone up on Spaceship
+#define FLAG_SPACESHIP_PT2 0x2AC // Done with Spaceship adventure
+#define FLAG_TEAM_ROCKET   0x2AD // Hide Team Rocket after Giovanni
+#define FLAG_HIDE_SHIP_GUY 0x2AE // Ship guy for Space Adventure
+#define FLAG_HIDE_PWT      0x2AF // Hide PWT Guards
 #define FLAG_UNUSED_0x2B0  0x2B0 // Unused Flag
 #define FLAG_UNUSED_0x2B1  0x2B1 // Unused Flag
 #define FLAG_UNUSED_0x2B2  0x2B2 // Unused Flag

@@ -230,7 +230,9 @@
 #define MAPSEC_LAVA_DEPTHS                  0xF2
 #define MAPSEC_BEACH_CAVE                   0xF3
 #define MAPSEC_ASTEROID                     0xF4
-#define MAPSEC_NONE                         0xF5
+#define MAPSEC_ICEFALL_CITY                 0xF5
+#define MAPSEC_MOSSDEEP_ROCKET              0xF6
+#define MAPSEC_NONE                         0xF7
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

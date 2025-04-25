@@ -592,6 +592,7 @@
 #define MAP_TESTER2                                         (91 | (27 << 8))
 #define MAP_NEW_MAP5                                        (92 | (27 << 8))
 #define MAP_SPACE                                           (93 | (27 << 8))
+#define MAP_ROCKET_SHIP                                     (94 | (27 << 8))
 
 // gMapGroup_IndoorRoute104Prototype
 #define MAP_ROUTE104_PROTOTYPE                          (0 | (28 << 8))

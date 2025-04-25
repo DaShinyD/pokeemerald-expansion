@@ -25,21 +25,6 @@ Route127_EventScript_Donny::
 	msgbox Route127_Text_DonnyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route127_EventScript_Jonah::
-	trainerbattle_single TRAINER_JONAH, Route127_Text_JonahIntro, Route127_Text_JonahDefeat
-	msgbox Route127_Text_JonahPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route127_EventScript_Henry::
-	trainerbattle_single TRAINER_HENRY, Route127_Text_HenryIntro, Route127_Text_HenryDefeat
-	msgbox Route127_Text_HenryPostBattle, MSGBOX_AUTOCLOSE
-	end
-
-Route127_EventScript_Roger::
-	trainerbattle_single TRAINER_ROGER, Route127_Text_RogerIntro, Route127_Text_RogerDefeat
-	msgbox Route127_Text_RogerPostBattle, MSGBOX_AUTOCLOSE
-	end
-
 Route127_EventScript_Aidan::
 	trainerbattle_single TRAINER_AIDAN, Route127_Text_AidanIntro, Route127_Text_AidanDefeat
 	msgbox Route127_Text_AidanPostBattle, MSGBOX_AUTOCLOSE

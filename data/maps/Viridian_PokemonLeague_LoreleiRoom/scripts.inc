@@ -22,10 +22,45 @@ Viridian_PokemonLeague_LoreleiRoom_EventScript_WalkInCloseDoor::
 	releaseall
 	end
 
-Viridian_PokemonLeague_LoreleiRoom_EventScript_Test::
+Viridian_PokemonLeague_LoreleiRoom_EventScript_Lorelei::
 	lock
 	faceplayer
+	goto_if_set FLAG_BEAT_LORELEI, Viridian_PokemonLeague_LoreleiRoom_EventScript_LoreleiAlreadyBeat
+	msgbox Viridian_PokemonLeague_LoreleiRoom_Text_Lorelei, MSGBOX_DEFAULT
+	goto Viridian_PokemonLeague_LoreleiRoom_EventScript_LoreleiBattle
+	end
+
+Viridian_PokemonLeague_LoreleiRoom_Text_Lorelei:
+	.string "Ah, I've heard of you.\p"
+	.string "The new Hoenn champion.\p"
+	.string "I'm Lorelei, the icy beauty.\p"
+	.string "Seeing as your here, you must want to\n"
+	.string "see how are League is.\p"
+	.string "Let me show you, but be warned, it'll\n"
+	.string "be a chilly reception!$"
+
+Viridian_PokemonLeague_LoreleiRoom_EventScript_LoreleiBattle::
+	trainerbattle_no_intro TRAINER_LORELEI, Viridian_PokemonLeague_LoreleiRoom_Text_LoreleiDefeat
+	goto Viridian_PokemonLeague_LoreleiRoom_EventScript_LoreleiAfter
+	end
+
+Viridian_PokemonLeague_LoreleiRoom_Text_LoreleiDefeat:
+	.string "Frozen solid.$"
+
+Viridian_PokemonLeague_LoreleiRoom_EventScript_LoreleiAfter::
 	call PokemonLeague_EliteFour_SetAdvanceToNextRoomMetatiles
+	msgbox Viridian_PokemonLeague_LoreleiRoom_Text_LoreleiAfter, MSGBOX_DEFAULT
+	setflag FLAG_BEAT_LORELEI
+	release
+	end
+
+Viridian_PokemonLeague_LoreleiRoom_Text_LoreleiAfter:
+	.string "I may have fallen, but the monsters\n"
+	.string "at the end will definitely stop you.\p"
+	.string "Go on.$"
+
+Viridian_PokemonLeague_LoreleiRoom_EventScript_LoreleiAlreadyBeat::
+	msgbox Viridian_PokemonLeague_LoreleiRoom_Text_LoreleiAfter, MSGBOX_DEFAULT
 	release
 	end
 

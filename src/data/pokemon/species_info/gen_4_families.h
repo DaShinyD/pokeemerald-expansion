@@ -6385,12 +6385,12 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
 
 #define ARCEUS_SPECIES_INFO(type, typeName, iconPal)                        \
     {                                                                       \
-        .baseHP        = 120,                                               \
-        .baseAttack    = 120,                                               \
-        .baseDefense   = 120,                                               \
-        .baseSpeed     = 120,                                               \
-        .baseSpAttack  = 120,                                               \
-        .baseSpDefense = 120,                                               \
+        .baseHP        = 250,                                               \
+        .baseAttack    = 250,                                               \
+        .baseDefense   = 250,                                               \
+        .baseSpeed     = 250,                                               \
+        .baseSpAttack  = 250,                                               \
+        .baseSpDefense = 250,                                               \
         .types = MON_TYPES(type),                                           \
         .catchRate = 3,                                                     \
         .expYield = ARCEUS_EXP_YIELD,                                       \

@@ -453,6 +453,9 @@ const u32 gObjectEventPic_Red2[] = INCBIN_U32("graphics/object_events/pics/peopl
 const u16 gObjectEventPal_Green[] = INCBIN_U16("graphics/object_events/pics/people/kanto/green.gbapal");
 const u32 gObjectEventPic_Green[] = INCBIN_U32("graphics/object_events/pics/people/kanto/green.4bpp");
 
+const u16 gObjectEventPal_Oak[] = INCBIN_U16("graphics/object_events/pics/people/kanto/oak.gbapal");
+const u32 gObjectEventPic_Oak[] = INCBIN_U32("graphics/object_events/pics/people/kanto/oak.4bpp");
+
 const u16 gObjectEventPal_Brock[] = INCBIN_U16("graphics/object_events/pics/people/kanto/brock.gbapal");
 const u32 gObjectEventPic_Brock[] = INCBIN_U32("graphics/object_events/pics/people/kanto/brock.4bpp");
 

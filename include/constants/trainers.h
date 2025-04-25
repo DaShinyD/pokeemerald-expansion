@@ -141,7 +141,9 @@
 #define TRAINER_PIC_ROCKETM               123
 #define TRAINER_PIC_ROCKETF               124
 #define TRAINER_PIC_YUGI                  125
-#define TRAINER_PIC_COUNT                 126
+#define TRAINER_PIC_GREENRED              126
+#define TRAINER_PIC_OAK                   127
+#define TRAINER_PIC_COUNT                 128
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_BRENDAN                0

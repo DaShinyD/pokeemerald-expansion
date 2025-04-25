@@ -1105,9 +1105,9 @@ MysteryGift_EventScript_DoMysteryGift::
 	special GetMysteryGiftFeedback
 	goto_if_eq VAR_RESULT, 0, MysteryGift_Failed
 	goto_if_eq VAR_RESULT, 1, MysteryGift_EventScript_Candy
-	goto_if_eq VAR_RESULT, 2, MysteryGift_EventScript_Jirachi
-	goto_if_eq VAR_RESULT, 3, MysteryGift_EventScript_Manaphy
-	goto_if_eq VAR_RESULT, 4, MysteryGift_EventScript_Shaymin
+	goto_if_eq VAR_RESULT, 2, MysteryGift_EventScript_Balls
+	goto_if_eq VAR_RESULT, 3, MysteryGift_EventScript_Dragon
+	goto_if_eq VAR_RESULT, 4, MysteryGift_EventScript_Dragons
 	goto_if_eq VAR_RESULT, 5, MysteryGift_EventScript_Victini
 	goto_if_eq VAR_RESULT, 6, MysteryGift_EventScript_Meloetta
 	goto_if_eq VAR_RESULT, 7, MysteryGift_EventScript_Hoopa
@@ -1166,29 +1166,25 @@ MysteryGift_EventScript_Candy::
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	releaseall
 	end
-MysteryGift_EventScript_Jirachi::
-	goto_if_set FLAG_MYSTERY_GIFT_2, MysteryGift_EventScript_Redeemed
-	bufferspeciesname STR_VAR_1, SPECIES_JIRACHI
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_JIRACHI
-	givemon SPECIES_JIRACHI, 100, ITEM_LIFE_ORB, ITEM_CHERISH_BALL, NATURE_ADAMANT, 0, MON_GENDERLESS, 0, 252, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, MOVE_IRON_HEAD, MOVE_ZEN_HEADBUTT, MOVE_PLAY_ROUGH, MOVE_CELEBRATE, TRUE, FALSE, TYPE_STEEL
-	setflag FLAG_MYSTERY_GIFT_2
-	call MysteryGift_EventScript_ReceivedMon
+MysteryGift_EventScript_Balls::
+	giveitem ITEM_MASTER_BALL, 999
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	releaseall
 	end
-MysteryGift_EventScript_Manaphy::
+MysteryGift_EventScript_Dragon::
 	goto_if_set FLAG_MYSTERY_GIFT_3, MysteryGift_EventScript_Redeemed
-	bufferspeciesname STR_VAR_1, SPECIES_MANAPHY
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_MANAPHY
-	givemon SPECIES_MANAPHY, 100, ITEM_LEFTOVERS, ITEM_CHERISH_BALL, NATURE_MODEST, 0, MON_GENDERLESS, 0, 0, 4, 252, 252, 0, 31, 31, 31, 31, 31, 31, MOVE_TAIL_GLOW, MOVE_SCALD, MOVE_STORED_POWER, MOVE_CELEBRATE, TRUE, FALSE, TYPE_WATER
+	bufferspeciesname STR_VAR_1, SPECIES_DARG
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_DARG
+	givemon SPECIES_DARG, 5, ITEM_LEFTOVERS, ITEM_CHERISH_BALL, NATURE_MODEST, 0, MON_GENDERLESS, 0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, MOVE_SLUDGE, MOVE_BITE, MOVE_EMBER, MOVE_TWISTER, FALSE, FALSE, TYPE_WATER
 	setflag FLAG_MYSTERY_GIFT_3
 	call MysteryGift_EventScript_ReceivedMon
 	releaseall
 	end
-MysteryGift_EventScript_Shaymin::
+MysteryGift_EventScript_Dragons::
 	goto_if_set FLAG_MYSTERY_GIFT_4, MysteryGift_EventScript_Redeemed
-	bufferspeciesname STR_VAR_1, SPECIES_SHAYMIN
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_SHAYMIN
-	givemon SPECIES_SHAYMIN_LAND, 100, ITEM_CHOICE_SCARF, ITEM_CHERISH_BALL, NATURE_MODEST, 0, MON_GENDERLESS, 0, 0, 4, 252, 252, 0, 31, 31, 31, 31, 31, 31, MOVE_SEED_FLARE, MOVE_PSYCHIC, MOVE_HEALING_WISH, MOVE_CELEBRATE, TRUE, FALSE, TYPE_GRASS
+	bufferspeciesname STR_VAR_1, SPECIES_DARG
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_DARG
+	givemon SPECIES_DARG, 5, ITEM_LEFTOVERS, ITEM_CHERISH_BALL, NATURE_MODEST, 0, MON_GENDERLESS, 0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, MOVE_SLUDGE, MOVE_BITE, MOVE_EMBER, MOVE_TWISTER, TRUE, FALSE, TYPE_WATER
 	setflag FLAG_MYSTERY_GIFT_4
 	call MysteryGift_EventScript_ReceivedMon
 	releaseall
@@ -1384,3 +1380,5 @@ MysteryGift_Text_ReceivedGiftMon:
 	.include "data/maps/IcefallCity/scripts.inc"
 
 	.include "data/maps/PWT/scripts.inc"
+
+	.include "data/maps/RocketShip/scripts.inc"

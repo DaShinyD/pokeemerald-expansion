@@ -118,7 +118,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "7",
-      "script": "Route126_EventScript_Pablo",
+      "script": "NULL",
       "flag": "0"
     },
     {

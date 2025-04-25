@@ -690,6 +690,9 @@ $(OBJEVENTGFXDIR)/people/grunt.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/leader.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4	
 
+$(OBJEVENTGFXDIR)/people/kanto/oak.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
+
 $(OBJEVENTGFXDIR)/people/kanto/brock.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
