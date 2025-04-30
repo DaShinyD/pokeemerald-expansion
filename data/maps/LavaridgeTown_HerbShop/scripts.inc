@@ -145,9 +145,7 @@ LavaridgeTown_CompItems_Mart_Pokemart:
 	.2byte ITEM_JOLLY_MINT
 	.2byte ITEM_NAIVE_MINT
 	.2byte ITEM_SERIOUS_MINT
-	.2byte ITEM_NONE
-	release
-	end
+	pokemartlistend
 
 LavaridgeTown_HerbShop_Text_ComeAgain:
 	.string "Come again!$"
