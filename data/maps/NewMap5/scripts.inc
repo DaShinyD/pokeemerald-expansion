@@ -8,9 +8,9 @@ NewMap5_MapScripts::
 NewMap5_EventScript_Moltres_Galarian::
 	lock
 	faceplayer
-	playmoncry SPECIES_MOLTRES_GALARIAN, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_MOLTRES_GALAR, CRY_MODE_ENCOUNTER
 	waitmoncry
-	setwildbattle SPECIES_MOLTRES_GALARIAN, 40
+	setwildbattle SPECIES_MOLTRES_GALAR, 40
 	special BattleSetup_StartLegendaryBattle
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -27,9 +27,9 @@ NewMap5_EventScript_Moltres_GalarianGone:
 NewMap5_EventScript_Zapdos_Galarian::
 	lock
 	faceplayer
-	playmoncry SPECIES_ZAPDOS_GALARIAN, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_ZAPDOS_GALAR, CRY_MODE_ENCOUNTER
 	waitmoncry
-	setwildbattle SPECIES_ZAPDOS_GALARIAN, 40
+	setwildbattle SPECIES_ZAPDOS_GALAR, 40
 	special BattleSetup_StartLegendaryBattle
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -46,9 +46,9 @@ NewMap5_EventScript_Zapdos_GalarianGone:
 NewMap5_EventScript_Articuno_Galarian::
 	lock
 	faceplayer
-	playmoncry SPECIES_ARTICUNO_GALARIAN, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_ARTICUNO_GALAR, CRY_MODE_ENCOUNTER
 	waitmoncry
-	setwildbattle SPECIES_ARTICUNO_GALARIAN, 40
+	setwildbattle SPECIES_ARTICUNO_GALAR, 40
 	special BattleSetup_StartLegendaryBattle
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome

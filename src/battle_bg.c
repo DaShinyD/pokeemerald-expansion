@@ -639,28 +639,28 @@ const struct BattleBackground sBattleEnvironmentTable[] =
         .palette = gBattleEnvironmentPalette_Sand,
     },
 
-    [BATTLE_TERRAIN_BEACH] =
+    [BATTLE_ENVIRONMENT_BEACH] =
     {
-        .tileset = gBattleTerrainTiles_Beach,
-        .tilemap = gBattleTerrainTilemap_Beach,
-        .palette = gBattleTerrainPalette_Beach,
+        .tileset = gBattleEnvironmentTiles_Beach,
+        .tilemap = gBattleEnvironmentTilemap_Beach,
+        .palette = gBattleEnvironmentPalette_Beach,
     },
     
-    [BATTLE_TERRAIN_TOURNAMENT] =
+    [BATTLE_ENVIRONMENT_TOURNAMENT] =
     {
-        .tileset = gBattleTerrainTiles_Tournament,
-        .tilemap = gBattleTerrainTilemap_Tournament,
-        .palette = gBattleTerrainPalette_Tournament,
+        .tileset = gBattleEnvironmentTiles_Tournament,
+        .tilemap = gBattleEnvironmentTilemap_Tournament,
+        .palette = gBattleEnvironmentPalette_Tournament,
     },
 
-    [BATTLE_TERRAIN_SPACEME] =
+    [BATTLE_ENVIRONMENT_SPACEME] =
     {
-        .tileset = gBattleTerrainTiles_Space,
-        .tilemap = gBattleTerrainTilemap_Space,
-        .palette = gBattleTerrainPalette_Space,
+        .tileset = gBattleEnvironmentTiles_Space,
+        .tilemap = gBattleEnvironmentTilemap_Space,
+        .palette = gBattleEnvironmentPalette_Space,
     },
 
-    [BATTLE_TERRAIN_UNDERWATER] =
+    [BATTLE_ENVIRONMENT_UNDERWATER] =
     {
         .tileset = gBattleEnvironmentTiles_Underwater,
         .tilemap = gBattleEnvironmentTilemap_Underwater,
@@ -716,11 +716,11 @@ const struct BattleBackground sBattleEnvironmentTable[] =
 
     [BATTLE_ENVIRONMENT_PLAIN] =
     {
-        .tileset = gBattleTerrainTiles_Plain,
-        .tilemap = gBattleTerrainTilemap_Plain,
-        .entryTileset = gBattleTerrainAnimTiles_Building,
-        .entryTilemap = gBattleTerrainAnimTilemap_Building,
-        .palette = gBattleTerrainPalette_Plain,
+        .tileset = gBattleEnvironmentTiles_Plain,
+        .tilemap = gBattleEnvironmentTilemap_Plain,
+        .entryTileset = gBattleEnvironmentAnimTiles_Building,
+        .entryTilemap = gBattleEnvironmentAnimTilemap_Building,
+        .palette = gBattleEnvironmentPalette_Plain,
     },
 };
 

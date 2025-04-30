@@ -499,8 +499,6 @@ Debug_Text_ItWorked::
 Debug_Text_ItDidntWorked::
 	.string "No.$"
 
-.endif
-
 Debug_EventScript_FontTest_Text_1::
 	.string "{FONT_SMALL_NARROWER}"                 @ Edit this to test your font
 	.string "Angel Adept Blind Bodice Clique\n"

@@ -430,7 +430,6 @@ void StartBeedrillFinalHitBattle(void)
     monData = 1;
     SetMonData(&gEnemyParty[0], MON_DATA_HP, &monData);
     LockPlayerFieldControls();
-    gTrainerBattleOpponent_A = TRAINER_NONE;
     gBattleTypeFlags = BATTLE_TYPE_14;
     gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
     CreateBattleStartTask(B_TRANSITION_SLICE, 0);
@@ -638,9 +637,9 @@ u8 BattleSetup_GetEnvironmentId(void)
     if (MetatileBehavior_IsLongGrass(tileBehavior))
         return BATTLE_ENVIRONMENT_LONG_GRASS;
     if (MetatileBehavior_IsSandOrDeepSand(tileBehavior))
-        return BATTLE_TERRAIN_SAND;
+        return BATTLE_ENVIRONMENT_SAND;
     if (MetatileBehavior_IsSand(tileBehavior))
-        return BATTLE_TERRAIN_BEACH;
+        return BATTLE_ENVIRONMENT_BEACH;
 
     switch (gMapHeader.mapType)
     {
@@ -682,11 +681,11 @@ u8 BattleSetup_GetEnvironmentId(void)
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(ROUTE113) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(ROUTE113))
         return BATTLE_ENVIRONMENT_SAND;
     if (GetSavedWeather() == WEATHER_SANDSTORM)
-        return BATTLE_TERRAIN_SAND;
+        return BATTLE_ENVIRONMENT_SAND;
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(SPACE) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(SPACE))
-        return BATTLE_TERRAIN_SPACEME;
+        return BATTLE_ENVIRONMENT_SPACEME;
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(PWT_ARENA) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(PWT_ARENA))
-        return BATTLE_TERRAIN_TOURNAMENT;
+        return BATTLE_ENVIRONMENT_TOURNAMENT;
 
     return BATTLE_ENVIRONMENT_PLAIN;
 }
@@ -1026,7 +1025,6 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
 {
     switch (TRAINER_BATTLE_PARAM.mode)
     {
-    case TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT:
     case TRAINER_BATTLE_NO_INTRO_NO_WHITEOUT:
         return EventScript_DoNoIntroTrainerBattle;
     case TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT:
@@ -1240,7 +1238,7 @@ void BattleSetup_StartTrainerBattle(void)
 
 static bool8 BattleHasNoWhiteout()
 {
-    if (gTrainerBattleMode == TRAINER_BATTLE_NO_WHITEOUT_CONTINUE_SCRIPT || gTrainerBattleMode == TRAINER_BATTLE_NO_INTRO_NO_WHITEOUT)
+    if (TRAINER_BATTLE_PARAM.mode == TRAINER_BATTLE_NO_WHITEOUT_CONTINUE_SCRIPT || TRAINER_BATTLE_PARAM.mode == TRAINER_BATTLE_NO_INTRO_NO_WHITEOUT)
         return TRUE;
     else
         return FALSE;

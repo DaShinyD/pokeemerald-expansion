@@ -70,8 +70,8 @@ Route102Cemetery_Text_AlreadyCleaned:
 
 Route102Cemetery_EventScript_CyndaquilBall::
 	lock
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CORSOLA_GALARIAN
-	givemon SPECIES_CORSOLA_GALARIAN, 5
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CORSOLA_GALAR
+	givemon SPECIES_CORSOLA_GALAR, 5
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, Route102Cemetery_EventScript_SendMonToParty
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, Route102Cemetery_EventScript_SendMonToPC
 	goto Common_EventScript_NoMoreRoomForPokemon
@@ -100,13 +100,13 @@ Route102Cemetery_EventScript_CorsolaTransferredToPC::
 	end
 
 Route102Cemetery_EventScript_ReceivedCorsolaFanfare::
-	bufferspeciesname STR_VAR_2, SPECIES_CORSOLA_GALARIAN
+	bufferspeciesname STR_VAR_2, SPECIES_CORSOLA_GALAR
 	removeobject LOCALID_CORSOLA_BALL
 	playfanfare MUS_OBTAIN_ITEM
 	message Route102Cemetery_Text_ObtainedCorsola
 	waitmessage
 	waitfanfare
-	bufferspeciesname STR_VAR_1, SPECIES_CORSOLA_GALARIAN
+	bufferspeciesname STR_VAR_1, SPECIES_CORSOLA_GALAR
 	return
 
 Route102Cemetery_EventScript_ReceivedCorsola::
