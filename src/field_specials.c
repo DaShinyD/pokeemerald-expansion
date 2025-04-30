@@ -1333,6 +1333,35 @@ bool8 CheckIfPartySizeIsExactly4(void)
     return (count == 4);
 }
 
+bool8 HasBLESSUParty(void)
+{
+    struct Pokemon *mon;
+    u16 species;
+
+    if (gPlayerPartyCount != 6)
+        return FALSE;
+
+    const u16 expectedSpecies[6] = {
+        SPECIES_UNOWN_B,
+        SPECIES_UNOWN_L,
+        SPECIES_UNOWN_E,
+        SPECIES_UNOWN_S,
+        SPECIES_UNOWN_S,
+        SPECIES_UNOWN_U
+    };
+
+    for (u8 i = 0; i < 6; i++)
+    {
+        mon = &gPlayerParty[i];
+        species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, NULL);
+
+        if (species != expectedSpecies[i])
+            return FALSE;
+    }
+
+    return TRUE;
+}
+
 // Checks for all regis in player party
 bool8 HasAllRegisInParty(void)
 {

@@ -740,7 +740,7 @@
 #define FLAG_PWT_BEAT_200_4 0x2B5 // Beat PWT Level 200 (4)
 #define FLAG_PWT_BEAT_200_5 0x2B6 // Beat PWT Level 200 (5)
 #define FLAG_HIDE_PWT_A    0x2B7 // Hide PWT Actors
-#define FLAG_UNUSED_0x2B8  0x2B8 // Unused Flag
+#define FLAG_UNOWN_PUZZLE  0x2B8 // Yea
 #define FLAG_UNUSED_0x2B9  0x2B9 // Unused Flag
 #define FLAG_UNUSED_0x2BA  0x2BA // Unused Flag
 #define FLAG_UNUSED_0x2BB  0x2BB // Unused Flag

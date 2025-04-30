@@ -562,4 +562,5 @@ gSpecials::
 	def_special CheckIfPartySizeIsExactly4
 	def_special StartBeedrillFinalHitBattle
 	def_special LoadMegaBeedrill
+	def_special HasBLESSUParty
 

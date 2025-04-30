@@ -1384,3 +1384,9 @@ MysteryGift_Text_ReceivedGiftMon:
 	.include "data/maps/RocketShip/scripts.inc"
 
 	.include "data/maps/PWT_Arena/scripts.inc"
+
+	.include "data/maps/PWT_Arena2/scripts.inc"
+
+	.include "data/maps/ShadyForest/scripts.inc"
+
+	.include "data/maps/UnknownRuins/scripts.inc"

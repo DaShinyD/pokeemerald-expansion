@@ -161,7 +161,12 @@ Debug_EventScript_Script_2::
 	end
 
 Debug_EventScript_Script_3::
-	setvar VAR_MOSSDEEP_ROCKET, 1
+	givemon SPECIES_UNOWN_B, 100
+	givemon SPECIES_UNOWN_L, 100
+	givemon SPECIES_UNOWN_E, 100
+	givemon SPECIES_UNOWN_S, 100
+	givemon SPECIES_UNOWN_S, 100
+	givemon SPECIES_UNOWN_U, 100
 	release
 	end
 

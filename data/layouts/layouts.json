@@ -5110,6 +5110,36 @@
       "secondary_tileset": "gTileset_Contest",
       "border_filepath": "data/layouts/PWT_Arena/border.bin",
       "blockdata_filepath": "data/layouts/PWT_Arena/map.bin"
+    },
+    {
+      "id": "LAYOUT_PWT_ARENA2",
+      "name": "PWT_Arena2_Layout",
+      "width": 19,
+      "height": 25,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Contest",
+      "border_filepath": "data/layouts/PWT_Arena2/border.bin",
+      "blockdata_filepath": "data/layouts/PWT_Arena2/map.bin"
+    },
+    {
+      "id": "LAYOUT_SHADY_FOREST",
+      "name": "ShadyForest_Layout",
+      "width": 70,
+      "height": 35,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_shadyforest",
+      "border_filepath": "data/layouts/ShadyForest/border.bin",
+      "blockdata_filepath": "data/layouts/ShadyForest/map.bin"
+    },
+    {
+      "id": "LAYOUT_UNKNOWN_RUINS",
+      "name": "UnknownRuins_Layout",
+      "width": 50,
+      "height": 38,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_ruins",
+      "border_filepath": "data/layouts/UnknownRuins/border.bin",
+      "blockdata_filepath": "data/layouts/UnknownRuins/map.bin"
     }
   ]
 }

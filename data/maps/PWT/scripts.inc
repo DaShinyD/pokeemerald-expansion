@@ -30,6 +30,7 @@ PWT_EventScript_Level200::
 	clearflag FLAG_ATTENDANTS
 	setvar VAR_PWT_TYPE, 2
 	setflag FLAG_HIDE_PWT_A
+	goto_if_set FLAG_PWT_BEAT_200, PWT_EventScript_Warp2
 	warp MAP_PWT_ARENA, 4, 24
 	release
 	end
@@ -91,4 +92,9 @@ PWT_Text_GuessNot:
 	.string "Oh, guess not.\p"
 	.string "Feel free to return if you change\n"
 	.string "your mind.$"
+
+PWT_EventScript_Warp2::
+	warp MAP_PWT_ARENA2, 4, 24
+	release
+	end
 

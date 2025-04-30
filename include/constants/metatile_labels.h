@@ -804,6 +804,10 @@
 // gTileset_lilycove2
 #define METATILE_lilycove2_Fake_Grave_Normal  0x347
 
+// gTileset_ruins
+#define METATILE_ruins_CaveEntranceUBot  0x28A
+#define METATILE_ruins_CaveEntranceUTop  0x282
+
 // Other
 #define METATILE_RSMossdeepGym_RedArrow_Down   0x205
 #define METATILE_RSMossdeepGym_RedArrow_Left   0x20C

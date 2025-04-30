@@ -116,7 +116,8 @@
     "Dojo",
     "NewMap4",
     "Route139",
-    "IcefallCity"
+    "IcefallCity",
+    "UnknownRuins"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
@@ -328,7 +329,8 @@
   ],
   "gMapGroup_IndoorIceFall": [
     "PWT",
-    "PWT_Arena"
+    "PWT_Arena",
+    "PWT_Arena2"
   ],
   "gMapGroup_IndoorRoute104": [
     "Route104_MrBrineysHouse",
@@ -469,7 +471,8 @@
     "MeteorFalls_StevensCave",
     "PetalburgWoods2",
     "RusturfMine",
-    "DewfordCave2"
+    "DewfordCave2",
+    "ShadyForest"
   ],
   "gMapGroup_IndoorDynamic": [
     "SecretBase_RedCave1",

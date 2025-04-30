@@ -4038,8 +4038,6 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .isFrontierBanned = TRUE,
         .levelUpLearnset = sRayquazaLevelUpLearnset,
         .teachableLearnset = sRayquazaTeachableLearnset,
-        .formSpeciesIdTable = sRayquazaFormSpeciesIdTable,
-        .formChangeTable = sRayquazaFormChangeTable,
     },
 };
 

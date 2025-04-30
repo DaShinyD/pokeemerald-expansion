@@ -81,6 +81,7 @@
 #define MAP_NEW_MAP4            (72 | (0 << 8))
 #define MAP_ROUTE139            (73 | (0 << 8))
 #define MAP_ICEFALL_CITY        (74 | (0 << 8))
+#define MAP_UNKNOWN_RUINS       (75 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
@@ -291,8 +292,9 @@
 #define MAP_THUNDER_DRAGON_CAVE                (18 | (16 << 8))
 
 // gMapGroup_IndoorIceFall
-#define MAP_PWT       (0 | (17 << 8))
-#define MAP_PWT_ARENA (1 | (17 << 8))
+#define MAP_PWT        (0 | (17 << 8))
+#define MAP_PWT_ARENA  (1 | (17 << 8))
+#define MAP_PWT_ARENA2 (2 | (17 << 8))
 
 // gMapGroup_IndoorRoute104
 #define MAP_ROUTE104_MR_BRINEYS_HOUSE         (0 | (18 << 8))
@@ -434,6 +436,7 @@
 #define MAP_PETALBURG_WOODS2                         (108 | (25 << 8))
 #define MAP_RUSTURF_MINE                             (109 | (25 << 8))
 #define MAP_DEWFORD_CAVE2                            (110 | (25 << 8))
+#define MAP_SHADY_FOREST                             (111 | (25 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (26 << 8))
