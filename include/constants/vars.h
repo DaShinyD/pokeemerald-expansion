@@ -135,18 +135,18 @@
 #define VAR_MOSSDEEP_ROCKET                              0x4073 // Space Adventure
 #define VAR_ROUTE121_STATE                               0x4074
 #define VAR_PWT_TYPE                                     0x4075 // What type of PWT is running for auto scripts
-#define VAR_ROUTE123_STATE                               0x4076 // Unused Var
-#define VAR_ROUTE124_STATE                               0x4077 // Unused Var
-#define VAR_ROUTE125_STATE                               0x4078 // Unused Var
-#define VAR_ROUTE126_STATE                               0x4079 // Unused Var
-#define VAR_ROUTE127_STATE                               0x407A // Unused Var
+#define VAR_ROUTE123_STATE                               0x4076 // Gamecorner
+#define VAR_ROUTE124_STATE                               0x4077 // Gamecorner
+#define VAR_ROUTE125_STATE                               0x4078 // Gamecorner
+#define VAR_ROUTE126_STATE                               0x4079 // Gamecorner
+#define VAR_ROUTE127_STATE                               0x407A // Gamecorner
 #define VAR_ROUTE128_STATE                               0x407B
-#define VAR_ROUTE129_STATE                               0x407C // Unused Var
-#define VAR_ROUTE130_STATE                               0x407D // Unused Var
-#define VAR_ROUTE131_STATE                               0x407E // Unused Var
-#define VAR_ROUTE132_STATE                               0x407F // Unused Var
-#define VAR_ROUTE133_STATE                               0x4080 // Unused Var
-#define VAR_ROUTE134_STATE                               0x4081 // Unused Var
+#define VAR_ROUTE129_STATE                               0x407C // Gamecorner
+#define VAR_ROUTE130_STATE                               0x407D // Gamecorner
+#define VAR_ROUTE131_STATE                               0x407E // Gamecorner
+#define VAR_ROUTE132_STATE                               0x407F // Gamecorner
+#define VAR_ROUTE133_STATE                               0x4080 // Gamecorner
+#define VAR_ROUTE134_STATE                               0x4081 // Gamecorner
 #define VAR_LITTLEROOT_HOUSES_STATE_MAY                  0x4082
 #define VAR_LEVEL_CAP                                    0x4083 // Level Cap Var
 #define VAR_BIRCH_LAB_STATE                              0x4084
@@ -156,13 +156,13 @@
 #define VAR_CONTEST_TYPE                                 0x4088
 #define VAR_SECRET_BASE_INITIALIZED                      0x4089
 #define VAR_CONTEST_PRIZE_PICKUP                         0x408A
-#define VAR_UNUSED_0x408B                                0x408B // Unused Var
+#define VAR_UNUSED_0x408B                                0x408B // Gamecorner
 #define VAR_LITTLEROOT_HOUSES_STATE_BRENDAN              0x408C
 #define VAR_LITTLEROOT_RIVAL_STATE                       0x408D
 #define VAR_BOARD_BRINEY_BOAT_STATE                      0x408E
 #define VAR_DEVON_CORP_3F_STATE                          0x408F
 #define VAR_BRINEY_HOUSE_STATE                           0x4090
-#define VAR_UNUSED_0x4091                                0x4091 // Unused Var
+#define VAR_UNUSED_0x4091                                0x4091 // Gamecorner
 #define VAR_LITTLEROOT_INTRO_STATE                       0x4092
 #define VAR_MAUVILLE_GYM_STATE                           0x4093
 #define VAR_LILYCOVE_MUSEUM_2F_STATE                     0x4094
@@ -178,14 +178,14 @@
 #define VAR_MOSSDEEP_SPACE_CENTER_STAIR_GUARD_STATE      0x409E
 #define VAR_MOSSDEEP_SPACE_CENTER_STATE                  0x409F
 #define VAR_SLATEPORT_HARBOR_STATE                       0x40A0
-#define VAR_UNUSED_0x40A1                                0x40A1 // Unused var
+#define VAR_UNUSED_0x40A1                                0x40A1 // Gamecorner
 #define VAR_SEAFLOOR_CAVERN_STATE                        0x40A2
 #define VAR_CABLE_CAR_STATION_STATE                      0x40A3
 #define VAR_SAFARI_ZONE_STATE                            0x40A4  // 0: In or out of SZ, 1: Player exiting SZ, 2: Player entering SZ
 #define VAR_TRICK_HOUSE_BEING_WATCHED_STATE              0x40A5
 #define VAR_TRICK_HOUSE_FOUND_TRICK_MASTER               0x40A6
 #define VAR_TRICK_HOUSE_ENTRANCE_STATE                   0x40A7
-#define VAR_UNUSED_0x40A8                                0x40A8 // Unused Var
+#define VAR_UNUSED_0x40A8                                0x40A8 // Gamecorner
 #define VAR_CYCLING_CHALLENGE_STATE                      0x40A9
 #define VAR_SLATEPORT_MUSEUM_1F_STATE                    0x40AA
 #define VAR_TRICK_HOUSE_PUZZLE_1_STATE                   0x40AB
@@ -236,8 +236,8 @@
 #define VAR_SOOTOPOLIS_WALLACE_STATE                     0x40D8
 #define VAR_HAS_TALKED_TO_SEAFLOOR_CAVERN_ENTRANCE_GRUNT 0x40D9
 #define VAR_REGISTER_BIRCH_STATE                         0x40DA
-#define VAR_UNUSED_0x40DB                                0x40DB // Unused Var
-#define VAR_UNUSED_0x40DC                                0x40DC // Unused Var
+#define VAR_UNUSED_0x40DB                                0x40DB // Gamecorner
+#define VAR_UNUSED_0x40DC                                0x40DC // Gamecorner
 #define VAR_GIFT_PICHU_SLOT                              0x40DD
 #define VAR_GIFT_UNUSED_1                                0x40DE // Var is written to, but never read
 #define VAR_GIFT_UNUSED_2                                0x40DF // Var is written to, but never read
@@ -246,7 +246,7 @@
 #define VAR_GIFT_UNUSED_5                                0x40E2 // Var is written to, but never read
 #define VAR_GIFT_UNUSED_6                                0x40E3 // Var is written to, but never read
 #define VAR_GIFT_UNUSED_7                                0x40E4 // var is written to, but never read
-#define VAR_UNUSED_0x40E5                                0x40E5 // Unused Var
+#define VAR_UNUSED_0x40E5                                0x40E5 // Gamecorner
 #define VAR_DAILY_SLOTS                                  0x40E6
 #define VAR_DAILY_WILDS                                  0x40E7
 #define VAR_DAILY_BLENDER                                0x40E8
@@ -265,13 +265,13 @@
 #define VAR_SCOTT_BF_CALL_STEP_COUNTER                   0x40F5
 #define VAR_RIVAL_RAYQUAZA_CALL_STEP_COUNTER             0x40F6
 #define VAR_MAGMA_HIDEOUT_BLOCK                          0x40F7 // Block Magma Hideout if Lilycove rivals are still present.
-#define VAR_M_HIDEOUT_HELP                               0x40F8 // Unused Var
-#define VAR_A_HIDEOUT_HELP                               0x40F9 // Unused Var
-#define VAR_UNUSED_0x40FA                                0x40FA // Unused Var
-#define VAR_UNUSED_0x40FB                                0x40FB // Unused Var
-#define VAR_UNUSED_0x40FC                                0x40FC // Unused Var
-#define VAR_UNUSED_0x40FD                                0x40FD // Unused Var
-#define VAR_UNUSED_0x40FE                                0x40FE // Unused Var
+#define VAR_M_HIDEOUT_HELP                               0x40F8 // Magma Hideout help
+#define VAR_A_HIDEOUT_HELP                               0x40F9 // Aqua Hideout help
+#define VAR_UNUSED_0x40FA                                0x40FA // Gamecorner
+#define VAR_UNUSED_0x40FB                                0x40FB // Gamecorner
+#define VAR_UNUSED_0x40FC                                0x40FC // Gamecorner
+#define VAR_UNUSED_0x40FD                                0x40FD // Gamecorner
+#define VAR_UNUSED_0x40FE                                0x40FE // Gamecorner
 #define VAR_UNUSED_0x40FF                                0x40FF // Unused Var
 
 #define VARS_END                                         0x40FF

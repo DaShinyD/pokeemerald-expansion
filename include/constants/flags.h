@@ -1315,9 +1315,9 @@
 #define FLAG_UNUSED_0x4E9                                           0x4E9 // Unused Flag
 #define FLAG_UNUSED_0x4EA                                           0x4EA // Unused Flag
 #define FLAG_UNUSED_0x4EB                                           0x4EB // Unused Flag
-#define FLAG_UNUSED_0x4EC                                           0x4EC // Unused Flag
-#define FLAG_UNUSED_0x4ED                                           0x4ED // Unused Flag
-#define FLAG_UNUSED_0x4EE                                           0x4EE // Unused Flag
+#define FLAG_NAV_DETECT                                             0x4EC // idk but DexNav
+#define FLAG_NAV_GET                                                0x4ED // DexNav get
+#define FLAG_NAV_SEARCH                                             0x4EE // DexNav search
 #define FLAG_NO_COLLIDE                                             0x4EF // Debug collision
 
 #define FLAG_DEFEATED_RUSTBORO_GYM                                  0x4F0
