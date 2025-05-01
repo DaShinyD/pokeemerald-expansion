@@ -284,6 +284,7 @@ Route136_EventScript_Huh::
 Route136_Text_WeHaveToFight:
 	.string "Wally: {PLAYER}, we need to do this.$"
 
+
 Route136_EventScript_AdminsBattle::
 	multi_2_vs_2 TRAINER_STRATA_ADMIN_1, Route136_Text_WeFailed, TRAINER_STRATA_ADMIN_2, Route136_Text_StraitsWillWin, PARTNER_WALLY
 	switch VAR_RESULT

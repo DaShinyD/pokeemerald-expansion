@@ -255,7 +255,7 @@ PWT_Arena_Text_Round3:
 	.string "them a good show.$"
 
 PWT_Arena_EventScript_Tourney1ThirdBattle:
-	trainerbattle_no_intro_no_whiteout TRAINER_DASH_102, PWT_Arena_Text_DashDefeat
+	trainerbattle_no_intro TRAINER_DASH_102, PWT_Arena_Text_DashDefeat
 	goto PWT_Arena_EventScript_TourneyContinued3
 	end
 

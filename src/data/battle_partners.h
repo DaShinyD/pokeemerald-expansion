@@ -1,4 +1,3 @@
-"src/data/battle_partners.party"
 
     [DIFFICULTY_NORMAL][PARTNER_NONE] =
     {
@@ -134,5 +133,3 @@
             },
         },
     },
-
-    
