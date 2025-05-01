@@ -191,6 +191,7 @@ Debug_EventScript_Script_7::
 	end
 
 Debug_EventScript_Script_8::
+	setflag FLAG_NO_COLLIDE
 	release
 	end
 
