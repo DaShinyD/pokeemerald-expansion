@@ -69,6 +69,7 @@ static void TryUpdateGymLeaderRematchFromTrainer(void);
 static void CB2_GiveStarter(void);
 static void CB2_StartFirstBattle(void);
 static void CB2_EndFirstBattle(void);
+static bool8 BattleHasNoWhiteout(void);
 static void SaveChangesToPlayerParty(void);
 static void HandleBattleVariantEndParty(void);
 static void CB2_EndTrainerBattle(void);
@@ -1026,6 +1027,12 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
     {
     case TRAINER_BATTLE_SINGLE_NO_INTRO_TEXT:
         return EventScript_DoNoIntroTrainerBattle;
+    case TRAINER_BATTLE_NO_WHITEOUT_CONTINUE_SCRIPT:
+        if (gApproachingTrainerId == 0)
+        {
+            SetMapVarsToTrainerA();
+        }
+        return EventScript_TryDoNormalTrainerBattle;
     case TRAINER_BATTLE_DOUBLE:
         SetMapVarsToTrainerA();
         return EventScript_TryDoDoubleTrainerBattle;
@@ -1035,6 +1042,12 @@ const u8 *BattleSetup_ConfigureTrainerBattle(const u8 *data)
             SetMapVarsToTrainerA();
         }
         return EventScript_TryDoNormalTrainerBattle;
+    case TRAINER_BATTLE_NO_INTRO_NO_WHITEOUT:
+        if (gApproachingTrainerId == 0)
+        {
+            SetMapVarsToTrainerA();
+        }
+        return EventScript_DoNoIntroTrainerBattle;
     case TRAINER_BATTLE_CONTINUE_SCRIPT_NO_MUSIC:
         SetMapVarsToTrainerA();
         return EventScript_TryDoNormalTrainerBattle;
@@ -1162,6 +1175,14 @@ static void UNUSED SetBattledTrainerFlag(void)
     FlagSet(GetTrainerAFlag());
 }
 
+static bool8 BattleHasNoWhiteout()
+{
+    if (TRAINER_BATTLE_PARAM.mode == TRAINER_BATTLE_NO_WHITEOUT_CONTINUE_SCRIPT || TRAINER_BATTLE_PARAM.mode == TRAINER_BATTLE_NO_INTRO_NO_WHITEOUT)
+        return TRUE;
+    else
+        return FALSE;
+}
+
 bool8 HasTrainerBeenFought(u16 trainerId)
 {
     return FlagGet(TRAINER_FLAGS_START + trainerId);
@@ -1279,7 +1300,7 @@ static void CB2_EndTrainerBattle(void)
     }
     else if (IsPlayerDefeated(gBattleOutcome) == TRUE)
     {
-        if (InBattlePyramid() || InTrainerHillChallenge() || (!NoAliveMonsForPlayer()))
+        if (InBattlePyramid() || InTrainerHillChallenge() || BattleHasNoWhiteout() || (!NoAliveMonsForPlayer()))
             SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
         else
             SetMainCallback2(CB2_WhiteOut);

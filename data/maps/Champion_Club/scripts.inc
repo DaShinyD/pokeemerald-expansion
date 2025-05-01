@@ -138,7 +138,7 @@ Champion_Club_Text_JakeLetsFight:
 	.string "Jake: Umbreon and I will beat you.$"
 
 Champion_Club_EventScript_JakeBattle::
-	trainerbattle_no_intro TRAINER_JAKE, Champion_Club_Text_JakeDefeat
+	trainerbattle_no_intro_no_whiteout TRAINER_JAKE, Champion_Club_Text_JakeDefeat
 	goto Champion_Club_EventScript_JakeBattleDone
 	end
 
@@ -209,7 +209,7 @@ Champion_Club_Text_ParsleyLetsFight:
 	.string "Parsley: Let's do this.$"
 
 Champion_Club_EventScript_ParsleyBattle::
-	trainerbattle_no_intro TRAINER_PERCY, Champion_Club_Text_ParsleyDefeat
+	trainerbattle_no_intro_no_whiteout TRAINER_PERCY, Champion_Club_Text_ParsleyDefeat
 	goto Champion_Club_EventScript_ParsleyBattleDone
 	end
 
@@ -277,7 +277,7 @@ Champion_Club_Text_SkyLetsFight:
 	.string "Sky: Are you challenging me?$"
 
 Champion_Club_EventScript_SkyBattle::
-	trainerbattle_no_intro TRAINER_SKY, Champion_Club_Text_SkyDefeat
+	trainerbattle_no_intro_no_whiteout TRAINER_SKY, Champion_Club_Text_SkyDefeat
 	goto Champion_Club_EventScript_SkyBattleDone
 	end
 
@@ -345,7 +345,7 @@ Champion_Club_Text_JoeyLetsFight:
 	.string "Joey: My Raticate is best.$"
 
 Champion_Club_EventScript_JoeyBattle::
-	trainerbattle_no_intro TRAINER_JOEY2, Champion_Club_Text_JoeyDefeat
+	trainerbattle_no_intro_no_whiteout TRAINER_JOEY2, Champion_Club_Text_JoeyDefeat
 	goto Champion_Club_EventScript_JoeyBattleDone
 	end
 
@@ -413,7 +413,7 @@ Champion_Club_Text_MordeLetsFight:
 	.string "Morde: I love big mons.$"
 
 Champion_Club_EventScript_MordeBattle::
-	trainerbattle_no_intro TRAINER_MORDE, Champion_Club_Text_MordeDefeat
+	trainerbattle_no_intro_no_whiteout TRAINER_MORDE, Champion_Club_Text_MordeDefeat
 	goto Champion_Club_EventScript_MordeBattleDone
 	end
 
@@ -481,7 +481,7 @@ Champion_Club_Text_SamLetsFight:
 	.string "Sam: My Pokemon are beautiful.$"
 
 Champion_Club_EventScript_SamBattle::
-	trainerbattle_no_intro TRAINER_SAM, Champion_Club_Text_SamDefeat
+	trainerbattle_no_intro_no_whiteout TRAINER_SAM, Champion_Club_Text_SamDefeat
 	goto Champion_Club_EventScript_SamBattleDone
 	end
 
@@ -549,7 +549,7 @@ Champion_Club_Text_AlexLetsFight:
 	.string "Alex: It's time to duel.$"
 
 Champion_Club_EventScript_AlexBattle::
-	trainerbattle_no_intro TRAINER_ALEX, Champion_Club_Text_AlexDefeat
+	trainerbattle_no_intro_no_whiteout TRAINER_ALEX, Champion_Club_Text_AlexDefeat
 	goto Champion_Club_EventScript_AlexBattleDone
 	end
 
@@ -617,7 +617,7 @@ Champion_Club_Text_PenaLetsFight:
 	.string "Pena: Gooning time.$"
 
 Champion_Club_EventScript_PenaBattle::
-	trainerbattle_no_intro TRAINER_PENA, Champion_Club_Text_PenaDefeat
+	trainerbattle_no_intro_no_whiteout TRAINER_PENA, Champion_Club_Text_PenaDefeat
 	goto Champion_Club_EventScript_PenaBattleDone
 	end
 

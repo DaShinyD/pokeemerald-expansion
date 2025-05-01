@@ -6,6 +6,7 @@
 #include "constants/battle_arena.h"
 #include "constants/battle_script_commands.h"
 #include "constants/battle_anim.h"
+#include "constants/battle_setup.h"
 #include "constants/battle_string_ids.h"
 #include "constants/abilities.h"
 #include "constants/hold_effects.h"
@@ -5581,6 +5582,8 @@ BattleScript_LocalBattleLost::
 BattleScript_LocalBattleLostPrintWhiteOut::
 .if B_WHITEOUT_MONEY >= GEN_4
 	jumpifbattletype BATTLE_TYPE_TRAINER, BattleScript_LocalBattleLostEnd
+	jumpifhalfword CMP_EQUAL, gTrainerBattleParameter + 2, TRAINER_BATTLE_NO_WHITEOUT_CONTINUE_SCRIPT, BattleScript_LocalBattleLostPrintNoWhiteout
+	jumpifhalfword CMP_EQUAL, gTrainerBattleParameter + 2, TRAINER_BATTLE_NO_INTRO_NO_WHITEOUT, BattleScript_LocalBattleLostPrintNoWhiteout
 	printstring STRINGID_PLAYERWHITEOUT
 	waitmessage B_WAIT_TIME_LONG
 	getmoneyreward
@@ -5602,6 +5605,11 @@ BattleScript_LocalBattleLostEnd::
 BattleScript_LocalBattleLostEnd::
 	end2
 .endif
+BattleScript_LocalBattleLostPrintNoWhiteout::
+	printstring STRINGID_PLAYERWHITEOUT3
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
 
 BattleScript_CheckDomeDrew::
 	jumpifbyte CMP_EQUAL, gBattleOutcome, B_OUTCOME_DREW, BattleScript_LocalBattleLostEnd_

@@ -723,6 +723,25 @@
 
 	NO_MUSIC = FALSE
 
+	@ Starts a trainer battle that continues the script after the battle without whiteout.
+	@ Takes a trainer, intro text, loss text, and an optional event script.
+	@ When used with an event script, you can also pass in an optional flag to disable music.
+	.macro trainerbattle_no_whiteout_continue_script trainer:req, intro_text:req, lose_text:req, event_script=FALSE, music=TRUE
+    .if \event_script == FALSE
+        trainerbattle TRAINER_BATTLE_NO_WHITEOUT_CONTINUE_SCRIPT, OBJ_ID_NONE, \trainer, \intro_text, \lose_text, NULL, OBJ_ID_NONE, TRAINER_NONE, NULL, NULL, NULL, NULL, NULL, FALSE, TRUE, FALSE, FALSE
+    .elseif \music == TRUE
+        trainerbattle TRAINER_BATTLE_NO_WHITEOUT_CONTINUE_SCRIPT, OBJ_ID_NONE, \trainer, \intro_text, \lose_text, \event_script, OBJ_ID_NONE, TRAINER_NONE, NULL, NULL, NULL, NULL, NULL, FALSE, TRUE, FALSE, FALSE
+    .else
+        trainerbattle TRAINER_BATTLE_CONTINUE_SCRIPT_NO_MUSIC, OBJ_ID_NONE, \trainer, \intro_text, \lose_text, \event_script, OBJ_ID_NONE, TRAINER_NONE, NULL, NULL, NULL, NULL, NULL, FALSE, TRUE, FALSE, FALSE
+    .endif
+	.endm
+
+	@ Starts a trainer battle, skipping intro text. Takes a trainer and loss text.
+	@ Does not warp the player to the last heal location if they lose.
+	.macro trainerbattle_no_intro_no_whiteout trainer:req, lose_text:req
+    trainerbattle TRAINER_BATTLE_NO_INTRO_NO_WHITEOUT, OBJ_ID_NONE, \trainer, NULL, \lose_text, NULL, OBJ_ID_NONE, TRAINER_NONE, NULL, NULL, NULL, NULL, NULL, FALSE, TRUE, FALSE, FALSE
+	.endm
+
 	@ Starts a single trainer battle. Takes a trainer, intro text, loss text, and an optional event script.
 	@ When used with an event script, you can also pass in an optional flag to disable music
 	.macro trainerbattle_single trainer:req, intro_text:req, lose_text:req, event_script=FALSE, music=TRUE
