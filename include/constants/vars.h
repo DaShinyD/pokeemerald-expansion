@@ -115,9 +115,9 @@
 #define VAR_CHAMPION_CLUB_ENTER                          0x405F // First entry into Champion Club
 #define VAR_ROUTE101_STATE                               0x4060
 #define VAR_RAIKOU_ENCOUNTER                             0x4061 // Raikou encounter in New Mauville
-#define VAR_RAIKOU_MAD                                   0x4062 // Raikou mad or calm
+#define VAR_NAV_SPECIES                                  0x4062 // DexNav species
 #define VAR_ROUTE104_STATE                               0x4063
-#define VAR_SAVE_RAIKOU                                  0x4064 // Save before Raikou
+#define VAR_NAV_THING                                    0x4064 // DexNav thing
 #define VAR_REGI_CAVE_STATE                              0x4065 // Rock selection puzzle state in Regidrago cave
 #define VAR_BIRCH_GARDEN_STATE                           0x4066 // Var for Strata Grunts in Birch Garden
 #define VAR_ROUTE136_STATE                               0x4067 // Route136 State
@@ -239,8 +239,8 @@
 #define VAR_UNUSED_0x40DB                                0x40DB // Gamecorner
 #define VAR_UNUSED_0x40DC                                0x40DC // Gamecorner
 #define VAR_GIFT_PICHU_SLOT                              0x40DD
-#define VAR_GIFT_UNUSED_1                                0x40DE // Var is written to, but never read
-#define VAR_GIFT_UNUSED_2                                0x40DF // Var is written to, but never read
+#define VAR_GIFT_UNUSED_1                                0x40DE // DexNav
+#define VAR_GIFT_UNUSED_2                                0x40DF // DexNav
 #define VAR_GIFT_UNUSED_3                                0x40E0 // Var is written to, but never read
 #define VAR_GIFT_UNUSED_4                                0x40E1 // Var is written to, but never read
 #define VAR_GIFT_UNUSED_5                                0x40E2 // Var is written to, but never read

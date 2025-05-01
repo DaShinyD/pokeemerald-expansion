@@ -271,7 +271,7 @@ NewMauville_Inside_EventScript_Save::
 	msgbox NewMauville_Inside_Text_AdvisedSave, MSGBOX_DEFAULT
 	closemessage
 	call Common_EventScript_SaveGame
-	setvar VAR_SAVE_RAIKOU, 1
+	setvar VAR_RAIKOU_ENCOUNTER, 1
 	release
 	end
 
@@ -281,7 +281,7 @@ NewMauville_Inside_Text_AdvisedSave:
 
 NewMauville_Inside_EventScript_RaikouEvent::
 	lock
-	setvar VAR_RAIKOU_ENCOUNTER, 1
+	setvar VAR_RAIKOU_ENCOUNTER, 2
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
 	waitmovement 0
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_Delay48
@@ -319,7 +319,7 @@ NewMauville_Inside_EventScript_RaikouCalm::
 	removeobject LOCALID_RAIKOU
 	setflag FLAG_RAIKOU
 	fadescreen FADE_FROM_BLACK
-	setvar VAR_RAIKOU_MAD, 1
+	setvar VAR_RAIKOU_ENCOUNTER, 3
 	release
 	end
 
@@ -327,6 +327,7 @@ NewMauville_Inside_Text_RaikouCalmedDown:
 	.string "Raikou calmed down and left.$"
 
 NewMauville_Inside_EventScript_RaikouPissed:
+	setvar VAR_RAIKOU_ENCOUNTER, 2
 	msgbox NewMauville_Inside_Text_RaikouStillMad, MSGBOX_DEFAULT
 	closemessage
 	release
