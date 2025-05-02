@@ -155,7 +155,8 @@ Debug_EventScript_Script_1::
 	end
 
 Debug_EventScript_Script_2::
-	setflag FLAG_TEAM_ROCKET
+	setwildbattle SPECIES_ZIGZAGOON, 5
+	dowildbattle
 	release
 	end
 

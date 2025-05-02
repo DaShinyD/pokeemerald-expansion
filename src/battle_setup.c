@@ -435,24 +435,16 @@ void StartBeedrillFinalHitBattle(void)
     CreateBattleStartTask(B_TRANSITION_SLICE, 0);
 }
 
-void BattleSetup_StartScriptedWildBattleWithFlag(u32 flags)
+void BattleSetup_StartScriptedWildBattle(void)
 {
     LockPlayerFieldControls();
-    gBattleTypeFlags = flags;
-    if (flags & BATTLE_TYPE_FIRST_BATTLE)
-    gMain.savedCallback = CB2_EndFirstBattle;
-    else
     gMain.savedCallback = CB2_EndScriptedWildBattle;
+    gBattleTypeFlags = 0;
     CreateBattleStartTask(GetWildBattleTransition(), 0);
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
     IncrementDailyWildBattles();
     TryUpdateGymLeaderRematchFromWild();
-}
-
-void BattleSetup_StartScriptedWildBattle(void)
-{
-    BattleSetup_StartScriptedWildBattleWithFlag(0);
 }
 
 void BattleSetup_StartScriptedDoubleWildBattle(void)

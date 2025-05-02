@@ -274,7 +274,7 @@ Route101_EventScript_BirchsBag::
 	applymovement OBJ_EVENT_ID_PLAYER, MoveToZigAfterBag
 	waitmovement 0
 	setwildbattle SPECIES_ZIGZAGOON, 2
-	dowildbattle BATTLE_TYPE_FIRST_BATTLE
+	dowildbattle
 	removeobject LOCALID_ZIGZAGOON
 	applymovement LOCALID_BIRCH, Route101_Movement_BirchApproachPlayer
 	waitmovement 0
