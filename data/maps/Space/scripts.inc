@@ -10,6 +10,7 @@
 .set LOCALID_GIOVANNI, 10
 .set LOCALID_GRUNT_1, 11
 .set LOCALID_GRUNT_2, 12
+.set LOCALID_NECROZMA, 16
 
 Space_MapScripts::
 	.byte 0
@@ -22,7 +23,7 @@ Space_EventScript_Solgaleo::
 	faceplayer
 	playmoncry SPECIES_SOLGALEO, CRY_MODE_ENCOUNTER
 	waitmoncry
-	setwildbattle SPECIES_SOLGALEO, 40
+	setwildbattle SPECIES_SOLGALEO, 70
 	special BattleSetup_StartLegendaryBattle
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -41,7 +42,7 @@ Space_EventScript_Lunala::
 	faceplayer
 	playmoncry SPECIES_LUNALA, CRY_MODE_ENCOUNTER
 	waitmoncry
-	setwildbattle SPECIES_LUNALA, 40
+	setwildbattle SPECIES_LUNALA, 70
 	special BattleSetup_StartLegendaryBattle
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
@@ -55,6 +56,59 @@ Space_EventScript_LunalaGone:
 	release
 	end
 
+Space_EventScript_Jirachi::
+	lock
+	faceplayer
+	playmoncry SPECIES_JIRACHI, CRY_MODE_ENCOUNTER
+	waitmoncry
+	setwildbattle SPECIES_JIRACHI, 40
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Space_EventScript_JirachiGone
+	release
+	end
+
+Space_EventScript_JirachiGone:
+	setflag FLAG_JIRACHI
+	removeobject LOCALID_JIRACHI
+	release
+
+Space_EventScript_Victini::
+	lock
+	faceplayer
+	playmoncry SPECIES_VICTINI, CRY_MODE_ENCOUNTER
+	waitmoncry
+	setwildbattle SPECIES_VICTINI, 40
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Space_EventScript_VictiniGone
+	release
+	end
+
+Space_EventScript_VictiniGone:
+	setflag FLAG_VICTINI
+	removeobject LOCALID_VICTINI
+	release
+
+Space_EventScript_Necrozma::
+	lock
+	faceplayer
+	playmoncry SPECIES_NECROZMA, CRY_MODE_ENCOUNTER
+	waitmoncry
+	setwildbattle SPECIES_NECROZMA, 70
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Space_EventScript_NecrozmaGone
+	release
+	end
+
+Space_EventScript_NecrozmaGone:
+	setflag FLAG_NECROZMA
+	removeobject LOCALID_NECROZMA
+	release
 
 @ Team Rocket
 

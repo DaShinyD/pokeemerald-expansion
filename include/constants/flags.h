@@ -745,9 +745,9 @@
 #define FLAG_PWT_BEAT_200_5 0x2B6 // Beat PWT Level 200 (5)
 #define FLAG_HIDE_PWT_A    0x2B7 // Hide PWT Actors
 #define FLAG_UNOWN_PUZZLE  0x2B8 // Yea
-#define FLAG_UNUSED_0x2B9  0x2B9 // Unused Flag
-#define FLAG_UNUSED_0x2BA  0x2BA // Unused Flag
-#define FLAG_UNUSED_0x2BB  0x2BB // Unused Flag
+#define FLAG_JIRACHI       0x2B9 // yea
+#define FLAG_VICTINI       0x2BA // yea
+#define FLAG_NECROZMA      0x2BB // yea
 
 // Event Flags
 #define FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG                      0x2BC
@@ -1314,7 +1314,7 @@
 #define FLAG_UNUSED_0x4E8                                           0x4E8 // Unused Flag
 #define FLAG_UNUSED_0x4E9                                           0x4E9 // Unused Flag
 #define FLAG_UNUSED_0x4EA                                           0x4EA // Unused Flag
-#define FLAG_UNUSED_0x4EB                                           0x4EB // Unused Flag
+#define FLAG_UNOWN_GOD_EVENT                                        0x4EB // Unowns in God cave
 #define FLAG_NAV_DETECT                                             0x4EC // idk but DexNav
 #define FLAG_NAV_GET                                                0x4ED // DexNav get
 #define FLAG_NAV_SEARCH                                             0x4EE // DexNav search

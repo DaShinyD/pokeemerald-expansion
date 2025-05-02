@@ -5140,6 +5140,16 @@
       "secondary_tileset": "gTileset_ruins",
       "border_filepath": "data/layouts/UnknownRuins/border.bin",
       "blockdata_filepath": "data/layouts/UnknownRuins/map.bin"
+    },
+    {
+      "id": "LAYOUT_UNKNOWN_RUINS_GOD_CAVE",
+      "name": "UnknownRuinsGodCave_Layout",
+      "width": 11,
+      "height": 13,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/UnknownRuinsGodCave/border.bin",
+      "blockdata_filepath": "data/layouts/UnknownRuinsGodCave/map.bin"
     }
   ]
 }
