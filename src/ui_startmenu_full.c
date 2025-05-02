@@ -47,6 +47,7 @@
 #include "link.h"
 #include "frontier_pass.h"
 #include "start_menu.h"
+#include "dexnav.h"
 
 /*
     Full Screen Start Menu
@@ -112,6 +113,7 @@ static void Task_StartMenuFullMain(u8 taskId);
 static u32 GetHPEggCyclePercent(u32 partyIndex);
 static void PrintMapNameAndTime(void);
 static void CursorCallback(struct Sprite *sprite);
+bool8 StartMenuDexNavCallback(void);
 
 //==========CONST=DATA==========//
 static const struct BgTemplate sStartMenuBgTemplates[] =
@@ -1543,6 +1545,18 @@ static void Task_StartMenuFullMain(u8 taskId)
                 BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
                 gTasks[taskId].func = Task_OpenOptionsMenuStartMenu;
                 break;
+        }
+    }
+
+    if(JOY_NEW(SELECT_BUTTON)) // If select button pressed go to DexNav
+    {
+        if (DN_FLAG_DEXNAV_GET != 0 && FlagGet(DN_FLAG_DEXNAV_GET))
+        {
+            StartMenuDexNavCallback();
+        }
+        else
+        {
+            PlaySE(SE_BOO);
         }
     }
 

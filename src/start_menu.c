@@ -111,7 +111,7 @@ static bool8 StartMenuBattlePyramidRetireCallback(void);
 static bool8 StartMenuBattlePyramidBagCallback(void);
 static bool8 StartMenuDebugCallback(void);
 static bool8 StartMenuUiMenuCallback(void);
-static bool8 StartMenuDexNavCallback(void);
+bool8 StartMenuDexNavCallback(void);
 
 // Menu callbacks
 static bool8 SaveStartCallback(void);
@@ -629,7 +629,8 @@ void ShowStartMenu(void)
         LockPlayerFieldControls();
         return;
     }
-    CreateStartMenuTask(Task_ShowStartMenu);
+    BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 16, RGB_BLACK);
+    CreateTask(Task_OpenStartMenuFullScreen, 0);
     LockPlayerFieldControls();
 }
 
@@ -1549,7 +1550,7 @@ void AppendToList(u8 *list, u8 *pos, u8 newEntry)
     (*pos)++;
 }
 
-static bool8 StartMenuDexNavCallback(void)
+bool8 StartMenuDexNavCallback(void)
 {
     CreateTask(Task_OpenDexNavFromStartMenu, 0);
     return TRUE;
