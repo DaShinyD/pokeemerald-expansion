@@ -22,6 +22,8 @@ NewMap3_EventScript_Giratina::
 	delay 50
 	removeobject LOCALID_GIRATINA
 	setflag FLAG_GIRATINA
+	clearflag FLAG_DIALGA
+	clearflag FLAG_PALKIA
 	release
 	end
 

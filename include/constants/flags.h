@@ -1311,9 +1311,9 @@
 #define FLAG_UNUSED_0x4E5                                           0x4E5 // Unused Flag
 #define FLAG_UNUSED_0x4E6                                           0x4E6 // Unused Flag
 #define FLAG_UNUSED_0x4E7                                           0x4E7 // Unused Flag
-#define FLAG_UNUSED_0x4E8                                           0x4E8 // Unused Flag
-#define FLAG_UNUSED_0x4E9                                           0x4E9 // Unused Flag
-#define FLAG_UNUSED_0x4EA                                           0x4EA // Unused Flag
+#define FLAG_PALKIA                                                 0x4E8 // yea
+#define FLAG_DIALGA                                                 0x4E9 // yea
+#define FLAG_HIDE_DIALKIA                                           0x4EA // Hide Dialga and Palkia Route136
 #define FLAG_UNOWN_GOD_EVENT                                        0x4EB // Unowns in God cave
 #define FLAG_NAV_DETECT                                             0x4EC // idk but DexNav
 #define FLAG_NAV_GET                                                0x4ED // DexNav get

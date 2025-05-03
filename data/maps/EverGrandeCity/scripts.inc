@@ -119,6 +119,8 @@ EverGrandeCity_EventScript_StrataGruntLeave::
 	removeobject LOCALID_STRATA_GRUNT
 	setflag FLAG_STRATA_HIDE_2
 	clearflag FLAG_STRATA_HIDE_3
+	setflag FLAG_PALKIA
+	setflag FLAG_DIALGA
 	fadescreen FADE_FROM_BLACK
 	release
 	end

@@ -73,6 +73,7 @@ Space_EventScript_JirachiGone:
 	setflag FLAG_JIRACHI
 	removeobject LOCALID_JIRACHI
 	release
+	end
 
 Space_EventScript_Victini::
 	lock
@@ -91,6 +92,7 @@ Space_EventScript_VictiniGone:
 	setflag FLAG_VICTINI
 	removeobject LOCALID_VICTINI
 	release
+	end
 
 Space_EventScript_Necrozma::
 	lock
@@ -109,6 +111,7 @@ Space_EventScript_NecrozmaGone:
 	setflag FLAG_NECROZMA
 	removeobject LOCALID_NECROZMA
 	release
+	end
 
 @ Team Rocket
 

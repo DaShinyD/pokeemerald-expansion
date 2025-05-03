@@ -10,6 +10,8 @@
 .set LOCALID_ADMIN_2, 14
 .set LOCALID_WALLY, 15
 .set LOCALID_DEOXYS, 17
+.set LOCALID_PALKIA, 18
+.set LOCALID_DIALGA, 19
 
 Route136_MapScripts::
 	map_script MAP_SCRIPT_ON_LOAD, Route136_OnLoad
@@ -409,7 +411,7 @@ Route136_Text_StraitsContinue:
 	.string "Rayquaza can use mega evolution\n"
 	.string "with no stone.\p"
 	.string "Deoxys is an incredibly strong\n"
-	.string "Pokemon from space.\p"
+	.string "Pokemon from route136.\p"
 	.string "With Rayquaza, I've unlocked the\n"
 	.string "secret to mega evolution.\p"
 	.string "With Deoxys, the gene modifications\n"
@@ -624,4 +626,42 @@ Route136_Movement_RivalsLeaveAfter:
 	walk_down
 	walk_down
 	step_end
+
+Route136_EventScript_Dialga::
+	lock
+	faceplayer
+	playmoncry SPECIES_DIALGA, CRY_MODE_ENCOUNTER
+	waitmoncry
+	setwildbattle SPECIES_DIALGA, 70
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Route136_EventScript_DialgaGone
+	release
+	end
+
+Route136_EventScript_DialgaGone:
+	setflag FLAG_DIALGA
+	removeobject LOCALID_DIALGA
+	release
+	end
+
+Route136_EventScript_Palkia::
+	lock
+	faceplayer
+	playmoncry SPECIES_PALKIA, CRY_MODE_ENCOUNTER
+	waitmoncry
+	setwildbattle SPECIES_PALKIA, 70
+	special BattleSetup_StartLegendaryBattle
+	waitstate
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Route136_EventScript_PalkiaGone
+	release
+	end
+
+Route136_EventScript_PalkiaGone:
+	setflag FLAG_PALKIA
+	removeobject LOCALID_PALKIA
+	release
+	end
 
