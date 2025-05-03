@@ -2540,3 +2540,26 @@
 	compare \a, \b
 	cant_see_if 5
 	.endm
+
+	@ example_usage:
+	@ 	createfieldmugshot MUGSHOT_TEST, EMOTE_NORMAL
+	@ 	msgbox test
+	@ 	removefieldmugshot
+	@ 	createfieldmugshot MUGSHOT_TEST, EMOTE_ALT
+	@ 	msgbox test2
+	@ 	removefieldmugshot
+
+	@ spawn a mugshot in the overworld at a specific coordinate
+	@ NOTE: this macro uses VAR_TEMP_E and VAR_TEMP_F as its parameter
+	@ so be careful if you use them in your script too!
+	.macro createfieldmugshot id:req, emote=0
+	callnative CreateFieldMugshot
+	setorcopyvar VAR_TEMP_E, \id
+	setorcopyvar VAR_TEMP_F, \emote
+	.endm
+
+	@ destroys a mugshot in the overworld, if there is one
+	.macro removefieldmugshot
+	callnative RemoveFieldMugshot
+	.endm
+
