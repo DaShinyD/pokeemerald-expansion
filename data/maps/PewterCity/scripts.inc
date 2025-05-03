@@ -1,5 +1,7 @@
 .set LOCALID_OLD_WOMAN, 7
 .set LOCALID_LIGHTNING, 8
+.set LOCALID_INVISIBLE_1, 9
+.set LOCALID_INVISIBLE_2, 10
 
 PewterCity_MapScripts::
 	.byte 0
@@ -53,8 +55,12 @@ PewterCity_EventScript_LightningJoke::
 	msgbox PewterCity_Text_BeCareful, MSGBOX_DEFAULT
 	closemessage
 	addobject LOCALID_LIGHTNING
+	addobject LOCALID_INVISIBLE_1
+	addobject LOCALID_INVISIBLE_2
 	msgbox PewterCity_Text_Kachow, MSGBOX_AUTOCLOSE
 	applymovement LOCALID_LIGHTNING, PewterCity_Movement_Crash
+	applymovement LOCALID_INVISIBLE_1, PewterCity_Movement_Crash
+	applymovement LOCALID_INVISIBLE_2, PewterCity_Movement_Crash
 	waitmovement 0
 	setvar VAR_0x8004, 1  @ vertical pan
 	setvar VAR_0x8005, 1  @ horizontal pan
