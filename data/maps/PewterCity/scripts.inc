@@ -57,7 +57,11 @@ PewterCity_EventScript_LightningJoke::
 	addobject LOCALID_LIGHTNING
 	addobject LOCALID_INVISIBLE_1
 	addobject LOCALID_INVISIBLE_2
+	createfieldmugshot MUGSHOT_MCQUEEN
+	playmoncry SPECIES_KACHOW, CRY_MODE_ENCOUNTER
 	msgbox PewterCity_Text_Kachow, MSGBOX_AUTOCLOSE
+	removefieldmugshot
+	waitmoncry
 	applymovement LOCALID_LIGHTNING, PewterCity_Movement_Crash
 	applymovement LOCALID_INVISIBLE_1, PewterCity_Movement_Crash
 	applymovement LOCALID_INVISIBLE_2, PewterCity_Movement_Crash
@@ -68,7 +72,9 @@ PewterCity_EventScript_LightningJoke::
 	setvar VAR_0x8007, 3  @ shake delay
 	special ShakeCamera
 	msgbox PewterCity_Text_Crash, MSGBOX_DEFAULT
+	createfieldmugshot MUGSHOT_MCQUEEN
 	msgbox PewterCity_Text_Kach_Ow, MSGBOX_DEFAULT
+	removefieldmugshot
 	closemessage
 	setvar VAR_LIGHTNING_JOKE, 1
 	setflag FLAG_LIGHTNING_M

@@ -40,7 +40,7 @@
 #define SE_BIKE_HOP                 34 // SE_JITE_PYOKO
 #define SE_SWITCH                   35 // SE_MU_PACHI
 #define SE_CLICK                    36 // SE_TK_KASYA
-#define SE_FU_ZAKU                  37 // SE_FU_ZAKU (Unknown purpose, unused)
+#define SE_FU_ZAKU                  37 // Dripku
 #define SE_CONTEST_CONDITION_LOSE   38 // SE_FU_ZAKU2
 #define SE_LAVARIDGE_FALL_WARP      39 // SE_FU_ZUZUZU
 #define SE_ICE_STAIRS               40 // SE_RU_GASHIN

@@ -5,7 +5,8 @@
 #define MUGSHOT_TEST  1
 #define MUGSHOT_KEMO  2
 #define MUGSHOT_GOKU  3
-#define MUGSHOT_COUNT 4
+#define MUGSHOT_MCQUEEN  4
+#define MUGSHOT_COUNT 5
 
 #define EMOTE_NORMAL  0
 #define EMOTE_ALT     1
