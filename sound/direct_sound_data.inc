@@ -387,6 +387,11 @@ DirectSoundWaveData_unknown_17::
 	.incbin "sound/direct_sound_samples/unknown_17.bin"
 
 .if P_CRIES_ENABLED == TRUE
+
+.align 2
+Cry_Kachow::
+	.incbin "sound/direct_sound_samples/cries/kachow.bin"
+
 .if P_FAMILY_BULBASAUR == TRUE
 	.align 2
 Cry_Bulbasaur::
@@ -8201,5 +8206,6 @@ DirectSoundWaveData_1164cd9::
 	.align 2
 DirectSoundWaveData_1165b49::
 	.incbin "sound/direct_sound_samples/1165b49.bin"
+
 
 @ End universal voicegroup instrument samples

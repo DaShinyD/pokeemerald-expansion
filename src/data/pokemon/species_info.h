@@ -4098,5 +4098,67 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .levelUpLearnset = sRayquazaLevelUpLearnset,
         .teachableLearnset = sRayquazaTeachableLearnset,
     },
+    [SPECIES_KACHOW] =
+    {
+        .baseHP        = 70,
+        .baseAttack    = 160,
+        .baseDefense   = 160,
+        .baseSpeed     = 80,
+        .baseSpAttack  = 160,
+        .baseSpDefense = 90,
+        .types = MON_TYPES(TYPE_STEEL, TYPE_WATER),
+        .catchRate = 3,
+        .expYield = DIALGA_EXP_YIELD,
+        .evYield_SpAttack = 3,
+        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 120,
+        .friendship = 0,
+        .growthRate = GROWTH_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+        .abilities = { ABILITY_PRESSURE, ABILITY_NONE, ABILITY_TELEPATHY },
+        .bodyColor = BODY_COLOR_WHITE,
+        .speciesName = _("Dialkia"),
+        .cryId = CRY_KACHOW,
+        .natDexNum = NATIONAL_DEX_DIALGA,
+        .categoryName = _("Temporal"),
+        .height = 54,
+        .weight = 6830,
+        .description = COMPOUND_STRING(
+            "A Pokémon spoken of in legend.\n"
+            "It completely controls the flow of time.\n"
+            "It uses its power to travel at will\n"
+            "through the past and future."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 721,
+        .trainerOffset = 19,
+        .frontPic = gMonFrontPic_Dialkia,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 0,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_H_SHAKE,
+        .backPic = gMonBackPic_Dialkia,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_V_SHAKE,
+        .palette = gMonPalette_Dialkia,
+        .shinyPalette = gMonShinyPalette_Dialkia,
+        .iconSprite = gMonIcon_Dialga,
+        .iconPalIndex = 2,
+        FOOTPRINT(Dialga)
+        OVERWORLD(
+            sPicTable_Dialga,
+            SIZE_64x64,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_Dialga,
+            gShinyOverworldPalette_Dialga
+        )
+        .isLegendary = TRUE,
+        .isFrontierBanned = TRUE,
+        .levelUpLearnset = sDialgaLevelUpLearnset,
+        .teachableLearnset = sDialgaTeachableLearnset,
+    },
 };
 

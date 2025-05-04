@@ -2424,6 +2424,7 @@ gCryTable::
 .if P_FAMILY_PECHARUNT == TRUE
 	cry Cry_Pecharunt
 .endif @ P_FAMILY_PECHARUNT
+	cry Cry_Kachow
 .endif @ P_CRIES_ENABLED
 
 	.align 2
@@ -4852,4 +4853,5 @@ gCryTable_Reverse::
 .if P_FAMILY_PECHARUNT == TRUE
 	cry_reverse Cry_Pecharunt
 .endif @ P_FAMILY_PECHARUNT
+	cry_reverse Cry_Kachow
 .endif @ P_CRIES_ENABLED
