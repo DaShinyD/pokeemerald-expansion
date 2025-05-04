@@ -857,7 +857,6 @@ SECTIONS {
         sound/songs/midi/se_ball_tray_ball.o(.rodata);
         sound/songs/midi/se_ball_tray_exit.o(.rodata);
         sound/songs/midi/se_glass_flute.o(.rodata);
-        sound/songs/midi/se_dripku.o(.rodata);
         sound/songs/se_m_thunderbolt.o(.rodata);
         sound/songs/se_m_thunderbolt2.o(.rodata);
         sound/songs/se_m_harden.o(.rodata);
