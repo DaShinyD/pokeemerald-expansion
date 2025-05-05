@@ -8,6 +8,10 @@ static const u32 sFieldMugshotGfx_Goku[] = INCBIN_U32("graphics/field_mugshots/g
 static const u16 sFieldMugshotPal_Goku[] = INCBIN_U16("graphics/field_mugshots/goku/goku.gbapal");
 static const u32 sFieldMugshotGfx_Mcqueen[] = INCBIN_U32("graphics/field_mugshots/mcqueen/mcqueen.4bpp.lz");
 static const u16 sFieldMugshotPal_Mcqueen[] = INCBIN_U16("graphics/field_mugshots/mcqueen/mcqueen.gbapal");
+static const u32 sFieldMugshotGfx_Floyd[] = INCBIN_U32("graphics/field_mugshots/floyd/floyd.4bpp.lz");
+static const u16 sFieldMugshotPal_Floyd[] = INCBIN_U16("graphics/field_mugshots/floyd/floyd.gbapal");
+static const u32 sFieldMugshotGfx_Chauvin[] = INCBIN_U32("graphics/field_mugshots/chauvin/chauvin.4bpp.lz");
+static const u16 sFieldMugshotPal_Chauvin[] = INCBIN_U16("graphics/field_mugshots/chauvin/chauvin.gbapal");
 
 struct MugshotGfx
 {
@@ -71,6 +75,34 @@ static const struct MugshotGfx sFieldMugshots[MUGSHOT_COUNT][EMOTE_COUNT] =
         {
             .gfx = sFieldMugshotGfx_Mcqueen,
             .pal = sFieldMugshotPal_Mcqueen,
+        },
+    },
+    [MUGSHOT_CHAUVIN] =
+    {
+        [EMOTE_NORMAL] =
+        {
+            .gfx = sFieldMugshotGfx_Chauvin,
+            .pal = sFieldMugshotPal_Chauvin,
+        },
+
+        [EMOTE_ALT] =
+        {
+            .gfx = sFieldMugshotGfx_Chauvin,
+            .pal = sFieldMugshotPal_Chauvin,
+        },
+    },
+    [MUGSHOT_FLOYD] =
+    {
+        [EMOTE_NORMAL] =
+        {
+            .gfx = sFieldMugshotGfx_Floyd,
+            .pal = sFieldMugshotPal_Floyd,
+        },
+
+        [EMOTE_ALT] =
+        {
+            .gfx = sFieldMugshotGfx_Floyd,
+            .pal = sFieldMugshotPal_Floyd,
         },
     },
 };

@@ -1308,9 +1308,9 @@
 #define FLAG_UNUSED_0x4E2                                           0x4E2 // Unused Flag
 #define FLAG_UNUSED_0x4E3                                           0x4E3 // Unused Flag
 #define FLAG_UNUSED_0x4E4                                           0x4E4 // Unused Flag
-#define FLAG_UNUSED_0x4E5                                           0x4E5 // Unused Flag
-#define FLAG_UNUSED_0x4E6                                           0x4E6 // Unused Flag
-#define FLAG_UNUSED_0x4E7                                           0x4E7 // Unused Flag
+#define FLAG_FENT                                                   0x4E5 // Fent item
+#define FLAG_FLOYD_COPS                                             0x4E6 // Hide floyd cops
+#define FLAG_FLOYD                                                  0x4E7 // Hide floyd before meme
 #define FLAG_PALKIA                                                 0x4E8 // yea
 #define FLAG_DIALGA                                                 0x4E9 // yea
 #define FLAG_HIDE_DIALKIA                                           0x4EA // Hide Dialga and Palkia Route136

@@ -1440,6 +1440,18 @@ static const struct SpriteFrameImage sPicTable_Pena[] = {
     overworld_frame(gObjectEventPic_Pena, 2, 4, 8),
 };
 
+static const struct SpriteFrameImage sPicTable_Floyd[] = {
+    overworld_frame(gObjectEventPic_Floyd, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Floyd, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Floyd, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Floyd, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Floyd, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Floyd, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Floyd, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Floyd, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Floyd, 4, 4, 0),
+};
+
 static const struct SpriteFrameImage sPicTable_Oak[] = {
     overworld_frame(gObjectEventPic_Oak, 2, 4, 0),
     overworld_frame(gObjectEventPic_Oak, 2, 4, 1),
@@ -1474,6 +1486,18 @@ static const struct SpriteFrameImage sPicTable_Lightning[] = {
     overworld_frame(gObjectEventPic_Lightning, 8, 4, 0),
     overworld_frame(gObjectEventPic_Lightning, 8, 4, 0),
     overworld_frame(gObjectEventPic_Lightning, 8, 4, 0),
+};
+
+static const struct SpriteFrameImage sPicTable_FloydCar[] = {
+    overworld_frame(gObjectEventPic_FloydCar, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FloydCar, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FloydCar, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FloydCar, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FloydCar, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FloydCar, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FloydCar, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FloydCar, 8, 8, 0),
+    overworld_frame(gObjectEventPic_FloydCar, 8, 8, 0),
 };
 
 static const struct SpriteFrameImage sPicTable_Lorelei[] = {

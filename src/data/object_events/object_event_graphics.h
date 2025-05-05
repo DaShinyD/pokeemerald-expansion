@@ -405,6 +405,12 @@ const u32 gObjectEventPic_Sam[] = INCBIN_U32("graphics/object_events/pics/people
 const u16 gObjectEventPal_Pena[] = INCBIN_U16("graphics/object_events/pics/people/pena.gbapal");
 const u32 gObjectEventPic_Pena[] = INCBIN_U32("graphics/object_events/pics/people/pena.4bpp");
 
+const u16 gObjectEventPal_Floyd[] = INCBIN_U16("graphics/object_events/pics/people/floyd.gbapal");
+const u32 gObjectEventPic_Floyd[] = INCBIN_U32("graphics/object_events/pics/people/floyd.4bpp");
+
+const u16 gObjectEventPal_FloydCar[] = INCBIN_U16("graphics/object_events/pics/people/floydcar.gbapal");
+const u32 gObjectEventPic_FloydCar[] = INCBIN_U32("graphics/object_events/pics/people/floydcar.4bpp");
+
 const u16 gObjectEventPal_Yugi[] = INCBIN_U16("graphics/object_events/pics/people/yugi.gbapal");
 const u32 gObjectEventPic_Yugi[] = INCBIN_U32("graphics/object_events/pics/people/yugi.4bpp");
 

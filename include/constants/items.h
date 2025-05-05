@@ -1009,8 +1009,9 @@
 #define ITEM_VOLCANO_BADGE 843
 #define ITEM_EARTH_BADGE 844
 #define ITEM_STRANGE_BALL 845
+#define ITEM_FENT_BAG 846
 
-#define ITEMS_COUNT 846
+#define ITEMS_COUNT 847
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

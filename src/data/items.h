@@ -13289,6 +13289,22 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_AbilityShield,
     },
 
+    [ITEM_FENT_BAG] =
+    {
+        .name = _("Fent"),
+        .pluralName = _("Fent"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Some sort of\n"
+            "white powder."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_Powder,
+        .iconPalette = gItemIconPalette_EnergyPowder,
+    },
+
 // GEN 9 ITEMS
 
     [ITEM_CLEAR_AMULET] =

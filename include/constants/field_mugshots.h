@@ -6,7 +6,9 @@
 #define MUGSHOT_KEMO  2
 #define MUGSHOT_GOKU  3
 #define MUGSHOT_MCQUEEN  4
-#define MUGSHOT_COUNT 5
+#define MUGSHOT_FLOYD 5
+#define MUGSHOT_CHAUVIN 6
+#define MUGSHOT_COUNT 7
 
 #define EMOTE_NORMAL  0
 #define EMOTE_ALT     1

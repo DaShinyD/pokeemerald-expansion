@@ -47,6 +47,7 @@ PewterCity_Text_ShopBlock:
 
 PewterCity_EventScript_LightningJoke::
 	lock
+	playbgm MUS_NONE, FALSE
 	playse SE_PIN
 	applymovement LOCALID_OLD_WOMAN, Common_Movement_ExclamationMark
 	waitmovement 0
@@ -57,7 +58,7 @@ PewterCity_EventScript_LightningJoke::
 	addobject LOCALID_LIGHTNING
 	addobject LOCALID_INVISIBLE_1
 	addobject LOCALID_INVISIBLE_2
-	createfieldmugshot MUGSHOT_MCQUEEN
+	createfieldmugshot MUGSHOT_MCQUEEN, EMOTE_NORMAL
 	playmoncry SPECIES_KACHOW, CRY_MODE_ENCOUNTER
 	msgbox PewterCity_Text_Kachow, MSGBOX_AUTOCLOSE
 	removefieldmugshot
@@ -72,12 +73,13 @@ PewterCity_EventScript_LightningJoke::
 	setvar VAR_0x8007, 3  @ shake delay
 	special ShakeCamera
 	msgbox PewterCity_Text_Crash, MSGBOX_DEFAULT
-	createfieldmugshot MUGSHOT_MCQUEEN
+	createfieldmugshot MUGSHOT_MCQUEEN, EMOTE_NORMAL
 	msgbox PewterCity_Text_Kach_Ow, MSGBOX_DEFAULT
 	removefieldmugshot
 	closemessage
 	setvar VAR_LIGHTNING_JOKE, 1
 	setflag FLAG_LIGHTNING_M
+	fadedefaultbgm
 	release
 	end
 

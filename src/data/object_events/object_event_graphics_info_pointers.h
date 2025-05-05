@@ -243,6 +243,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Jake;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Percy;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sam;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Pena;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Floyd;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Oak;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Yugi;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Lightning;
@@ -276,6 +277,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Chuck;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Jasmine;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Pryce;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Clair;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FloydCar;
 // Begin pokemon event objects
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeBall;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Follower;
@@ -570,6 +572,8 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_JASMINE] =                  &gObjectEventGraphicsInfo_Jasmine,
     [OBJ_EVENT_GFX_PRYCE] =                    &gObjectEventGraphicsInfo_Pryce,
     [OBJ_EVENT_GFX_CLAIR] =                    &gObjectEventGraphicsInfo_Clair,
+    [OBJ_EVENT_GFX_FLOYD] =                    &gObjectEventGraphicsInfo_Floyd,
+    [OBJ_EVENT_GFX_CAR] =                      &gObjectEventGraphicsInfo_FloydCar,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {
