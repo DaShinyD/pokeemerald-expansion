@@ -87,7 +87,7 @@
       "width": 90,
       "height": 80,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_evergrande2",
+      "secondary_tileset": "gTileset_EverGrande",
       "border_filepath": "data/layouts/EverGrandeCity/border.bin",
       "blockdata_filepath": "data/layouts/EverGrandeCity/map.bin"
     },
@@ -4974,10 +4974,10 @@
     {
       "id": "LAYOUT_TESTER2",
       "name": "Tester2_Layout",
-      "width": 19,
+      "width": 24,
       "height": 20,
-      "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_Contest",
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_mauville2",
       "border_filepath": "data/layouts/Tester2/border.bin",
       "blockdata_filepath": "data/layouts/Tester2/map.bin"
     },
@@ -5140,7 +5140,7 @@
       "secondary_tileset": "gTileset_ruins",
       "border_filepath": "data/layouts/UnknownRuins/border.bin",
       "blockdata_filepath": "data/layouts/UnknownRuins/map.bin"
-    },
+    }
     {
       "id": "LAYOUT_UNKNOWN_RUINS_GOD_CAVE",
       "name": "UnknownRuinsGodCave_Layout",
@@ -5150,6 +5150,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/UnknownRuinsGodCave/border.bin",
       "blockdata_filepath": "data/layouts/UnknownRuinsGodCave/map.bin"
+    },
+    {
+      "id": "LAYOUT_BILLS_GARDEN",
+      "name": "BillsGarden_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_mauville2",
+      "border_filepath": "data/layouts/BillsGarden/border.bin",
+      "blockdata_filepath": "data/layouts/BillsGarden/map.bin"
     }
   ]
 }
