@@ -27,7 +27,7 @@
       "width": 40,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_mauville2",
+      "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/MauvilleCity/border.bin",
       "blockdata_filepath": "data/layouts/MauvilleCity/map.bin"
     },
@@ -267,7 +267,7 @@
       "width": 40,
       "height": 140,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_mauville2",
+      "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Route111/border.bin",
       "blockdata_filepath": "data/layouts/Route111/map.bin"
     },
@@ -1246,7 +1246,7 @@
       "name": "MeteorFalls_1F_1R_Layout",
       "width": 30,
       "height": 42,
-      "primary_tileset": "gTileset_general2",
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_MeteorFalls",
       "border_filepath": "data/layouts/MeteorFalls_1F_1R/border.bin",
       "blockdata_filepath": "data/layouts/MeteorFalls_1F_1R/map.bin"
@@ -4647,7 +4647,7 @@
       "width": 56,
       "height": 40,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_dewford2",
+      "secondary_tileset": "gTileset_Dewford",
       "border_filepath": "data/layouts/VermillionCity/border.bin",
       "blockdata_filepath": "data/layouts/VermillionCity/map.bin"
     },

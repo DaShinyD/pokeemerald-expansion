@@ -91,7 +91,7 @@
 #define TRAINER_WILTON_3                     85
 #define TRAINER_WILTON_4                     86
 #define TRAINER_WILTON_5                     87
-#define TRAINER_WARREN                       88 // now unused (route 133)
+#define TRAINER_KARATE_1                     88 // now karate master 1 (previously warren route 133)
 #define TRAINER_MARY                         89
 #define TRAINER_ALEXIA                       90
 #define TRAINER_JODY                         91
@@ -140,7 +140,7 @@
 #define TRAINER_JESSICA_4                   134
 #define TRAINER_JESSICA_5                   135
 #define TRAINER_WINSTON_1                   136
-#define TRAINER_MOLLIE                      137 // now unused (route 133)
+#define TRAINER_KARATE_2                    137 // now karate master 2 (previously mollie route 133)
 #define TRAINER_GARRET                      138
 #define TRAINER_WINSTON_2                   139
 #define TRAINER_WINSTON_3                   140
