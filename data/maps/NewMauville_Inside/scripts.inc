@@ -360,6 +360,7 @@ NewMauville_Inside_EventScript_RaikouFight::
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, NewMauville_Inside_EventScript_RaikouCalm
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, NewMauville_Inside_EventScript_RaikouPissed
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, NewMauville_Inside_EventScript_RaikouCalm
 	end
 
 NewMauville_Inside_EventScript_RaikouP::
@@ -372,6 +373,7 @@ NewMauville_Inside_EventScript_RaikouP::
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, NewMauville_Inside_EventScript_RaikouPGone
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, NewMauville_Inside_EventScript_RaikouPGone
 	release
 	end
 

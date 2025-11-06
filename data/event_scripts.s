@@ -1474,3 +1474,11 @@ MysteryGift_Text_ReceivedGiftMon:
 	.include "data/scripts/dexnav.inc"
 
 	.include "data/maps/UnknownRuinsGodCave/scripts.inc"
+
+	.include "data/maps/Route9/scripts.inc"
+
+	.include "data/maps/Route10/scripts.inc"
+
+	.include "data/maps/LavenderTown/scripts.inc"
+
+	.include "data/maps/Route8/scripts.inc"

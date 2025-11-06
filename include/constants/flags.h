@@ -1226,11 +1226,11 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET                     0x491
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
-#define FLAG_UNUSED_0x493                                           0x493 // Unused Flag
-#define FLAG_UNUSED_0x494                                           0x494 // Unused Flag
-#define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
-#define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
-#define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
+#define FLAG_UNUSED_0x493                                           0x493 // Game Corner Stuff
+#define FLAG_UNUSED_0x494                                           0x494 // Game Corner Stuff
+#define FLAG_UNUSED_0x495                                           0x495 // Game Corner Stuff
+#define FLAG_UNUSED_0x496                                           0x496 // Game Corner Stuff
+#define FLAG_UNUSED_0x497                                           0x497 // Game Corner Stuff
 #define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
 #define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
 #define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
@@ -1306,8 +1306,8 @@
 #define FLAG_UNUSED_0x4E0                                           0x4E0 // Unused Flag
 #define FLAG_UNUSED_0x4E1                                           0x4E1 // Unused Flag
 #define FLAG_UNUSED_0x4E2                                           0x4E2 // Unused Flag
-#define FLAG_UNUSED_0x4E3                                           0x4E3 // Unused Flag
-#define FLAG_UNUSED_0x4E4                                           0x4E4 // Unused Flag
+#define FLAG_CLEAR_KANTO                                            0x4E3 // Open up Kanto after PWT
+#define FLAG_PWT_DONE                                               0x4E4 // PWT Done
 #define FLAG_FENT                                                   0x4E5 // Fent item
 #define FLAG_FLOYD_COPS                                             0x4E6 // Hide floyd cops
 #define FLAG_FLOYD                                                  0x4E7 // Hide floyd before meme

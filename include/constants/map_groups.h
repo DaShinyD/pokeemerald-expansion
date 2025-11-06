@@ -648,6 +648,10 @@
 #define MAP_VERIDIAN_CITY   (9 | (35 << 8))
 #define MAP_ROUTE1          (10 | (35 << 8))
 #define MAP_ROUTE24         (11 | (35 << 8))
+#define MAP_ROUTE9          (12 | (35 << 8))
+#define MAP_ROUTE10         (13 | (35 << 8))
+#define MAP_LAVENDER_TOWN   (14 | (35 << 8))
+#define MAP_ROUTE8          (15 | (35 << 8))
 
 // gMapGroup_IndoorVermillion
 #define MAP_VERMILLION_CITY_CENTER   (0 | (36 << 8))

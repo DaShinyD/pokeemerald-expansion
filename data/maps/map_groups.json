@@ -683,7 +683,11 @@
     "Route2",
     "VeridianCity",
     "Route1",
-    "Route24"
+    "Route24",
+    "Route9",
+    "Route10",
+    "LavenderTown",
+    "Route8"
   ],
   "gMapGroup_IndoorVermillion": [
     "VermillionCity_Center",

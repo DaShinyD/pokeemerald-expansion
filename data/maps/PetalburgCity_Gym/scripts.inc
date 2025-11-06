@@ -372,7 +372,6 @@ PetalburgCity_Gym_EventScript_GiveEnigmaBerry::
 	end
 
 PetalburgCity_Gym_EventScript_NormanBattle::
-	setflag FLAG_LEVEL_CAP_FIVE
 	msgbox PetalburgCity_Gym_Text_NormanIntro, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_NORMAN_1, PetalburgCity_Gym_Text_NormanDefeat
 	message PetalburgCity_Gym_Text_ReceivedBalanceBadge
@@ -382,6 +381,7 @@ PetalburgCity_Gym_EventScript_NormanBattle::
 	setflag FLAG_DEFEATED_PETALBURG_GYM
 	setvar VAR_PETALBURG_GYM_STATE, 7
 	setflag FLAG_BADGE05_GET
+	setflag FLAG_LEVEL_CAP_FIVE
 	special ResetHealLocationFromDewford
 	call EventScript_HideMrBriney
 	setflag FLAG_HIDE_MAUVILLE_GYM_WATTSON

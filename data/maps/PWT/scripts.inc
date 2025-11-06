@@ -6,6 +6,7 @@ PWT_MapScripts::
 
 PWT_EventScript_Level200::
 	lock
+	goto_if_set FLAG_PWT_DONE, PWT_EventScript_Done
 	msgbox PWT_Text_Hello200, MSGBOX_DEFAULT
 	specialvar VAR_RESULT, AreAllPartyMonsLevel200
 	goto_if_eq VAR_RESULT, FALSE, PWT_EventScript_Hmm
@@ -30,8 +31,6 @@ PWT_EventScript_Level200::
 	clearflag FLAG_ATTENDANTS
 	setvar VAR_PWT_TYPE, 2
 	setflag FLAG_HIDE_PWT_A
-	goto_if_set FLAG_PWT_BEAT_200, PWT_EventScript_Warp2
-	warp MAP_PWT_ARENA, 4, 24
 	release
 	end
 
@@ -93,8 +92,13 @@ PWT_Text_GuessNot:
 	.string "Feel free to return if you change\n"
 	.string "your mind.$"
 
-PWT_EventScript_Warp2::
-	warp MAP_PWT_ARENA2, 4, 24
+PWT_EventScript_Done::
+	msgbox PWT_Text_Done, MSGBOX_DEFAULT
 	release
 	end
+
+PWT_Text_Done:
+	.string "The first PWT is over.\p"
+	.string "I heard Kanto recently opened up more.\p"
+	.string "See you next year!$"
 

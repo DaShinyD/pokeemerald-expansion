@@ -14,6 +14,7 @@ BeachCave_EventScript_Suicune::
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, BeachCave_EventScript_SuicuneGone
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, BeachCave_EventScript_SuicuneGone
 	release
 	end
 
@@ -33,6 +34,7 @@ BeachCave_EventScript_SuicuneP::
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, BeachCave_EventScript_SuicunePGone
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, BeachCave_EventScript_SuicunePGone
 	release
 	end
 

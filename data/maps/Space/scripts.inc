@@ -28,6 +28,7 @@ Space_EventScript_Solgaleo::
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Space_EventScript_SolgaleoGone
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Space_EventScript_SolgaleoGone
 	release
 	end
 
@@ -47,6 +48,7 @@ Space_EventScript_Lunala::
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Space_EventScript_LunalaGone
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Space_EventScript_LunalaGone
 	release
 	end
 
@@ -66,6 +68,7 @@ Space_EventScript_Jirachi::
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Space_EventScript_JirachiGone
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Space_EventScript_JirachiGone
 	release
 	end
 
@@ -85,6 +88,7 @@ Space_EventScript_Victini::
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Space_EventScript_VictiniGone
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Space_EventScript_VictiniGone
 	release
 	end
 
@@ -104,6 +108,7 @@ Space_EventScript_Necrozma::
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Space_EventScript_NecrozmaGone
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Space_EventScript_NecrozmaGone
 	release
 	end
 
