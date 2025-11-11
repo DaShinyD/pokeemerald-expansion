@@ -164,7 +164,7 @@ PWT_Arena_Text_FirstBattle:
 	.string "Rye: Let's make it awesome!$"
 
 PWT_Arena_EventScript_Tourney1FirstBattle:
-	trainerbattle_no_intro TRAINER_RYE_GRANITE_CAVE, PWT_Arena_Text_RyeDefeat
+	trainerbattle_no_intro TRAINER_RYE_PWT, PWT_Arena_Text_RyeDefeat
 	goto PWT_Arena_EventScript_TourneyContinued
 	release
 	end
@@ -214,7 +214,7 @@ PWT_Arena_Text_Round2:
 	.string "which wins.$"
 
 PWT_Arena_EventScript_Tourney1SecondBattle::
-	trainerbattle_no_intro TRAINER_JAKE, PWT_Arena_Text_JakeDefeat
+	trainerbattle_no_intro TRAINER_JAKE_PWT, PWT_Arena_Text_JakeDefeat
 	goto PWT_Arena_EventScript_TourneyContinued2
 	end
 
@@ -255,7 +255,7 @@ PWT_Arena_Text_Round3:
 	.string "them a good show.$"
 
 PWT_Arena_EventScript_Tourney1ThirdBattle:
-	trainerbattle_no_intro_no_whiteout TRAINER_DASH_102, PWT_Arena_Text_DashDefeat
+	trainerbattle_no_intro_no_whiteout TRAINER_DASH_PWT, PWT_Arena_Text_DashDefeat
 	goto PWT_Arena_EventScript_TourneyContinued3
 	end
 
@@ -297,7 +297,7 @@ PWT_Arena_Text_LastBattle:
 	.string "Sky: Hmph, let's do this.$"
 
 PWT_Arena_EventScript_Tourney1Final::
-	trainerbattle_no_intro TRAINER_SKY, PWT_Arena_Text_SkyDefeat
+	trainerbattle_no_intro TRAINER_SKY_PWT, PWT_Arena_Text_SkyDefeat
 	goto PWT_Arena_EventScript_Tourney1End
 	end
 

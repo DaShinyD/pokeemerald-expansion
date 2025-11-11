@@ -131,10 +131,10 @@
 #define TRAINER_SHEILA                      125
 #define TRAINER_SHIRLEY                     126
 #define TRAINER_JESSICA_1                   127
-#define TRAINER_CONNIE                      128 // now unused
-#define TRAINER_BRIDGET                     129 // now unused
-#define TRAINER_OLIVIA                      130 // now unused
-#define TRAINER_TIFFANY                     131 // now unused
+#define TRAINER_RYE_PWT                     128 // now unused (previously Connie)
+#define TRAINER_JAKE_PWT                    129 // now unused (previously Bridget)
+#define TRAINER_DASH_PWT                    130 // now unused (previously Olivia)
+#define TRAINER_SKY_PWT                     131 // now unused (previously Tiffany)
 #define TRAINER_JESSICA_2                   132
 #define TRAINER_JESSICA_3                   133
 #define TRAINER_JESSICA_4                   134

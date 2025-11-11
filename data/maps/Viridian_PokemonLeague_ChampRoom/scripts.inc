@@ -74,6 +74,7 @@ Viridian_PokemonLeague_ChampRoom_Text_GreenDefeat:
 Viridian_PokemonLeague_ChampRoom_EventScript_After::
 	setflag FLAG_INDIGO_BEAT
 	setflag FLAG_LEVEL_CAP_TEN
+	setflag FLAG_LEVEL_CAP_ELEVEN
 	msgbox Viridian_PokemonLeague_ChampRoom_Text_GreenAfter, MSGBOX_DEFAULT
 	applymovement LOCALID_GREEN, Common_Movement_ExclamationMark
 	waitmovement 0
