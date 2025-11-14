@@ -2432,3 +2432,22 @@ const u16 gTilesetPalettes_volcano[][16] =
 };
 
 const u32 gTilesetTiles_volcano[] = INCBIN_U32("data/tilesets/secondary/volcano/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_KantoPrimaryMe[][16] =
+{
+    INCBIN_U16("data/tilesets/primary/kanto_primary_me/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_primary_me/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_primary_me/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_primary_me/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_primary_me/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_primary_me/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_primary_me/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_primary_me/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_primary_me/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_primary_me/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_primary_me/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_primary_me/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/primary/kanto_primary_me/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_KantoPrimaryMe[] = INCBIN_U32("data/tilesets/primary/kanto_primary_me/tiles.4bpp.lz");

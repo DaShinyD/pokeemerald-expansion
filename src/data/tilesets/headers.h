@@ -1287,3 +1287,14 @@ const struct Tileset gTileset_volcano =
     .metatileAttributes = gMetatileAttributes_volcano,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_KantoPrimaryMe =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_KantoPrimaryMe,
+    .palettes = gTilesetPalettes_KantoPrimaryMe,
+    .metatiles = gMetatiles_KantoPrimaryMe,
+    .metatileAttributes = gMetatileAttributes_KantoPrimaryMe,
+    .callback = NULL,
+};

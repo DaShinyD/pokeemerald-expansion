@@ -333,3 +333,6 @@ const u16 gMetatileAttributes_beachcave[] = INCBIN_U16("data/tilesets/secondary/
 
 const u16 gMetatiles_volcano[] = INCBIN_U16("data/tilesets/secondary/volcano/metatiles.bin");
 const u16 gMetatileAttributes_volcano[] = INCBIN_U16("data/tilesets/secondary/volcano/metatile_attributes.bin");
+
+const u16 gMetatiles_KantoPrimaryMe[] = INCBIN_U16("data/tilesets/primary/kanto_primary_me/metatiles.bin");
+const u16 gMetatileAttributes_KantoPrimaryMe[] = INCBIN_U16("data/tilesets/primary/kanto_primary_me/metatile_attributes.bin");
