@@ -135,6 +135,16 @@ static const u16 sRaichuFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_PIKACHU
 
+#if P_FAMILY_NIDORAN
+static const u16 sNidokingFormSpeciesIdTable[] = {
+    SPECIES_NIDOKING,
+#if P_MEGA_EVOLUTIONS
+    SPECIES_NIDOKING_MEGA,
+#endif
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_NIDORAN
+
 #if P_FAMILY_SANDSHREW
 static const u16 sSandshrewFormSpeciesIdTable[] = {
     SPECIES_SANDSHREW,

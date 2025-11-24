@@ -321,7 +321,7 @@ PlayersHouse_2F_Text_CapEnabled1:
 	.string "Level caps enabled. The caps are as\n"
 	.string "follows.\p"
 	.string "18, 24, 36, 48, 50, 58, 67, 75, 85,\n"
-	.string "100, and lastly 250.$"
+	.string "100, and lastly 200.$"
 
 PlayersHouse_2F_Text_ClockIsStopped:
 	.string "The clock is stopped…\p"

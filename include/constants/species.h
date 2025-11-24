@@ -1699,8 +1699,9 @@
 #define SPECIES_ARCANINE_HOENNIAN                       1583
 #define SPECIES_SLIFER                                  1584
 #define SPECIES_KACHOW                                  1585
+#define SPECIES_NIDOKING_MEGA                           1586
 
-#define SPECIES_EGG                                     (SPECIES_KACHOW + 1)
+#define SPECIES_EGG                                     (SPECIES_NIDOKING_MEGA + 1)
 
 #define NUM_SPECIES SPECIES_EGG
 

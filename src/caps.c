@@ -19,7 +19,7 @@ u32 GetCurrentLevelCap(void)
         {FLAG_LEVEL_CAP_EIGHT, 75},
         {FLAG_LEVEL_CAP_NINE, 85},
         {FLAG_LEVEL_CAP_TEN, 100},
-        {FLAG_LEVEL_CAP_ELEVEN, 250}
+        {FLAG_LEVEL_CAP_ELEVEN, 200}
     };
 
     u32 i;

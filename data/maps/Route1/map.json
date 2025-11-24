@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_VERIDIAN_CITY",
-      "offset": -20,
+      "offset": -16,
       "direction": "up"
     }
   ],

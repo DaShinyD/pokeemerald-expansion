@@ -1482,3 +1482,5 @@ MysteryGift_Text_ReceivedGiftMon:
 	.include "data/maps/LavenderTown/scripts.inc"
 
 	.include "data/maps/Route8/scripts.inc"
+
+	.include "data/maps/SaffronCity/scripts.inc"

@@ -48,8 +48,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GREEN",
-      "x": 68,
-      "y": 5,
+      "x": 70,
+      "y": -7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -61,8 +61,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_RED2",
-      "x": 64,
-      "y": 5,
+      "x": 62,
+      "y": -7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -75,7 +75,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_OAK",
       "x": 66,
-      "y": 0,
+      "y": -6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -87,8 +87,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_3",
-      "x": 66,
-      "y": 18,
+      "x": 63,
+      "y": -7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -269,24 +269,6 @@
       "var": "VAR_TEMP_1",
       "var_value": "0",
       "script": "EverGrandeCity_EventScript_SetVisitedEverGrande"
-    },
-    {
-      "type": "trigger",
-      "x": 67,
-      "y": 18,
-      "elevation": 0,
-      "var": "VAR_OAK_BLOCKER",
-      "var_value": "0",
-      "script": "EverGrandeCity_EventScript_OakBlock"
-    },
-    {
-      "type": "trigger",
-      "x": 65,
-      "y": 18,
-      "elevation": 0,
-      "var": "VAR_OAK_BLOCKER",
-      "var_value": "0",
-      "script": "EverGrandeCity_EventScript_OakBlock"
     }
   ],
   "bg_events": [

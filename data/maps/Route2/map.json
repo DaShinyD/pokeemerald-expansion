@@ -80,7 +80,7 @@
     {
       "type": "sign",
       "x": 7,
-      "y": 48,
+      "y": 51,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route2_EventScript_Sign"
@@ -88,14 +88,14 @@
     {
       "type": "sign",
       "x": 3,
-      "y": 48,
+      "y": 51,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route2_EventScript_Sign"
     },
     {
       "type": "sign",
-      "x": 9,
+      "x": 8,
       "y": 48,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
@@ -103,7 +103,7 @@
     },
     {
       "type": "sign",
-      "x": 1,
+      "x": 2,
       "y": 48,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",

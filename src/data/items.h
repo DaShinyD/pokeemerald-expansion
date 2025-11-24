@@ -5407,6 +5407,23 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_Gengarite,
     },
 
+    [ITEM_NIDOKINGITE] =
+    {
+        .name = _("Nidokingite"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = COMPOUND_STRING(
+            "This stone enables\n"
+            "Nidoking to Mega\n"
+            "Evolve in battle."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+        .iconPic = gItemIcon_Gengarite,
+        .iconPalette = gItemIconPalette_Gengarite,
+    },
+
     [ITEM_KANGASKHANITE] =
     {
         .name = _("Kangaskhanite"),
