@@ -32,5 +32,7 @@ void InitTilesetAnim_EliteFour(void);
 void InitTilesetAnim_MauvilleGameCorner(void);
 void InitTilesetAnim_BattleDome(void);
 void InitTilesetAnim_BattlePyramid(void);
+// Start my custom tiles
+void InitTilesetAnim_KantoPrimaryMe(void);
 
 #endif // GUARD_TILESET_ANIMS_H

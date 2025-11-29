@@ -1223,3 +1223,77 @@ static void BlendAnimPalette_BattleDome_FloorLightsNoBlend(u16 timer)
             sSecondaryTilesetAnimCallback = NULL;
     }
 }
+
+// My Tiles
+
+// Pond Water
+const u16 gTilesetAnims_KantoPrimaryMe_Water_Frame0[] = INCBIN_U16("data/tilesets/primary/kanto_primary_me/anim/water/00.4bpp");
+const u16 gTilesetAnims_KantoPrimaryMe_Water_Frame1[] = INCBIN_U16("data/tilesets/primary/kanto_primary_me/anim/water/01.4bpp");
+const u16 gTilesetAnims_KantoPrimaryMe_Water_Frame2[] = INCBIN_U16("data/tilesets/primary/kanto_primary_me/anim/water/02.4bpp");
+const u16 gTilesetAnims_KantoPrimaryMe_Water_Frame3[] = INCBIN_U16("data/tilesets/primary/kanto_primary_me/anim/water/03.4bpp");
+// Ocean Water
+const u16 gTilesetAnims_KantoPrimaryMe_OceanWater_Frame0[] = INCBIN_U16("data/tilesets/primary/kanto_primary_me/anim/ocean_water/00.4bpp");
+const u16 gTilesetAnims_KantoPrimaryMe_OceanWater_Frame1[] = INCBIN_U16("data/tilesets/primary/kanto_primary_me/anim/ocean_water/01.4bpp");
+const u16 gTilesetAnims_KantoPrimaryMe_OceanWater_Frame2[] = INCBIN_U16("data/tilesets/primary/kanto_primary_me/anim/ocean_water/02.4bpp");
+const u16 gTilesetAnims_KantoPrimaryMe_OceanWater_Frame3[] = INCBIN_U16("data/tilesets/primary/kanto_primary_me/anim/ocean_water/03.4bpp");
+const u16 gTilesetAnims_KantoPrimaryMe_OceanWater_Frame4[] = INCBIN_U16("data/tilesets/primary/kanto_primary_me/anim/ocean_water/04.4bpp");
+const u16 gTilesetAnims_KantoPrimaryMe_OceanWater_Frame5[] = INCBIN_U16("data/tilesets/primary/kanto_primary_me/anim/ocean_water/05.4bpp");
+const u16 gTilesetAnims_KantoPrimaryMe_OceanWater_Frame6[] = INCBIN_U16("data/tilesets/primary/kanto_primary_me/anim/ocean_water/06.4bpp");
+const u16 gTilesetAnims_KantoPrimaryMe_OceanWater_Frame7[] = INCBIN_U16("data/tilesets/primary/kanto_primary_me/anim/ocean_water/07.4bpp");
+const u16 gTilesetAnims_KantoPrimaryMe_OceanWater_Frame8[] = INCBIN_U16("data/tilesets/primary/kanto_primary_me/anim/ocean_water/08.4bpp");
+const u16 gTilesetAnims_KantoPrimaryMe_OceanWater_Frame9[] = INCBIN_U16("data/tilesets/primary/kanto_primary_me/anim/ocean_water/09.4bpp");
+
+const u16 *const gTilesetAnims_KantoPrimaryMe_OceanWater[] = {
+    gTilesetAnims_KantoPrimaryMe_OceanWater_Frame0,
+    gTilesetAnims_KantoPrimaryMe_OceanWater_Frame1,
+    gTilesetAnims_KantoPrimaryMe_OceanWater_Frame2,
+    gTilesetAnims_KantoPrimaryMe_OceanWater_Frame3,
+    gTilesetAnims_KantoPrimaryMe_OceanWater_Frame4,
+    gTilesetAnims_KantoPrimaryMe_OceanWater_Frame5,
+    gTilesetAnims_KantoPrimaryMe_OceanWater_Frame6,
+    gTilesetAnims_KantoPrimaryMe_OceanWater_Frame7,
+    gTilesetAnims_KantoPrimaryMe_OceanWater_Frame8,
+    gTilesetAnims_KantoPrimaryMe_OceanWater_Frame9,
+};
+
+const u16 *const gTilesetAnims_KantoPrimaryMe_Water[] = {
+    gTilesetAnims_KantoPrimaryMe_Water_Frame0,
+    gTilesetAnims_KantoPrimaryMe_Water_Frame1,
+    gTilesetAnims_KantoPrimaryMe_Water_Frame2,
+    gTilesetAnims_KantoPrimaryMe_Water_Frame3
+};
+
+static void QueueAnimTiles_KantoPrimaryMe_Water(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_KantoPrimaryMe_Water);
+    AppendTilesetAnimToBuffer(gTilesetAnims_KantoPrimaryMe_Water[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x1D3)), 4 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_KantoPrimaryMe_OceanWater(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_KantoPrimaryMe_OceanWater);
+    const u16 *frame = gTilesetAnims_KantoPrimaryMe_OceanWater[i];
+    AppendTilesetAnimToBuffer(frame + (TILE_SIZE_4BPP / 2) * 0, (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x1CE)), TILE_SIZE_4BPP);
+    AppendTilesetAnimToBuffer(frame + (TILE_SIZE_4BPP / 2) * 1, (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x1DB)), TILE_SIZE_4BPP);
+    AppendTilesetAnimToBuffer(frame + (TILE_SIZE_4BPP / 2) * 2, (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x1DC)), TILE_SIZE_4BPP);
+    AppendTilesetAnimToBuffer(frame + (TILE_SIZE_4BPP / 2) * 3, (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x1DD)), TILE_SIZE_4BPP);
+}
+
+static void TilesetAnim_KantoPrimaryMe(u16 timer)
+{
+    if (timer % 16 == 0)
+    {
+        u16 step = timer / 16;
+        QueueAnimTiles_KantoPrimaryMe_Water(step);
+        QueueAnimTiles_KantoPrimaryMe_OceanWater(step);
+    }
+}
+
+void InitTilesetAnim_KantoPrimaryMe(void)
+{
+    sPrimaryTilesetAnimCounter = 0;
+    sPrimaryTilesetAnimCounterMax = 256;
+    sPrimaryTilesetAnimCallback = TilesetAnim_KantoPrimaryMe;
+}
+
+

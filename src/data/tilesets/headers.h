@@ -1296,7 +1296,7 @@ const struct Tileset gTileset_KantoPrimaryMe =
     .palettes = gTilesetPalettes_KantoPrimaryMe,
     .metatiles = gMetatiles_KantoPrimaryMe,
     .metatileAttributes = gMetatileAttributes_KantoPrimaryMe,
-    .callback = NULL,
+    .callback = InitTilesetAnim_KantoPrimaryMe,
 };
 
 const struct Tileset gTileset_LavenderTown =
