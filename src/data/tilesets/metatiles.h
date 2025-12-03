@@ -351,3 +351,6 @@ const u16 gMetatileAttributes_ViridianCity[] = INCBIN_U16("data/tilesets/seconda
 
 const u16 gMetatiles_SaffronCity[] = INCBIN_U16("data/tilesets/secondary/saffron_city/metatiles.bin");
 const u16 gMetatileAttributes_SaffronCity[] = INCBIN_U16("data/tilesets/secondary/saffron_city/metatile_attributes.bin");
+
+const u16 gMetatiles_Gatehouse[] = INCBIN_U16("data/tilesets/secondary/gatehouse/metatiles.bin");
+const u16 gMetatileAttributes_Gatehouse[] = INCBIN_U16("data/tilesets/secondary/gatehouse/metatile_attributes.bin");

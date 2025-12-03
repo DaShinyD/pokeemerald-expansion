@@ -106,6 +106,13 @@
       "elevation": 0,
       "dest_map": "MAP_NEW_MAP1",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 11,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_GATEHOUSE_SOUTH",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

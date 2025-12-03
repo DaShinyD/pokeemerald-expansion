@@ -2526,11 +2526,11 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_VENUSAUR_HOENNIAN] =
     {
-        .baseHP        = 80,
-        .baseAttack    = 82,
-        .baseDefense   = 83,
+        .baseHP        = 100,
+        .baseAttack    = 120,
+        .baseDefense   = 100,
         .baseSpeed     = 80,
-        .baseSpAttack  = 130,
+        .baseSpAttack  = 90,
         .baseSpDefense = 130,
         .types = MON_TYPES(TYPE_FIRE, TYPE_ROCK),
         .catchRate = 45,
@@ -2924,10 +2924,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_PIDGEOT_HOENNIAN] =
     {
         .baseHP        = 83,
-        .baseAttack    = 110,
+        .baseAttack    = 70,
         .baseDefense   = 75,
         .baseSpeed     = 120,
-        .baseSpAttack  = 110,
+        .baseSpAttack  = 130,
         .baseSpDefense = 70,
         .types = MON_TYPES(TYPE_GHOST, TYPE_FLYING),
         .catchRate = 45,
@@ -4239,7 +4239,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .formSpeciesIdTable = sNidokingFormSpeciesIdTable,
         .formChangeTable = sNidokingFormChangeTable,
     },
-#endif P_FAMILY_NIDORAN
-#endif P_MEGA_EVOLUTIONS
+#endif
+#endif
 };
 

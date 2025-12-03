@@ -76,14 +76,14 @@
 #define FLAG_WENT_VILLAGE    0x3E // Went to desert village
 #define FLAG_MET_EXPLORER    0x3F // Met explorer in village
 #define FLAG_HIDE_STRATA_SKY_PILLAR    0x40 // Hide strata grunt at sky pillar
-#define FLAG_BEAT_JAKE       0x41 // Unused Flag
-#define FLAG_BEAT_SKY        0x42 // Unused Flag
-#define FLAG_BEAT_PERCY      0x43 // Unused Flag
-#define FLAG_BEAT_PENA       0x44 // Unused Flag
-#define FLAG_BEAT_ALEX       0x45 // Unused Flag
-#define FLAG_BEAT_SAM        0x46 // Unused Flag
-#define FLAG_BEAT_JOEY       0x47 // Unused Flag
-#define FLAG_BEAT_MORDE      0x48 // Unused Flag
+#define FLAG_BEAT_JAKE       0x41 // self explanatory
+#define FLAG_BEAT_SKY        0x42 // self explanatory
+#define FLAG_BEAT_PERCY      0x43 // self explanatory
+#define FLAG_BEAT_PENA       0x44 // self explanatory
+#define FLAG_BEAT_ALEX       0x45 // self explanatory
+#define FLAG_BEAT_SAM        0x46 // self explanatory
+#define FLAG_BEAT_JOEY       0x47 // self explanatory
+#define FLAG_BEAT_MORDE      0x48 // self explanatory
 #define FLAG_REGIDRAGO       0x49 // Regidrago
 #define FLAG_REGIELEKI       0x4A // Regieleki
 #define FLAG_SOLVED_REGID    0x4B // Solved regidrago puzzle

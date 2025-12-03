@@ -1484,3 +1484,11 @@ MysteryGift_Text_ReceivedGiftMon:
 	.include "data/maps/Route8/scripts.inc"
 
 	.include "data/maps/SaffronCity/scripts.inc"
+
+	.include "data/maps/GatehouseWest/scripts.inc"
+
+	.include "data/maps/GatehouseEast/scripts.inc"
+
+	.include "data/maps/GatehouseNorth/scripts.inc"
+
+	.include "data/maps/GatehouseSouth/scripts.inc"

@@ -324,6 +324,7 @@ PWT_Arena_EventScript_Lost::
 	msgbox PWT_Arena_Text_ThanksForComing, MSGBOX_AUTOCLOSE
 	setflag FLAG_PWT_DONE
 	setflag FLAG_CLEAR_KANTO
+	special HealPlayerParty
 	warp MAP_PWT, 22, 7
 	waitstate
 	release

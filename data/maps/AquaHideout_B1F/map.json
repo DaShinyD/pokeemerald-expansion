@@ -326,11 +326,11 @@
     {
       "type": "trigger",
       "x": 3,
-      "y": 4,
+      "y": 5,
       "elevation": 0,
       "var": "VAR_A_HIDEOUT_HELP",
       "var_value": "0",
-      "script": "NULL"
+      "script": "AquaHideout_B1F_EventScript_DashWeAreHereToo"
     }
   ],
   "bg_events": [

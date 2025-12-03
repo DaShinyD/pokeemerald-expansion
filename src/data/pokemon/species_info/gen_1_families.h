@@ -1565,12 +1565,12 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 
     [SPECIES_BEEDRILL] =
     {
-        .baseHP        = 65,
+        .baseHP        = 85,
         .baseAttack    = BEEDRILL_ATTACK,
-        .baseDefense   = 40,
+        .baseDefense   = 60,
         .baseSpeed     = 105,
         .baseSpAttack  = 45,
-        .baseSpDefense = 80,
+        .baseSpDefense = 90,
         .types = MON_TYPES(TYPE_BUG, TYPE_POISON),
         .catchRate = 45,
     #if P_UPDATED_EXP_YIELDS >= GEN_8
@@ -1649,12 +1649,12 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #if P_MEGA_EVOLUTIONS
     [SPECIES_BEEDRILL_MEGA] =
     {
-        .baseHP        = 65,
-        .baseAttack    = BEEDRILL_ATTACK + 60,
-        .baseDefense   = 40,
-        .baseSpeed     = 145,
+        .baseHP        = 85,
+        .baseAttack    = BEEDRILL_ATTACK + 70,
+        .baseDefense   = 100,
+        .baseSpeed     = 155,
         .baseSpAttack  = 15,
-        .baseSpDefense = 80,
+        .baseSpDefense = 100,
         .types = MON_TYPES(TYPE_BUG, TYPE_POISON),
         .catchRate = 45,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_8) ? 248 : 223,
@@ -3227,10 +3227,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_PIKACHU_ORIGINAL] =
     {
         .baseHP        = 85,
-        .baseAttack    = 125,
+        .baseAttack    = 90,
         .baseDefense   = 80,
         .baseSpeed     = 130,
-        .baseSpAttack  = 125,
+        .baseSpAttack  = 115,
         .baseSpDefense = 80,
         .types = MON_TYPES(TYPE_ELECTRIC),
         .catchRate = 190,

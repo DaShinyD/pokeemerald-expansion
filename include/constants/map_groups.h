@@ -682,6 +682,12 @@
 #define MAP_VIRIDIAN_POKEMON_LEAGUE_HALL5        (9 | (39 << 8))
 #define MAP_VIRIDIAN_POKEMON_LEAGUE_CHAMP_ROOM   (10 | (39 << 8))
 
-#define MAP_GROUPS_COUNT 40
+// gMapGroup_IndoorSaffron
+#define MAP_GATEHOUSE_WEST  (0 | (40 << 8))
+#define MAP_GATEHOUSE_EAST  (1 | (40 << 8))
+#define MAP_GATEHOUSE_NORTH (2 | (40 << 8))
+#define MAP_GATEHOUSE_SOUTH (3 | (40 << 8))
+
+#define MAP_GROUPS_COUNT 41
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

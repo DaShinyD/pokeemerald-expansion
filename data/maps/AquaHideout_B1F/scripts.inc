@@ -1,4 +1,4 @@
-.set LOCALID_DASH, 11
+.set LOCALID_DASH, 10
 
 AquaHideout_B1F_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, AquaHideout_B1F_OnResume
@@ -175,13 +175,13 @@ AquaHideout_B1F_EventScript_DashWeAreHereToo::
 	waitmovement 0
 	removeobject LOCALID_DASH
 	setflag FLAG_HIDE_DASH_A_HIDEOUT
+	setvar VAR_A_HIDEOUT_HELP, 1
 	release
 	end
 
 AquaHideout_B1F_Movement_ApproachPlayer:
 	face_up
 	delay_4
-	walk_up
 	step_end
 
 AquaHideout_B1F_Text_DashTalks:

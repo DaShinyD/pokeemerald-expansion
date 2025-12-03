@@ -362,6 +362,7 @@ SootopolisCity_EventScript_LegendariesSceneFromDive::
 	special RemoveCameraObject
 	setvar VAR_SOOTOPOLIS_CITY_STATE, 2
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
+	clearflag FLAG_HIDE_STRATA_SKY_PILLAR
 	releaseall
 	end
 

@@ -86,7 +86,7 @@ LilycoveCity_Harbor_EventScript_GoToFarawayIsland::
 
 LilycoveCity_Harbor_EventScript_GoToVermillion::
 	call LilycoveCity_Harbor_EventScript_BoardFerry
-	warp MAP_VERMILLION_CITY, 23, 33
+	warp MAP_VERMILLION_CITY, 25, 32
 	waitstate
 	release
 	end

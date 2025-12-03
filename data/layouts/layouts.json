@@ -1436,7 +1436,7 @@
       "name": "AquaHideout_B1F_Layout",
       "width": 51,
       "height": 24,
-      "primary_tileset": "gTileset_general2",
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/AquaHideout_B1F/border.bin",
       "blockdata_filepath": "data/layouts/AquaHideout_B1F/map.bin"
@@ -1446,7 +1446,7 @@
       "name": "AquaHideout_B2F_Layout",
       "width": 34,
       "height": 24,
-      "primary_tileset": "gTileset_general2",
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Facility",
       "border_filepath": "data/layouts/AquaHideout_B2F/border.bin",
       "blockdata_filepath": "data/layouts/AquaHideout_B2F/map.bin"
@@ -4977,7 +4977,7 @@
       "width": 40,
       "height": 40,
       "primary_tileset": "gTileset_KantoPrimaryMe",
-      "secondary_tileset": "gTileset_LavenderTown",
+      "secondary_tileset": "gTileset_Gatehouse",
       "border_filepath": "data/layouts/Tester2/border.bin",
       "blockdata_filepath": "data/layouts/Tester2/map.bin"
     },
@@ -5200,6 +5200,46 @@
       "secondary_tileset": "gTileset_SaffronCity",
       "border_filepath": "data/layouts/SaffronCity/border.bin",
       "blockdata_filepath": "data/layouts/SaffronCity/map.bin"
+    },
+    {
+      "id": "LAYOUT_GATEHOUSE_WEST",
+      "name": "GatehouseWest_Layout",
+      "width": 18,
+      "height": 17,
+      "primary_tileset": "gTileset_KantoPrimaryMe",
+      "secondary_tileset": "gTileset_Gatehouse",
+      "border_filepath": "data/layouts/GatehouseWest/border.bin",
+      "blockdata_filepath": "data/layouts/GatehouseWest/map.bin"
+    },
+    {
+      "id": "LAYOUT_GATEHOUSE_EAST",
+      "name": "GatehouseEast_Layout",
+      "width": 18,
+      "height": 17,
+      "primary_tileset": "gTileset_KantoPrimaryMe",
+      "secondary_tileset": "gTileset_Gatehouse",
+      "border_filepath": "data/layouts/GatehouseEast/border.bin",
+      "blockdata_filepath": "data/layouts/GatehouseEast/map.bin"
+    },
+    {
+      "id": "LAYOUT_GATEHOUSE_NORTH",
+      "name": "GatehouseNorth_Layout",
+      "width": 9,
+      "height": 13,
+      "primary_tileset": "gTileset_KantoPrimaryMe",
+      "secondary_tileset": "gTileset_Gatehouse",
+      "border_filepath": "data/layouts/GatehouseNorth/border.bin",
+      "blockdata_filepath": "data/layouts/GatehouseNorth/map.bin"
+    },
+    {
+      "id": "LAYOUT_GATEHOUSE_SOUTH",
+      "name": "GatehouseSouth_Layout",
+      "width": 9,
+      "height": 13,
+      "primary_tileset": "gTileset_KantoPrimaryMe",
+      "secondary_tileset": "gTileset_Gatehouse",
+      "border_filepath": "data/layouts/GatehouseSouth/border.bin",
+      "blockdata_filepath": "data/layouts/GatehouseSouth/map.bin"
     }
   ]
 }

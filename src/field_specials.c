@@ -4526,6 +4526,7 @@ void GetMysteryGiftFeedback(void)
     else if (!StringCompare(gStringVar2, sText_CodePecharunt))
         gSpecialVar_Result = 9;
     // Invalid cheat code
+    else gSpecialVar_Result = 0;
 }
 
 void GetObjectPosition(u16* xPointer, u16* yPointer, u32 localId, u32 useTemplate)

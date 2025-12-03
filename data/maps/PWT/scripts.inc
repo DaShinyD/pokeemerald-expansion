@@ -31,6 +31,7 @@ PWT_EventScript_Level200::
 	clearflag FLAG_ATTENDANTS
 	setvar VAR_PWT_TYPE, 2
 	setflag FLAG_HIDE_PWT_A
+	warp MAP_PWT_ARENA, 4, 24
 	release
 	end
 

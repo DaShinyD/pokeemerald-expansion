@@ -206,7 +206,7 @@ SkyPillar_Outside_EventScript_StrataGrunt::
 	waitmovement 0
 	removeobject LOCALID_GRUNT2
 	removeobject LOCALID_GRUNT3
-	removeobject LOCALID_GRUNT3
+	removeobject LOCALID_STRAITS
 	setflag FLAG_STRATA_1
 	setflag FLAG_HIDE_WALLY_STRATA
 	clearflag FLAG_STRATA_HIDE_1

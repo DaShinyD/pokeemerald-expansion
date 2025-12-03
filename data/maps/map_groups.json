@@ -39,7 +39,8 @@
     "gMapGroup_IndoorVermillion",
     "gMapGroup_IndoorCerulean",
     "gMapGroup_IndoorPewter",
-    "gMapGroup_IndoorVeridian"
+    "gMapGroup_IndoorVeridian",
+    "gMapGroup_IndoorSaffron"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -717,5 +718,11 @@
     "Viridian_PokemonLeague_LanceRoom",
     "Viridian_PokemonLeague_Hall5",
     "Viridian_PokemonLeague_ChampRoom"
+  ],
+  "gMapGroup_IndoorSaffron": [
+    "GatehouseWest",
+    "GatehouseEast",
+    "GatehouseNorth",
+    "GatehouseSouth"
   ]
 }

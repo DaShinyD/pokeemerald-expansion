@@ -4384,7 +4384,7 @@ F_TRAINER_FEMALE |
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         .mugshotColor = MUGSHOT_COLOR_PURPLE,
-        .partySize = 6,
+        .partySize = 4,
         .party = (const struct TrainerMon[])
         {
             {

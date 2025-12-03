@@ -1353,3 +1353,13 @@ const struct Tileset gTileset_SaffronCity =
     .metatileAttributes = gMetatileAttributes_SaffronCity,
     .callback = NULL,
 };
+const struct Tileset gTileset_Gatehouse =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Gatehouse,
+    .palettes = gTilesetPalettes_Gatehouse,
+    .metatiles = gMetatiles_Gatehouse,
+    .metatileAttributes = gMetatileAttributes_Gatehouse,
+    .callback = NULL,
+};

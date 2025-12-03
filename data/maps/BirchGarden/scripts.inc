@@ -38,6 +38,7 @@ BirchGarden_EventScript_StrataGruntLeave::
 	closemessage
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_STRATA_GRUNT
+	setvar VAR_BIRCH_GARDEN_STATE, 1
 	fadescreen FADE_FROM_BLACK
 	release
 	end
@@ -71,6 +72,7 @@ BirchGarden_EventScript_StrataGrunt2Leave::
 	closemessage
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_STRATA_GRUNT_2
+	setvar VAR_BIRCH_GARDEN_STATE, 2
 	fadescreen FADE_FROM_BLACK
 	release
 	end

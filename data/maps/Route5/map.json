@@ -41,6 +41,13 @@
       "elevation": 0,
       "dest_map": "MAP_NEW_MAP1",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 25,
+      "y": 36,
+      "elevation": 0,
+      "dest_map": "MAP_GATEHOUSE_NORTH",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [
