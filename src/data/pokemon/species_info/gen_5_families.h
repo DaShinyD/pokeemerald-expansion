@@ -280,6 +280,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         )
         .levelUpLearnset = sSerperiorLevelUpLearnset,
         .teachableLearnset = sSerperiorTeachableLearnset,
+        .formSpeciesIdTable = sSerperiorFormSpeciesIdTable,
+        .formChangeTable = sSerperiorFormChangeTable,
     },
 #endif //P_FAMILY_SNIVY
 
@@ -505,6 +507,8 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         )
         .levelUpLearnset = sEmboarLevelUpLearnset,
         .teachableLearnset = sEmboarTeachableLearnset,
+        .formSpeciesIdTable = sEmboarFormSpeciesIdTable,
+        .formChangeTable = sEmboarFormChangeTable,
     },
 #endif //P_FAMILY_TEPIG
 
@@ -648,7 +652,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sDewottLevelUpLearnset,
         .teachableLearnset = sDewottTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_SAMUROTT},
-                                {EVO_NONE, 0, SPECIES_SAMUROTT_HISUI}),
+                                {EVO_ITEM, ITEM_PANCAKES, SPECIES_SAMUROTT_HISUI}),
     },
 
     [SPECIES_SAMUROTT] =
@@ -715,6 +719,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sSamurottLevelUpLearnset,
         .teachableLearnset = sSamurottTeachableLearnset,
         .formSpeciesIdTable = sSamurottFormSpeciesIdTable,
+        .formChangeTable = sSamurottFormChangeTable,
     },
 
 #if P_HISUIAN_FORMS
@@ -4102,7 +4107,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .teachableLearnset = sPetililTeachableLearnset,
         .eggMoveLearnset = sPetililEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_SUN_STONE, SPECIES_LILLIGANT},
-                                {EVO_NONE, 0, SPECIES_LILLIGANT_HISUI}),
+                                {EVO_ITEM, ITEM_PANCAKES, SPECIES_LILLIGANT_HISUI}),
     },
 
     [SPECIES_LILLIGANT] =
@@ -10884,7 +10889,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sPawniardLevelUpLearnset,
         .teachableLearnset = sPawniardTeachableLearnset,
         .eggMoveLearnset = sPawniardEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 52, SPECIES_BISHARP}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_BISHARP}),
     },
 
     [SPECIES_BISHARP] =
@@ -10951,7 +10956,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         )
         .levelUpLearnset = sBisharpLevelUpLearnset,
         .teachableLearnset = sBisharpTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_DEFEAT_THREE_WITH_ITEM, ITEM_LEADERS_CREST, SPECIES_KINGAMBIT}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 52, SPECIES_KINGAMBIT}),
     },
 
 #if P_GEN_9_CROSS_EVOS
@@ -11647,7 +11652,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .levelUpLearnset = sDeinoLevelUpLearnset,
         .teachableLearnset = sDeinoTeachableLearnset,
         .eggMoveLearnset = sDeinoEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 50, SPECIES_ZWEILOUS}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_ZWEILOUS}),
     },
 
     [SPECIES_ZWEILOUS] =
@@ -11713,7 +11718,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         )
         .levelUpLearnset = sZweilousLevelUpLearnset,
         .teachableLearnset = sZweilousTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 64, SPECIES_HYDREIGON}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 50, SPECIES_HYDREIGON}),
     },
 
     [SPECIES_HYDREIGON] =

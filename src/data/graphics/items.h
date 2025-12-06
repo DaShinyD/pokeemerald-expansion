@@ -556,6 +556,9 @@ const u32 gItemIconPalette_WaterStone[] = INCBIN_U32("graphics/items/icon_palett
 const u32 gItemIcon_ThunderStone[] = INCBIN_U32("graphics/items/icons/thunder_stone.4bpp.lz");
 const u32 gItemIconPalette_ThunderStone[] = INCBIN_U32("graphics/items/icon_palettes/thunder_stone.gbapal.lz");
 
+const u32 gItemIcon_Pancake[] = INCBIN_U32("graphics/items/icons/pancake.4bpp.lz");
+const u32 gItemIconPalette_Pancake[] = INCBIN_U32("graphics/items/icon_palettes/pancake.gbapal.lz");
+
 const u32 gItemIcon_LeafStone[] = INCBIN_U32("graphics/items/icons/leaf_stone.4bpp.lz");
 const u32 gItemIconPalette_LeafStone[] = INCBIN_U32("graphics/items/icon_palettes/leaf_stone.gbapal.lz");
 

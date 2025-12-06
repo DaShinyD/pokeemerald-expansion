@@ -4864,6 +4864,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         )
         .levelUpLearnset = sTrevenantLevelUpLearnset,
         .teachableLearnset = sTrevenantTeachableLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 48, SPECIES_DREDWOOD}),
     },
 #endif //P_FAMILY_PHANTUMP
 

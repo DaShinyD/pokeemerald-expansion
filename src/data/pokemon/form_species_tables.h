@@ -61,6 +61,14 @@ static const u16 sBeedrillFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_WEEDLE
 
+static const u16 sBeedrillHFormSpeciesIdTable[] = {
+    SPECIES_BEEDRILL_HOENNIAN,
+#if P_MEGA_EVOLUTIONS
+    SPECIES_BEEDRILL_HOENNIAN_MEGA,
+#endif
+    FORM_SPECIES_END,
+};
+
 #if P_FAMILY_PIDGEY
 static const u16 sPidgeotFormSpeciesIdTable[] = {
     SPECIES_PIDGEOT,
@@ -156,6 +164,9 @@ static const u16 sSandshrewFormSpeciesIdTable[] = {
 
 static const u16 sSandslashFormSpeciesIdTable[] = {
     SPECIES_SANDSLASH,
+#if P_MEGA_EVOLUTIONS
+    SPECIES_SANDSLASH_MEGA,
+#endif
 #if P_ALOLAN_FORMS
     SPECIES_SANDSLASH_ALOLA,
 #endif
@@ -1191,6 +1202,9 @@ static const u16 sArceusFormSpeciesIdTable[] = {
 #if P_FAMILY_OSHAWOTT
 static const u16 sSamurottFormSpeciesIdTable[] = {
     SPECIES_SAMUROTT,
+#if P_MEGA_EVOLUTIONS
+    SPECIES_SAMUROTT_MEGA,
+#endif
 #if P_HISUIAN_FORMS
     SPECIES_SAMUROTT_HISUI,
 #endif
@@ -2244,3 +2258,77 @@ static const u16 sTerapagosFormSpeciesIdTable[] = {
     FORM_SPECIES_END,
 };
 #endif //P_FAMILY_TERAPAGOS
+
+static const u16 sTorterraFormSpeciesIdTable[] = {
+    SPECIES_TORTERRA,
+#if P_MEGA_EVOLUTIONS
+    SPECIES_TORTERRA_MEGA,
+#endif
+    FORM_SPECIES_END,
+};
+
+static const u16 sInfernapeFormSpeciesIdTable[] = {
+    SPECIES_INFERNAPE,
+#if P_MEGA_EVOLUTIONS
+    SPECIES_INFERNAPE_MEGA,
+#endif
+    FORM_SPECIES_END,
+};
+
+static const u16 sEmpoleonFormSpeciesIdTable[] = {
+    SPECIES_EMPOLEON,
+#if P_MEGA_EVOLUTIONS
+    SPECIES_EMPOLEON_MEGA,
+#endif
+    FORM_SPECIES_END,
+};
+
+static const u16 sSerperiorFormSpeciesIdTable[] = {
+    SPECIES_SERPERIOR,
+#if P_MEGA_EVOLUTIONS
+    SPECIES_SERPERIOR_MEGA,
+#endif
+    FORM_SPECIES_END,
+};
+
+static const u16 sEmboarFormSpeciesIdTable[] = {
+    SPECIES_EMBOAR,
+#if P_MEGA_EVOLUTIONS
+    SPECIES_EMBOAR_MEGA,
+#endif
+    FORM_SPECIES_END,
+};
+
+static const u16 sKingdraFormSpeciesIdTable[] = {
+    SPECIES_KINGDRA,
+#if P_MEGA_EVOLUTIONS
+    SPECIES_KINGDRA_MEGA_X,
+    SPECIES_KINGDRA_MEGA_Y,
+#endif
+    FORM_SPECIES_END,
+};
+
+static const u16 sLuxrayFormSpeciesIdTable[] = {
+    SPECIES_LUXRAY,
+#if P_MEGA_EVOLUTIONS
+    SPECIES_LUXRAY_MEGA,
+#endif
+    FORM_SPECIES_END,
+};
+
+static const u16 sSlakingFormSpeciesIdTable[] = {
+    SPECIES_SLAKING,
+#if P_MEGA_EVOLUTIONS
+    SPECIES_SLAKING_MEGA,
+#endif
+    FORM_SPECIES_END,
+};
+
+static const u16 sWeavileFormSpeciesIdTable[] = {
+    SPECIES_WEAVILE,
+#if P_MEGA_EVOLUTIONS
+    SPECIES_WEAVILE_MEGA,
+#endif
+    FORM_SPECIES_END,
+};
+

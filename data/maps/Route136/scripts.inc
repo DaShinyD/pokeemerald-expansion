@@ -610,12 +610,9 @@ Route136_Text_RivalsTalk:
 	.string "Maybe you can explore it sometime.\p"
 	.string "Dash: Well, we're gonna go.\p"
 	.string "If you need something to do, I\n"
-	.string "heard there's a tournament coming\l"
-	.string "to IceFall City.\p"
-	.string "It's located above Shoal Cave.\p"
-	.string "Rye: Take care, great work as always.\p"
-	.string "Wally: I'm glad we could be here.\p"
-	.string "All: Goodbye. See you soon!$"
+	.string "heard that you can go to Kanto\l"
+	.string "if you beat all the leaders at\l"
+	.string "the Leader Club in Ever Grande.$"
 
 Route136_Movement_RivalsLeaveAfter:
 	walk_down

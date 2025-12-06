@@ -1700,8 +1700,56 @@
 #define SPECIES_SLIFER                                  1584
 #define SPECIES_KACHOW                                  1585
 #define SPECIES_NIDOKING_MEGA                           1586
+#define SPECIES_BOGUSPRUCE                              1587
+#define SPECIES_ARACHTRES                               1588
+#define SPECIES_BEEDRILL_HOENNIAN                       1589
+#define SPECIES_BEEDRILL_HOENNIAN_MEGA                  1590
+#define SPECIES_BISHARP_HOENNIAN                        1591
+#define SPECIES_CRUSTULES                               1592
+#define SPECIES_DEINO_HOENNIAN                          1593
+#define SPECIES_DEWGONG_HOENNIAN                        1594
+#define SPECIES_DODRIO_HOENNIAN                         1595
+#define SPECIES_DODUO_HOENNIAN                          1596
+#define SPECIES_EMBOAR_MEGA                             1597
+#define SPECIES_EMPOLEON_MEGA                           1598
+#define SPECIES_ESCARGINITE                             1599
+#define SPECIES_FROSLASS_HOENNIAN                       1600
+#define SPECIES_GLALIE_HOENNIAN                         1601
+#define SPECIES_GLIGAR_HOENNIAN                         1602
+#define SPECIES_GLISCOR_HOENNIAN                        1603
+#define SPECIES_HYDREIGON_HOENNIAN                      1604
+#define SPECIES_INFERNAPE_MEGA                          1605
+#define SPECIES_KAKUNA_HOENNIAN                         1606
+#define SPECIES_KINGAMBIT_HOENNIAN                      1607
+#define SPECIES_KINGDRA_MEGA_X                          1608
+#define SPECIES_KINGDRA_MEGA_Y                          1609
+#define SPECIES_LARVITAR_HOENNIAN                       1610
+#define SPECIES_LUXRAY_MEGA                             1611
+#define SPECIES_PAWNIARD_HOENNIAN                       1612
+#define SPECIES_PUPITAR_HOENNIAN                        1613
+#define SPECIES_SAMUROTT_MEGA                           1614
+#define SPECIES_SANDSLASH_MEGA                          1615
+#define SPECIES_SEALORD                                 1616
+#define SPECIES_SEEL_HOENNIAN                           1617
+#define SPECIES_SERPERIOR_MEGA                          1618
+#define SPECIES_SKARMORY_HOENNIAN                       1619
+#define SPECIES_SLAKING_MEGA                            1620
+#define SPECIES_SNORUNT_HOENNIAN                        1621
+#define SPECIES_TORTEMPLE                               1622
+#define SPECIES_TORTERRA_MEGA                           1623
+#define SPECIES_TROPIARCH                               1624
+#define SPECIES_TYRANITAR_HOENNIAN                      1625
+#define SPECIES_WEEDLE_HOENNIAN                         1626
+#define SPECIES_ZWEILOUS_HOENNIAN                       1627
+#define SPECIES_BARIONG                                 1628
+#define SPECIES_MAGNESCOR                               1629
+#define SPECIES_DREDWOOD                                1630
+#define SPECIES_BEEFENDER                               1631
+#define SPECIES_SOPRANICE                               1632
+#define SPECIES_WEAVILE_MEGA                            1633
 
-#define SPECIES_EGG                                     (SPECIES_NIDOKING_MEGA + 1)
+
+#define SPECIES_EGG                                     (SPECIES_WEAVILE_MEGA + 1)
 
 #define NUM_SPECIES SPECIES_EGG
 

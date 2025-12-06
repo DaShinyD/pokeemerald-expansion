@@ -1011,8 +1011,23 @@
 #define ITEM_STRANGE_BALL 845
 #define ITEM_FENT_BAG 846
 #define ITEM_NIDOKINGITE 847
+#define ITEM_BEEDRILLITE_H 848
+#define ITEM_TORTERRITE 849
+#define ITEM_INFERNITE 850
+#define ITEM_EMPOLEONITE 851
+#define ITEM_SERPERIORITE 852
+#define ITEM_EMBOARITE 853
+#define ITEM_SAMUROTTITE 854
+#define ITEM_KINGDRITE_X 855
+#define ITEM_KINGDRITE_Y 856
+#define ITEM_LUXRITE 857
+#define ITEM_SANDSLASHITE 858
+#define ITEM_SLAKINGITE 859
+#define ITEM_WEAVILITE 860
+#define ITEM_PANCAKES 861
 
-#define ITEMS_COUNT 848
+
+#define ITEMS_COUNT 862
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

@@ -728,6 +728,8 @@ extern const u32 gItemIcon_WaterStone[];
 extern const u32 gItemIconPalette_WaterStone[];
 extern const u32 gItemIcon_ThunderStone[];
 extern const u32 gItemIconPalette_ThunderStone[];
+extern const u32 gItemIcon_Pancake[];
+extern const u32 gItemIconPalette_Pancake[];
 extern const u32 gItemIcon_LeafStone[];
 extern const u32 gItemIconPalette_LeafStone[];
 extern const u32 gItemIcon_IceStone[];

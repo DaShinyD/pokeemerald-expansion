@@ -411,6 +411,7 @@ LeaderClub_EventScript_Blue::
 	lock
 	faceplayer
 	goto_if_unset FLAG_BEAT_BLAINE, LeaderClub_EventScript_NotQuite
+	goto_if_unset FLAG_STRATA_FINALE, LeaderClub_EventScript_FinishUp
 	goto_if_unset FLAG_MET_SCOTT_ON_SS_TIDAL, LeaderClub_EventScript_NoBlue
 	goto_if_set FLAG_BEAT_BLUE, LeaderClub_EventScript_BlueAlreadyBeat
 	msgbox LeaderClub_Text_BlueIntro, MSGBOX_DEFAULT
@@ -473,6 +474,16 @@ LeaderClub_Text_NoBlue:
 	.string "Battle Frontier has the right to\l"
 	.string "face me.$"
 
+LeaderClub_EventScript_FinishUp::
+	msgbox LeaderClub_Text_FinishUpStrata, MSGBOX_DEFAULT
+	release
+	end
+
+LeaderClub_Text_FinishUpStrata:
+	.string "Sorry, but I can't quite give you\n"
+	.string "permission to battle for Kanto.\p"
+	.string "I heard there was some issues at\n"
+	.string "Sky Pillar.$"
 
 
 @ Begin Johto Leaders

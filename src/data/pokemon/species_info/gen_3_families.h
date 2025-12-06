@@ -3590,6 +3590,8 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         )
         .levelUpLearnset = sSlakingLevelUpLearnset,
         .teachableLearnset = sSlakingTeachableLearnset,
+        .formSpeciesIdTable = sSlakingFormSpeciesIdTable,
+        .formChangeTable = sSlakingFormChangeTable,
     },
 #endif //P_FAMILY_SLAKOTH
 
@@ -6935,6 +6937,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .levelUpLearnset = sTorkoalLevelUpLearnset,
         .teachableLearnset = sTorkoalTeachableLearnset,
         .eggMoveLearnset = sTorkoalEggMoveLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_TORTEMPLE}),
     },
 #endif //P_FAMILY_TORKOAL
 
@@ -8385,6 +8388,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         )
         .levelUpLearnset = sCrawdauntLevelUpLearnset,
         .teachableLearnset = sCrawdauntTeachableLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 50, SPECIES_CRUSTULES}),
     },
 #endif //P_FAMILY_CORPHISH
 
@@ -9934,6 +9938,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .levelUpLearnset = sTropiusLevelUpLearnset,
         .teachableLearnset = sTropiusTeachableLearnset,
         .eggMoveLearnset = sTropiusEggMoveLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 45, SPECIES_TROPIARCH}),
     },
 #endif //P_FAMILY_TROPIUS
 

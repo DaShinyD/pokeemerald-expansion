@@ -1324,6 +1324,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sAriadosLevelUpLearnset,
         .teachableLearnset = sAriadosTeachableLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_ARACHTRES}),
     },
 #endif //P_FAMILY_SPINARAK
 
@@ -2521,6 +2522,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sSudowoodoLevelUpLearnset,
         .teachableLearnset = sSudowoodoTeachableLearnset,
         .eggMoveLearnset = sSudowoodoEggMoveLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 45, SPECIES_BOGUSPRUCE}),
     },
 #endif //P_FAMILY_SUDOWOODO
 
@@ -4688,7 +4690,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sGligarTeachableLearnset,
         .eggMoveLearnset = sGligarEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_ITEM_HOLD_NIGHT, ITEM_RAZOR_FANG, SPECIES_GLISCOR},
-                                {EVO_ITEM_NIGHT, ITEM_RAZOR_FANG, SPECIES_GLISCOR}),
+                                {EVO_ITEM, ITEM_RAZOR_FANG, SPECIES_GLISCOR}),
     },
 
 #if P_GEN_4_CROSS_EVOS
@@ -5524,6 +5526,8 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sWeavileLevelUpLearnset,
         .teachableLearnset = sWeavileTeachableLearnset,
+        .formSpeciesIdTable = sWeavileFormSpeciesIdTable,
+        .formChangeTable = sWeavileFormChangeTable,
     },
 #endif //P_GEN_4_CROSS_EVOS
 
@@ -6094,6 +6098,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sMagcargoLevelUpLearnset,
         .teachableLearnset = sMagcargoTeachableLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 52, SPECIES_ESCARGINITE}),
     },
 #endif //P_FAMILY_SLUGMA
 
@@ -7443,7 +7448,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sStantlerLevelUpLearnset,
         .teachableLearnset = sStantlerTeachableLearnset,
         .eggMoveLearnset = sStantlerEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_USE_MOVE_TWENTY_TIMES, MOVE_PSYSHIELD_BASH, SPECIES_WYRDEER}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_PANCAKES, SPECIES_WYRDEER}),
     },
 
 #if P_GEN_8_CROSS_EVOS

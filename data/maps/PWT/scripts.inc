@@ -99,7 +99,5 @@ PWT_EventScript_Done::
 	end
 
 PWT_Text_Done:
-	.string "The first PWT is over.\p"
-	.string "I heard Kanto recently opened up more.\p"
-	.string "See you next year!$"
+	.string "The first PWT is over.$"
 

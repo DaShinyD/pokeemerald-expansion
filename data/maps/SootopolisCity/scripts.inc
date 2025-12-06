@@ -261,7 +261,6 @@ SootopolisCity_EventScript_LegendariesSceneFromPokeCenter::
 	special RemoveCameraObject
 	setvar VAR_SOOTOPOLIS_CITY_STATE, 2
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
-	clearflag FLAG_HIDE_STRATA_SKY_PILLAR
 	releaseall
 	end
 
@@ -362,7 +361,6 @@ SootopolisCity_EventScript_LegendariesSceneFromDive::
 	special RemoveCameraObject
 	setvar VAR_SOOTOPOLIS_CITY_STATE, 2
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
-	clearflag FLAG_HIDE_STRATA_SKY_PILLAR
 	releaseall
 	end
 
@@ -1388,6 +1386,7 @@ SootopolisCity_EventScript_ArchieRayquaza::
 	end
 
 SootopolisCity_EventScript_MaxieArchieLeave::
+	clearflag FLAG_HIDE_STRATA_SKY_PILLAR
 	setflag FLAG_HIDE_SOOTOPOLIS_CITY_MAXIE
 	setflag FLAG_HIDE_SOOTOPOLIS_CITY_ARCHIE
 	setflag FLAG_SOOTOPOLIS_ARCHIE_MAXIE_LEAVE

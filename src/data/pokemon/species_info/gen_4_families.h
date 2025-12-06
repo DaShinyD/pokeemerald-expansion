@@ -211,6 +211,8 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         )
         .levelUpLearnset = sTorterraLevelUpLearnset,
         .teachableLearnset = sTorterraTeachableLearnset,
+        .formSpeciesIdTable = sTorterraFormSpeciesIdTable,
+        .formChangeTable = sTorterraFormChangeTable,
     },
 #endif //P_FAMILY_TURTWIG
 
@@ -430,6 +432,8 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         )
         .levelUpLearnset = sInfernapeLevelUpLearnset,
         .teachableLearnset = sInfernapeTeachableLearnset,
+        .formSpeciesIdTable = sInfernapeFormSpeciesIdTable,
+        .formChangeTable = sInfernapeFormChangeTable,
     },
 #endif //P_FAMILY_CHIMCHAR
 
@@ -657,6 +661,8 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         )
         .levelUpLearnset = sEmpoleonLevelUpLearnset,
         .teachableLearnset = sEmpoleonTeachableLearnset,
+        .formSpeciesIdTable = sEmpoleonFormSpeciesIdTable,
+        .formChangeTable = sEmpoleonFormChangeTable,
     },
 #endif //P_FAMILY_PIPLUP
 
@@ -1505,6 +1511,8 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         )
         .levelUpLearnset = sLuxrayLevelUpLearnset,
         .teachableLearnset = sLuxrayTeachableLearnset,
+        .formSpeciesIdTable = sLuxrayFormSpeciesIdTable,
+        .formChangeTable = sLuxrayFormChangeTable,
     },
 #endif //P_FAMILY_SHINX
 
@@ -2332,7 +2340,8 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .tmIlliterate = TRUE,
         .levelUpLearnset = sCombeeLevelUpLearnset,
         .teachableLearnset = sCombeeTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL_FEMALE, 21, SPECIES_VESPIQUEN}),
+        .evolutions = EVOLUTION({EVO_LEVEL_FEMALE, 21, SPECIES_VESPIQUEN},
+                                {EVO_LEVEL_MALE, 21, SPECIES_BEEFENDER}),
     },
 
     [SPECIES_VESPIQUEN] =

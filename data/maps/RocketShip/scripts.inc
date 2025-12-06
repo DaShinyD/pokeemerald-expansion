@@ -45,7 +45,7 @@ RocketShip_EventScript_ShipGuy::
 	waitmovement 0
 	msgbox RocketShip_Text_LetsGoHome, MSGBOX_DEFAULT
 	setflag FLAG_HIDE_SHIP_GUY
-	setflag FLAG_HIDE_PWT
+	setflag FLAG_CLEAR_KANTO
 	warp MAP_MOSSDEEP_CITY_SPACE_CENTER_2F, 13, 4
 	release
 	end
@@ -67,10 +67,9 @@ RocketShip_Text_LetsGoHome:
 	.string "but the planet multiple times.\p"
 	.string "An accomplished trainer such as\n"
 	.string "you should definitely dominate\l"
-	.string "the Pokemon World Tournament.\p"
-	.string "If you needed something to do\n"
-	.string "I believe it should be opening\l"
-	.string "up when we get back.\p"
+	.string "the Kanto region.\p"
+	.string "It should probably be more open\n"
+	.string "now that you took care of this.p"
 	.string "As for me, I have much more\n"
 	.string "research to do.\p"
 	.string "Now, let's get you home.$"

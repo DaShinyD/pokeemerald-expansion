@@ -2909,7 +2909,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .formSpeciesIdTable = sPikachuFormSpeciesIdTable,
         .formChangeTable = sPikachuFormChangeTable,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_THUNDER_STONE, SPECIES_RAICHU},
-                                {EVO_NONE, 0, SPECIES_RAICHU_ALOLA}),
+                                {EVO_ITEM, ITEM_PANCAKES, SPECIES_RAICHU_ALOLA}),
     },
 
 #if P_COSPLAY_PIKACHU_FORMS
@@ -4107,6 +4107,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sSandslashLevelUpLearnset,
         .teachableLearnset = sSandslashTeachableLearnset,
         .formSpeciesIdTable = sSandslashFormSpeciesIdTable,
+        .formChangeTable = sSandslashFormChangeTable,
     },
 
 #if P_ALOLAN_FORMS
@@ -13027,7 +13028,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .teachableLearnset = sCuboneTeachableLearnset,
         .eggMoveLearnset = sCuboneEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 28, SPECIES_MAROWAK},
-                                {EVO_NONE, 0, SPECIES_MAROWAK_ALOLA},
+                                {EVO_ITEM, ITEM_PANCAKES, SPECIES_MAROWAK_ALOLA},
                                 {EVO_NONE, 0, SPECIES_MAROWAK_ALOLA_TOTEM}),
     },
 
@@ -14894,6 +14895,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sKingdraLevelUpLearnset,
         .teachableLearnset = sKingdraTeachableLearnset,
+        .formSpeciesIdTable = sKingdraFormSpeciesIdTable,
+        .formChangeTable = sKingdraFormChangeTable,
     },
 #endif //P_GEN_2_CROSS_EVOS
 #endif //P_FAMILY_HORSEA
@@ -15067,6 +15070,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sSeakingLevelUpLearnset,
         .teachableLearnset = sSeakingTeachableLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 48, SPECIES_SEALORD}),
     },
 #endif //P_FAMILY_GOLDEEN
 
@@ -15958,6 +15962,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sJynxLevelUpLearnset,
         .teachableLearnset = sJynxTeachableLearnset,
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_ICE_STONE, SPECIES_SOPRANICE}),
     },
 #endif //P_FAMILY_JYNX
 
