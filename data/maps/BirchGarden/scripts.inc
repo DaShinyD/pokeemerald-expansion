@@ -105,7 +105,7 @@ BirchGarden_EventScript_StrataGrunt3Leave::
 	msgbox BirchGarden_Text_StrataGrunt3Bye, MSGBOX_DEFAULT
 	closemessage
 	fadescreen FADE_TO_BLACK
-	removeobject LOCALID_STRATA_GRUNT
+	removeobject LOCALID_STRATA_GRUNT_3
 	setflag FLAG_STRATA_PRE
 	setflag FLAG_STRATA_FINALE
 	fadescreen FADE_FROM_BLACK

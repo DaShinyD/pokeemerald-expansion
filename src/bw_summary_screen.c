@@ -4353,8 +4353,8 @@ static void BufferAndPrintStats_HandleState(u8 mode)
 
     if (mode == SKILL_STATE_STATS)
     {
-        ConvertIntToDecimalStringN(currentHPString, hp, STR_CONV_MODE_RIGHT_ALIGN, 3);
-        ConvertIntToDecimalStringN(maxHPString, hp2, STR_CONV_MODE_RIGHT_ALIGN, 3);
+        ConvertIntToDecimalStringN(currentHPString, hp, STR_CONV_MODE_RIGHT_ALIGN, 4);
+        ConvertIntToDecimalStringN(maxHPString, hp2, STR_CONV_MODE_RIGHT_ALIGN, 4);
         DynamicPlaceholderTextUtil_Reset();
         DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, currentHPString);
         DynamicPlaceholderTextUtil_SetPlaceholderPtr(1, maxHPString);
@@ -4362,16 +4362,16 @@ static void BufferAndPrintStats_HandleState(u8 mode)
         PrintHPStats(mode);
 
         DynamicPlaceholderTextUtil_Reset();
-        BufferStat(gStringVar1, STAT_ATK, atk, 0, 3);
-        BufferStat(gStringVar2, STAT_DEF, def, 1, 3);
-        BufferStat(gStringVar3, STAT_SPATK, spA, 2, 3);
-        BufferStat(gStringVar4, STAT_SPDEF, spD, 3, 3);
-        BufferStat(sStringVar5, STAT_SPEED, spe, 4, 3);
+        BufferStat(gStringVar1, STAT_ATK, atk, 0, 4);
+        BufferStat(gStringVar2, STAT_DEF, def, 1, 4);
+        BufferStat(gStringVar3, STAT_SPATK, spA, 2, 4);
+        BufferStat(gStringVar4, STAT_SPDEF, spD, 3, 4);
+        BufferStat(sStringVar5, STAT_SPEED, spe, 4, 4);
         PrintNonHPStats();
     }
     else
     {
-        BufferStat(maxHPString, 0, hp, 0, 7);
+        BufferStat(maxHPString, 0, hp, 0, 8);
         DynamicPlaceholderTextUtil_Reset();
         DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, maxHPString);
         DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sStatsHPIVEVLayout);
@@ -4394,8 +4394,8 @@ static void BufferHPStats(void)
     u8 *currentHPString = Alloc(8);
     u8 *maxHPString = Alloc(8);
 
-    ConvertIntToDecimalStringN(currentHPString, sMonSummaryScreen->summary.currentHP, STR_CONV_MODE_RIGHT_ALIGN, 3);
-    ConvertIntToDecimalStringN(maxHPString, sMonSummaryScreen->summary.maxHP, STR_CONV_MODE_RIGHT_ALIGN, 3);
+    ConvertIntToDecimalStringN(currentHPString, sMonSummaryScreen->summary.currentHP, STR_CONV_MODE_RIGHT_ALIGN, 4);
+    ConvertIntToDecimalStringN(maxHPString, sMonSummaryScreen->summary.maxHP, STR_CONV_MODE_RIGHT_ALIGN, 4);
 
     DynamicPlaceholderTextUtil_Reset();
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, currentHPString);
@@ -4409,7 +4409,7 @@ static void BufferHPStats(void)
 static void PrintHPStats(u8 mode)
 {
     if (mode == SKILL_STATE_STATS)
-        PrintTextOnWindow(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_STATS_HP), gStringVar4, 19, 0, 0, 0);
+        PrintTextOnWindow(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_STATS_HP), gStringVar4, 10, 0, 0, 0);
     else
         PrintTextOnWindow(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_STATS_HP), gStringVar4, 6, 0, 0, 0);
 }
@@ -4418,21 +4418,21 @@ static void PrintHPStats(u8 mode)
 static void BufferNonHPStats(void)
 {
     DynamicPlaceholderTextUtil_Reset();
-    BufferStat(gStringVar1, STAT_ATK, sMonSummaryScreen->summary.atk, 0, 3);
-    BufferStat(gStringVar2, STAT_DEF, sMonSummaryScreen->summary.def, 1, 3);
-    BufferStat(gStringVar3, STAT_SPATK, sMonSummaryScreen->summary.spatk, 2, 3);
-    BufferStat(gStringVar4, STAT_SPDEF, sMonSummaryScreen->summary.spdef, 3, 3);
-    BufferStat(sStringVar5, STAT_SPEED, sMonSummaryScreen->summary.speed, 4, 3);
+    BufferStat(gStringVar1, STAT_ATK, sMonSummaryScreen->summary.atk, 0, 4);
+    BufferStat(gStringVar2, STAT_DEF, sMonSummaryScreen->summary.def, 1, 4);
+    BufferStat(gStringVar3, STAT_SPATK, sMonSummaryScreen->summary.spatk, 2, 4);
+    BufferStat(gStringVar4, STAT_SPDEF, sMonSummaryScreen->summary.spdef, 3, 4);
+    BufferStat(sStringVar5, STAT_SPEED, sMonSummaryScreen->summary.speed, 4, 4);
 }
 
 static void PrintNonHPStats(void)
 {
     u8 windowId = AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_STATS_NON_HP);
-    PrintTextOnWindow(windowId, gStringVar1, 30, 4, 0, 0);
-    PrintTextOnWindow(windowId, gStringVar2, 30, 16, 0, 0);
-    PrintTextOnWindow(windowId, gStringVar3, 30, 28, 0, 0);
-    PrintTextOnWindow(windowId, gStringVar4, 30, 40, 0, 0);
-    PrintTextOnWindow(windowId, sStringVar5, 30, 52, 0, 0);
+    PrintTextOnWindow(windowId, gStringVar1, 24, 4, 0, 0);
+    PrintTextOnWindow(windowId, gStringVar2, 24, 16, 0, 0);
+    PrintTextOnWindow(windowId, gStringVar3, 24, 28, 0, 0);
+    PrintTextOnWindow(windowId, gStringVar4, 24, 40, 0, 0);
+    PrintTextOnWindow(windowId, sStringVar5, 24, 52, 0, 0);
 }
 
 static void PrintExpPointsNextLevel(void)
@@ -4443,8 +4443,8 @@ static void PrintExpPointsNextLevel(void)
     u8 windowIdNextLvl = AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_EXP_NEXT_LEVEL);
 
     // print exp
-    ConvertIntToDecimalStringN(gStringVar1, sum->exp, STR_CONV_MODE_RIGHT_ALIGN, 7);
-    PrintTextOnWindow(windowIdExp, gStringVar1, 45, 4, 0, 0);
+    ConvertIntToDecimalStringN(gStringVar1, sum->exp, STR_CONV_MODE_RIGHT_ALIGN, 8);
+    PrintTextOnWindow(windowIdExp, gStringVar1, 39, 4, 0, 0);
 
     // print exp to next level
     if (sum->level < MAX_LEVEL)

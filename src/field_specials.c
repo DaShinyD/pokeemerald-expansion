@@ -1282,7 +1282,42 @@ bool8 CheckStarter(void)
         u16 species = GetMonData(mon, MON_DATA_SPECIES);
 
         // starters, other values dont matter itll be called right after receiving
-        if (species == SPECIES_TREECKO || species == SPECIES_TORCHIC || species == SPECIES_MUDKIP || species == SPECIES_CHIKORITA || species == SPECIES_CYNDAQUIL || species == SPECIES_TOTODILE || species == SPECIES_BULBASAUR || species == SPECIES_CHARMANDER || species == SPECIES_SQUIRTLE)
+        if (species == SPECIES_TREECKO
+        || species == SPECIES_TORCHIC
+        || species == SPECIES_MUDKIP
+        || species == SPECIES_CHIKORITA
+        || species == SPECIES_CYNDAQUIL
+        || species == SPECIES_TOTODILE
+        || species == SPECIES_BULBASAUR
+        || species == SPECIES_CHARMANDER
+        || species == SPECIES_SQUIRTLE
+        || species == SPECIES_TURTWIG
+        || species == SPECIES_GROOKEY
+        || species == SPECIES_SNIVY
+        || species == SPECIES_ROWLET
+        || species == SPECIES_SPRIGATITO
+        || species == SPECIES_PIKACHU_PARTNER
+        || species == SPECIES_ABRA_HOENNIAN
+        || species == SPECIES_PAWNIARD_HOENNIAN
+        || species == SPECIES_PHANTUMP
+        || species == SPECIES_CHIMCHAR
+        || species == SPECIES_TEPIG
+        || species == SPECIES_LITTEN
+        || species == SPECIES_SCORBUNNY
+        || species == SPECIES_FUECOCO
+        || species == SPECIES_EEVEE_STARTER
+        || species == SPECIES_WEEDLE_HOENNIAN
+        || species == SPECIES_ARON
+        || species == SPECIES_SHINX
+        || species == SPECIES_GLIGAR_HOENNIAN
+        || species == SPECIES_PIPLUP
+        || species == SPECIES_FROAKIE
+        || species == SPECIES_POPPLIO
+        || species == SPECIES_SOBBLE
+        || species == SPECIES_QUAXLY
+        || species == SPECIES_MUDKIP_HOENNIAN
+        || species == SPECIES_HORSEA
+        || species == SPECIES_TYROGUE)
         {
             starterSpecies = species;
             break;
@@ -1295,16 +1330,43 @@ bool8 CheckStarter(void)
         case SPECIES_TREECKO:
         case SPECIES_BULBASAUR:
         case SPECIES_CHIKORITA:
+        case SPECIES_TURTWIG:
+        case SPECIES_GROOKEY:
+        case SPECIES_SNIVY:
+        case SPECIES_ROWLET:
+        case SPECIES_SPRIGATITO:
+        case SPECIES_PIKACHU_PARTNER:
+        case SPECIES_ABRA_HOENNIAN:
+        case SPECIES_PAWNIARD_HOENNIAN:
+        case SPECIES_PHANTUMP:
             VarSet(VAR_STARTER_MON, 0); // Rival has torchic
             break;
         case SPECIES_TORCHIC:
         case SPECIES_CYNDAQUIL:
         case SPECIES_CHARMANDER:
+        case SPECIES_CHIMCHAR:
+        case SPECIES_TEPIG:
+        case SPECIES_LITTEN:
+        case SPECIES_SCORBUNNY:
+        case SPECIES_FUECOCO:
+        case SPECIES_EEVEE_STARTER:
+        case SPECIES_WEEDLE_HOENNIAN:
+        case SPECIES_ARON:
+        case SPECIES_SHINX:
+        case SPECIES_GLIGAR_HOENNIAN:
             VarSet(VAR_STARTER_MON, 1); // Rival has mudkip
             break;
         case SPECIES_MUDKIP:
         case SPECIES_SQUIRTLE:
         case SPECIES_TOTODILE:
+        case SPECIES_PIPLUP:
+        case SPECIES_FROAKIE:
+        case SPECIES_POPPLIO:
+        case SPECIES_SOBBLE:
+        case SPECIES_QUAXLY:
+        case SPECIES_MUDKIP_HOENNIAN:
+        case SPECIES_HORSEA:
+        case SPECIES_TYROGUE:
             VarSet(VAR_STARTER_MON, 2); // Rival has treecko
             break;
     }

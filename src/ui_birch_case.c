@@ -59,6 +59,7 @@ struct MenuResources
     u16 pokeballSpriteIds[9];
     u16 handSpriteId;
     u16 handPosition;
+    u8  starterSet;        // NEW: which starter set is active (0..STARTER_SET_COUNT-1)
     u16 selector_x;
     u16 selector_y;
     u16 movingSelector;
@@ -130,20 +131,78 @@ struct MonChoiceData{ // This is the format used to define a mon, everything lef
 //
 //  Making Changes Here Changes The Options In The UI. This is where you define your mons
 //
-static const struct MonChoiceData sStarterChoices[9] = 
+//
+//  Making Changes Here Changes The Options In The UI. This is where you define your mons
+//
+
+#define STARTER_SET_COUNT 4
+
+// 4 full sets of 9 choices each, stored in ROM
+static const struct MonChoiceData sStarterChoicesSets[STARTER_SET_COUNT][9] =
 {
-    [BALL_TOP_FIRST]        = {SPECIES_TREECKO, 5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
-    [BALL_TOP_SECOND]       = {SPECIES_TORCHIC, 5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
-    [BALL_MIDDLE_FIRST]     = {SPECIES_MUDKIP, 5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+    // ===== SET 1 =====
+    {
+        [BALL_TOP_FIRST]        = {SPECIES_TREECKO,  5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_TOP_SECOND]       = {SPECIES_TORCHIC,  5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_MIDDLE_FIRST]     = {SPECIES_MUDKIP,   5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
 
-    [BALL_TOP_THIRD]        = {SPECIES_CHIKORITA, 5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
-    [BALL_TOP_FOURTH]       = {SPECIES_CYNDAQUIL, 5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
-    [BALL_MIDDLE_THIRD]     = {SPECIES_TOTODILE, 5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_TOP_THIRD]        = {SPECIES_CHIKORITA,5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_TOP_FOURTH]       = {SPECIES_CYNDAQUIL,5,ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_MIDDLE_THIRD]     = {SPECIES_TOTODILE, 5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
 
-    [BALL_MIDDLE_SECOND]    = {SPECIES_BULBASAUR, 5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
-    [BALL_BOTTOM_FIRST]     = {SPECIES_CHARMANDER, 5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
-    [BALL_BOTTOM_SECOND]    = {SPECIES_SQUIRTLE, 5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_MIDDLE_SECOND]    = {SPECIES_BULBASAUR,5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_BOTTOM_FIRST]     = {SPECIES_CHARMANDER,5,ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_BOTTOM_SECOND]    = {SPECIES_SQUIRTLE, 5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+    },
+
+    // ===== SET 2 ===== 
+    {
+        [BALL_TOP_FIRST]        = {SPECIES_TURTWIG, 5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_TOP_SECOND]       = {SPECIES_CHIMCHAR,5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_MIDDLE_FIRST]     = {SPECIES_PIPLUP,  5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+
+        [BALL_TOP_THIRD]        = {SPECIES_SNIVY,   5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_TOP_FOURTH]       = {SPECIES_TEPIG,   5,ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_MIDDLE_THIRD]     = {SPECIES_FROAKIE, 5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+
+        [BALL_MIDDLE_SECOND]    = {SPECIES_ROWLET,  5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_BOTTOM_FIRST]     = {SPECIES_LITTEN,  5,ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_BOTTOM_SECOND]    = {SPECIES_POPPLIO, 5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+    },
+
+    // ===== SET 3 =====
+    {
+        [BALL_TOP_FIRST]        = {SPECIES_GROOKEY,  5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_TOP_SECOND]       = {SPECIES_SCORBUNNY,5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_MIDDLE_FIRST]     = {SPECIES_SOBBLE,   5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+
+        [BALL_TOP_THIRD]        = {SPECIES_SPRIGATITO,5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_TOP_FOURTH]       = {SPECIES_FUECOCO,   5,ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_MIDDLE_THIRD]     = {SPECIES_QUAXLY,    5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+
+        [BALL_MIDDLE_SECOND]    = {SPECIES_MUDKIP_HOENNIAN,5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_BOTTOM_FIRST]     = {SPECIES_EEVEE_STARTER,5,ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_BOTTOM_SECOND]    = {SPECIES_PIKACHU_PARTNER, 5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+    },
+
+    // ===== SET 4 =====
+    {
+        [BALL_TOP_FIRST]        = {SPECIES_WEEDLE_HOENNIAN,  5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_TOP_SECOND]       = {SPECIES_ABRA_HOENNIAN,  5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_MIDDLE_FIRST]     = {SPECIES_PAWNIARD_HOENNIAN,   5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+
+        [BALL_TOP_THIRD]        = {SPECIES_HORSEA,5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_TOP_FOURTH]       = {SPECIES_PHANTUMP,5,ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_MIDDLE_THIRD]     = {SPECIES_TYROGUE, 5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+
+        [BALL_MIDDLE_SECOND]    = {SPECIES_ARON,5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_BOTTOM_FIRST]     = {SPECIES_SHINX,5,ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+        [BALL_BOTTOM_SECOND]    = {SPECIES_GLIGAR_HOENNIAN, 5, ITEM_NONE, ITEM_POKE_BALL, 26, 0, 4, {0, 0, 0, 0, 0, 0}, {32, 32, 32, 32, 32, 32}},
+    },
 };
+
+static EWRAM_DATA struct MonChoiceData sStarterChoices[9] = {0};
+
 
 //==========EWRAM==========//
 static EWRAM_DATA struct MenuResources *sBirchCaseDataPtr = NULL;
@@ -500,8 +559,12 @@ void BirchCase_Init(MainCallback callback)
     sBirchCaseDataPtr->savedCallback = callback;
 
     sBirchCaseDataPtr->handSpriteId = SPRITE_NONE;
+    sBirchCaseDataPtr->starterSet = 0; // NEW: start on set 0
 
-    for(i=0; i < 9; i++)
+    // Load the first starter set into the active array
+    memcpy(sStarterChoices, sStarterChoicesSets[0], sizeof(sStarterChoices));
+
+    for (i = 0; i < 9; i++)
     {
         sBirchCaseDataPtr->pokeballSpriteIds[i] = SPRITE_NONE;
     }
@@ -724,7 +787,7 @@ static void BirchCase_InitWindows(void)
 //
 //  Text Printing Function
 //
-static const u8 sText_ChooseMon[] = _("Release a Pokémon!");
+static const u8 sText_ChooseMon[] = _("Press {L_BUTTON} or {R_BUTTON} to cycle choices!");
 static const u8 sText_AreYouSure[] = _("Are you sure?    {A_BUTTON} Yes  {B_BUTTON} No");
 static const u8 sText_RecievedMon[] = _("Give your Pokémon a Nickname?   {A_BUTTON} Yes  {B_BUTTON} No");
 static void PrintTextToBottomBar(u8 textId)
@@ -867,24 +930,60 @@ static void Task_BirchCaseConfirmSelection(u8 taskId)
     }
 }
 
+// Function to change starter set (1-4)
+static void BirchCase_ChangeStarterSet(s8 delta, u8 taskId)
+{
+    u8 newSet;
+
+    if (STARTER_SET_COUNT <= 1)
+        return;
+
+    // wrap: 0..STARTER_SET_COUNT-1, supports +1/-1 etc.
+    newSet = (sBirchCaseDataPtr->starterSet + delta + STARTER_SET_COUNT) % STARTER_SET_COUNT;
+
+    if (newSet == sBirchCaseDataPtr->starterSet)
+        return;
+
+    sBirchCaseDataPtr->starterSet = newSet;
+    memcpy(sStarterChoices, sStarterChoicesSets[newSet], sizeof(sStarterChoices));
+
+    // Reload the current slot’s mon graphic + text
+    ReloadNewPokemon(taskId);
+    PrintTextToBottomBar(CHOOSE_MON);
+}
 
 /* Main Grid Based Movement Control Flow*/
 static void Task_BirchCaseMain(u8 taskId)
 {
     u16 oldPosition = sBirchCaseDataPtr->handPosition;
-    if(JOY_NEW(DPAD_UP))
+
+    // NEW: L/R shoulder cycle starter sets (with wrap-around)
+    if (JOY_NEW(L_BUTTON))
     {
         PlaySE(SE_SELECT);
-        if(sBirchCaseDataPtr->handPosition <= BALL_TOP_FOURTH) // top row move up
+        BirchCase_ChangeStarterSet(-1, taskId); // previous set
+        return;
+    }
+    if (JOY_NEW(R_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        BirchCase_ChangeStarterSet(+1, taskId); // next set
+        return;
+    }
+
+    if (JOY_NEW(DPAD_UP))
+    {
+        PlaySE(SE_SELECT);
+        if (sBirchCaseDataPtr->handPosition <= BALL_TOP_FOURTH) // top row move up
         {
-            if(sBirchCaseDataPtr->handPosition < BALL_TOP_THIRD)
+            if (sBirchCaseDataPtr->handPosition < BALL_TOP_THIRD)
                 sBirchCaseDataPtr->handPosition = BALL_BOTTOM_FIRST;
             else
                 sBirchCaseDataPtr->handPosition = BALL_BOTTOM_SECOND;
         }
-        else if(sBirchCaseDataPtr->handPosition <= BALL_MIDDLE_THIRD)  // middle row move up
+        else if (sBirchCaseDataPtr->handPosition <= BALL_MIDDLE_THIRD)  // middle row move up
         {
-            if(sBirchCaseDataPtr->handPosition == BALL_MIDDLE_FIRST)
+            if (sBirchCaseDataPtr->handPosition == BALL_MIDDLE_FIRST)
                 sBirchCaseDataPtr->handPosition = BALL_TOP_FIRST;
             else if (sBirchCaseDataPtr->handPosition == BALL_MIDDLE_SECOND)
                 sBirchCaseDataPtr->handPosition = BALL_TOP_SECOND;
@@ -898,28 +997,28 @@ static void Task_BirchCaseMain(u8 taskId)
         ChangePositionUpdateSpriteAnims(oldPosition, taskId);
         return;
     }
-    if(JOY_NEW(DPAD_DOWN))
+    if (JOY_NEW(DPAD_DOWN))
     {
         PlaySE(SE_SELECT);
-        if(sBirchCaseDataPtr->handPosition <= BALL_TOP_FOURTH) // top row move down
+        if (sBirchCaseDataPtr->handPosition <= BALL_TOP_FOURTH) // top row move down
         {
-            if(sBirchCaseDataPtr->handPosition < BALL_TOP_THIRD)
+            if (sBirchCaseDataPtr->handPosition < BALL_TOP_THIRD)
                 sBirchCaseDataPtr->handPosition = BALL_MIDDLE_FIRST;
-            else if(sBirchCaseDataPtr->handPosition == BALL_TOP_THIRD)
+            else if (sBirchCaseDataPtr->handPosition == BALL_TOP_THIRD)
                 sBirchCaseDataPtr->handPosition = BALL_MIDDLE_SECOND;
             else
                 sBirchCaseDataPtr->handPosition = BALL_MIDDLE_THIRD;
         }
-        else if(sBirchCaseDataPtr->handPosition <= BALL_MIDDLE_THIRD)  // middle row move down
+        else if (sBirchCaseDataPtr->handPosition <= BALL_MIDDLE_THIRD)  // middle row move down
         {
-            if(sBirchCaseDataPtr->handPosition < BALL_MIDDLE_SECOND)
+            if (sBirchCaseDataPtr->handPosition < BALL_MIDDLE_SECOND)
                 sBirchCaseDataPtr->handPosition = BALL_BOTTOM_FIRST;
             else
                 sBirchCaseDataPtr->handPosition = BALL_BOTTOM_SECOND;
         }
         else  // bottom row move down
         {
-            if(sBirchCaseDataPtr->handPosition == BALL_BOTTOM_FIRST)
+            if (sBirchCaseDataPtr->handPosition == BALL_BOTTOM_FIRST)
                 sBirchCaseDataPtr->handPosition = BALL_TOP_SECOND;
             else
                 sBirchCaseDataPtr->handPosition = BALL_TOP_THIRD;
@@ -927,26 +1026,26 @@ static void Task_BirchCaseMain(u8 taskId)
         ChangePositionUpdateSpriteAnims(oldPosition, taskId);
         return;
     }
-    if(JOY_NEW(DPAD_RIGHT))
+    if (JOY_NEW(DPAD_RIGHT))
     {
         PlaySE(SE_SELECT);
-        if(sBirchCaseDataPtr->handPosition <= BALL_TOP_FOURTH) // top row move down
+        if (sBirchCaseDataPtr->handPosition <= BALL_TOP_FOURTH) // top row move right
         {
-            if(sBirchCaseDataPtr->handPosition == BALL_TOP_FOURTH) // top row move down
+            if (sBirchCaseDataPtr->handPosition == BALL_TOP_FOURTH)
                 sBirchCaseDataPtr->handPosition = BALL_TOP_FIRST;
             else
                 sBirchCaseDataPtr->handPosition += 1;
         }
-        else if(sBirchCaseDataPtr->handPosition <= BALL_MIDDLE_THIRD)  // middle row move down
+        else if (sBirchCaseDataPtr->handPosition <= BALL_MIDDLE_THIRD)  // middle row move right
         {
-            if(sBirchCaseDataPtr->handPosition == BALL_MIDDLE_THIRD) // top row move down
+            if (sBirchCaseDataPtr->handPosition == BALL_MIDDLE_THIRD)
                 sBirchCaseDataPtr->handPosition = BALL_MIDDLE_FIRST;
             else
                 sBirchCaseDataPtr->handPosition += 1;
         }
-        else  // bottom row move down
+        else  // bottom row move right
         {
-            if(sBirchCaseDataPtr->handPosition == BALL_BOTTOM_SECOND) // top row move down
+            if (sBirchCaseDataPtr->handPosition == BALL_BOTTOM_SECOND)
                 sBirchCaseDataPtr->handPosition = BALL_BOTTOM_FIRST;
             else
                 sBirchCaseDataPtr->handPosition += 1;
@@ -954,26 +1053,26 @@ static void Task_BirchCaseMain(u8 taskId)
         ChangePositionUpdateSpriteAnims(oldPosition, taskId);
         return;
     }
-    if(JOY_NEW(DPAD_LEFT))
+    if (JOY_NEW(DPAD_LEFT))
     {
         PlaySE(SE_SELECT);
-        if(sBirchCaseDataPtr->handPosition <= BALL_TOP_FOURTH) // top row move down
+        if (sBirchCaseDataPtr->handPosition <= BALL_TOP_FOURTH) // top row move left
         {
-            if(sBirchCaseDataPtr->handPosition == BALL_TOP_FIRST) // top row move down
+            if (sBirchCaseDataPtr->handPosition == BALL_TOP_FIRST)
                 sBirchCaseDataPtr->handPosition = BALL_TOP_FOURTH;
             else
                 sBirchCaseDataPtr->handPosition -= 1;
         }
-        else if(sBirchCaseDataPtr->handPosition <= BALL_MIDDLE_THIRD)  // middle row move down
+        else if (sBirchCaseDataPtr->handPosition <= BALL_MIDDLE_THIRD)  // middle row move left
         {
-            if(sBirchCaseDataPtr->handPosition == BALL_MIDDLE_FIRST) // top row move down
+            if (sBirchCaseDataPtr->handPosition == BALL_MIDDLE_FIRST)
                 sBirchCaseDataPtr->handPosition = BALL_MIDDLE_THIRD;
             else
                 sBirchCaseDataPtr->handPosition -= 1;
         }
-        else  // bottom row move down
+        else  // bottom row move left
         {
-            if(sBirchCaseDataPtr->handPosition == BALL_BOTTOM_FIRST) // top row move down
+            if (sBirchCaseDataPtr->handPosition == BALL_BOTTOM_FIRST)
                 sBirchCaseDataPtr->handPosition = BALL_BOTTOM_SECOND;
             else
                 sBirchCaseDataPtr->handPosition -= 1;
@@ -981,9 +1080,9 @@ static void Task_BirchCaseMain(u8 taskId)
         ChangePositionUpdateSpriteAnims(oldPosition, taskId);
         return;
     }
-    if(JOY_NEW(A_BUTTON))
+    if (JOY_NEW(A_BUTTON))
     {
-        if(sStarterChoices[sBirchCaseDataPtr->handPosition].species != SPECIES_NONE) // If spot empty don't go to next control flow state
+        if (sStarterChoices[sBirchCaseDataPtr->handPosition].species != SPECIES_NONE) // If spot empty don't go to next control flow state
         {
             PlaySE(SE_SELECT);
             PrintTextToBottomBar(CONFIRM_SELECTION);
@@ -997,6 +1096,7 @@ static void Task_BirchCaseMain(u8 taskId)
         }
     }
 }
+
 
 
 

@@ -269,8 +269,19 @@ PlayersHouse_2F_EventScript_Notebook::
 	end
 
 PlayersHouse_2F_EventScript_GameCube::
+	goto_if_set FLAG_HIDE_ROUTE_101_BOY, PlayersHouse_2F_EventScript_NotYet
 	call Common_EventScript_MysteryGift
 	end
+
+PlayersHouse_2F_EventScript_NotYet::
+	lock
+	msgbox PlayersHouse_2F_Text_NotYet, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+PlayersHouse_2F_Text_NotYet:
+	.string "You need a starter first!$"
 
 PlayersHouse_2F_EventScript_LevelCap::
 	lock
