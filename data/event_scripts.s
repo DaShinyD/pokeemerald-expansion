@@ -1492,3 +1492,21 @@ MysteryGift_Text_ReceivedGiftMon:
 	.include "data/maps/GatehouseNorth/scripts.inc"
 
 	.include "data/maps/GatehouseSouth/scripts.inc"
+
+	.include "data/maps/Route12/scripts.inc"
+
+	.include "data/maps/CeladonCity/scripts.inc"
+
+	.include "data/maps/GatehouseWestC/scripts.inc"
+
+	.include "data/maps/FuchsiaCity/scripts.inc"
+
+	.include "data/maps/Route16/scripts.inc"
+
+	.include "data/maps/LavFuch/scripts.inc"
+
+	.include "data/maps/PalleteTown/scripts.inc"
+
+	.include "data/maps/Route21/scripts.inc"
+
+	.include "data/maps/CinnabarIsland/scripts.inc"

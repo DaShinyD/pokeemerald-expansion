@@ -40,7 +40,12 @@
     "gMapGroup_IndoorCerulean",
     "gMapGroup_IndoorPewter",
     "gMapGroup_IndoorVeridian",
-    "gMapGroup_IndoorSaffron"
+    "gMapGroup_IndoorLavender",
+    "gMapGroup_IndoorCeladon",
+    "gMapGroup_IndoorSaffron",
+    "gMapGroup_IndoorFuschia",
+    "gMapGroup_IndoorCinnabar",
+    "gMapGroup_IndoorPallet"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PetalburgCity",
@@ -689,7 +694,15 @@
     "Route10",
     "LavenderTown",
     "Route8",
-    "SaffronCity"
+    "SaffronCity",
+    "Route12",
+    "CeladonCity",
+    "FuchsiaCity",
+    "Route16",
+    "LavFuch",
+    "PalleteTown",
+    "Route21",
+    "CinnabarIsland"
   ],
   "gMapGroup_IndoorVermillion": [
     "VermillionCity_Center",
@@ -719,10 +732,25 @@
     "Viridian_PokemonLeague_Hall5",
     "Viridian_PokemonLeague_ChampRoom"
   ],
+  "gMapGroup_IndoorLavender": [
+
+  ],
+  "gMapGroup_IndoorCeladon": [
+    "GatehouseWestC"
+  ],
   "gMapGroup_IndoorSaffron": [
     "GatehouseWest",
     "GatehouseEast",
     "GatehouseNorth",
     "GatehouseSouth"
+  ],
+  "gMapGroup_IndoorFuschia": [
+
+  ],
+  "gMapGroup_IndoorCinnabar": [
+
+  ],
+  "gMapGroup_IndoorPallet": [
+
   ]
 }

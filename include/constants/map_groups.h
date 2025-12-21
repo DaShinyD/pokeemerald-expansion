@@ -653,6 +653,14 @@
 #define MAP_LAVENDER_TOWN   (14 | (35 << 8))
 #define MAP_ROUTE8          (15 | (35 << 8))
 #define MAP_SAFFRON_CITY    (16 | (35 << 8))
+#define MAP_ROUTE12         (17 | (35 << 8))
+#define MAP_CELADON_CITY    (18 | (35 << 8))
+#define MAP_FUCHSIA_CITY    (19 | (35 << 8))
+#define MAP_ROUTE16         (20 | (35 << 8))
+#define MAP_LAV_FUCH        (21 | (35 << 8))
+#define MAP_PALLETE_TOWN    (22 | (35 << 8))
+#define MAP_ROUTE21         (23 | (35 << 8))
+#define MAP_CINNABAR_ISLAND (24 | (35 << 8))
 
 // gMapGroup_IndoorVermillion
 #define MAP_VERMILLION_CITY_CENTER   (0 | (36 << 8))
@@ -682,12 +690,23 @@
 #define MAP_VIRIDIAN_POKEMON_LEAGUE_HALL5        (9 | (39 << 8))
 #define MAP_VIRIDIAN_POKEMON_LEAGUE_CHAMP_ROOM   (10 | (39 << 8))
 
-// gMapGroup_IndoorSaffron
-#define MAP_GATEHOUSE_WEST  (0 | (40 << 8))
-#define MAP_GATEHOUSE_EAST  (1 | (40 << 8))
-#define MAP_GATEHOUSE_NORTH (2 | (40 << 8))
-#define MAP_GATEHOUSE_SOUTH (3 | (40 << 8))
+// gMapGroup_IndoorLavender
 
-#define MAP_GROUPS_COUNT 41
+// gMapGroup_IndoorCeladon
+#define MAP_GATEHOUSE_WEST_C (0 | (41 << 8))
+
+// gMapGroup_IndoorSaffron
+#define MAP_GATEHOUSE_WEST  (0 | (42 << 8))
+#define MAP_GATEHOUSE_EAST  (1 | (42 << 8))
+#define MAP_GATEHOUSE_NORTH (2 | (42 << 8))
+#define MAP_GATEHOUSE_SOUTH (3 | (42 << 8))
+
+// gMapGroup_IndoorFuschia
+
+// gMapGroup_IndoorCinnabar
+
+// gMapGroup_IndoorPallet
+
+#define MAP_GROUPS_COUNT 46
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

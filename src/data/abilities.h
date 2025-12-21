@@ -2408,4 +2408,24 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .cantBeSwapped = TRUE,
         .cantBeTraced = TRUE,
     },
+
+    [ABILITY_CREATOR] =
+    {
+        .name = _("Creator"),
+        .description = COMPOUND_STRING("Raises all stats by 3 on entry."),
+        .aiRating = 8,
+        .cantBeCopied = TRUE,
+        .cantBeSwapped = TRUE,
+        .cantBeTraced = TRUE,
+    },
+
+    [ABILITY_OMNI] =
+    {
+        .name = _("Omni"),
+        .description = COMPOUND_STRING("Is every type."),
+        .aiRating = 8,
+        .cantBeCopied = TRUE,
+        .cantBeSwapped = TRUE,
+        .cantBeTraced = TRUE,
+    },
 };

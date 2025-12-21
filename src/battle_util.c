@@ -5094,6 +5094,32 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 effect++;
             }
             break;
+                // In AbilityBattleEffects(), inside the ABILITYEFFECT_ON_SWITCHIN switch
+        case ABILITY_CREATOR:
+        if (!gSpecialStatuses[battler].switchInAbilityDone)
+        {
+            u8 i;
+
+            // Save/override attacker like Intrepid Sword does
+            gBattleScripting.savedBattler = gBattlerAttacker;
+            gBattlerAttacker = battler;
+
+            // Actually apply the +3 boosts (ATK, DEF, SPEED, SP.ATK, SP.DEF)
+            for (i = STAT_ATK; i <= STAT_SPDEF; i++)
+            {
+                if (gBattleMons[battler].statStages[i] + 3 > MAX_STAT_STAGE)
+                    gBattleMons[battler].statStages[i] = MAX_STAT_STAGE;
+                else
+                    gBattleMons[battler].statStages[i] += 3;
+            }
+
+            gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+
+            // Queue the visual / text script
+            BattleScriptPushCursorAndCallback(BattleScript_AllStatsUpAbilityOnSwitchIn);
+            effect++;
+        }
+        break;
         case ABILITY_SUPERSWEET_SYRUP:
             if (!gSpecialStatuses[battler].switchInAbilityDone
                     && !(gBattleStruct->supersweetSyrup[GetBattlerSide(battler)] & (1u << gBattlerPartyIndexes[battler])))
@@ -10101,14 +10127,27 @@ static inline uq4_12_t GetSameTypeAttackBonusModifier(struct DamageCalculationDa
     u32 move = damageCalcData->move;
     u32 moveType = damageCalcData->moveType;
 
+    // OMNITYPE: STAB on every damaging move
+    if (abilityAtk == ABILITY_OMNI)
+    {
+        // No STAB for Struggle / None / Mystery type
+        if (move == MOVE_STRUGGLE || move == MOVE_NONE || moveType == TYPE_MYSTERY)
+            return UQ_4_12(1.0);
+
+        // Standard STAB: 1.5x across the board
+        return UQ_4_12(1.5);
+    }
+
     if (moveType == TYPE_MYSTERY)
         return UQ_4_12(1.0);
     else if (gBattleStruct->pledgeMove && IS_BATTLER_OF_TYPE(BATTLE_PARTNER(battlerAtk), moveType))
         return (abilityAtk == ABILITY_ADAPTABILITY) ? UQ_4_12(2.0) : UQ_4_12(1.5);
     else if (!IS_BATTLER_OF_TYPE(battlerAtk, moveType) || move == MOVE_STRUGGLE || move == MOVE_NONE)
         return UQ_4_12(1.0);
+
     return (abilityAtk == ABILITY_ADAPTABILITY) ? UQ_4_12(2.0) : UQ_4_12(1.5);
 }
+
 
 // Utility Umbrella holders take normal damage from what would be rain- and sun-weakened attacks.
 static uq4_12_t GetWeatherDamageModifier(struct DamageCalculationData *damageCalcData, u32 holdEffectAtk, u32 holdEffectDef, u32 weather)
@@ -10719,6 +10758,16 @@ uq4_12_t CalcTypeEffectivenessMultiplier(u32 move, u32 moveType, u32 battlerAtk,
 {
     uq4_12_t modifier = UQ_4_12(1.0);
 
+    // OMNITYPE: defensively neutral to everything.
+    // Every damaging move that isn't Struggle/Mystery hits for exactly 1x.
+    if (defAbility == ABILITY_OMNI && !IsBattleMoveStatus(move))
+    {
+        // Keep result flags consistent: "just a normal hit"
+        if (recordAbilities)
+            UpdateMoveResultFlags(modifier, &gBattleStruct->moveResultFlags[battlerDef]);
+        return modifier;
+    }
+
     if (move != MOVE_STRUGGLE && moveType != TYPE_MYSTERY)
     {
         modifier = CalcTypeEffectivenessMultiplierInternal(move, moveType, battlerAtk, battlerDef, recordAbilities, modifier, defAbility);
@@ -10730,6 +10779,7 @@ uq4_12_t CalcTypeEffectivenessMultiplier(u32 move, u32 moveType, u32 battlerAtk,
         UpdateMoveResultFlags(modifier, &gBattleStruct->moveResultFlags[battlerDef]);
     return modifier;
 }
+
 
 uq4_12_t CalcPartyMonTypeEffectivenessMultiplier(u16 move, u16 speciesDef, u16 abilityDef)
 {

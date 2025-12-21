@@ -826,28 +826,6 @@ const struct Tileset gTileset_UnionRoom =
     .callback = NULL,
 };
 
-const struct Tileset gTileset_test =
-{
-    .isCompressed = TRUE,
-    .isSecondary = FALSE,
-    .tiles = gTilesetTiles_test,
-    .palettes = gTilesetPalettes_test,
-    .metatiles = gMetatiles_test,
-    .metatileAttributes = gMetatileAttributes_test,
-    .callback = NULL,
-};
-
-const struct Tileset gTileset_Snow =
-{
-    .isCompressed = TRUE,
-    .isSecondary = FALSE,
-    .tiles = gTilesetTiles_Snow,
-    .palettes = gTilesetPalettes_Snow,
-    .metatiles = gMetatiles_Snow,
-    .metatileAttributes = gMetatileAttributes_Snow,
-    .callback = NULL,
-};
-
 const struct Tileset gTileset_general2 =
 {
     .isCompressed = TRUE,
@@ -1167,17 +1145,6 @@ const struct Tileset gTileset_VermillionCity =
     .callback = NULL,
 };
 
-const struct Tileset gTileset_KantoGeneral =
-{
-    .isCompressed = TRUE,
-    .isSecondary = FALSE,
-    .tiles = gTilesetTiles_KantoGeneral,
-    .palettes = gTilesetPalettes_KantoGeneral,
-    .metatiles = gMetatiles_KantoGeneral,
-    .metatileAttributes = gMetatileAttributes_KantoGeneral,
-    .callback = NULL,
-};
-
 const struct Tileset gTileset_gen4cavetry2 =
 {
     .isCompressed = TRUE,
@@ -1361,5 +1328,60 @@ const struct Tileset gTileset_Gatehouse =
     .palettes = gTilesetPalettes_Gatehouse,
     .metatiles = gMetatiles_Gatehouse,
     .metatileAttributes = gMetatileAttributes_Gatehouse,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_celadoncity =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_celadoncity,
+    .palettes = gTilesetPalettes_celadoncity,
+    .metatiles = gMetatiles_celadoncity,
+    .metatileAttributes = gMetatileAttributes_celadoncity,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_FuchsiaCity =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_FuchsiaCity,
+    .palettes = gTilesetPalettes_FuchsiaCity,
+    .metatiles = gMetatiles_FuchsiaCity,
+    .metatileAttributes = gMetatileAttributes_FuchsiaCity,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_Route16 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Route16,
+    .palettes = gTilesetPalettes_Route16,
+    .metatiles = gMetatiles_Route16,
+    .metatileAttributes = gMetatileAttributes_Route16,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_PalletTown =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_PalletTown,
+    .palettes = gTilesetPalettes_PalletTown,
+    .metatiles = gMetatiles_PalletTown,
+    .metatileAttributes = gMetatileAttributes_PalletTown,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_CinnabarIsland =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_CinnabarIsland,
+    .palettes = gTilesetPalettes_CinnabarIsland,
+    .metatiles = gMetatiles_CinnabarIsland,
+    .metatileAttributes = gMetatileAttributes_CinnabarIsland,
     .callback = NULL,
 };
