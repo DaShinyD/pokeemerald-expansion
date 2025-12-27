@@ -1025,9 +1025,10 @@
 #define ITEM_SLAKINGITE 859
 #define ITEM_WEAVILITE 860
 #define ITEM_PANCAKES 861
+#define ITEM_MEGA_CANDY 862
 
 
-#define ITEMS_COUNT 862
+#define ITEMS_COUNT 863
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

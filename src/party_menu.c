@@ -5926,6 +5926,122 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
     }
 }
 
+#define RARE_CANDY_PLUS_LEVELS 10
+
+void ItemUseCB_MegaCandy(u8 taskId, TaskFunc task)
+{
+    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    struct PartyMenuInternal *ptr = sPartyMenuInternal;
+    s16 *arrayPtr = ptr->data;
+    u16 *itemPtr = &gSpecialVar_ItemId;
+    bool8 cannotUseEffect = FALSE;
+    u8 holdEffectParam = ItemId_GetHoldEffectParam(*itemPtr);
+
+    u8 i;
+    u8 levelsGained = 0;
+
+    sInitialLevel = GetMonData(mon, MON_DATA_LEVEL);
+
+    // Buffer "before"
+    BufferMonStatsToTaskData(mon, arrayPtr);
+
+    // Apply the item effect up to +10 levels, respecting any level cap logic.
+    for (i = 0; i < RARE_CANDY_PLUS_LEVELS; i++)
+    {
+        u8 curLevel = GetMonData(mon, MON_DATA_LEVEL);
+
+        if (B_RARE_CANDY_CAP && curLevel >= GetCurrentLevelCap())
+        {
+            cannotUseEffect = TRUE;
+            break;
+        }
+
+        // Execute normal Rare Candy / Exp Candy logic once.
+        cannotUseEffect = ExecuteTableBasedItemEffect(mon, *itemPtr, gPartyMenu.slotId, 0);
+
+        // If it failed this time, stop trying.
+        if (cannotUseEffect)
+            break;
+
+        // If level actually increased, count it. If not, stop (e.g., Exp Candy that gave exp but no level).
+        if (GetMonData(mon, MON_DATA_LEVEL) > curLevel)
+            levelsGained++;
+        else
+            break;
+    }
+
+    // Buffer "after"
+    BufferMonStatsToTaskData(mon, &ptr->data[NUM_STATS]);
+
+    PlaySE(SE_SELECT);
+
+    // If we gained no levels at all, behave like "can't use" (including your evolution-check behavior).
+    if (levelsGained == 0)
+    {
+        u16 targetSpecies = SPECIES_NONE;
+        bool32 evoModeNormal = TRUE;
+
+        // Resets values to 0 so other means of teaching moves doesn't overwrite levels
+        sInitialLevel = 0;
+        sFinalLevel = 0;
+
+        if (holdEffectParam == 0)
+        {
+            targetSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_NORMAL, ITEM_NONE, NULL);
+            if (targetSpecies == SPECIES_NONE)
+            {
+                targetSpecies = GetEvolutionTargetSpecies(mon, EVO_MODE_CANT_STOP, ITEM_NONE, NULL);
+                evoModeNormal = FALSE;
+            }
+        }
+
+        if (targetSpecies != SPECIES_NONE)
+        {
+            RemoveBagItem(gSpecialVar_ItemId, 1);
+            FreePartyPointers();
+            gCB2_AfterEvolution = gPartyMenu.exitCallback;
+            BeginEvolutionScene(mon, targetSpecies, evoModeNormal, gPartyMenu.slotId);
+            DestroyTask(taskId);
+        }
+        else
+        {
+            gPartyMenuUseExitCallback = FALSE;
+            DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
+            ScheduleBgCopyTilemapToVram(2);
+            gTasks[taskId].func = task;
+        }
+
+        return;
+    }
+
+    // Levels were gained: consume 1 item and proceed with normal level-up flow.
+    sFinalLevel = GetMonData(mon, MON_DATA_LEVEL, NULL);
+    gPartyMenuUseExitCallback = TRUE;
+    UpdateMonDisplayInfoAfterRareCandy(gPartyMenu.slotId, mon);
+    RemoveBagItem(gSpecialVar_ItemId, 1);
+    GetMonNickname(mon, gStringVar1);
+
+    PlayFanfareByFanfareNum(FANFARE_LEVEL_UP);
+
+    if (holdEffectParam == 0) // Rare Candy (your +10 version)
+    {
+        ConvertIntToDecimalStringN(gStringVar2, sFinalLevel, STR_CONV_MODE_LEFT_ALIGN, 3);
+        StringExpandPlaceholders(gStringVar4, gText_PkmnElevatedToLvVar2);
+    }
+    else // Exp Candies
+    {
+        // Note: This message is now "off" if you use an Exp Candy param here, because we applied it multiple times.
+        // If you want accuracy, we'd sum gained EXP and use that instead.
+        ConvertIntToDecimalStringN(gStringVar2, sExpCandyExperienceTable[holdEffectParam - 1], STR_CONV_MODE_LEFT_ALIGN, 6);
+        ConvertIntToDecimalStringN(gStringVar3, sFinalLevel, STR_CONV_MODE_LEFT_ALIGN, 3);
+        StringExpandPlaceholders(gStringVar4, gText_PkmnGainedExpAndElevatedToLvVar3);
+    }
+
+    DisplayPartyMenuMessage(gStringVar4, TRUE);
+    ScheduleBgCopyTilemapToVram(2);
+    gTasks[taskId].func = Task_DisplayLevelUpStatsPg1;
+}
+
 static void UpdateMonDisplayInfoAfterRareCandy(u8 slot, struct Pokemon *mon)
 {
     SetPartyMonAilmentGfx(mon, &sPartyMenuBoxes[slot]);

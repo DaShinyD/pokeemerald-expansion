@@ -1188,7 +1188,7 @@ MysteryGift_EventScript_DoMysteryGift::
 	goto_if_eq VAR_RESULT, 2, MysteryGift_EventScript_Balls
 	goto_if_eq VAR_RESULT, 3, MysteryGift_EventScript_Dragon
 	goto_if_eq VAR_RESULT, 4, MysteryGift_EventScript_Dragons
-	goto_if_eq VAR_RESULT, 5, MysteryGift_EventScript_Victini
+	goto_if_eq VAR_RESULT, 5, MysteryGift_EventScript_CandyB
 	goto_if_eq VAR_RESULT, 6, MysteryGift_EventScript_Meloetta
 	goto_if_eq VAR_RESULT, 7, MysteryGift_EventScript_Hoopa
 	goto_if_eq VAR_RESULT, 8, MysteryGift_EventScript_Marshadow
@@ -1269,13 +1269,9 @@ MysteryGift_EventScript_Dragons::
 	call MysteryGift_EventScript_ReceivedMon
 	releaseall
 	end
-MysteryGift_EventScript_Victini::
-	goto_if_set FLAG_MYSTERY_GIFT_5, MysteryGift_EventScript_Redeemed
-	bufferspeciesname STR_VAR_1, SPECIES_VICTINI
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_VICTINI
-	givemon SPECIES_VICTINI, 100, ITEM_CHOICE_SCARF, ITEM_CHERISH_BALL, NATURE_ADAMANT, 0, MON_GENDERLESS, 0, 252, 4, 252, 0, 0, 31, 31, 31, 31, 31, 31, MOVE_V_CREATE, MOVE_FUSION_FLARE, MOVE_FUSION_BOLT, MOVE_CELEBRATE, TRUE, FALSE, TYPE_FIRE
-	setflag FLAG_MYSTERY_GIFT_5
-	call MysteryGift_EventScript_ReceivedMon
+MysteryGift_EventScript_CandyB::
+	giveitem ITEM_MEGA_CANDY, 999
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	releaseall
 	end
 MysteryGift_EventScript_Meloetta::

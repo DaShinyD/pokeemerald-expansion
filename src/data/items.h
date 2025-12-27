@@ -1930,6 +1930,24 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_RareCandy,
     },
 
+    [ITEM_MEGA_CANDY] =
+    {
+        .name = _("Mega Candy"),
+        .pluralName = _("Mega Candies"),
+        .price = (I_PRICE >= GEN_7) ? 0 : 0,
+        .description = COMPOUND_STRING(
+            "Raises the level\n"
+            "of a Pokémon by\n"
+            "ten."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_MegaCandy,
+        .effect = gItemEffect_RareCandy,
+        .flingPower = 30,
+        .iconPic = gItemIcon_MegaCandy,
+        .iconPalette = gItemIconPalette_MegaCandy,
+    },
+
     [ITEM_EXP_CANDY_XS] =
     {
         .name = _("Exp. Candy XS"),

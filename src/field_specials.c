@@ -4555,7 +4555,7 @@ void GetMysteryGiftFeedback(void)
     static const u8 sText_CodeBalls[]     = _("BALLS");
     static const u8 sText_CodeDragon[]    = _("DRAGON");
     static const u8 sText_CodeDragons[]   = _("DRAGONS");
-    static const u8 sText_CodeVictini[]   = _("POKEGIFT05");
+    static const u8 sText_CodeCandyB[]   = _("BIG CANDY");
     static const u8 sText_CodeMeloetta[]  = _("POKEGIFT06");
     static const u8 sText_CodeHoopa[]     = _("POKEGIFT07");
     static const u8 sText_CodeMarshadow[] = _("POKEGIFT08");
@@ -4573,7 +4573,7 @@ void GetMysteryGiftFeedback(void)
     else if (!StringCompare(gStringVar2, sText_CodeDragons))
         gSpecialVar_Result = 4;
     // Code 5
-    else if (!StringCompare(gStringVar2, sText_CodeVictini))
+    else if (!StringCompare(gStringVar2, sText_CodeCandyB))
         gSpecialVar_Result = 5;
     // Code 6
     else if (!StringCompare(gStringVar2, sText_CodeMeloetta))

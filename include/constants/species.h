@@ -1637,6 +1637,7 @@
 #define SPECIES_URSHIFU_RAPID_STRIKE_STYLE_GMAX         SPECIES_URSHIFU_RAPID_STRIKE_GMAX
 #define SPECIES_MIMIKYU_BUSTED_TOTEM                    1523
 #define SPECIES_MIMIKYU_TOTEM_BUSTED                    SPECIES_MIMIKYU_BUSTED_TOTEM
+// Start Mine
 #define SPECIES_LEDIASTRA                               1524
 #define SPECIES_LAPRAS_MEGA                             1525
 #define SPECIES_KINGLER_MEGA                            1526

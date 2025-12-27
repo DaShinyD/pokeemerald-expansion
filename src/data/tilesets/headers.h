@@ -1385,3 +1385,14 @@ const struct Tileset gTileset_CinnabarIsland =
     .metatileAttributes = gMetatileAttributes_CinnabarIsland,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_JohtoPrimary =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_JohtoPrimary,
+    .palettes = gTilesetPalettes_JohtoPrimary,
+    .metatiles = gMetatiles_JohtoPrimary,
+    .metatileAttributes = gMetatileAttributes_JohtoPrimary,
+    .callback = NULL,
+};
