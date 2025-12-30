@@ -1,9 +1,9 @@
 .set LOCALID_GIRATINA, 1
 
-NewMap3_MapScripts::
+DistortionWorld_MapScripts::
 	.byte 0
 
-NewMap3_EventScript_Giratina::
+DistortionWorld_EventScript_Giratina::
 	lock
 	faceplayer
 	playmoncry SPECIES_GIRATINA, CRY_MODE_ENCOUNTER

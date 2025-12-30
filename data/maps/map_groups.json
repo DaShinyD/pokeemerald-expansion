@@ -120,7 +120,7 @@
     "TraversalPath",
     "Route138",
     "Dojo",
-    "NewMap4",
+    "LavaDepths",
     "Route139",
     "IcefallCity",
     "UnknownRuins",
@@ -634,10 +634,10 @@
     "NavelRock_Down11",
     "NavelRock_Bottom",
     "TrainerHill_Elevator",
-    "TesterMap",
-    "NewMap3",
+    "Altar2",
+    "DistortionWorld",
     "Tester2",
-    "NewMap5",
+    "Altar",
     "Space",
     "RocketShip"
   ],
@@ -680,7 +680,7 @@
   "gMapGroup_Kanto": [
     "VermillionCity",
     "Route6",
-    "NewMap1",
+    "UndergroundPath",
     "Route5",
     "CeruleanCity",
     "Route4",
@@ -708,7 +708,7 @@
     "VermillionCity_Center",
     "VermillionCity_Pokemart",
     "VermillionHarber",
-    "NewMap2"
+    "PokemonFanClub"
   ],
   "gMapGroup_IndoorCerulean": [
     "CeruleanCity_Center",

@@ -1,7 +1,7 @@
 {
-  "id": "MAP_NEW_MAP1",
-  "name": "NewMap1",
-  "layout": "LAYOUT_NEWMAP_1",
+  "id": "MAP_UNDERGROUND_PATH",
+  "name": "UndergroundPath",
+  "layout": "LAYOUT_UNDERGROUND_PATH",
   "music": "MUS_ABANDONED_SHIP",
   "region_map_section": "MAPSEC_UNDERGROUND_PATH",
   "requires_flash": false,

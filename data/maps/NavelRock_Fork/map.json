@@ -42,14 +42,14 @@
       "x": 18,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_NEW_MAP5",
+      "dest_map": "MAP_ALTAR",
       "dest_warp_id": "0"
     },
     {
       "x": 8,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_TESTER_MAP",
+      "dest_map": "MAP_ALTAR2",
       "dest_warp_id": "0"
     }
   ],

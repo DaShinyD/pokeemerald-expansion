@@ -1359,7 +1359,7 @@ MysteryGift_Text_ReceivedGiftMon:
 
 	.include "data/maps/LeaderClub/scripts.inc"
 
-	.include "data/maps/TesterMap/scripts.inc"
+	.include "data/maps/Altar2/scripts.inc"
 
 	.include "data/maps/ThunderDragonCave/scripts.inc"
 
@@ -1371,7 +1371,7 @@ MysteryGift_Text_ReceivedGiftMon:
 
 	.include "data/maps/Route6/scripts.inc"
 
-	.include "data/maps/NewMap1/scripts.inc"
+	.include "data/maps/UndergroundPath/scripts.inc"
 
 	.include "data/maps/Route5/scripts.inc"
 
@@ -1393,7 +1393,7 @@ MysteryGift_Text_ReceivedGiftMon:
 
 	.include "data/maps/Route3/scripts.inc"
 
-	.include "data/maps/NewMap2/scripts.inc"
+	.include "data/maps/PokemonFanClub/scripts.inc"
 
 	.include "data/maps/PewterCity/scripts.inc"
 
@@ -1411,7 +1411,7 @@ MysteryGift_Text_ReceivedGiftMon:
 
 	.include "data/maps/Viridian_PokemonLeague/scripts.inc"
 
-	.include "data/maps/NewMap3/scripts.inc"
+	.include "data/maps/DistortionWorld/scripts.inc"
 
 	.include "data/maps/Viridian_PokemonLeague_Hall1/scripts.inc"
 
@@ -1445,9 +1445,9 @@ MysteryGift_Text_ReceivedGiftMon:
 
 	.include "data/maps/BeachCave/scripts.inc"
 
-	.include "data/maps/NewMap4/scripts.inc"
+	.include "data/maps/LavaDepths/scripts.inc"
 
-	.include "data/maps/NewMap5/scripts.inc"
+	.include "data/maps/Altar/scripts.inc"
 
 	.include "data/maps/Space/scripts.inc"
 

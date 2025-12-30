@@ -39,7 +39,7 @@
       "x": 32,
       "y": 35,
       "elevation": 0,
-      "dest_map": "MAP_NEW_MAP1",
+      "dest_map": "MAP_UNDERGROUND_PATH",
       "dest_warp_id": "0"
     },
     {

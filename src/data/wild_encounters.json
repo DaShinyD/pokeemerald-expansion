@@ -12158,8 +12158,8 @@
           }
         },
         {
-          "map": "MAP_TESTER_MAP",
-          "base_label": "gTesterMap0",
+          "map": "MAP_ALTAR2",
+          "base_label": "gAltar20",
           "land_mons": {
             "encounter_rate": 50,
             "mons": [
@@ -13281,8 +13281,8 @@
           }
         },
         {
-          "map": "MAP_NEW_MAP4",
-          "base_label": "gNewMap40",
+          "map": "MAP_LAVA_DEPTHS",
+          "base_label": "gLavaDepths0",
           "land_mons": {
             "encounter_rate": 10,
             "mons": [

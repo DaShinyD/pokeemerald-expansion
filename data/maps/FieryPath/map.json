@@ -138,7 +138,7 @@
       "x": 8,
       "y": 1,
       "elevation": 0,
-      "dest_map": "MAP_NEW_MAP4",
+      "dest_map": "MAP_LAVA_DEPTHS",
       "dest_warp_id": "0"
     }
   ],

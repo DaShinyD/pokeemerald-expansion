@@ -4602,14 +4602,14 @@
       "blockdata_filepath": "data/layouts/LeaderClub/map.bin"
     },
     {
-      "id": "LAYOUT_TESTER_MAP",
-      "name": "TesterMap_Layout",
+      "id": "LAYOUT_ALTAR_2",
+      "name": "Altar2_Layout",
       "width": 44,
       "height": 36,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Altar",
-      "border_filepath": "data/layouts/TesterMap/border.bin",
-      "blockdata_filepath": "data/layouts/TesterMap/map.bin"
+      "border_filepath": "data/layouts/Altar2/border.bin",
+      "blockdata_filepath": "data/layouts/Altar2/map.bin"
     },
     {
       "id": "LAYOUT_THUNDER_DRAGON_CAVE",
@@ -4662,14 +4662,14 @@
       "blockdata_filepath": "data/layouts/Route6/map.bin"
     },
     {
-      "id": "LAYOUT_NEWMAP_1",
-      "name": "NewMap1_Layout",
+      "id": "LAYOUT_UNDERGROUND_PATH",
+      "name": "UndergroundPath_Layout",
       "width": 8,
       "height": 43,
       "primary_tileset": "gTileset_FireRedInside",
       "secondary_tileset": "gTileset_PokemonCenter2",
-      "border_filepath": "data/layouts/NewMap1/border.bin",
-      "blockdata_filepath": "data/layouts/NewMap1/map.bin"
+      "border_filepath": "data/layouts/UndergroundPath/border.bin",
+      "blockdata_filepath": "data/layouts/UndergroundPath/map.bin"
     },
     {
       "id": "LAYOUT_ROUTE5",
@@ -4772,14 +4772,14 @@
       "blockdata_filepath": "data/layouts/Route3/map.bin"
     },
     {
-      "id": "LAYOUT_NEW_MAP2",
-      "name": "NewMap2_Layout",
+      "id": "LAYOUT_POKEMON_FAN_CLUB",
+      "name": "PokemonFanClub_Layout",
       "width": 16,
       "height": 13,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
-      "border_filepath": "data/layouts/NewMap2/border.bin",
-      "blockdata_filepath": "data/layouts/NewMap2/map.bin"
+      "border_filepath": "data/layouts/PokemonFanClub/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonFanClub/map.bin"
     },
     {
       "id": "LAYOUT_PEWTER_CITY",
@@ -4862,14 +4862,14 @@
       "blockdata_filepath": "data/layouts/Viridian_PokemonLeague/map.bin"
     },
     {
-      "id": "LAYOUT_NEW_MAP3",
-      "name": "NewMap3_Layout",
+      "id": "LAYOUT_DISTORTION_WORLD",
+      "name": "DistortionWorld_Layout",
       "width": 28,
       "height": 38,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_DistortionWorld",
-      "border_filepath": "data/layouts/NewMap3/border.bin",
-      "blockdata_filepath": "data/layouts/NewMap3/map.bin"
+      "border_filepath": "data/layouts/DistortionWorld/border.bin",
+      "blockdata_filepath": "data/layouts/DistortionWorld/map.bin"
     },
     {
       "id": "LAYOUT_VIRIDIAN_POKEMON_LEAGUE_HALL1",
@@ -5032,24 +5032,24 @@
       "blockdata_filepath": "data/layouts/BeachCave/map.bin"
     },
     {
-      "id": "LAYOUT_NEW_MAP4",
-      "name": "NewMap4_Layout",
+      "id": "LAYOUT_LAVA_DEPTHS",
+      "name": "LavaDepths_Layout",
       "width": 40,
       "height": 28,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_volcano",
-      "border_filepath": "data/layouts/NewMap4/border.bin",
-      "blockdata_filepath": "data/layouts/NewMap4/map.bin"
+      "border_filepath": "data/layouts/LavaDepths/border.bin",
+      "blockdata_filepath": "data/layouts/LavaDepths/map.bin"
     },
     {
-      "id": "LAYOUT_NEW_MAP5",
-      "name": "NewMap5_Layout",
+      "id": "LAYOUT_ALTAR",
+      "name": "Altar_Layout",
       "width": 44,
       "height": 36,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Altar",
-      "border_filepath": "data/layouts/NewMap5/border.bin",
-      "blockdata_filepath": "data/layouts/NewMap5/map.bin"
+      "border_filepath": "data/layouts/Altar/border.bin",
+      "blockdata_filepath": "data/layouts/Altar/map.bin"
     },
     {
       "id": "LAYOUT_SPACE",

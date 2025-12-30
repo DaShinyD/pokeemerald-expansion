@@ -1,7 +1,7 @@
 {
-  "id": "MAP_NEW_MAP2",
-  "name": "NewMap2",
-  "layout": "LAYOUT_NEW_MAP2",
+  "id": "MAP_POKEMON_FAN_CLUB",
+  "name": "PokemonFanClub",
+  "layout": "LAYOUT_POKEMON_FAN_CLUB",
   "music": "MUS_RG_POKE_TOWER",
   "region_map_section": "MAPSEC_VERMILION_CITY",
   "requires_flash": false,
@@ -130,7 +130,7 @@
       "elevation": 0,
       "var": "VAR_FAN_CLUB",
       "var_value": "0",
-      "script": "NewMap2_EventScript_MemeScene"
+      "script": "PokemonFanClub_EventScript_MemeScene"
     },
     {
       "type": "trigger",
@@ -139,7 +139,7 @@
       "elevation": 0,
       "var": "VAR_FAN_CLUB",
       "var_value": "0",
-      "script": "NewMap2_EventScript_MemeScene"
+      "script": "PokemonFanClub_EventScript_MemeScene"
     }
   ],
   "bg_events": [
