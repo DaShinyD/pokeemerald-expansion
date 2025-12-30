@@ -191,6 +191,8 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         )
         .levelUpLearnset = sMeowscaradaLevelUpLearnset,
         .teachableLearnset = sMeowscaradaTeachableLearnset,
+        .formSpeciesIdTable = sMeowscaradaFormSpeciesIdTable,
+        .formChangeTable = sMeowscaradaFormChangeTable,
     },
 #endif //P_FAMILY_SPRIGATITO
 
@@ -382,6 +384,8 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         )
         .levelUpLearnset = sSkeledirgeLevelUpLearnset,
         .teachableLearnset = sSkeledirgeTeachableLearnset,
+        .formSpeciesIdTable = sSkeledirgeFormSpeciesIdTable,
+        .formChangeTable = sSkeledirgeFormChangeTable,
     },
 #endif //P_FAMILY_FUECOCO
 
@@ -573,6 +577,8 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         )
         .levelUpLearnset = sQuaquavalLevelUpLearnset,
         .teachableLearnset = sQuaquavalTeachableLearnset,
+        .formSpeciesIdTable = sQuaquavalFormSpeciesIdTable,
+        .formChangeTable = sQuaquavalFormChangeTable,
     },
 #endif //P_FAMILY_QUAXLY
 

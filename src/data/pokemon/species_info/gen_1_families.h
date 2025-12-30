@@ -19602,6 +19602,8 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sDragoniteLevelUpLearnset,
         .teachableLearnset = sDragoniteTeachableLearnset,
+        .formSpeciesIdTable = sDragoniteFormSpeciesIdTable,
+        .formChangeTable = sDragoniteFormChangeTable,
     },
 #endif //P_FAMILY_DRATINI
 
@@ -19680,6 +19682,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .teachableLearnset = sMewtwoTeachableLearnset,
         .formSpeciesIdTable = sMewtwoFormSpeciesIdTable,
         .formChangeTable = sMewtwoFormChangeTable,
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_BERSERK_GENE, SPECIES_MEWTWOB}),
     },
 
 #if P_MEGA_EVOLUTIONS

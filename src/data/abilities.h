@@ -2428,4 +2428,24 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .cantBeSwapped = TRUE,
         .cantBeTraced = TRUE,
     },
+
+    [ABILITY_DRAGON_FORCE] =
+    {
+        .name = _("Dragon Force"),
+        .description = COMPOUND_STRING("Dragon type and +1 speed on entry."),
+        .aiRating = 8,
+        .cantBeCopied = TRUE,
+        .cantBeSwapped = TRUE,
+        .cantBeTraced = TRUE,
+    },
+
+    [ABILITY_MIXTURE] =
+    {
+        .name = _("Mixture"),
+        .description = COMPOUND_STRING("Is fire, ice, and electric type."),
+        .aiRating = 8,
+        .cantBeCopied = TRUE,
+        .cantBeSwapped = TRUE,
+        .cantBeTraced = TRUE,
+    },
 };

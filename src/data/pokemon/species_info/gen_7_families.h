@@ -203,6 +203,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .levelUpLearnset = sDecidueyeLevelUpLearnset,
         .teachableLearnset = sDecidueyeTeachableLearnset,
         .formSpeciesIdTable = sDecidueyeFormSpeciesIdTable,
+        .formChangeTable = sDecidueyeFormChangeTable,
     },
 
 #if P_HISUIAN_FORMS
@@ -460,6 +461,8 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         )
         .levelUpLearnset = sIncineroarLevelUpLearnset,
         .teachableLearnset = sIncineroarTeachableLearnset,
+        .formSpeciesIdTable = sIncineroarFormSpeciesIdTable,
+        .formChangeTable = sIncineroarFormChangeTable,
     },
 #endif //P_FAMILY_LITTEN
 
@@ -651,6 +654,8 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         )
         .levelUpLearnset = sPrimarinaLevelUpLearnset,
         .teachableLearnset = sPrimarinaTeachableLearnset,
+        .formSpeciesIdTable = sPrimarinaFormSpeciesIdTable,
+        .formChangeTable = sPrimarinaFormChangeTable,
     },
 #endif //P_FAMILY_POPPLIO
 

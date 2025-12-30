@@ -5120,6 +5120,20 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             effect++;
         }
         break;
+        case ABILITY_DRAGON_FORCE:
+            if (!gSpecialStatuses[battler].switchInAbilityDone
+                && CompareStat(battler, STAT_SPEED, MAX_STAT_STAGE, CMP_LESS_THAN))
+            {
+                gBattleScripting.savedBattler = gBattlerAttacker;
+                gBattlerAttacker = battler;
+
+                gSpecialStatuses[battler].switchInAbilityDone = TRUE;
+
+                SET_STATCHANGER(STAT_SPEED, 1, FALSE);
+                BattleScriptPushCursorAndCallback(BattleScript_BattlerAbilityStatRaiseOnSwitchIn);
+                effect++;
+            }
+            break;
         case ABILITY_SUPERSWEET_SYRUP:
             if (!gSpecialStatuses[battler].switchInAbilityDone
                     && !(gBattleStruct->supersweetSyrup[GetBattlerSide(battler)] & (1u << gBattlerPartyIndexes[battler])))
@@ -10140,14 +10154,35 @@ static inline uq4_12_t GetSameTypeAttackBonusModifier(struct DamageCalculationDa
 
     if (moveType == TYPE_MYSTERY)
         return UQ_4_12(1.0);
-    else if (gBattleStruct->pledgeMove && IS_BATTLER_OF_TYPE(BATTLE_PARTNER(battlerAtk), moveType))
+
+    // Pledge handling stays exactly as vanilla
+    if (gBattleStruct->pledgeMove && IS_BATTLER_OF_TYPE(BATTLE_PARTNER(battlerAtk), moveType))
         return (abilityAtk == ABILITY_ADAPTABILITY) ? UQ_4_12(2.0) : UQ_4_12(1.5);
-    else if (!IS_BATTLER_OF_TYPE(battlerAtk, moveType) || move == MOVE_STRUGGLE || move == MOVE_NONE)
+
+    // DRAGON FORCE: grant Dragon STAB as if attacker had Dragon typing
+    if (abilityAtk == ABILITY_DRAGON_FORCE
+        && moveType == TYPE_DRAGON
+        && move != MOVE_STRUGGLE
+        && move != MOVE_NONE)
+    {
+        return UQ_4_12(1.5);
+    }
+
+    // MIXTURE: grant Fire/Ice/Electric STAB as if attacker had those typings
+    if (abilityAtk == ABILITY_MIXTURE
+        && (moveType == TYPE_FIRE || moveType == TYPE_ICE || moveType == TYPE_ELECTRIC)
+        && move != MOVE_STRUGGLE
+        && move != MOVE_NONE)
+    {
+        return UQ_4_12(1.5);
+    }
+
+    // Normal STAB rules
+    if (!IS_BATTLER_OF_TYPE(battlerAtk, moveType) || move == MOVE_STRUGGLE || move == MOVE_NONE)
         return UQ_4_12(1.0);
 
     return (abilityAtk == ABILITY_ADAPTABILITY) ? UQ_4_12(2.0) : UQ_4_12(1.5);
 }
-
 
 // Utility Umbrella holders take normal damage from what would be rain- and sun-weakened attacks.
 static uq4_12_t GetWeatherDamageModifier(struct DamageCalculationData *damageCalcData, u32 holdEffectAtk, u32 holdEffectDef, u32 weather)
@@ -10691,11 +10726,29 @@ static inline uq4_12_t CalcTypeEffectivenessMultiplierInternal(u32 move, u32 mov
     u32 types[3];
     GetBattlerTypes(battlerDef, FALSE, types);
 
+    // MIXTURE: defender is treated as Fire/Ice/Electric (overrides normal typing).
+    // This uses your existing 3-type pipeline cleanly.
+    if (defAbility == ABILITY_MIXTURE)
+    {
+        types[0] = TYPE_FIRE;
+        types[1] = TYPE_ICE;
+        types[2] = TYPE_ELECTRIC;
+    }
+    // DRAGON FORCE: add Dragon as a virtual third defensive type (only if slot is unused).
+    else if (defAbility == ABILITY_DRAGON_FORCE
+        && types[2] == TYPE_MYSTERY
+        && types[0] != TYPE_DRAGON
+        && types[1] != TYPE_DRAGON)
+    {
+        types[2] = TYPE_DRAGON;
+    }
+
     MulByTypeEffectiveness(&modifier, move, moveType, battlerDef, defAbility, types[0], battlerAtk, recordAbilities);
     if (types[1] != types[0])
         MulByTypeEffectiveness(&modifier, move, moveType, battlerDef, defAbility, types[1], battlerAtk, recordAbilities);
     if (types[2] != TYPE_MYSTERY && types[2] != types[1] && types[2] != types[0])
         MulByTypeEffectiveness(&modifier, move, moveType, battlerDef, defAbility, types[2], battlerAtk, recordAbilities);
+
     if (moveType == TYPE_FIRE && gDisableStructs[battlerDef].tarShot)
         modifier = uq4_12_multiply(modifier, UQ_4_12(2.0));
 

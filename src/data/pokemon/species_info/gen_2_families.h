@@ -5199,6 +5199,8 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sShuckleLevelUpLearnset,
         .teachableLearnset = sShuckleTeachableLearnset,
         .eggMoveLearnset = sShuckleEggMoveLearnset,
+        .formSpeciesIdTable = sShuckleFormSpeciesIdTable,
+        .formChangeTable = sShuckleFormChangeTable,
     },
 #endif //P_FAMILY_SHUCKLE
 
@@ -7005,6 +7007,8 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sSkarmoryLevelUpLearnset,
         .teachableLearnset = sSkarmoryTeachableLearnset,
         .eggMoveLearnset = sSkarmoryEggMoveLearnset,
+        .formSpeciesIdTable = sSkarmoryFormSpeciesIdTable,
+        .formChangeTable = sSkarmoryFormChangeTable,
     },
 #endif //P_FAMILY_SKARMORY
 

@@ -7170,6 +7170,8 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
         .levelUpLearnset = sDarkraiLevelUpLearnset,
         .teachableLearnset = sDarkraiTeachableLearnset,
+        .formSpeciesIdTable = sDarkraiFormSpeciesIdTable,
+        .formChangeTable = sDarkraiFormChangeTable,
     },
 #endif //P_FAMILY_DARKRAI
 

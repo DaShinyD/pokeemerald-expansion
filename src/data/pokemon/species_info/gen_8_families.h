@@ -2494,6 +2494,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .teachableLearnset = sFlappleTeachableLearnset,
         .formSpeciesIdTable = sFlappleFormSpeciesIdTable,
         .formChangeTable = sFlappleFormChangeTable,
+        .evolutions = EVOLUTION({EVO_LEVEL, 45, SPECIES_FUJIFLAP}),
     },
 
 #if P_GIGANTAMAX_FORMS
@@ -2615,6 +2616,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .teachableLearnset = sAppletunTeachableLearnset,
         .formSpeciesIdTable = sAppletunFormSpeciesIdTable,
         .formChangeTable = sAppletunFormChangeTable,
+        .evolutions = EVOLUTION({EVO_LEVEL, 45, SPECIES_GRANITUN}),
     },
 
 #if P_GIGANTAMAX_FORMS

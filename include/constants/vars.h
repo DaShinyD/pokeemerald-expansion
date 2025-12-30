@@ -273,8 +273,22 @@
 #define VAR_UNUSED_0x40FD                                0x40FD // Gamecorner
 #define VAR_UNUSED_0x40FE                                0x40FE // Gamecorner
 #define VAR_UNUSED_0x40FF                                0x40FF // Unused Var
+#define VAR_UNUSED_0x4100                                0x4100 // Unused Var
+#define VAR_UNUSED_0x4101                                0x4101 // Unused Var
+#define VAR_UNUSED_0x4102                                0x4102 // Unused Var
+#define VAR_UNUSED_0x4103                                0x4103 // Unused Var
+#define VAR_UNUSED_0x4104                                0x4104 // Unused Var
+#define VAR_UNUSED_0x4105                                0x4105 // Unused Var
+#define VAR_UNUSED_0x4106                                0x4106 // Unused Var
+#define VAR_UNUSED_0x4107                                0x4107 // Unused Var
+#define VAR_UNUSED_0x4108                                0x4108 // Unused Var
+#define VAR_UNUSED_0x4109                                0x4109 // Unused Var
+#define VAR_UNUSED_0x410A                                0x410A // Unused Var
+#define VAR_UNUSED_0x410B                                0x410B // Unused Var
+#define VAR_UNUSED_0x410C                                0x410C // Unused Var
+#define VAR_UNUSED_0x410D                                0x410D // Unused Var
 
-#define VARS_END                                         0x40FF
+#define VARS_END                                         0x410D
 #define VARS_COUNT                                       (VARS_END - VARS_START + 1)
 
 #define SPECIAL_VARS_START            0x8000
