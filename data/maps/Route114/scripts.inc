@@ -1,3 +1,5 @@
+.set LOCALID_MEGAMAN, 28
+
 Route114_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route114_OnTransition
 	map_script MAP_SCRIPT_ON_LOAD, Route114_OnLoad
@@ -239,75 +241,98 @@ Route114_EventScript_SellStones1::
 
 	.align 2
 MegaStone_Mart_Pokemart:
-	.2byte ITEM_VENUSAURITE
+	.2byte ITEM_ABOMASITE
+	.2byte ITEM_ABSOLITE
+	.2byte ITEM_AGGRONITE
+	.2byte ITEM_AERODACTYLITE
+	.2byte ITEM_ALAKAZITE
+	.2byte ITEM_ALTARIANITE
+	.2byte ITEM_AMPHAROSITE
+	.2byte ITEM_AUDINITE
+	.2byte ITEM_BANETTITE
+	.2byte ITEM_BEEDRILLITE
+	.2byte ITEM_BEEDRILLITE_H
+	.2byte ITEM_BLASTOISINITE
+	.2byte ITEM_BLASTOISINITE_Y
+	.2byte ITEM_BLAZIKENITE
+	.2byte ITEM_BUTTERFRENITE
+	.2byte ITEM_CAMERUPTITE
+	.2byte ITEM_CENTISKORCHITE
 	.2byte ITEM_CHARIZARDITE_X
 	.2byte ITEM_CHARIZARDITE_Y
-	.2byte ITEM_BLASTOISINITE
-	.2byte ITEM_BUTTERFRENITE
-	.2byte ITEM_SNORLAXITE
-	.2byte ITEM_KINGLERITE
-	.2byte ITEM_MACHAMPITE
-	.2byte ITEM_BEEDRILLITE
-	.2byte ITEM_PIDGEOTITE
-	.2byte ITEM_NIDOKINGITE
-	.2byte ITEM_ALAKAZITE
-	.2byte ITEM_SLOWBRONITE
-	.2byte ITEM_GENGARITE
-	.2byte ITEM_KANGASKHANITE
-	.2byte ITEM_PINSIRITE
-	.2byte ITEM_GYARADOSITE
-	.2byte ITEM_LAPRASITE
-	.2byte ITEM_AERODACTYLITE
-	.2byte ITEM_MEWTWONITE_X
-	.2byte ITEM_MEWTWONITE_Y
+	.2byte ITEM_CHARIZARDITE_Z
+	.2byte ITEM_CHESNITE
+	.2byte ITEM_CINDERACITE
+	.2byte ITEM_DECIDUITE
+	.2byte ITEM_DELPHOXITE
+	.2byte ITEM_DIANCITE
+	.2byte ITEM_DARKRITE
+	.2byte ITEM_DRAGONTITE
+	.2byte ITEM_EMBOARITE
+	.2byte ITEM_EMPOLEONITE
 	.2byte ITEM_FERALIGATRITE
-	.2byte ITEM_MEGANIUMITE
-	.2byte ITEM_TYPHLOSIONITE
-	.2byte ITEM_AMPHAROSITE
-	.2byte ITEM_STEELIXITE
-	.2byte ITEM_SCIZORITE
+	.2byte ITEM_FLYGONITE
+	.2byte ITEM_FROSLASSITE
+	.2byte ITEM_GALLADITE
+	.2byte ITEM_GARCHOMPITE
+	.2byte ITEM_GARDEVOIRITE
+	.2byte ITEM_GENGARITE
+	.2byte ITEM_GLALITITE
+	.2byte ITEM_GRENINJITE
+	.2byte ITEM_GYARADOSITE
+	.2byte ITEM_HAWLUCHITE
 	.2byte ITEM_HERACRONITE
 	.2byte ITEM_HOUNDOOMINITE
-	.2byte ITEM_TYRANITARITE
-	.2byte ITEM_SCEPTILITE
-	.2byte ITEM_BLAZIKENITE
-	.2byte ITEM_SWAMPERTITE
-	.2byte ITEM_GARDEVOIRITE
-	.2byte ITEM_SABLENITE
-	.2byte ITEM_MAWILITE
-	.2byte ITEM_AGGRONITE
-	.2byte ITEM_MEDICHAMITE
-	.2byte ITEM_MANECTITE
-	.2byte ITEM_SHARPEDONITE
-	.2byte ITEM_CAMERUPTITE
-	.2byte ITEM_ALTARIANITE
-	.2byte ITEM_BANETTITE
-	.2byte ITEM_ABSOLITE
-	.2byte ITEM_GLALITITE
-	.2byte ITEM_SALAMENCITE
-	.2byte ITEM_METAGROSSITE
+	.2byte ITEM_INCINERITE
+	.2byte ITEM_INFERNITE
+	.2byte ITEM_INTELEONITE
+	.2byte ITEM_KANGASKHANITE
+	.2byte ITEM_KINGDRITE_X
+	.2byte ITEM_KINGDRITE_Y
+	.2byte ITEM_KINGLERITE
+	.2byte ITEM_LAPRASITE
 	.2byte ITEM_LATIASITE
 	.2byte ITEM_LATIOSITE
 	.2byte ITEM_LOPUNNITE
-	.2byte ITEM_GARCHOMPITE
 	.2byte ITEM_LUCARIONITE
-	.2byte ITEM_ABOMASITE
-	.2byte ITEM_GALLADITE
-	.2byte ITEM_AUDINITE
-	.2byte ITEM_DIANCITE
-	.2byte ITEM_CENTISKORCHITE
-	.2byte ITEM_BEEDRILLITE_H
-	.2byte ITEM_TORTERRITE
-	.2byte ITEM_INFERNITE
-	.2byte ITEM_EMPOLEONITE
-	.2byte ITEM_SERPERIORITE
-	.2byte ITEM_EMBOARITE
-	.2byte ITEM_SAMUROTTITE
-	.2byte ITEM_KINGDRITE_X
-	.2byte ITEM_KINGDRITE_Y
 	.2byte ITEM_LUXRITE
+	.2byte ITEM_MACHAMPITE
+	.2byte ITEM_MANECTITE
+	.2byte ITEM_MAWILITE
+	.2byte ITEM_MEDICHAMITE
+	.2byte ITEM_MEGANIUMITE
+	.2byte ITEM_METAGROSSITE
+	.2byte ITEM_MEOWSCARITE
+	.2byte ITEM_MEWTWONITE_X
+	.2byte ITEM_MEWTWONITE_Y
+	.2byte ITEM_MIMIKITE
+	.2byte ITEM_NIDOKINGITE
+	.2byte ITEM_PIDGEOTITE
+	.2byte ITEM_PINSIRITE
+	.2byte ITEM_PRIMARINITE
+	.2byte ITEM_QUAQUAVITE
+	.2byte ITEM_RILLABOOMITE
+	.2byte ITEM_SABLENITE
+	.2byte ITEM_SALAMENCITE
+	.2byte ITEM_SAMUROTTITE
 	.2byte ITEM_SANDSLASHITE
+	.2byte ITEM_SCEPTILITE
+	.2byte ITEM_SCIZORITE
+	.2byte ITEM_SERPERIORITE
+	.2byte ITEM_SHARPEDONITE
+	.2byte ITEM_SHUCKLITE
+	.2byte ITEM_SKARMITE
+	.2byte ITEM_SKELEDIRGITE
 	.2byte ITEM_SLAKINGITE
+	.2byte ITEM_SLOWBRONITE
+	.2byte ITEM_SNORLAXITE
+	.2byte ITEM_STEELIXITE
+	.2byte ITEM_SWAMPERTITE
+	.2byte ITEM_TORTERRITE
+	.2byte ITEM_TYRANITARITE
+	.2byte ITEM_TYPHLOSIONITE
+	.2byte ITEM_VENUSAURITE
+	.2byte ITEM_VENUSAURITE_Y
 	.2byte ITEM_WEAVILITE
 	.2byte ITEM_NONE
 	release
@@ -318,4 +343,77 @@ Route114_Text_Hello:
 
 Route114_Text_SeeYa:
 	.string "Come again.$"
+
+Route114_EventScript_MegaTriggerR::
+	lock
+	playse SE_PIN
+	applymovement LOCALID_MEGAMAN, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox Route114_Text_HeyTrainer, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Route114_Movement_ApproachMegaR
+	waitmovement 0
+	msgbox Route114_Text_GiveBattleItems, MSGBOX_DEFAULT
+	giveitem ITEM_MEGA_RING
+	msgbox Route114_Text_ThereYaGo, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_BATTLE_ITEMS
+	setvar VAR_MEGA_MAN, 1
+	pokemart MegaStone_Mart_Pokemart
+	release
+	end
+
+Route114_EventScript_MegaTriggerM::
+	lock
+	playse SE_PIN
+	applymovement LOCALID_MEGAMAN, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox Route114_Text_HeyTrainer, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Route114_Movement_ApproachMegaM
+	waitmovement 0
+	msgbox Route114_Text_GiveBattleItems, MSGBOX_DEFAULT
+	giveitem ITEM_MEGA_RING
+	msgbox Route114_Text_ThereYaGo, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_BATTLE_ITEMS
+	setvar VAR_MEGA_MAN, 1
+	pokemart MegaStone_Mart_Pokemart
+	release
+	end
+
+Route114_EventScript_MegaTriggerL::
+	lock
+	playse SE_PIN
+	applymovement LOCALID_MEGAMAN, Common_Movement_ExclamationMark
+	waitmovement 0
+	msgbox Route114_Text_HeyTrainer, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Route114_Movement_ApproachMegaL
+	waitmovement 0
+	msgbox Route114_Text_GiveBattleItems, MSGBOX_DEFAULT
+	giveitem ITEM_MEGA_RING
+	msgbox Route114_Text_ThereYaGo, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_BATTLE_ITEMS
+	setvar VAR_MEGA_MAN, 1
+	pokemart MegaStone_Mart_Pokemart
+	release
+	end
+
+Route114_Movement_ApproachMegaR:
+	walk_left
+	walk_left
+	step_end
+
+Route114_Movement_ApproachMegaM:
+	walk_left
+	step_end
+
+Route114_Movement_ApproachMegaL:
+	face_left
+	step_end
+
+Route114_Text_HeyTrainer:
+	.string "Hey trainer, over here!$"
 

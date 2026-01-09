@@ -1050,7 +1050,7 @@
 #define ITEM_SHUCKLITE 884
 #define ITEM_SKARMITE 885
 
-#define ITEMS_COUNT 875
+#define ITEMS_COUNT 886
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

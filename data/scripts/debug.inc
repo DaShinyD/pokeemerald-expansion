@@ -156,10 +156,12 @@ Debug_EventScript_Script_1::
 	end
 
 Debug_EventScript_Script_2::
-	setwildbattle SPECIES_ZIGZAGOON, 5
-	dowildbattle
+	trainerbattle_no_intro TRAINER_TESTER, Debug_Text_GenericDefeat
 	release
 	end
+
+Debug_Text_GenericDefeat:
+	.string "Nice one.$"
 
 Debug_EventScript_Script_3::
 	givemon SPECIES_UNOWN_B, 100
