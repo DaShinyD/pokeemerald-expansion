@@ -31,7 +31,7 @@
 #define TRAINER_GRUNT_MT_PYRE_3              25
 #define TRAINER_DASH_LILYCOVE                26 // repurposed
 #define TRAINER_GRUNT_AQUA_HIDEOUT_5         27
-#define TRAINER_GRUNT_AQUA_HIDEOUT_6         28 // now unused
+#define TRAINER_SCARY                        28 // now Scary (previously aqua hideout 6)
 #define TRAINER_FREDRICK                     29
 #define TRAINER_MATT                         30
 #define TRAINER_ZANDER                       31

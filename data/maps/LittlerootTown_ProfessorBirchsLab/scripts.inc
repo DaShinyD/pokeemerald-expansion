@@ -118,6 +118,8 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GiveStarterEvent::
 	waitmessage
 	playfanfare MUS_OBTAIN_ITEM
 	waitfanfare
+	setflag FLAG_FLOYD_COPS
+	setflag FLAG_FLOYD
 	goto LittlerootTown_ProfessorBirchsLab_EventScript_GoSeeRival
 	end
 

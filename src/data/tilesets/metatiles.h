@@ -363,3 +363,6 @@ const u16 gMetatileAttributes_CinnabarIsland[] = INCBIN_U16("data/tilesets/secon
 
 const u16 gMetatiles_JohtoPrimary[] = INCBIN_U16("data/tilesets/primary/johto_primary/metatiles.bin");
 const u16 gMetatileAttributes_JohtoPrimary[] = INCBIN_U16("data/tilesets/primary/johto_primary/metatile_attributes.bin");
+
+const u16 gMetatiles_Gen4Interior[] = INCBIN_U16("data/tilesets/secondary/gen_4interior/metatiles.bin");
+const u16 gMetatileAttributes_Gen4Interior[] = INCBIN_U16("data/tilesets/secondary/gen_4interior/metatile_attributes.bin");

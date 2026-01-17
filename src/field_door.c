@@ -131,6 +131,10 @@ static const u8 sDoorAnimTiles_TrainerHillLobbyElevator[] = INCBIN_U8("graphics/
 static const u16 sDoorNullPalette48[16] = {};
 static const u8 sDoorAnimTiles_TrainerHillRoofElevator[] = INCBIN_U8("graphics/door_anims/trainer_hill_roof_elevator.4bpp");
 static const u16 sDoorNullPalette49[16] = {};
+static const u8 sDoorAnimTiles_KantoCenter[] = INCBIN_U8("graphics/door_anims/kanto_door_center.4bpp");
+static const u8 sDoorAnimTiles_KantoShop[] = INCBIN_U8("graphics/door_anims/kanto_door_shop.4bpp");
+static const u8 sDoorAnimTiles_VermilionRedHouse[] = INCBIN_U8("graphics/door_anims/vermilion_red_door.4bpp");
+static const u8 sDoorAnimTiles_KantoHouse[] = INCBIN_U8("graphics/door_anims/kanto_door_house.4bpp");
 
 static const struct DoorAnimFrame sDoorOpenAnimFrames[] =
 {
@@ -219,6 +223,10 @@ static const u8 sDoorAnimPalettes_BattleDomePreBattleRoom[] = {9, 9, 7, 7, 7, 7,
 static const u8 sDoorAnimPalettes_BattleTentInterior[] = {9, 9, 9, 9, 9, 9, 9, 9};
 static const u8 sDoorAnimPalettes_TrainerHillLobbyElevator[] = {7, 7, 7, 7, 7, 7, 7, 7};
 static const u8 sDoorAnimPalettes_TrainerHillRoofElevator[] = {9, 9, 7, 7, 7, 7, 7, 7};
+static const u8 sDoorAnimPalettes_KantoCenter[] = {5, 5, 5, 5, 5, 5, 5, 5};
+static const u8 sDoorAnimPalettes_KantoShop[] = {1, 1, 1, 1, 1, 1, 1, 1};
+static const u8 sDoorAnimPalettes_VermilionRedHouse[] = {12, 12, 12, 12, 12, 12, 12, 12};
+static const u8 sDoorAnimPalettes_KantoHouse[] = {2, 2, 2, 2, 2, 2, 2, 2};
 
 static const struct DoorGraphics sDoorAnimGraphicsTable[] =
 {
@@ -277,7 +285,14 @@ static const struct DoorGraphics sDoorAnimGraphicsTable[] =
     {METATILE_BattleTent_Door,                              DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_BattleTentInterior, sDoorAnimPalettes_BattleTentInterior},
     {METATILE_TrainerHill_Door_Elevator_Lobby,              DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_TrainerHillLobbyElevator, sDoorAnimPalettes_TrainerHillLobbyElevator},
     {METATILE_TrainerHill_Door_Elevator_Roof,               DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_TrainerHillRoofElevator, sDoorAnimPalettes_TrainerHillRoofElevator},
-    {},
+    {METATILE_KantoPrimaryMe_KantoCenterDoor,               DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_KantoCenter, sDoorAnimPalettes_KantoCenter},
+    {METATILE_PewterCity_KantoCenterDoor,                   DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_KantoCenter, sDoorAnimPalettes_KantoCenter},
+    {METATILE_SaffronCity_KantoCenterDoor,                  DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_KantoCenter, sDoorAnimPalettes_KantoCenter},
+    {METATILE_KantoPrimaryMe_KantoShopDoor,                 DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_KantoShop, sDoorAnimPalettes_KantoShop},
+    {METATILE_PewterCity_KantoShopDoor,                     DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_KantoShop, sDoorAnimPalettes_KantoShop},
+    {METATILE_SaffronCity_KantoShopDoor,                    DOOR_SOUND_SLIDING, 1, sDoorAnimTiles_KantoShop, sDoorAnimPalettes_KantoShop},
+    {METATILE_VermillionCity_RedHouseDoor,                  DOOR_SOUND_NORMAL, 1, sDoorAnimTiles_VermilionRedHouse, sDoorAnimPalettes_VermilionRedHouse},
+    {METATILE_KantoPrimaryMe_KantoHouse,                    DOOR_SOUND_NORMAL, 1, sDoorAnimTiles_KantoHouse, sDoorAnimPalettes_KantoHouse},
 };
 
 // NOTE: The tiles of a door's animation must be copied to VRAM because they are not already part of any given tileset.

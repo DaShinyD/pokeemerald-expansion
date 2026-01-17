@@ -2422,7 +2422,7 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_OMNI] =
     {
         .name = _("Omni"),
-        .description = COMPOUND_STRING("Is every type."),
+        .description = COMPOUND_STRING("Always STAB + neutral defense."),
         .aiRating = 8,
         .cantBeCopied = TRUE,
         .cantBeSwapped = TRUE,
@@ -2447,5 +2447,33 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
         .cantBeCopied = TRUE,
         .cantBeSwapped = TRUE,
         .cantBeTraced = TRUE,
+    },
+
+    [ABILITY_JAB_MASTER] =
+    {
+        .name = _("Jab Master"),
+        .description = COMPOUND_STRING("Boosts punching damage and effects."),
+        .aiRating = 6,
+    },
+
+    [ABILITY_PSYCHIC_CORE] =
+    {
+        .name = _("Psychic Core"),
+        .description = COMPOUND_STRING("Powers up psychic moves."),
+        .aiRating = 6,
+    },
+
+    [ABILITY_FULL_CHARGE] =
+    {
+        .name = _("Full Charge"),
+        .description = COMPOUND_STRING("Multiscale + electric doesn't miss."),
+        .aiRating = 6,
+    },
+
+    [ABILITY_MULTITASKER] =
+    {
+        .name = _("Multitasker"),
+        .description = COMPOUND_STRING("Avoids choice lock."),
+        .aiRating = 6,
     },
 };

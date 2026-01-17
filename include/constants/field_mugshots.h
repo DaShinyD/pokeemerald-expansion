@@ -8,7 +8,10 @@
 #define MUGSHOT_MCQUEEN  4
 #define MUGSHOT_FLOYD 5
 #define MUGSHOT_CHAUVIN 6
-#define MUGSHOT_COUNT 7
+#define MUGSHOT_YUGI 7
+#define MUGSHOT_SCARY 8
+#define MUGSHOT_PRE_SCARY 9
+#define MUGSHOT_COUNT 10
 
 #define EMOTE_NORMAL  0
 #define EMOTE_ALT     1

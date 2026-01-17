@@ -1189,7 +1189,7 @@ MysteryGift_EventScript_DoMysteryGift::
 	goto_if_eq VAR_RESULT, 3, MysteryGift_EventScript_Dragon
 	goto_if_eq VAR_RESULT, 4, MysteryGift_EventScript_Dragons
 	goto_if_eq VAR_RESULT, 5, MysteryGift_EventScript_CandyB
-	goto_if_eq VAR_RESULT, 6, MysteryGift_EventScript_Meloetta
+	goto_if_eq VAR_RESULT, 6, MysteryGift_EventScript_Floyd
 	goto_if_eq VAR_RESULT, 7, MysteryGift_EventScript_Hoopa
 	goto_if_eq VAR_RESULT, 8, MysteryGift_EventScript_Marshadow
 	goto_if_eq VAR_RESULT, 9, MysteryGift_EventScript_Pecharunt
@@ -1274,13 +1274,13 @@ MysteryGift_EventScript_CandyB::
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	releaseall
 	end
-MysteryGift_EventScript_Meloetta::
+MysteryGift_EventScript_Floyd::
 	goto_if_set FLAG_MYSTERY_GIFT_6, MysteryGift_EventScript_Redeemed
-	bufferspeciesname STR_VAR_1, SPECIES_MELOETTA_ARIA
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_MELOETTA_ARIA
-	givemon SPECIES_MELOETTA_ARIA, 100, ITEM_CHOICE_SCARF, ITEM_CHERISH_BALL, NATURE_MODEST, 0, MON_GENDERLESS, 0, 0, 4, 252, 252, 0, 31, 31, 31, 31, 31, 31, MOVE_HYPER_VOICE, MOVE_AURA_SPHERE, MOVE_PSYSHOCK, MOVE_CELEBRATE, TRUE, FALSE, TYPE_NORMAL
+	clearflag FLAG_FLOYD_COPS
 	setflag FLAG_MYSTERY_GIFT_6
-	call MysteryGift_EventScript_ReceivedMon
+	setvar VAR_FLOYD, 1
+	msgbox MysteryGift_Text_WillSee, MSGBOX_DEFAULT
+	waitmessage
 	releaseall
 	end
 MysteryGift_EventScript_Hoopa::
@@ -1334,7 +1334,9 @@ MysteryGift_Text_RedeemedText:
 	.string "Would you like you enter a new code?$"
 MysteryGift_Text_ReceivedGiftMon:
 	.string "{PLAYER} received a {STR_VAR_1}!$"
-
+MysteryGift_Text_WillSee:
+	.string "Event unlocked!\p"
+	.string "Reach Saffron to see it.$"
 
 
 	.include "data/maps/FallarborForest/scripts.inc"
@@ -1506,3 +1508,9 @@ MysteryGift_Text_ReceivedGiftMon:
 	.include "data/maps/Route21/scripts.inc"
 
 	.include "data/maps/CinnabarIsland/scripts.inc"
+
+	.include "data/maps/LavenderTower/scripts.inc"
+
+	.include "data/maps/FujiHouse/scripts.inc"
+
+	.include "data/maps/LavenderCenter/scripts.inc"

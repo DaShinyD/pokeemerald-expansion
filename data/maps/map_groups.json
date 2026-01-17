@@ -733,7 +733,9 @@
     "Viridian_PokemonLeague_ChampRoom"
   ],
   "gMapGroup_IndoorLavender": [
-
+    "LavenderTower",
+    "FujiHouse",
+    "LavenderCenter"
   ],
   "gMapGroup_IndoorCeladon": [
     "GatehouseWestC"

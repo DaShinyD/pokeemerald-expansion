@@ -12,6 +12,12 @@ static const u32 sFieldMugshotGfx_Floyd[] = INCBIN_U32("graphics/field_mugshots/
 static const u16 sFieldMugshotPal_Floyd[] = INCBIN_U16("graphics/field_mugshots/floyd/floyd.gbapal");
 static const u32 sFieldMugshotGfx_Chauvin[] = INCBIN_U32("graphics/field_mugshots/chauvin/chauvin.4bpp.lz");
 static const u16 sFieldMugshotPal_Chauvin[] = INCBIN_U16("graphics/field_mugshots/chauvin/chauvin.gbapal");
+static const u32 sFieldMugshotGfx_Yugi[] = INCBIN_U32("graphics/field_mugshots/yugi/yugi.4bpp.lz");
+static const u16 sFieldMugshotPal_Yugi[] = INCBIN_U16("graphics/field_mugshots/yugi/yugi.gbapal");
+static const u32 sFieldMugshotGfx_Scary[] = INCBIN_U32("graphics/field_mugshots/scary/scary.4bpp.lz");
+static const u16 sFieldMugshotPal_Scary[] = INCBIN_U16("graphics/field_mugshots/scary/scary.gbapal");
+static const u32 sFieldMugshotGfx_Prescary[] = INCBIN_U32("graphics/field_mugshots/scary/prescary.4bpp.lz");
+static const u16 sFieldMugshotPal_Prescary[] = INCBIN_U16("graphics/field_mugshots/scary/prescary.gbapal");
 
 struct MugshotGfx
 {
@@ -103,6 +109,48 @@ static const struct MugshotGfx sFieldMugshots[MUGSHOT_COUNT][EMOTE_COUNT] =
         {
             .gfx = sFieldMugshotGfx_Floyd,
             .pal = sFieldMugshotPal_Floyd,
+        },
+    },
+    [MUGSHOT_YUGI] =
+    {
+        [EMOTE_NORMAL] =
+        {
+            .gfx = sFieldMugshotGfx_Yugi,
+            .pal = sFieldMugshotPal_Yugi,
+        },
+
+        [EMOTE_ALT] =
+        {
+            .gfx = sFieldMugshotGfx_Yugi,
+            .pal = sFieldMugshotPal_Yugi,
+        },
+    },
+    [MUGSHOT_SCARY] =
+    {
+        [EMOTE_NORMAL] =
+        {
+            .gfx = sFieldMugshotGfx_Scary,
+            .pal = sFieldMugshotPal_Scary,
+        },
+
+        [EMOTE_ALT] =
+        {
+            .gfx = sFieldMugshotGfx_Scary,
+            .pal = sFieldMugshotPal_Scary,
+        },
+    },
+    [MUGSHOT_PRE_SCARY] =
+    {
+        [EMOTE_NORMAL] =
+        {
+            .gfx = sFieldMugshotGfx_Prescary,
+            .pal = sFieldMugshotPal_Prescary,
+        },
+
+        [EMOTE_ALT] =
+        {
+            .gfx = sFieldMugshotGfx_Prescary,
+            .pal = sFieldMugshotPal_Prescary,
         },
     },
 };

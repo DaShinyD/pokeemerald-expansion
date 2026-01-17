@@ -691,6 +691,9 @@
 #define MAP_VIRIDIAN_POKEMON_LEAGUE_CHAMP_ROOM   (10 | (39 << 8))
 
 // gMapGroup_IndoorLavender
+#define MAP_LAVENDER_TOWER  (0 | (40 << 8))
+#define MAP_FUJI_HOUSE      (1 | (40 << 8))
+#define MAP_LAVENDER_CENTER (2 | (40 << 8))
 
 // gMapGroup_IndoorCeladon
 #define MAP_GATEHOUSE_WEST_C (0 | (41 << 8))

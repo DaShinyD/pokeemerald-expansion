@@ -133,6 +133,9 @@
 #define METATILE_Cave_ShoalCave_DirtPile_Large           0x358
 #define METATILE_Cave_ShoalCave_DirtPile_Small           0x35A
 
+// gTileset_CeruleanCity
+#define METATILE_CeruleanCity_KantoGymDoor  0x2A3
+
 // gTileset_Contest
 #define METATILE_Contest_CounterFlap_Bottom  0x2D9
 #define METATILE_Contest_CounterFlap_Top     0x2D1
@@ -205,6 +208,9 @@
 #define METATILE_Fortree_WoodBridge1_Bottom                0x29F
 #define METATILE_Fortree_WoodBridge1_Top                   0x297
 
+// gTileset_FuchsiaCity
+#define METATILE_FuchsiaCity_KantoGymDoor  0x253
+
 // gTileset_General
 #define METATILE_General_BlueCaveIndent          0x1B0
 #define METATILE_General_BlueCaveOpen            0x1B1
@@ -272,6 +278,11 @@
 #define METATILE_InsideShip_IntactDoor_Bottom_Interior  0x297
 #define METATILE_InsideShip_IntactDoor_Bottom_Locked    0x233
 #define METATILE_InsideShip_IntactDoor_Bottom_Unlocked  0x22B
+
+// gTileset_KantoPrimaryMe
+#define METATILE_KantoPrimaryMe_KantoCenterDoor  0x0E3
+#define METATILE_KantoPrimaryMe_KantoHouse       0x122
+#define METATILE_KantoPrimaryMe_KantoShopDoor    0x102
 
 // gTileset_Lavaridge
 #define METATILE_Lavaridge_AshGrass             0x207
@@ -412,6 +423,11 @@
 #define METATILE_PetalburgGym_SlidingDoor_Frame3  0x21B
 #define METATILE_PetalburgGym_SlidingDoor_Frame4  0x21C
 
+// gTileset_PewterCity
+#define METATILE_PewterCity_KantoCenterDoor  0x2DB
+#define METATILE_PewterCity_KantoGymDoor     0x253
+#define METATILE_PewterCity_KantoShopDoor    0x2FA
+
 // gTileset_PokemonCenter
 #define METATILE_PokemonCenter_CounterBarrier            0x25D
 #define METATILE_PokemonCenter_Door_CableClub            0x264
@@ -453,6 +469,11 @@
 // gTileset_Rustboro
 #define METATILE_Rustboro_Door_Gray  0x21F
 #define METATILE_Rustboro_Door_Tan   0x22F
+
+// gTileset_SaffronCity
+#define METATILE_SaffronCity_KantoCenterDoor  0x3D2
+#define METATILE_SaffronCity_KantoGymDoor     0x253
+#define METATILE_SaffronCity_KantoShopDoor    0x3E7
 
 // gTileset_SecretBase
 #define METATILE_SecretBase_AttractMat_BottomLeft       0x313
@@ -797,6 +818,16 @@
 // gTileset_Underwater
 #define METATILE_Underwater_FloorShadow  0x228
 #define METATILE_Underwater_RockWall     0x21E
+
+// gTileset_VermillionCity
+#define METATILE_VermillionCity_KantoGymDoor  0x223
+#define METATILE_VermillionCity_RedHouseDoor  0x311
+
+// gTileset_ViridianCity
+#define METATILE_ViridianCity_KantoGymDoor  0x293
+
+// gTileset_celadoncity
+#define METATILE_celadoncity_KantoGymDoor  0x253
 
 // gTileset_general2
 #define METATILE_general2_CalmWater  0x170

@@ -1539,6 +1539,13 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
         if (IsBattleMovePhysical(move))
             calc = (calc * 80) / 100; // 1.2 hustle loss
         break;
+    case ABILITY_PSYCHIC_CORE:
+        if (move == MOVE_HYPNOSIS)
+            calc = (calc * 150) / 100; // 50% boost to hypnosis accuracy
+        break;
+    case ABILITY_FULL_CHARGE:
+        if (GetBattleMoveType(move) == TYPE_ELECTRIC) // 100% hit on electric moves
+            calc = 100;
     }
 
     // Target's ability
@@ -6582,7 +6589,8 @@ static void Cmd_moveend(void)
                  && !(gHitMarker & HITMARKER_UNABLE_TO_USE_MOVE)
                  && gChosenMove != MOVE_STRUGGLE
                  && (*choicedMoveAtk == MOVE_NONE || *choicedMoveAtk == MOVE_UNAVAILABLE)
-                 && (HOLD_EFFECT_CHOICE(holdEffectAtk) || GetBattlerAbility(gBattlerAttacker) == ABILITY_GORILLA_TACTICS))
+                 && (HOLD_EFFECT_CHOICE(holdEffectAtk) || GetBattlerAbility(gBattlerAttacker) == ABILITY_GORILLA_TACTICS)
+                 && GetBattlerAbility(gBattlerAttacker) != ABILITY_MULTITASKER)
                 {
                     if ((moveEffect == EFFECT_BATON_PASS || moveEffect == EFFECT_HEALING_WISH)
                      && !(gBattleStruct->moveResultFlags[gBattlerTarget] & MOVE_RESULT_FAILED))

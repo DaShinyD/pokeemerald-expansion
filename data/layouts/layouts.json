@@ -5330,6 +5330,36 @@
       "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/CinnabarIsland/border.bin",
       "blockdata_filepath": "data/layouts/CinnabarIsland/map.bin"
+    },
+    {
+      "id": "LAYOUT_LAVENDER_TOWER",
+      "name": "LavenderTower_Layout",
+      "width": 8,
+      "height": 58,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Facility",
+      "border_filepath": "data/layouts/LavenderTower/border.bin",
+      "blockdata_filepath": "data/layouts/LavenderTower/map.bin"
+    },
+    {
+      "id": "LAYOUT_FUJI_HOUSE",
+      "name": "FujiHouse_Layout",
+      "width": 14,
+      "height": 12,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Gen4Interior",
+      "border_filepath": "data/layouts/FujiHouse/border.bin",
+      "blockdata_filepath": "data/layouts/FujiHouse/map.bin"
+    },
+    {
+      "id": "LAYOUT_LAVENDER_CENTER",
+      "name": "LavenderCenter_Layout",
+      "width": 16,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter2",
+      "border_filepath": "data/layouts/LavenderCenter/border.bin",
+      "blockdata_filepath": "data/layouts/LavenderCenter/map.bin"
     }
   ]
 }

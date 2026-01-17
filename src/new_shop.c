@@ -1273,7 +1273,7 @@ static void BuyMenuInitWindows(void)
             if (ItemId_GetImportance(item) && (CheckBagHasItem(item, 1) || CheckPCHasItem(item, 1)))
                 BuyMenuPrint(WIN_MULTI, sText_SoldOut, GetStringRightAlignXOffset(FONT_SMALL, sText_SoldOut, 80), 2*8, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
             else
-                PrintMoneyLocal(WIN_MULTI, 41, 2*8, price, 84, COLORID_BLACK, FALSE);
+                PrintMoneyLocal(WIN_MULTI, 41, 2*8, price, 80, COLORID_BLACK, FALSE);
 
             ConvertIntToDecimalStringN(gStringVar3, quantity, STR_CONV_MODE_RIGHT_ALIGN, 4);
             BuyMenuPrint(WIN_MULTI, gStringVar3, GetStringRightAlignXOffset(FONT_SMALL, gStringVar3, 80), 4*8, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
@@ -1286,13 +1286,13 @@ static void BuyMenuInitWindows(void)
             if (GetOutfitStatus(outfit))
                 BuyMenuPrint(WIN_MULTI, sText_SoldOut, GetStringRightAlignXOffset(FONT_SMALL, sText_SoldOut, 80), 2*8, TEXT_SKIP_DRAW, COLORID_NORMAL, FALSE);
             else
-                PrintMoneyLocal(WIN_MULTI, 41, 2*8, price, 84, COLORID_NORMAL, FALSE);
+                PrintMoneyLocal(WIN_MULTI, 41, 2*8, price, 80, COLORID_NORMAL, FALSE);
             break;
         }
     #endif // MUDSKIP_OUTFIT_SYSTEM
         case MART_TYPE_DECOR ... MART_TYPE_DECOR2:
         {
-            PrintMoneyLocal(WIN_MULTI, 41, 2*8, price, 84, COLORID_BLACK, FALSE);
+            PrintMoneyLocal(WIN_MULTI, 41, 2*8, price, 80, COLORID_BLACK, FALSE);
             break;
         }
     }
@@ -1363,6 +1363,7 @@ const u8 sText_BattlePointsVar1[] = _("BP {STR_VAR_1}");
 // Tried adding in support for more than 6 max digits, but only success so far is supporting 7 digits
 static void PrintMoneyLocal(u8 windowId, u8 x, u8 y, u32 amount, u8 width, u8 colorIdx, bool32 copy)
 {
+    static u8 sAmtText[32];
     u8 *txtPtr;
     //s32 strLength;
     //s32 temp;
@@ -1382,10 +1383,13 @@ static void PrintMoneyLocal(u8 windowId, u8 x, u8 y, u32 amount, u8 width, u8 co
         StringExpandPlaceholders(txtPtr, sText_BattlePointsVar1);
     else
         StringExpandPlaceholders(txtPtr, sText_PokedollarVar1);
+    StringCopy(sAmtText, txtPtr);
+    u32 winWidthPx = GetWindowAttribute(windowId, WINDOW_WIDTH) * 8;
+    x = GetStringRightAlignXOffset(FONT_SMALL, sAmtText, winWidthPx - 2);
     //temp = GetStringRightAlignXOffset(FONT_NORMAL, txtPtr, width);
     if (numDigits > 7)
         PrependFontIdToFit(gStringVar4, txtPtr + 1 + numDigits, FONT_SMALL, width);
-    AddTextPrinterParameterized4(windowId, FONT_SMALL, x, y, 0, 0, sShopBuyMenuTextColors[colorIdx], TEXT_SKIP_DRAW, gStringVar4);
+    AddTextPrinterParameterized4(windowId, FONT_SMALL, x, y, 0, 0, sShopBuyMenuTextColors[colorIdx], TEXT_SKIP_DRAW, sAmtText);
     PutWindowTilemap(windowId);
     if (copy)
         CopyWindowToVram(windowId, COPYWIN_FULL);
@@ -1450,7 +1454,7 @@ static void UpdateItemData(void)
                 if (ItemId_GetImportance(item) && (CheckBagHasItem(item, 1) || CheckPCHasItem(item, 1)))
                     BuyMenuPrint(WIN_MULTI, sText_SoldOut, GetStringRightAlignXOffset(FONT_SMALL, sText_SoldOut, 80), 2*8, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
                 else
-                    PrintMoneyLocal(WIN_MULTI, 41, 2*8, BuyMenuGetItemPrice(i), 84, COLORID_BLACK, FALSE);
+                    PrintMoneyLocal(WIN_MULTI, 41, 2*8, BuyMenuGetItemPrice(i), 80, COLORID_BLACK, FALSE);
 
                 ConvertIntToDecimalStringN(gStringVar3, quantity, STR_CONV_MODE_RIGHT_ALIGN, 4);
                 BuyMenuPrint(WIN_MULTI, gStringVar3, GetStringRightAlignXOffset(FONT_SMALL, gStringVar3, 80), 4*8, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
@@ -1463,13 +1467,13 @@ static void UpdateItemData(void)
                 if (GetOutfitStatus(outfit))
                     BuyMenuPrint(WIN_MULTI, sText_SoldOut, GetStringRightAlignXOffset(FONT_SMALL, sText_SoldOut, 80), 2*8, TEXT_SKIP_DRAW, COLORID_BLACK, FALSE);
                 else
-                    PrintMoneyLocal(WIN_MULTI, 41, 2*8, BuyMenuGetItemPrice(i), 84, COLORID_BLACK, FALSE);
+                    PrintMoneyLocal(WIN_MULTI, 41, 2*8, BuyMenuGetItemPrice(i), 80, COLORID_BLACK, FALSE);
                 break;
             }
         #endif // MUDSKIP_OUTFIT_SYSTEM
             case MART_TYPE_DECOR ... MART_TYPE_DECOR2:
             {
-                PrintMoneyLocal(WIN_MULTI, 41, 2*8, BuyMenuGetItemPrice(i), 84, COLORID_BLACK, FALSE);
+                PrintMoneyLocal(WIN_MULTI, 41, 2*8, BuyMenuGetItemPrice(i), 80, COLORID_BLACK, FALSE);
                 break;
             }
         }
