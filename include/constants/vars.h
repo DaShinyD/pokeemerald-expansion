@@ -287,8 +287,28 @@
 #define VAR_UNUSED_0x410B                                0x410B // Unused Var
 #define VAR_UNUSED_0x410C                                0x410C // Unused Var
 #define VAR_UNUSED_0x410D                                0x410D // Unused Var
+#define VAR_UNUSED_0x410E                                0x410E // Unused Var
+#define VAR_UNUSED_0x410F                                0x410F // Unused Var
+#define VAR_UNUSED_0x4110                                0x4110 // Unused Var
+#define VAR_UNUSED_0x4111                                0x4111 // Unused Var
+#define VAR_UNUSED_0x4112                                0x4112 // Unused Var
+#define VAR_UNUSED_0x4113                                0x4113 // Unused Var
+#define VAR_UNUSED_0x4114                                0x4114 // Unused Var
+#define VAR_UNUSED_0x4115                                0x4115 // Unused Var
+#define VAR_UNUSED_0x4116                                0x4116 // Unused Var
+#define VAR_UNUSED_0x4117                                0x4117 // Unused Var
+#define VAR_UNUSED_0x4118                                0x4118 // Unused Var
+#define VAR_UNUSED_0x4119                                0x4119 // Unused Var
+#define VAR_UNUSED_0x411A                                0x411A // Unused Var
+#define VAR_UNUSED_0x411B                                0x411B // Unused Var
+#define VAR_UNUSED_0x411C                                0x411C // Unused Var
+#define VAR_UNUSED_0x411D                                0x411D // Unused Var
+#define VAR_UNUSED_0x411E                                0x411E // Unused Var
+#define VAR_UNUSED_0x411F                                0x411F // Unused Var
+#define VAR_UNUSED_0x4120                                0x4120 // Unused Var
+#define VAR_UNUSED_0x4121                                0x4121 // Unused Var
 
-#define VARS_END                                         0x410D
+#define VARS_END                                         0x4121
 #define VARS_COUNT                                       (VARS_END - VARS_START + 1)
 
 #define SPECIAL_VARS_START            0x8000

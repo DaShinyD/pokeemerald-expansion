@@ -1,5 +1,10 @@
 VeridianCity_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, VeridianCity_OnTransition
 	.byte 0
+
+VeridianCity_OnTransition:
+	setflag FLAG_VISITED_VIRIDIAN
+	end
 
 VeridianCity_EventScript_Locked::
 	msgbox VeridianCity_Text_Locked, MSGBOX_SIGN

@@ -1232,16 +1232,16 @@
 #define FLAG_UNUSED_0x496                                           0x496 // Game Corner Stuff
 #define FLAG_UNUSED_0x497                                           0x497 // Game Corner Stuff
 #define FLAG_LEVEL_CAP_ELEVEN                                       0x498 // Self explanatory
-#define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
-#define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
-#define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
-#define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
-#define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
-#define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
-#define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag
-#define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag
-#define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag
-#define FLAG_UNUSED_0x4A2                                           0x4A2 // Unused Flag
+#define FLAG_VISITED_VERMILION                                      0x499 // FLAG_VISITED_VERMILION
+#define FLAG_VISITED_CERULEAN                                       0x49A // FLAG_VISITED_CERULEAN
+#define FLAG_VISITED_PEWTER                                         0x49B // FLAG_VISITED_PEWTER
+#define FLAG_VISITED_VIRIDIAN                                       0x49C // FLAG_VISITED_VIRIDIAN
+#define FLAG_VISITED_PALLET                                         0x49D // FLAG_VISITED_PALLET
+#define FLAG_VISITED_LAVENDER                                       0x49E // FLAG_VISITED_LAVENDER
+#define FLAG_VISITED_SAFFRON                                        0x49F // FLAG_VISITED_SAFFRON
+#define FLAG_VISITED_CELADON                                        0x4A0 // FLAG_VISITED_CELADON
+#define FLAG_VISITED_FUCHSIA                                        0x4A1 // FLAG_VISITED_FUCHSIA
+#define FLAG_VISITED_CINNABAR                                       0x4A2 // FLAG_VISITED_CINNABAR
 #define FLAG_UNUSED_0x4A3                                           0x4A3 // Unused Flag
 #define FLAG_UNUSED_0x4A4                                           0x4A4 // Unused Flag
 #define FLAG_UNUSED_0x4A5                                           0x4A5 // Unused Flag

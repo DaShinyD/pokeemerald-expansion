@@ -27575,13 +27575,12 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     const u32 gMonPalette_Mewtwob[] = INCBIN_U32("graphics/pokemon/mewtwob/normal.gbapal.lz");
     const u32 gMonBackPic_Mewtwob[] = INCBIN_U32("graphics/pokemon/mewtwob/back.4bpp.lz");
     const u32 gMonShinyPalette_Mewtwob[] = INCBIN_U32("graphics/pokemon/mewtwob/shiny.gbapal.lz");
-    const u8 gMonIcon_Mewtwob[] = INCBIN_U8("graphics/pokemon/mewtwob/icon.4bpp");
+     const u8 gMonIcon_Mewtwob[] = INCBIN_U8("graphics/pokemon/mewtwob/icon.4bpp");
 
     const u32 gMonFrontPic_MewtwobMega[] = INCBIN_U32("graphics/pokemon/mewtwob/mega/front.4bpp.lz");
     const u32 gMonPalette_MewtwobMega[] = INCBIN_U32("graphics/pokemon/mewtwob/mega/normal.gbapal.lz");
     const u32 gMonBackPic_MewtwobMega[] = INCBIN_U32("graphics/pokemon/mewtwob/mega/back.4bpp.lz");
     const u32 gMonShinyPalette_MewtwobMega[] = INCBIN_U32("graphics/pokemon/mewtwob/mega/shiny.gbapal.lz");
-    const u8 gMonIcon_MewtwobMega[] = INCBIN_U8("graphics/pokemon/mewtwob/mega/icon.4bpp");
 
     const u32 gMonFrontPic_MimikyuMega[] = INCBIN_U32("graphics/pokemon/mimikyu/mega/front.4bpp.lz");
     const u32 gMonPalette_MimikyuMega[] = INCBIN_U32("graphics/pokemon/mimikyu/mega/normal.gbapal.lz");
@@ -27697,4 +27696,24 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     const u32 gMonShinyPalette_Zapmulcuno[] = INCBIN_U32("graphics/pokemon/zapmulcuno/shiny.gbapal.lz");
     const u8 gMonIcon_Zapmulcuno[] = INCBIN_U8("graphics/pokemon/zapmulcuno/icon.4bpp");
 
+    const u32 gMonFrontPic_Slowcalf[] = INCBIN_U32("graphics/pokemon/slowcalf/anim_front.4bpp.lz");
+    const u32 gMonPalette_Slowcalf[] = INCBIN_U32("graphics/pokemon/slowcalf/normal.gbapal.lz");
+    const u32 gMonBackPic_Slowcalf[] = INCBIN_U32("graphics/pokemon/slowcalf/back.4bpp.lz");
+    const u32 gMonShinyPalette_Slowcalf[] = INCBIN_U32("graphics/pokemon/slowcalf/shiny.gbapal.lz");
+
+    const u32 gMonFrontPic_ArceusMega[] = INCBIN_U32("graphics/pokemon/arceus/mega/front.4bpp.lz");
+    const u32 gMonPalette_ArceusMega[] = INCBIN_U32("graphics/pokemon/arceus/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_ArceusMega[] = INCBIN_U32("graphics/pokemon/arceus/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_ArceusMega[] = INCBIN_U32("graphics/pokemon/arceus/mega/shiny.gbapal.lz");
+    const u8 gMonIcon_ArceusMega[] = INCBIN_U8("graphics/pokemon/arceus/mega/icon.4bpp");
+
+    const u32 gMonFrontPic_HoohMega[] = INCBIN_U32("graphics/pokemon/ho_oh/mega/front.4bpp.lz");
+    const u32 gMonPalette_HoohMega[] = INCBIN_U32("graphics/pokemon/ho_oh/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_HoohMega[] = INCBIN_U32("graphics/pokemon/ho_oh/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_HoohMega[] = INCBIN_U32("graphics/pokemon/ho_oh/mega/shiny.gbapal.lz");
+
+    const u32 gMonFrontPic_LugiaMega[] = INCBIN_U32("graphics/pokemon/lugia/mega/front.4bpp.lz");
+    const u32 gMonPalette_LugiaMega[] = INCBIN_U32("graphics/pokemon/lugia/mega/normal.gbapal.lz");
+    const u32 gMonBackPic_LugiaMega[] = INCBIN_U32("graphics/pokemon/lugia/mega/back.4bpp.lz");
+    const u32 gMonShinyPalette_LugiaMega[] = INCBIN_U32("graphics/pokemon/lugia/mega/shiny.gbapal.lz");
 

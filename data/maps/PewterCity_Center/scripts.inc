@@ -1,7 +1,12 @@
 .set LOCALID_NURSE, 1
 
 PewterCity_Center_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, PewterCity_Center_OnTransition
 	.byte 0
+
+PewterCity_Center_OnTransition:
+	setrespawn HEAL_LOCATION_PEWTER_CITY
+	end
 
 PewterCity_Center_EventScript_Nurse::
 	lock

@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SaffronCity_EventScript_GymBlocker",
       "flag": "0"
     },
     {
@@ -219,7 +219,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SaffronCity_EventScript_Scientist",
       "flag": "0"
     },
     {
@@ -232,7 +232,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SaffronCity_EventScript_Psychic3",
       "flag": "0"
     },
     {
@@ -245,7 +245,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SaffronCity_EventScript_Psychic2",
       "flag": "0"
     },
     {
@@ -258,7 +258,7 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SaffronCity_EventScript_Psychic4",
       "flag": "0"
     },
     {
@@ -271,7 +271,20 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "SaffronCity_EventScript_Psychic1",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
+      "x": 38,
+      "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SaffronCity_EventScript_DojoBlocker",
       "flag": "0"
     }
   ],
@@ -378,14 +391,7 @@
       "x": 28,
       "y": 41,
       "elevation": 0,
-      "dest_map": "MAP_SAFFRON_CITY",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 37,
-      "y": 41,
-      "elevation": 0,
-      "dest_map": "MAP_SAFFRON_CITY",
+      "dest_map": "MAP_SAFFRON_CITY_CENTER",
       "dest_warp_id": "0"
     }
   ],
@@ -452,7 +458,7 @@
       "y": 41,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "SaffronCity_EventScript_Locked"
     },
     {
       "type": "sign",
@@ -460,7 +466,7 @@
       "y": 41,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "SaffronCity_EventScript_Locked"
     },
     {
       "type": "sign",
@@ -468,7 +474,7 @@
       "y": 33,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "SaffronCity_EventScript_Locked"
     },
     {
       "type": "sign",
@@ -476,7 +482,7 @@
       "y": 33,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "SaffronCity_EventScript_Locked"
     },
     {
       "type": "sign",
@@ -484,7 +490,7 @@
       "y": 33,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "SaffronCity_EventScript_Locked"
     },
     {
       "type": "sign",
@@ -492,7 +498,15 @@
       "y": 41,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "NULL"
+      "script": "SaffronCity_EventScript_Locked"
+    },
+    {
+      "type": "sign",
+      "x": 37,
+      "y": 41,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "SaffronCity_EventScript_Locked"
     }
   ]
 }

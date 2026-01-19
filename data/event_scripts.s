@@ -1514,3 +1514,5 @@ MysteryGift_Text_WillSee:
 	.include "data/maps/FujiHouse/scripts.inc"
 
 	.include "data/maps/LavenderCenter/scripts.inc"
+
+	.include "data/maps/SaffronCity_Center/scripts.inc"

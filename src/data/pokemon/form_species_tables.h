@@ -1214,6 +1214,7 @@ static const u16 sArceusFormSpeciesIdTable[] = {
     SPECIES_ARCEUS_DRAGON,
     SPECIES_ARCEUS_DARK,
     SPECIES_ARCEUS_FAIRY,
+    SPECIES_ARCEUS_MEGA,
     FORM_SPECIES_END,
 };
 #endif //P_FAMILY_ARCEUS
@@ -2539,6 +2540,22 @@ static const u16 sGarchomphFormSpeciesIdTable[] = {
     SPECIES_GARCHOMP_HOENNIAN,
 #if P_MEGA_EVOLUTIONS
     SPECIES_GARCHOMP_HOENNIAN_MEGA,
+#endif
+    FORM_SPECIES_END,
+};
+
+static const u16 sLugiaFormSpeciesIdTable[] = {
+    SPECIES_LUGIA,
+#if P_MEGA_EVOLUTIONS
+    SPECIES_LUGIA_MEGA,
+#endif
+    FORM_SPECIES_END,
+};
+
+static const u16 sHoohFormSpeciesIdTable[] = {
+    SPECIES_HO_OH,
+#if P_MEGA_EVOLUTIONS
+    SPECIES_HOOH_MEGA,
 #endif
     FORM_SPECIES_END,
 };

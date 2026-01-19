@@ -8276,6 +8276,8 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
         .levelUpLearnset = sLugiaLevelUpLearnset,
         .teachableLearnset = sLugiaTeachableLearnset,
+        .formSpeciesIdTable = sLugiaFormSpeciesIdTable,
+        .formChangeTable = sLugiaFormChangeTable,
     },
 #endif //P_FAMILY_LUGIA
 
@@ -8355,6 +8357,8 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
         .levelUpLearnset = sHoOhLevelUpLearnset,
         .teachableLearnset = sHoOhTeachableLearnset,
+        .formSpeciesIdTable = sHoohFormSpeciesIdTable,
+        .formChangeTable = sHoohFormChangeTable,
     },
 #endif //P_FAMILY_HO_OH
 

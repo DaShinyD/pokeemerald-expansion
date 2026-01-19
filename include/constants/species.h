@@ -1804,8 +1804,12 @@
 #define SPECIES_WHITEHAND                             1687
 #define SPECIES_SHADOW_LUGIA                          1688
 #define SPECIES_DIALKIA                               1689
+#define SPECIES_LUGIA_MEGA                            1690
+#define SPECIES_HOOH_MEGA                             1691
+#define SPECIES_SLOWCALF                              1692
+#define SPECIES_ARCEUS_MEGA                           1693
 
-#define SPECIES_EGG                                     (SPECIES_DIALKIA + 1)
+#define SPECIES_EGG                                     (SPECIES_ARCEUS_MEGA + 1)
 
 #define NUM_SPECIES SPECIES_EGG
 

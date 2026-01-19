@@ -86,7 +86,7 @@ Viridian_PokemonLeague_ChampRoom_EventScript_After::
 	msgbox Viridian_PokemonLeague_ChampRoom_Text_GreenExplain, MSGBOX_DEFAULT
 	setvar VAR_MOSSDEEP_ROCKET, 1
 	clearflag FLAG_HIDE_SHIP_GUY
-	warp MAP_VERMILLION_CITY, 23, 33
+	warp MAP_VERMILLION_CITY, 25, 32
 	release
 	end
 

@@ -1,7 +1,12 @@
 .set LOCALID_NURSE, 1
 
 VermillionCity_Center_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, VermillionCity_Center_OnTransition
 	.byte 0
+
+VermillionCity_Center_OnTransition:
+	setrespawn HEAL_LOCATION_VERMILION_CITY
+	end
 
 VermillionCity_Center_EventScript_Nurse::
 	lock
@@ -22,3 +27,4 @@ VermillionCity_Center_Text_AllDone:
 VermillionCity_Center_Movement_Turn:
 	face_down
 	step_end
+

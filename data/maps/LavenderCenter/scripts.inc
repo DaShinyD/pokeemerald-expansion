@@ -1,7 +1,12 @@
 .set LOCALID_NURSE, 1
 
 LavenderCenter_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, LavenderCenter_OnTransition
 	.byte 0
+
+LavenderCenter_OnTransition:
+	setrespawn HEAL_LOCATION_LAVENDER_TOWN
+	end
 
 LavenderCenter_EventScript_Nurse::
 	lock

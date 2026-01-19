@@ -7356,12 +7356,12 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
 
 #define ARCEUS_SPECIES_INFO(type, typeName, iconPal)                                \
     {                                                                               \
-        .baseHP        = 255,                                                       \
-        .baseAttack    = 255,                                                       \
-        .baseDefense   = 255,                                                       \
-        .baseSpeed     = 255,                                                       \
-        .baseSpAttack  = 255,                                                       \
-        .baseSpDefense = 255,                                                       \
+        .baseHP        = 120,                                                       \
+        .baseAttack    = 120,                                                       \
+        .baseDefense   = 120,                                                       \
+        .baseSpeed     = 120,                                                       \
+        .baseSpAttack  = 120,                                                       \
+        .baseSpDefense = 120,                                                       \
         .types = MON_TYPES(type),                                                   \
         .catchRate = 3,                                                             \
         .expYield = ARCEUS_EXP_YIELD,                                               \
@@ -7371,7 +7371,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .friendship = 0,                                                            \
         .growthRate = GROWTH_SLOW,                                                  \
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),                  \
-        .abilities = { ABILITY_CREATOR, ABILITY_NONE, ABILITY_NONE },             \
+        .abilities = { ABILITY_MULTITYPE, ABILITY_NONE, ABILITY_NONE },             \
         .bodyColor = BODY_COLOR_WHITE,                                              \
         .speciesName = _("Arceus"),                                                 \
         .cryId = CRY_ARCEUS,                                                        \

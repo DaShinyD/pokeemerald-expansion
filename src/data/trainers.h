@@ -9736,7 +9736,7 @@ F_TRAINER_FEMALE |
             {
             .species = SPECIES_SLAKING,
             .gender = TRAINER_MON_RANDOM_GENDER,
-            .heldItem = ITEM_TOXIC_ORB,
+            .heldItem = ITEM_SLAKINGITE,
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
             .lvl = 48,
             .nature = NATURE_ADAMANT,
@@ -9751,7 +9751,7 @@ F_TRAINER_FEMALE |
             {
             .species = SPECIES_PIDGEOT,
             .gender = TRAINER_MON_RANDOM_GENDER,
-            .heldItem = ITEM_PIDGEOTITE,
+            .heldItem = ITEM_SHARP_BEAK,
             .iv = TRAINER_PARTY_IVS(30, 30, 30, 30, 30, 30),
             .lvl = 50,
             .nature = NATURE_ADAMANT,

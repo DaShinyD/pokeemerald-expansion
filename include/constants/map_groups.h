@@ -699,10 +699,11 @@
 #define MAP_GATEHOUSE_WEST_C (0 | (41 << 8))
 
 // gMapGroup_IndoorSaffron
-#define MAP_GATEHOUSE_WEST  (0 | (42 << 8))
-#define MAP_GATEHOUSE_EAST  (1 | (42 << 8))
-#define MAP_GATEHOUSE_NORTH (2 | (42 << 8))
-#define MAP_GATEHOUSE_SOUTH (3 | (42 << 8))
+#define MAP_GATEHOUSE_WEST      (0 | (42 << 8))
+#define MAP_GATEHOUSE_EAST      (1 | (42 << 8))
+#define MAP_GATEHOUSE_NORTH     (2 | (42 << 8))
+#define MAP_GATEHOUSE_SOUTH     (3 | (42 << 8))
+#define MAP_SAFFRON_CITY_CENTER (4 | (42 << 8))
 
 // gMapGroup_IndoorFuschia
 

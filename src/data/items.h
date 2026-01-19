@@ -5675,6 +5675,23 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_Lopunnite,
     },
 
+    [ITEM_ARCEUSITE] =
+    {
+        .name = _("Arceusite"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = COMPOUND_STRING(
+            "This stone enables\n"
+            "Arceus to Mega\n"
+            "Evolve in battle."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+        .iconPic = gItemIcon_Lopunnite,
+        .iconPalette = gItemIconPalette_Lopunnite,
+    },
+
     [ITEM_MACHAMPITE] =
     {
         .name = _("Machampite"),
@@ -5977,6 +5994,23 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_Blazikenite,
     },
 
+    [ITEM_HOOHITE] =
+    {
+        .name = _("Ho-Oh-ite"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = COMPOUND_STRING(
+            "This stone enables\n"
+            "Ho-Oh to Mega\n"
+            "Evolve in battle."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+        .iconPic = gItemIcon_Blazikenite,
+        .iconPalette = gItemIconPalette_Blazikenite,
+    },
+
     [ITEM_SWAMPERTITE] =
     {
         .name = _("Swampertite"),
@@ -5985,6 +6019,23 @@ const struct Item gItemsInfo[] =
         .description = COMPOUND_STRING(
             "This stone enables\n"
             "Swampert to Mega\n"
+            "Evolve in battle."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .flingPower = 80,
+        .iconPic = gItemIcon_Swampertite,
+        .iconPalette = gItemIconPalette_Swampertite,
+    },
+
+    [ITEM_LUGITE] =
+    {
+        .name = _("Lugite"),
+        .price = 0,
+        .holdEffect = HOLD_EFFECT_MEGA_STONE,
+        .description = COMPOUND_STRING(
+            "This stone enables\n"
+            "Lugia to Mega\n"
             "Evolve in battle."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -14542,11 +14593,12 @@ const struct Item gItemsInfo[] =
     [ITEM_BERSERK_GENE] =
     {
         .name = _("Berserk Gene"),
-        .price = 2000,
+        .price = (I_PRICE >= GEN_7) ? 3000 : 2100,
         .description = sEvolutionStoneDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+        .effect = gItemEffect_EvoItem,
         .flingPower = 30,
         .iconPic = gItemIcon_BerserkGene,
         .iconPalette = gItemIconPalette_BerserkGene,

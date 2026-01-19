@@ -4976,8 +4976,8 @@
       "name": "Tester2_Layout",
       "width": 40,
       "height": 40,
-      "primary_tileset": "gTileset_JohtoPrimary",
-      "secondary_tileset": "gTileset_ViridianCity",
+      "primary_tileset": "gTileset_KantoPrimaryMe",
+      "secondary_tileset": "gTileset_CinnabarIsland",
       "border_filepath": "data/layouts/Tester2/border.bin",
       "blockdata_filepath": "data/layouts/Tester2/map.bin"
     },
@@ -5360,6 +5360,16 @@
       "secondary_tileset": "gTileset_PokemonCenter2",
       "border_filepath": "data/layouts/LavenderCenter/border.bin",
       "blockdata_filepath": "data/layouts/LavenderCenter/map.bin"
+    },
+    {
+      "id": "LAYOUT_SAFFRON_CITY_CENTER",
+      "name": "SaffronCity_Center_Layout",
+      "width": 16,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter2",
+      "border_filepath": "data/layouts/SaffronCity_Center/border.bin",
+      "blockdata_filepath": "data/layouts/SaffronCity_Center/map.bin"
     }
   ]
 }

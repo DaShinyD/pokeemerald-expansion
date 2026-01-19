@@ -4,7 +4,12 @@
 .set LOCALID_INVISIBLE_2, 10
 
 PewterCity_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, PewterCity_OnTransition
 	.byte 0
+
+PewterCity_OnTransition:
+	setflag FLAG_VISITED_PEWTER
+	end
 
 PewterCity_EventScript_Locked::
 	msgbox PewterCity_Text_Locked, MSGBOX_SIGN
