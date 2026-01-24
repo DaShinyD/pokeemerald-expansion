@@ -58,6 +58,8 @@ static void InitMultichoiceCheckWrap(bool8 ignoreBPress, u8 count, u8 windowId, 
 static void DrawLinkServicesMultichoiceMenu(u8 multichoiceId);
 static void CreatePCMultichoice(void);
 static void CreateLilycoveSSTidalMultichoice(void);
+static void CreateKantoTPManMultichoice(void);
+static void PushTPManIfVisited(u8 *count, u16 flag, u8 selection);
 static bool8 IsPicboxClosed(void);
 static void CreateStartMenuForPokenavTutorial(void);
 static void InitMultichoiceNoWrap(bool8 ignoreBPress, u8 unusedCount, u8 windowId, u8 multichoiceId);
@@ -763,6 +765,99 @@ void ScriptMenu_DisplayPCStartupPrompt(void)
 {
     LoadMessageBoxAndFrameGfx(0, TRUE);
     AddTextPrinterParameterized2(0, FONT_NORMAL, gText_WhichPCShouldBeAccessed, 0, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
+}
+
+static u8 sKantoTPManSelections[TPMAN_SELECTION_COUNT];
+
+bool8 ScriptMenu_CreateKantoTPManMultichoice(void)
+{
+    if (FuncIsActiveTask(Task_HandleMultichoiceInput))
+        return FALSE;
+
+    gSpecialVar_Result = 0xFF;
+    CreateKantoTPManMultichoice();
+    return TRUE;
+}
+
+static void PushTPManIfVisited(u8 *count, u16 flag, u8 selection)
+{
+    if (FlagGet(flag))
+    {
+        sKantoTPManSelections[*count] = selection;
+        (*count)++;
+    }
+}
+
+static void CreateKantoTPManMultichoice(void)
+{
+    u8 count = 0;
+    u8 i;
+    u32 pixelWidth = 0;
+    u8 width;
+    u8 windowId;
+
+    // Clear buffer (same as SS Tidal)
+    for (i = 0; i < TPMAN_SELECTION_COUNT; i++)
+        sKantoTPManSelections[i] = 0xFF;
+
+    // Build list based on visited flags
+    PushTPManIfVisited(&count, FLAG_VISITED_VERMILION, TPMAN_SELECTION_VERMILION);
+    PushTPManIfVisited(&count, FLAG_VISITED_CERULEAN,  TPMAN_SELECTION_CERULEAN);
+    PushTPManIfVisited(&count, FLAG_VISITED_PEWTER,    TPMAN_SELECTION_PEWTER);
+    PushTPManIfVisited(&count, FLAG_VISITED_VIRIDIAN,  TPMAN_SELECTION_VIRIDIAN);
+    PushTPManIfVisited(&count, FLAG_VISITED_PALLET,    TPMAN_SELECTION_PALLET);
+    PushTPManIfVisited(&count, FLAG_VISITED_LAVENDER,  TPMAN_SELECTION_LAVENDER);
+    PushTPManIfVisited(&count, FLAG_VISITED_SAFFRON,   TPMAN_SELECTION_SAFFRON);
+    PushTPManIfVisited(&count, FLAG_VISITED_CELADON,   TPMAN_SELECTION_CELADON);
+    PushTPManIfVisited(&count, FLAG_VISITED_FUCHSIA,   TPMAN_SELECTION_FUCHSIA);
+    PushTPManIfVisited(&count, FLAG_VISITED_CINNABAR,  TPMAN_SELECTION_CINNABAR);
+
+    // Always add EXIT
+    sKantoTPManSelections[count++] = TPMAN_SELECTION_EXIT;
+
+    // Calculate window width (identical to SS Tidal)
+    for (i = 0; i < count; i++)
+    {
+        u8 sel = sKantoTPManSelections[i];
+        pixelWidth = DisplayTextAndGetWidth(sKantoTPManDestinationNames[sel], pixelWidth);
+    }
+
+    width = ConvertPixelWidthToTileWidth(pixelWidth);
+    windowId = CreateWindowFromRect(
+        MAX_MULTICHOICE_WIDTH - width,
+        (6 - count) * 2,
+        width,
+        count * 2
+    );
+
+    SetStandardWindowBorderStyle(windowId, FALSE);
+
+    // Print options
+    for (i = 0; i < count; i++)
+    {
+        u8 sel = sKantoTPManSelections[i];
+        AddTextPrinterParameterized(
+            windowId,
+            FONT_NORMAL,
+            sKantoTPManDestinationNames[sel],
+            8,
+            i * 16 + 1,
+            TEXT_SKIP_DRAW,
+            NULL
+        );
+    }
+
+    InitMenuInUpperLeftCornerNormal(windowId, count, count - 1);
+    CopyWindowToVram(windowId, COPYWIN_FULL);
+    InitMultichoiceCheckWrap(FALSE, count, windowId, MULTI_TELEPORT_MAN);
+}
+
+void GetKantoTPManSelection(void)
+{
+    if (gSpecialVar_Result != MULTI_B_PRESSED)
+    {
+        gSpecialVar_Result = sKantoTPManSelections[gSpecialVar_Result];
+    }
 }
 
 bool8 ScriptMenu_CreateLilycoveSSTidalMultichoice(void)

@@ -123,6 +123,7 @@
 #define MULTI_FALLARBOR_TENT_RULES         112
 #define MULTI_TAG_MATCH_TYPE               113
 #define MULTI_BERRY_PLOT                   114
+#define MULTI_TELEPORT_MAN                 115
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0
@@ -134,6 +135,20 @@
 #define SSTIDAL_SELECTION_VERMILLION       6
 #define SSTIDAL_SELECTION_EXIT             7
 #define SSTIDAL_SELECTION_COUNT            8
+
+// Kanto TP Man Selections
+#define TPMAN_SELECTION_VERMILION   0
+#define TPMAN_SELECTION_CERULEAN    1
+#define TPMAN_SELECTION_PEWTER      2
+#define TPMAN_SELECTION_VIRIDIAN    3
+#define TPMAN_SELECTION_PALLET      4
+#define TPMAN_SELECTION_LAVENDER    5
+#define TPMAN_SELECTION_SAFFRON     6
+#define TPMAN_SELECTION_CELADON     7
+#define TPMAN_SELECTION_FUCHSIA     8
+#define TPMAN_SELECTION_CINNABAR    9
+#define TPMAN_SELECTION_EXIT        10
+#define TPMAN_SELECTION_COUNT       11
 
 // Std String Ids
 #define STDSTRING_COOL             0

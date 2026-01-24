@@ -3,10 +3,10 @@
 .set LOCALID_SNORLAX_STAND, 12
 
 VermillionCity_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, Vermillion_City_OnTransition
+	map_script MAP_SCRIPT_ON_TRANSITION, VermillionCity_OnTransition
 	.byte 0
 
-Vermillion_City_OnTransition:
+VermillionCity_OnTransition:
 	setflag FLAG_SNORLAX
 	setflag FLAG_POLICE
 	setflag FLAG_VISITED_VERMILION
@@ -258,4 +258,55 @@ VermillionCity_Movement_StepBack:
 	walk_down
 	face_up
 	step_end
+
+VermillionCity_EventScript_TPMAN::
+	lock
+	faceplayer
+	msgbox VermillionCity_Text_ImTpGuy, MSGBOX_DEFAULT
+	closemessage
+	special ScriptMenu_CreateKantoTPManMultichoice
+	waitstate
+	special GetKantoTPManSelection
+	switch VAR_RESULT
+	case TPMAN_SELECTION_VERMILION, VermillionCity_EventScript_Test
+	case TPMAN_SELECTION_CERULEAN,  VermillionCity_EventScript_Test
+	case TPMAN_SELECTION_PEWTER,    VermillionCity_EventScript_Test
+	case TPMAN_SELECTION_VIRIDIAN,  VermillionCity_EventScript_Test
+	case TPMAN_SELECTION_PALLET,    VermillionCity_EventScript_Test
+	case TPMAN_SELECTION_LAVENDER,  VermillionCity_EventScript_Test
+	case TPMAN_SELECTION_SAFFRON,   VermillionCity_EventScript_Test
+	case TPMAN_SELECTION_CELADON,   VermillionCity_EventScript_Test
+	case TPMAN_SELECTION_FUCHSIA,   VermillionCity_EventScript_Test
+	case TPMAN_SELECTION_CINNABAR,  VermillionCity_EventScript_Test
+	case TPMAN_SELECTION_EXIT,      VermillionCity_EventScript_TestExitSelect
+	case MULTI_B_PRESSED,           VermillionCity_EventScript_TestExitB
+	release
+	end
+
+VermillionCity_Text_ImTpGuy:
+	.string "I'm the TP guy.$"
+
+VermillionCity_EventScript_Test::
+	msgbox VermillionCity_Text_Worked, MSGBOX_DEFAULT
+	release
+	end
+
+VermillionCity_Text_Worked:
+	.string "Well selecting worked.$"
+
+VermillionCity_EventScript_TestExitSelect::
+	msgbox VermillionCity_Text_Okay, MSGBOX_DEFAULT
+	release
+	end
+
+VermillionCity_Text_Okay:
+	.string "Okay then.$"
+
+VermillionCity_EventScript_TestExitB::
+	msgbox VermillionCity_Text_Rude, MSGBOX_DEFAULT
+	release
+	end
+
+VermillionCity_Text_Rude:
+	.string "Rude.$"
 

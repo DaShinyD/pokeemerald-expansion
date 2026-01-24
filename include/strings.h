@@ -517,6 +517,16 @@ extern const u8 gText_NavelRock[];
 extern const u8 gText_BirthIsland[];
 extern const u8 gText_FarawayIsland[];
 extern const u8 gText_Vermillion[];
+extern const u8 gText_Vermilion[];
+extern const u8 gText_Cerulean[];
+extern const u8 gText_Pewter[];
+extern const u8 gText_Viridian[];
+extern const u8 gText_Pallet[];
+extern const u8 gText_Lavender[];
+extern const u8 gText_Saffron[];
+extern const u8 gText_Celadon[];
+extern const u8 gText_Fuchsia[];
+extern const u8 gText_Cinnabar[];
 
 extern const u8 gText_BattleTrainers[];
 extern const u8 gText_BattleBasics[];

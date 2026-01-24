@@ -578,4 +578,6 @@ gSpecials::
 	def_special LoadMegaBeedrill
 	def_special HasBLESSUParty
 	def_special UseBlankMessageToCancelPokemonPic
+	def_special ScriptMenu_CreateKantoTPManMultichoice
+	def_special GetKantoTPManSelection
 

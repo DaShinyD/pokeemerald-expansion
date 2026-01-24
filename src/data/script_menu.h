@@ -906,6 +906,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_FALLARBOR_TENT_RULES]       = MULTICHOICE(MultichoiceList_FallarborTentRules),
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
     [MULTI_BERRY_PLOT]                 = MULTICHOICE(MultichoiceList_BerryPlot),
+    [MULTI_TELEPORT_MAN]               = MULTICHOICE(MultichoiceList_Exit),
 };
 
 const u8 *const gStdStrings[] =
@@ -970,6 +971,21 @@ static const u8 *const sLilycoveSSTidalDestinations[SSTIDAL_SELECTION_COUNT] =
     [SSTIDAL_SELECTION_FARAWAY_ISLAND]  = gText_FarawayIsland,
     [SSTIDAL_SELECTION_VERMILLION]      = gText_Vermillion,
     [SSTIDAL_SELECTION_EXIT]            = gText_Exit,
+};
+
+static const u8 *const sKantoTPManDestinationNames[TPMAN_SELECTION_COUNT] =
+{
+    [TPMAN_SELECTION_VERMILION] = gText_Vermilion,
+    [TPMAN_SELECTION_CERULEAN]  = gText_Cerulean,
+    [TPMAN_SELECTION_PEWTER]    = gText_Pewter,
+    [TPMAN_SELECTION_VIRIDIAN]  = gText_Viridian,
+    [TPMAN_SELECTION_PALLET]    = gText_Pallet,
+    [TPMAN_SELECTION_LAVENDER]  = gText_Lavender,
+    [TPMAN_SELECTION_SAFFRON]   = gText_Saffron,
+    [TPMAN_SELECTION_CELADON]   = gText_Celadon,
+    [TPMAN_SELECTION_FUCHSIA]   = gText_Fuchsia,
+    [TPMAN_SELECTION_CINNABAR]  = gText_Cinnabar,
+    [TPMAN_SELECTION_EXIT]      = gText_Exit,
 };
 
 static const u8 *const sCableClubOptions_WithRecordMix[] =
