@@ -767,17 +767,8 @@ void ScriptMenu_DisplayPCStartupPrompt(void)
     AddTextPrinterParameterized2(0, FONT_NORMAL, gText_WhichPCShouldBeAccessed, 0, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
 }
 
+// Buffer of semantic selections (TPMAN_SELECTION_*)
 static u8 sKantoTPManSelections[TPMAN_SELECTION_COUNT];
-
-bool8 ScriptMenu_CreateKantoTPManMultichoice(void)
-{
-    if (FuncIsActiveTask(Task_HandleMultichoiceInput))
-        return FALSE;
-
-    gSpecialVar_Result = 0xFF;
-    CreateKantoTPManMultichoice();
-    return TRUE;
-}
 
 static void PushTPManIfVisited(u8 *count, u16 flag, u8 selection)
 {
@@ -788,15 +779,30 @@ static void PushTPManIfVisited(u8 *count, u16 flag, u8 selection)
     }
 }
 
-static void CreateKantoTPManMultichoice(void)
+static const u8 *DupMenuString(const u8 *src)
 {
-    u8 count = 0;
-    u8 i;
-    u32 pixelWidth = 0;
-    u8 width;
-    u8 windowId;
+    u32 len = StringLength(src);
+    u8 *dst = Alloc(len + 1);
+    if (dst == NULL)
+        return gText_Exit; // ultra-safe fallback (shouldn't happen in normal use)
 
-    // Clear buffer (same as SS Tidal)
+    StringCopy(dst, src);
+    return dst;
+}
+
+bool8 ScriptMenu_CreateKantoTPManMultichoice(void)
+{
+    u8 i;
+    u8 count = 0;
+    struct ListMenuItem *items;
+
+    // If a scrolling multichoice is already running, don't start another.
+    if (FuncIsActiveTask(Task_HandleScrollingMultichoiceInput))
+        return FALSE;
+
+    gSpecialVar_Result = 0xFF;
+
+    // Clear selection buffer
     for (i = 0; i < TPMAN_SELECTION_COUNT; i++)
         sKantoTPManSelections[i] = 0xFF;
 
@@ -815,49 +821,48 @@ static void CreateKantoTPManMultichoice(void)
     // Always add EXIT
     sKantoTPManSelections[count++] = TPMAN_SELECTION_EXIT;
 
-    // Calculate window width (identical to SS Tidal)
+    // Build dynamic list items (names MUST be allocated; the dynamic menu frees them)
+    items = AllocZeroed(sizeof(*items) * count);
+    if (items == NULL)
+    {
+        gSpecialVar_Result = MULTI_B_PRESSED;
+        return TRUE;
+    }
+
     for (i = 0; i < count; i++)
     {
         u8 sel = sKantoTPManSelections[i];
-        pixelWidth = DisplayTextAndGetWidth(sKantoTPManDestinationNames[sel], pixelWidth);
+        items[i].name = DupMenuString(sKantoTPManDestinationNames[sel]);
+        items[i].id   = sel; // IMPORTANT: result becomes TPMAN_SELECTION_* directly
     }
 
-    width = ConvertPixelWidthToTileWidth(pixelWidth);
-    windowId = CreateWindowFromRect(
-        MAX_MULTICHOICE_WIDTH - width,
-        (6 - count) * 2,
-        width,
-        count * 2
+    // Show a scrolling multichoice:
+    // - left/top: pick a safe top; dynamic code will clamp width internally
+    // - ignoreBPress: FALSE (allow B cancel)
+    // - initialRow: 0
+    // - maxBeforeScroll: TPMAN_MAX_VISIBLE (6)
+    //
+    // When the player chooses/cancels, the dynamic task sets gSpecialVar_Result
+    // and calls ScriptContext_Enable() itself. :contentReference[oaicite:4]{index=4}
+    ScriptMenu_MultichoiceDynamic(
+        0,                  // left
+        2,                  // top
+        count,              // argc
+        items,              // dynamically allocated ListMenuItem array
+        FALSE,              // ignoreBPress
+        TPMAN_MAX_VISIBLE,  // maxBeforeScroll
+        0,
+        DYN_MULTICHOICE_CB_NONE
     );
 
-    SetStandardWindowBorderStyle(windowId, FALSE);
-
-    // Print options
-    for (i = 0; i < count; i++)
-    {
-        u8 sel = sKantoTPManSelections[i];
-        AddTextPrinterParameterized(
-            windowId,
-            FONT_NORMAL,
-            sKantoTPManDestinationNames[sel],
-            8,
-            i * 16 + 1,
-            TEXT_SKIP_DRAW,
-            NULL
-        );
-    }
-
-    InitMenuInUpperLeftCornerNormal(windowId, count, count - 1);
-    CopyWindowToVram(windowId, COPYWIN_FULL);
-    InitMultichoiceCheckWrap(FALSE, count, windowId, MULTI_TELEPORT_MAN);
+    return TRUE;
 }
 
+// Optional compatibility special (you can keep your script flow exactly the same)
 void GetKantoTPManSelection(void)
 {
-    if (gSpecialVar_Result != MULTI_B_PRESSED)
-    {
-        gSpecialVar_Result = sKantoTPManSelections[gSpecialVar_Result];
-    }
+    // No mapping needed.
+    // gSpecialVar_Result is already TPMAN_SELECTION_* (or MULTI_B_PRESSED on cancel).
 }
 
 bool8 ScriptMenu_CreateLilycoveSSTidalMultichoice(void)

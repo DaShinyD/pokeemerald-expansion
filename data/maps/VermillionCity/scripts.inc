@@ -259,6 +259,8 @@ VermillionCity_Movement_StepBack:
 	face_up
 	step_end
 
+@ TP Man Stuff
+
 VermillionCity_EventScript_TPMAN::
 	lock
 	faceplayer
@@ -268,45 +270,117 @@ VermillionCity_EventScript_TPMAN::
 	waitstate
 	special GetKantoTPManSelection
 	switch VAR_RESULT
-	case TPMAN_SELECTION_VERMILION, VermillionCity_EventScript_Test
-	case TPMAN_SELECTION_CERULEAN,  VermillionCity_EventScript_Test
-	case TPMAN_SELECTION_PEWTER,    VermillionCity_EventScript_Test
-	case TPMAN_SELECTION_VIRIDIAN,  VermillionCity_EventScript_Test
-	case TPMAN_SELECTION_PALLET,    VermillionCity_EventScript_Test
-	case TPMAN_SELECTION_LAVENDER,  VermillionCity_EventScript_Test
-	case TPMAN_SELECTION_SAFFRON,   VermillionCity_EventScript_Test
-	case TPMAN_SELECTION_CELADON,   VermillionCity_EventScript_Test
-	case TPMAN_SELECTION_FUCHSIA,   VermillionCity_EventScript_Test
-	case TPMAN_SELECTION_CINNABAR,  VermillionCity_EventScript_Test
-	case TPMAN_SELECTION_EXIT,      VermillionCity_EventScript_TestExitSelect
-	case MULTI_B_PRESSED,           VermillionCity_EventScript_TestExitB
+	case TPMAN_SELECTION_VERMILION, VermillionCity_EventScript_YoureHere
+	case TPMAN_SELECTION_CERULEAN,  VermillionCity_EventScript_WarpCerulean
+	case TPMAN_SELECTION_PEWTER,    VermillionCity_EventScript_WarpPewter
+	case TPMAN_SELECTION_VIRIDIAN,  VermillionCity_EventScript_WarpViridian
+	case TPMAN_SELECTION_PALLET,    VermillionCity_EventScript_WarpPallet
+	case TPMAN_SELECTION_LAVENDER,  VermillionCity_EventScript_WarpLavender
+	case TPMAN_SELECTION_SAFFRON,   VermillionCity_EventScript_WarpSaffron
+	case TPMAN_SELECTION_CELADON,   VermillionCity_EventScript_WarpCeladon
+	case TPMAN_SELECTION_FUCHSIA,   VermillionCity_EventScript_WarpFuchsia
+	case TPMAN_SELECTION_CINNABAR,  VermillionCity_EventScript_WarpCinnabar
+	case TPMAN_SELECTION_EXIT,      VermillionCity_EventScript_Exit
+	case MULTI_B_PRESSED,           VermillionCity_EventScript_Rude
 	release
 	end
 
-VermillionCity_Text_ImTpGuy:
-	.string "I'm the TP guy.$"
-
-VermillionCity_EventScript_Test::
-	msgbox VermillionCity_Text_Worked, MSGBOX_DEFAULT
+VermillionCity_EventScript_YoureHere::
+	msgbox VermillionCity_Text_YoureHere, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
 
-VermillionCity_Text_Worked:
-	.string "Well selecting worked.$"
-
-VermillionCity_EventScript_TestExitSelect::
-	msgbox VermillionCity_Text_Okay, MSGBOX_DEFAULT
+VermillionCity_EventScript_WarpCerulean::
+	msgbox VermillionCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_CERULEAN_CITY, 23, 22
 	release
 	end
 
-VermillionCity_Text_Okay:
-	.string "Okay then.$"
+VermillionCity_EventScript_WarpPewter::
+	msgbox VermillionCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_PEWTER_CITY, 15, 31
+	release
+	end
 
-VermillionCity_EventScript_TestExitB::
+VermillionCity_EventScript_WarpViridian::
+	msgbox VermillionCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_VERIDIAN_CITY, 54, 7
+	release
+	end
+
+VermillionCity_EventScript_WarpPallet::
+	msgbox VermillionCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_PALLETE_TOWN, 18, 11
+	release
+	end
+
+VermillionCity_EventScript_WarpLavender::
+	msgbox VermillionCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_LAVENDER_TOWN, 20, 10
+	release
+	end
+
+VermillionCity_EventScript_WarpSaffron::
+	msgbox VermillionCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_SAFFRON_CITY, 28, 42
+	release
+	end
+
+VermillionCity_EventScript_WarpCeladon::
+	msgbox VermillionCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_CELADON_CITY, 54, 10
+	release
+	end
+
+VermillionCity_EventScript_WarpFuchsia::
+	msgbox VermillionCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_FUCHSIA_CITY, 21, 32
+	release
+	end
+
+VermillionCity_EventScript_WarpCinnabar::
+	msgbox VermillionCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_CINNABAR_ISLAND, 26, 13
+	release
+	end
+
+VermillionCity_EventScript_Exit::
+	msgbox VermillionCity_Text_GuessNot, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+VermillionCity_EventScript_Rude::
 	msgbox VermillionCity_Text_Rude, MSGBOX_DEFAULT
+	closemessage
 	release
 	end
+
+VermillionCity_Text_YoureHere:
+	.string "...\p"
+	.string "You're here.$"
+
+VermillionCity_Text_HereWeGo:
+	.string "Here we go.\p"
+	.string "Abra, teleport!$"
+
+VermillionCity_Text_GuessNot:
+	.string "Guess not.$"
 
 VermillionCity_Text_Rude:
-	.string "Rude.$"
+	.string "Rude, there's an exit button.$"
+
+VermillionCity_Text_ImTpGuy:
+	.string "Hey, I'm the teleport man.\p"
+	.string "Would you like to go somewhere?$"
 

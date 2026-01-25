@@ -150,6 +150,9 @@
 #define TPMAN_SELECTION_EXIT        10
 #define TPMAN_SELECTION_COUNT       11
 
+// TP Man UI
+#define TPMAN_MAX_VISIBLE 6
+
 // Std String Ids
 #define STDSTRING_COOL             0
 #define STDSTRING_BEAUTY           1
