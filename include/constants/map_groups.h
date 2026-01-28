@@ -83,6 +83,7 @@
 #define MAP_ICEFALL_CITY           (74 | (0 << 8))
 #define MAP_UNKNOWN_RUINS          (75 | (0 << 8))
 #define MAP_UNKNOWN_RUINS_GOD_CAVE (76 | (0 << 8))
+#define MAP_ROUTE140               (77 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))

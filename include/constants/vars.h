@@ -274,7 +274,7 @@
 #define VAR_UNUSED_0x40FE                                0x40FE // Gamecorner
 #define VAR_MEGA_MAN                                     0x40FF // Mega Guy gives stuff
 #define VAR_FLOYD                                        0x4100 // Floyd Event
-#define VAR_UNUSED_0x4101                                0x4101 // Unused Var
+#define VAR_YUGI                                         0x4101 // Yugi event
 #define VAR_UNUSED_0x4102                                0x4102 // Unused Var
 #define VAR_UNUSED_0x4103                                0x4103 // Unused Var
 #define VAR_UNUSED_0x4104                                0x4104 // Unused Var

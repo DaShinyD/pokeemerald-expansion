@@ -402,6 +402,7 @@ Route118_EventScript_WallyDefeatedL::
 	removeobject LOCALID_WALLY
 	setflag FLAG_WALLY_118
 	setvar VAR_WALLY_118, 1
+	savebgm MUS_DUMMY
 	fadedefaultbgm
 	release
 	end
@@ -414,6 +415,7 @@ Route118_EventScript_WallyDefeatedM::
 	removeobject LOCALID_WALLY
 	setflag FLAG_WALLY_118
 	setvar VAR_WALLY_118, 1
+	savebgm MUS_DUMMY
 	fadedefaultbgm
 	release
 	end
@@ -426,6 +428,7 @@ Route118_EventScript_WallyDefeatedR::
 	removeobject LOCALID_WALLY
 	setflag FLAG_WALLY_118
 	setvar VAR_WALLY_118, 1
+	savebgm MUS_DUMMY
 	fadedefaultbgm
 	release
 	end

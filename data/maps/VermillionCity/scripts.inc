@@ -10,6 +10,7 @@ VermillionCity_OnTransition:
 	setflag FLAG_SNORLAX
 	setflag FLAG_POLICE
 	setflag FLAG_VISITED_VERMILION
+	setflag FLAG_YUGI_SAFFRON
 	end
 
 VermillionCity_EventScript_Locked::

@@ -1516,3 +1516,5 @@ MysteryGift_Text_WillSee:
 	.include "data/maps/LavenderCenter/scripts.inc"
 
 	.include "data/maps/SaffronCity_Center/scripts.inc"
+
+	.include "data/maps/Route140/scripts.inc"

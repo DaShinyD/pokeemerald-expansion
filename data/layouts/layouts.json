@@ -95,7 +95,7 @@
       "id": "LAYOUT_LITTLEROOT_TOWN",
       "name": "LittlerootTown_Layout",
       "width": 20,
-      "height": 20,
+      "height": 24,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/LittlerootTown/border.bin",
@@ -5370,6 +5370,16 @@
       "secondary_tileset": "gTileset_PokemonCenter2",
       "border_filepath": "data/layouts/SaffronCity_Center/border.bin",
       "blockdata_filepath": "data/layouts/SaffronCity_Center/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE140",
+      "name": "Route140_Layout",
+      "width": 78,
+      "height": 28,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Fortree",
+      "border_filepath": "data/layouts/Route140/border.bin",
+      "blockdata_filepath": "data/layouts/Route140/map.bin"
     }
   ]
 }

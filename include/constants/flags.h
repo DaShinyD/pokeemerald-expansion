@@ -725,7 +725,7 @@
 #define FLAG_ZAPDOS_G      0x2A2 // Assorted legendary
 #define FLAG_SOLGALEO      0x2A3 // Assorted legendary
 #define FLAG_LUNALA        0x2A4 // Assorted legendary
-#define FLAG_YUGI          0x2A5 // Yugi tournament meme
+#define FLAG_UNUSED_112    0x2A5 // Unused
 #define FLAG_INDIGO_BEAT   0x2A6 // Beat Red and Green
 #define FLAG_BEAT_LORELEI  0x2A7 // Lorelei
 #define FLAG_BEAT_BRUNO    0x2A8 // Bruno
@@ -1242,7 +1242,7 @@
 #define FLAG_VISITED_CELADON                                        0x4A0 // FLAG_VISITED_CELADON
 #define FLAG_VISITED_FUCHSIA                                        0x4A1 // FLAG_VISITED_FUCHSIA
 #define FLAG_VISITED_CINNABAR                                       0x4A2 // FLAG_VISITED_CINNABAR
-#define FLAG_UNUSED_0x4A3                                           0x4A3 // Unused Flag
+#define FLAG_YUGI_SAFFRON                                           0x4A3 // Yugi meme Saffron city
 #define FLAG_UNUSED_0x4A4                                           0x4A4 // Unused Flag
 #define FLAG_UNUSED_0x4A5                                           0x4A5 // Unused Flag
 #define FLAG_UNUSED_0x4A6                                           0x4A6 // Unused Flag

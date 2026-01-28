@@ -12,6 +12,7 @@
 .set LOCALID_BYSTANDER_6, 13
 .set LOCALID_BYSTANDER_7, 14
 .set LOCALID_BYSTANDER_8, 15
+.set LOCALID_YUGI, 24
 
 SaffronCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, SaffronCity_OnTransition
@@ -802,4 +803,250 @@ SaffronCity_MovementCameraPanBackRightR:
 	walk_fast_right
 	walk_fast_right
 	step_end
+
+@ TP Man Stuff
+
+SaffronCity_EventScript_TPMAN::
+	lock
+	faceplayer
+	msgbox SaffronCity_Text_ImTpGuy, MSGBOX_DEFAULT
+	closemessage
+	special ScriptMenu_CreateKantoTPManMultichoice
+	waitstate
+	special GetKantoTPManSelection
+	switch VAR_RESULT
+	case TPMAN_SELECTION_SAFFRON,   SaffronCity_EventScript_YoureHere
+	case TPMAN_SELECTION_CERULEAN,  SaffronCity_EventScript_WarpCerulean
+	case TPMAN_SELECTION_PEWTER,    SaffronCity_EventScript_WarpPewter
+	case TPMAN_SELECTION_VIRIDIAN,  SaffronCity_EventScript_WarpViridian
+	case TPMAN_SELECTION_PALLET,    SaffronCity_EventScript_WarpPallet
+	case TPMAN_SELECTION_LAVENDER,  SaffronCity_EventScript_WarpLavender
+	case TPMAN_SELECTION_VERMILION, SaffronCity_EventScript_WarpVermilion
+	case TPMAN_SELECTION_CELADON,   SaffronCity_EventScript_WarpCeladon
+	case TPMAN_SELECTION_FUCHSIA,   SaffronCity_EventScript_WarpFuchsia
+	case TPMAN_SELECTION_CINNABAR,  SaffronCity_EventScript_WarpCinnabar
+	case TPMAN_SELECTION_EXIT,      SaffronCity_EventScript_Exit
+	case MULTI_B_PRESSED,           SaffronCity_EventScript_Rude
+	release
+	end
+
+SaffronCity_EventScript_YoureHere::
+	msgbox SaffronCity_Text_YoureHere, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+SaffronCity_EventScript_WarpCerulean::
+	msgbox SaffronCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_CERULEAN_CITY, 23, 22
+	release
+	end
+
+SaffronCity_EventScript_WarpPewter::
+	msgbox SaffronCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_PEWTER_CITY, 15, 31
+	release
+	end
+
+SaffronCity_EventScript_WarpViridian::
+	msgbox SaffronCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_VERIDIAN_CITY, 54, 7
+	release
+	end
+
+SaffronCity_EventScript_WarpPallet::
+	msgbox SaffronCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_PALLETE_TOWN, 18, 11
+	release
+	end
+
+SaffronCity_EventScript_WarpLavender::
+	msgbox SaffronCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_LAVENDER_TOWN, 20, 10
+	release
+	end
+
+SaffronCity_EventScript_WarpVermilion::
+	msgbox SaffronCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_VERMILLION_CITY, 14, 7
+	release
+	end
+
+SaffronCity_EventScript_WarpCeladon::
+	msgbox SaffronCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_CELADON_CITY, 54, 10
+	release
+	end
+
+SaffronCity_EventScript_WarpFuchsia::
+	msgbox SaffronCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_FUCHSIA_CITY, 21, 32
+	release
+	end
+
+SaffronCity_EventScript_WarpCinnabar::
+	msgbox SaffronCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_CINNABAR_ISLAND, 26, 13
+	release
+	end
+
+SaffronCity_EventScript_Exit::
+	msgbox SaffronCity_Text_GuessNot, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+SaffronCity_EventScript_Rude::
+	msgbox SaffronCity_Text_Rude, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+SaffronCity_Text_YoureHere:
+	.string "...\p"
+	.string "You're here.$"
+
+SaffronCity_Text_HereWeGo:
+	.string "Here we go.\p"
+	.string "Abra, teleport!$"
+
+SaffronCity_Text_GuessNot:
+	.string "Guess not.$"
+
+SaffronCity_Text_Rude:
+	.string "Rude, there's an exit button.$"
+
+SaffronCity_Text_ImTpGuy:
+	.string "Hey, I'm the teleport man.\p"
+	.string "Would you like to go somewhere?$"
+
+@ Yugi Stuff
+
+SaffronCity_EventScript_YugiT::
+	lock
+	addobject LOCALID_YUGI
+	applymovement LOCALID_YUGI, SaffronCity_Movement_YugiApproachT
+	waitmovement 0
+	createfieldmugshot MUGSHOT_YUGI
+	msgbox SaffronCity_Text_YugiStop, MSGBOX_DEFAULT
+	closemessage
+	removefieldmugshot
+	goto SaffronCity_EventScript_YugiBattle
+	release
+	end
+
+SaffronCity_EventScript_YugiM::
+	lock
+	addobject LOCALID_YUGI
+	applymovement LOCALID_YUGI, SaffronCity_Movement_YugiApproachM
+	waitmovement 0
+	createfieldmugshot MUGSHOT_YUGI
+	msgbox SaffronCity_Text_YugiStop, MSGBOX_DEFAULT
+	closemessage
+	removefieldmugshot
+	goto SaffronCity_EventScript_YugiBattle
+	release
+	end
+
+SaffronCity_EventScript_YugiB::
+	lock
+	addobject LOCALID_YUGI
+	applymovement LOCALID_YUGI, SaffronCity_Movement_YugiApproachB
+	waitmovement 0
+	createfieldmugshot MUGSHOT_YUGI
+	msgbox SaffronCity_Text_YugiStop, MSGBOX_DEFAULT
+	closemessage
+	removefieldmugshot
+	goto SaffronCity_EventScript_YugiBattle
+	release
+	end
+
+SaffronCity_Movement_YugiApproachT:
+	walk_right
+	walk_right
+	walk_up
+	face_right
+	step_end
+
+SaffronCity_Movement_YugiApproachM:
+	walk_right
+	walk_right
+	step_end
+
+SaffronCity_Movement_YugiApproachB:
+	walk_right
+	walk_right
+	walk_down
+	face_right
+	step_end
+
+SaffronCity_Text_YugiStop:
+	.string "You there, what did you do with my\n"
+	.string "Grandpa?$"
+
+SaffronCity_EventScript_YugiBattle::
+	trainerbattle_no_intro TRAINER_YUGI, SaffronCity_Text_What
+	goto SaffronCity_EventScript_YugiLeave
+	release
+	end
+
+SaffronCity_Text_What:
+	.string "Hu-huh??$"
+
+SaffronCity_EventScript_YugiLeave::
+	createfieldmugshot MUGSHOT_YUGI
+	msgbox SaffronCity_Text_WhatHappening, MSGBOX_DEFAULT
+	closemessage
+	removefieldmugshot
+	setvar VAR_0x8000, 1
+	callnative OpenFullscreenPopupBgFromScript
+	waitstate
+	msgbox SaffronCity_Text_Attention, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_YUGI, Common_Movement_ExclamationMark
+	playse SE_PIN
+	createfieldmugshot MUGSHOT_YUGI
+	msgbox SaffronCity_Text_GottaGo, MSGBOX_DEFAULT
+	closemessage
+	removefieldmugshot
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_YUGI
+	setflag FLAG_YUGI_SAFFRON
+	setvar VAR_YUGI, 1
+	fadescreen FADE_FROM_BLACK
+	release
+	end
+
+SaffronCity_Text_WhatHappening:
+	.string "You may have beaten me, but I\n"
+	.string "won't stop looking for Grandpa!\p"
+	.string "...\p"
+	.string "Wait, you don't know who I am?\p"
+	.string "Oh boy, I think I jumped the gun.\p"
+	.string "I'm sorry.$"
+
+SaffronCity_Text_Attention:
+	.string "ATTENTION DUELISTS!\p"
+	.string "My hair would like you to know that\n"
+	.string "kidnapped Grandpas are over here.$"
+
+SaffronCity_Text_GottaGo:
+	.string "Gotta go! Sorry again.$"
+
+SaffronCity_EventScript_NeedCard::
+	msgbox SaffronCity_Text_NeedCard, MSGBOX_SIGN
+	release
+	end
+
+SaffronCity_Text_NeedCard:
+	.string "Key card required.$"
 

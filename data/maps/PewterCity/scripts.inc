@@ -119,3 +119,128 @@ PewterCity_Text_Crash:
 PewterCity_Text_Kach_Ow:
 	.string "Kach-OW!$"
 
+@ TP Man Stuff
+
+PewterCity_EventScript_TPMAN::
+	lock
+	faceplayer
+	msgbox PewterCity_Text_ImTpGuy, MSGBOX_DEFAULT
+	closemessage
+	special ScriptMenu_CreateKantoTPManMultichoice
+	waitstate
+	special GetKantoTPManSelection
+	switch VAR_RESULT
+	case TPMAN_SELECTION_PEWTER, 	PewterCity_EventScript_YoureHere
+	case TPMAN_SELECTION_CERULEAN,  PewterCity_EventScript_WarpCerulean
+	case TPMAN_SELECTION_VERMILION, PewterCity_EventScript_WarpVermilion
+	case TPMAN_SELECTION_VIRIDIAN,  PewterCity_EventScript_WarpViridian
+	case TPMAN_SELECTION_PALLET,    PewterCity_EventScript_WarpPallet
+	case TPMAN_SELECTION_LAVENDER,  PewterCity_EventScript_WarpLavender
+	case TPMAN_SELECTION_SAFFRON,   PewterCity_EventScript_WarpSaffron
+	case TPMAN_SELECTION_CELADON,   PewterCity_EventScript_WarpCeladon
+	case TPMAN_SELECTION_FUCHSIA,   PewterCity_EventScript_WarpFuchsia
+	case TPMAN_SELECTION_CINNABAR,  PewterCity_EventScript_WarpCinnabar
+	case TPMAN_SELECTION_EXIT,      PewterCity_EventScript_Exit
+	case MULTI_B_PRESSED,           PewterCity_EventScript_Rude
+	release
+	end
+
+PewterCity_EventScript_YoureHere::
+	msgbox PewterCity_Text_YoureHere, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+PewterCity_EventScript_WarpCerulean::
+	msgbox PewterCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_CERULEAN_CITY, 23, 22
+	release
+	end
+
+PewterCity_EventScript_WarpVermilion::
+	msgbox PewterCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_VERMILLION_CITY, 14, 7
+	release
+	end
+
+PewterCity_EventScript_WarpViridian::
+	msgbox PewterCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_VERIDIAN_CITY, 54, 7
+	release
+	end
+
+PewterCity_EventScript_WarpPallet::
+	msgbox PewterCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_PALLETE_TOWN, 18, 11
+	release
+	end
+
+PewterCity_EventScript_WarpLavender::
+	msgbox PewterCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_LAVENDER_TOWN, 20, 10
+	release
+	end
+
+PewterCity_EventScript_WarpSaffron::
+	msgbox PewterCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_SAFFRON_CITY, 28, 42
+	release
+	end
+
+PewterCity_EventScript_WarpCeladon::
+	msgbox PewterCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_CELADON_CITY, 54, 10
+	release
+	end
+
+PewterCity_EventScript_WarpFuchsia::
+	msgbox PewterCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_FUCHSIA_CITY, 21, 32
+	release
+	end
+
+PewterCity_EventScript_WarpCinnabar::
+	msgbox PewterCity_Text_HereWeGo, MSGBOX_DEFAULT
+	closemessage
+	warp MAP_CINNABAR_ISLAND, 26, 13
+	release
+	end
+
+PewterCity_EventScript_Exit::
+	msgbox PewterCity_Text_GuessNot, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+PewterCity_EventScript_Rude::
+	msgbox PewterCity_Text_Rude, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+PewterCity_Text_YoureHere:
+	.string "...\p"
+	.string "You're here.$"
+
+PewterCity_Text_HereWeGo:
+	.string "Here we go.\p"
+	.string "Abra, teleport!$"
+
+PewterCity_Text_GuessNot:
+	.string "Guess not.$"
+
+PewterCity_Text_Rude:
+	.string "Rude, there's an exit button.$"
+
+PewterCity_Text_ImTpGuy:
+	.string "Hey, I'm the teleport man.\p"
+	.string "Would you like to go somewhere?$"
+

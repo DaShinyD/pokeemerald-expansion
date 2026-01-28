@@ -78,6 +78,7 @@ ThunderDragonCave_EventScript_Regidrago::
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, ThunderDragonCave_EventScript_RegidragoGone
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ThunderDragonCave_EventScript_RegidragoGone
 	release
 	end
 
@@ -99,6 +100,7 @@ ThunderDragonCave_EventScript_Regieleki::
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, ThunderDragonCave_EventScript_RegielekiGone
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ThunderDragonCave_EventScript_RegielekiGone
 	release
 	end
 
