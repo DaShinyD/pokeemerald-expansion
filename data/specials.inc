@@ -580,4 +580,5 @@ gSpecials::
 	def_special UseBlankMessageToCancelPokemonPic
 	def_special ScriptMenu_CreateKantoTPManMultichoice
 	def_special GetKantoTPManSelection
+	def_special StartRangerCapture
 

@@ -410,6 +410,10 @@ static const struct SpriteFrameImage sPicTable_Artist[] = {
     overworld_ascending_frames(gObjectEventPic_Artist, 2, 4),
 };
 
+static const struct SpriteFrameImage sPicTable_Rangertop[] = {
+    overworld_ascending_frames(gObjectEventPic_Rangertop, 2, 2),
+};
+
 static const struct SpriteFrameImage sPicTable_MayNormal[] = {
     overworld_ascending_frames(gObjectEventPic_MayNormalRunning, 4, 4),
 };

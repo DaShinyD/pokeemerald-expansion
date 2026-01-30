@@ -1331,6 +1331,59 @@ static const union AnimCmd *const sAnimTable_Rayquaza[] = {
     [ANIM_STD_GO_FASTEST_EAST] = sAnim_RayquazaNormal,
 };
 
+// Rangertop: single-frame anims (frame 1) for all directions/speeds
+static const union AnimCmd sAnim_Ranger1[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger2[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger3[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger4[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger5[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger6[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger7[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger8[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger9[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger10[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger11[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger12[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger13[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger14[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger15[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger16[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger17[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger18[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger19[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger20[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger21[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger22[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger23[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+static const union AnimCmd sAnim_Ranger24[] = { ANIMCMD_FRAME(1, 8), ANIMCMD_JUMP(0), };
+
+static const union AnimCmd *const sAnimTableRangerTop[] = {
+    [ANIM_STD_FACE_SOUTH] = sAnim_Ranger1,
+    [ANIM_STD_FACE_NORTH] = sAnim_Ranger2,
+    [ANIM_STD_FACE_WEST] = sAnim_Ranger3,
+    [ANIM_STD_FACE_EAST] = sAnim_Ranger4,
+    [ANIM_STD_GO_SOUTH] = sAnim_Ranger5,
+    [ANIM_STD_GO_NORTH] = sAnim_Ranger6,
+    [ANIM_STD_GO_WEST] = sAnim_Ranger7,
+    [ANIM_STD_GO_EAST] = sAnim_Ranger8,
+    [ANIM_STD_GO_FAST_SOUTH] = sAnim_Ranger9,
+    [ANIM_STD_GO_FAST_NORTH] = sAnim_Ranger10,
+    [ANIM_STD_GO_FAST_WEST] = sAnim_Ranger11,
+    [ANIM_STD_GO_FAST_EAST] = sAnim_Ranger12,
+    [ANIM_STD_GO_FASTER_SOUTH] = sAnim_Ranger13,
+    [ANIM_STD_GO_FASTER_NORTH] = sAnim_Ranger14,
+    [ANIM_STD_GO_FASTER_WEST] = sAnim_Ranger15,
+    [ANIM_STD_GO_FASTER_EAST] = sAnim_Ranger16,
+    [ANIM_STD_GO_FASTEST_SOUTH] = sAnim_Ranger17,
+    [ANIM_STD_GO_FASTEST_NORTH] = sAnim_Ranger18,
+    [ANIM_STD_GO_FASTEST_WEST] = sAnim_Ranger19,
+    [ANIM_STD_GO_FASTEST_EAST] = sAnim_Ranger20,
+    [ANIM_RUN_SOUTH] = sAnim_Ranger21,
+    [ANIM_RUN_NORTH] = sAnim_Ranger22,
+    [ANIM_RUN_WEST] = sAnim_Ranger23,
+    [ANIM_RUN_EAST] = sAnim_Ranger24,
+};
+
 static const union AnimCmd *const sAnimTable_BrendanMayNormal[] = {
     [ANIM_STD_FACE_SOUTH] = sAnim_FaceSouth,
     [ANIM_STD_FACE_NORTH] = sAnim_FaceNorth,
