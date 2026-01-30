@@ -112,6 +112,7 @@ static void Task_StartMenuFullWaitFadeIn(u8 taskId);
 static void Task_StartMenuFullMain(u8 taskId);
 static u32 GetHPEggCyclePercent(u32 partyIndex);
 static void PrintMapNameAndTime(void);
+static void PrintBottomBarHints(void);
 static void CursorCallback(struct Sprite *sprite);
 bool8 StartMenuDexNavCallback(void);
 
@@ -1015,6 +1016,7 @@ static bool8 StartMenuFull_DoGfxSetup(void) // base UI loader from Ghouls UI She
         CreatePartyMonIcons();
         StartMenu_DisplayHP();
         CreatePartyMonStatuses();
+        PrintBottomBarHints();
         gMain.state++;
         break;
     case 6:
@@ -1202,7 +1204,19 @@ static void StartMenuFull_InitWindows(void)
 //  Confirm Save Dialogue Printer
 //
 static const u8 sText_ConfirmSave[] = _("Confirm Save and Return to Overworld?");
+static const u8 sText_L_DexNav[] = _("{L_BUTTON} DexNav");
 static const u8 sA_ButtonGfx[]         = INCBIN_U8("graphics/ui_startmenu_full/a_button.4bpp");
+
+static void PrintBottomBarHints(void)
+{
+    u8 sHintColors[] = {TEXT_COLOR_TRANSPARENT, 2, 3};
+    FillWindowPixelBuffer(WINDOW_BOTTOM_BAR, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
+    if (DN_FLAG_DEXNAV_GET != 0 && FlagGet(DN_FLAG_DEXNAV_GET))
+        AddTextPrinterParameterized4(WINDOW_BOTTOM_BAR, FONT_SMALL, 0, 0, 0, 0, sHintColors, 0xFF, sText_L_DexNav);
+    PutWindowTilemap(WINDOW_BOTTOM_BAR);
+    CopyWindowToVram(WINDOW_BOTTOM_BAR, COPYWIN_FULL);
+}
+
 static void PrintSaveConfirmToWindow()
 {
     const u8 *str = sText_ConfirmSave;
@@ -1443,9 +1457,7 @@ void Task_HandleSaveConfirmation(u8 taskId)
     if(JOY_NEW(B_BUTTON)) // back to normal Menu Control
     {
         PlaySE(SE_SELECT);
-        FillWindowPixelBuffer(WINDOW_BOTTOM_BAR, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
-        PutWindowTilemap(WINDOW_BOTTOM_BAR);
-        CopyWindowToVram(WINDOW_BOTTOM_BAR, COPYWIN_FULL);
+        PrintBottomBarHints();
         gTasks[taskId].func = Task_StartMenuFullMain;
         return;
     }
@@ -1548,7 +1560,7 @@ static void Task_StartMenuFullMain(u8 taskId)
         }
     }
 
-    if(JOY_NEW(SELECT_BUTTON)) // If select button pressed go to DexNav
+    if(JOY_NEW(L_BUTTON)) // If select button pressed go to DexNav
     {
         if (DN_FLAG_DEXNAV_GET != 0 && FlagGet(DN_FLAG_DEXNAV_GET))
         {

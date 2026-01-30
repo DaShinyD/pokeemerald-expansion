@@ -164,12 +164,7 @@ Debug_Text_GenericDefeat:
 	.string "Nice one.$"
 
 Debug_EventScript_Script_3::
-	givemon SPECIES_UNOWN_B, 100
-	givemon SPECIES_UNOWN_L, 100
-	givemon SPECIES_UNOWN_E, 100
-	givemon SPECIES_UNOWN_S, 100
-	givemon SPECIES_UNOWN_S, 100
-	givemon SPECIES_UNOWN_U, 100
+	setflag FLAG_NAV_GET
 	release
 	end
 
