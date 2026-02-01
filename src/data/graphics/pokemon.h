@@ -27717,3 +27717,18 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     const u32 gMonBackPic_LugiaMega[] = INCBIN_U32("graphics/pokemon/lugia/mega/back.4bpp.lz");
     const u32 gMonShinyPalette_LugiaMega[] = INCBIN_U32("graphics/pokemon/lugia/mega/shiny.gbapal.lz");
 
+    const u32 gMonFrontPic_Glacister[] = INCBIN_U32("graphics/pokemon/glacister/front.4bpp.lz");
+    const u32 gMonPalette_Glacister[] = INCBIN_U32("graphics/pokemon/glacister/normal.gbapal.lz");
+    const u32 gMonBackPic_Glacister[] = INCBIN_U32("graphics/pokemon/glacister/back.4bpp.lz");
+    const u32 gMonShinyPalette_Glacister[] = INCBIN_U32("graphics/pokemon/glacister/shiny.gbapal.lz");
+
+    const u32 gMonFrontPic_Aridox[] = INCBIN_U32("graphics/pokemon/aridox/front.4bpp.lz");
+    const u32 gMonPalette_Aridox[] = INCBIN_U32("graphics/pokemon/aridox/normal.gbapal.lz");
+    const u32 gMonBackPic_Aridox[] = INCBIN_U32("graphics/pokemon/aridox/back.4bpp.lz");
+    const u32 gMonShinyPalette_Aridox[] = INCBIN_U32("graphics/pokemon/aridox/shiny.gbapal.lz");
+
+    const u32 gMonFrontPic_Dragnar[] = INCBIN_U32("graphics/pokemon/dragnar/front.4bpp.lz");
+    const u32 gMonPalette_Dragnar[] = INCBIN_U32("graphics/pokemon/dragnar/normal.gbapal.lz");
+    const u32 gMonBackPic_Dragnar[] = INCBIN_U32("graphics/pokemon/dragnar/back.4bpp.lz");
+    const u32 gMonShinyPalette_Dragnar[] = INCBIN_U32("graphics/pokemon/dragnar/shiny.gbapal.lz");
+

@@ -1990,10 +1990,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
             gOverworldPalette_Deino,
             gShinyOverworldPalette_Deino
         )
-        .levelUpLearnset = sBagonLevelUpLearnset,
+        .levelUpLearnset = sDargLevelUpLearnset,
         .teachableLearnset = sBagonTeachableLearnset,
         .eggMoveLearnset = sBagonEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_DARGO}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 28, SPECIES_DARGO}),
     },
     [SPECIES_DARGO] =
     {
@@ -2051,9 +2051,9 @@ const struct SpeciesInfo gSpeciesInfo[] =
             gOverworldPalette_Shelgon,
             gShinyOverworldPalette_Shelgon
         )
-        .levelUpLearnset = sNaganadelLevelUpLearnset,
+        .levelUpLearnset = sDargoLevelUpLearnset,
         .teachableLearnset = sNaganadelTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 50, SPECIES_DARGON}),
+        .evolutions = EVOLUTION({EVO_LEVEL, 44, SPECIES_DARGON}),
     },
     [SPECIES_DARGON] =
     {
@@ -2119,7 +2119,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
             gOverworldPalette_Salamence,
             gShinyOverworldPalette_Salamence
         )
-        .levelUpLearnset = sNaganadelLevelUpLearnset,
+        .levelUpLearnset = sDargonLevelUpLearnset,
         .teachableLearnset = sNaganadelTeachableLearnset,
     },
     [SPECIES_FAKE_GROUDON] =
@@ -11467,6 +11467,198 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .isMythical = TRUE,                                                         
         .isFrontierBanned = TRUE,                                                   
         .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
-    }
+    },
+    [SPECIES_GLACISTER] =
+    {
+        .baseHP        = 70,
+        .baseAttack    = 125,
+        .baseDefense   = 200,
+        .baseSpeed     = 70,
+        .baseSpAttack  = 85,
+        .baseSpDefense = 80,
+        .types = MON_TYPES(TYPE_WATER, TYPE_ICE),
+        .catchRate = 60,
+        .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 184 : 203,
+        .evYield_Defense = 2,
+        .itemCommon = ITEM_PEARL,
+        .itemRare = ITEM_BIG_PEARL,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_3),
+    #if P_UPDATED_ABILITIES >= GEN_4
+        .abilities = { ABILITY_SHELL_ARMOR, ABILITY_SKILL_LINK, ABILITY_OVERCOAT },
+    #else
+        .abilities = { ABILITY_SHELL_ARMOR, ABILITY_NONE, ABILITY_OVERCOAT },
+    #endif
+        .bodyColor = BODY_COLOR_PURPLE,
+        .speciesName = _("Glacister"),
+        .cryId = CRY_CLOYSTER,
+        .natDexNum = NATIONAL_DEX_CLOYSTER,
+        .categoryName = _("Bivalve"),
+        .height = 15,
+        .weight = 1325,
+        .description = COMPOUND_STRING(
+            "It swims in the sea by swallowing water,\n"
+            "then jetting it out toward the rear.\n"
+            "The Glacister shoots spikes from its\n"
+            "shell using the same system."),
+        .pokemonScale = 256,
+        .pokemonOffset = 0,
+        .trainerScale = 269,
+        .trainerOffset = 1,
+        .frontPic = gMonFrontPic_Glacister,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 3,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SHAKE_TWICE,
+        .backPic = gMonBackPic_Glacister,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_TRIANGLE_DOWN,
+        .palette = gMonPalette_Glacister,
+        .shinyPalette = gMonShinyPalette_Glacister,
+        .iconSprite = gMonIcon_Cloyster,
+        .iconPalIndex = 2,
+        SHADOW(4, 8, SHADOW_SIZE_M)
+        FOOTPRINT(Cloyster)
+        OVERWORLD(
+            sPicTable_Cloyster,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_NONE,
+            sAnimTable_Following,
+            gOverworldPalette_Cloyster,
+            gShinyOverworldPalette_Cloyster
+        )
+        .levelUpLearnset = sCloysterLevelUpLearnset,
+        .teachableLearnset = sCloysterTeachableLearnset,
+    },
+    [SPECIES_DRAGNAR] =
+    {
+        .baseHP        = 80,
+        .baseAttack    = 135,
+        .baseDefense   = 85,
+        .baseSpeed     = 120,
+        .baseSpAttack  = 60,
+        .baseSpDefense = 55,
+        .types = MON_TYPES(TYPE_BUG, TYPE_DRAGON),
+        .catchRate = 30,
+        .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 180 : 198,
+        .evYield_Attack = 2,
+        .itemRare = ITEM_WIDE_LENS,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_BUG),
+        .abilities = { ABILITY_SPEED_BOOST, ABILITY_TINTED_LENS, ABILITY_MOXIE },
+        .bodyColor = BODY_COLOR_GREEN,
+        .speciesName = _("Dragnar"),
+        .cryId = CRY_YANMEGA,
+        .natDexNum = NATIONAL_DEX_DRAGNAR,
+        .categoryName = _("Ogre Darner"),
+        .height = 19,
+        .weight = 515,
+        .description = COMPOUND_STRING(
+            "This six-legged Pokémon is easily capable\n"
+            "of transporting an adult in flight. It is\n"
+            "adept at biting apart foes while flying\n"
+            "by at high speed."),
+        .pokemonScale = 256,
+        .pokemonOffset = 1,
+        .trainerScale = 326,
+        .trainerOffset = 4,
+        .frontPic = gMonFrontPic_Dragnar,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 5,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_H_VIBRATE,
+        .enemyMonElevation = 13,
+        .backPic = gMonBackPic_Dragnar,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_H_VIBRATE,
+        .palette = gMonPalette_Dragnar,
+        .shinyPalette = gMonShinyPalette_Dragnar,
+        .iconSprite = gMonIcon_Yanmega,
+        .iconPalIndex = 1,
+        SHADOW(4, 20, SHADOW_SIZE_M)
+        FOOTPRINT(Yanmega)
+        OVERWORLD(
+            sPicTable_Yanmega,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_Yanmega,
+            gShinyOverworldPalette_Yanmega
+        )
+        .levelUpLearnset = sDragnarLevelUpLearnset,
+        .teachableLearnset = sYanmegaTeachableLearnset,
+    },
+    [SPECIES_ARIDOX] =
+    {
+        .baseHP        = 100,
+        .baseAttack    = 60,
+        .baseDefense   = 100,
+        .baseSpeed     = 110,
+        .baseSpAttack  = 145,
+        .baseSpDefense = 110,
+        .types = MON_TYPES(TYPE_GROUND, TYPE_FLYING),
+        .catchRate = 3,
+        .expYield = (P_UPDATED_EXP_YIELDS >= GEN_8) ? 300 : 270,
+        .evYield_SpAttack = 3,
+        .genderRatio = MON_MALE,
+        .eggCycles = 120,
+        .friendship = 90,
+        .growthRate = GROWTH_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
+        .abilities = { ABILITY_SAND_FORCE, ABILITY_NONE, ABILITY_SHEER_FORCE },
+        .bodyColor = BODY_COLOR_BROWN,
+        .speciesName = _("Aridox"),
+        .cryId = CRY_LANDORUS_INCARNATE,
+        .natDexNum = NATIONAL_DEX_ARIDOX,
+        .categoryName = _("Dust Devil"),
+        .height = 15,
+        .weight = 680,
+        .description = COMPOUND_STRING(
+            "A calamity directly from the desert.\n"
+            "When Aridox gets angry, it will whip\n"
+            "up a dust tornado that savages anything\n"
+            "in its path."),
+        .pokemonScale = 268,
+        .pokemonOffset = 2,
+        .trainerScale = 271,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Aridox,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 9,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_FIGURE_8,
+        .enemyMonElevation = 7,
+        .backPic = gMonBackPic_Aridox,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_V_SHAKE,
+        .palette = gMonPalette_Aridox,
+        .shinyPalette = gMonShinyPalette_Aridox,
+        .iconSprite = gMonIcon_LandorusIncarnate,
+        .iconPalIndex = 0,
+        SHADOW(2, 12, SHADOW_SIZE_M)
+        FOOTPRINT(Landorus)
+        OVERWORLD(
+            sPicTable_LandorusIncarnate,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_LandorusIncarnate,
+            gShinyOverworldPalette_LandorusIncarnate
+        )
+        .levelUpLearnset = sLandorusLevelUpLearnset,
+        .teachableLearnset = sLandorusTeachableLearnset,
+    },
 };
 

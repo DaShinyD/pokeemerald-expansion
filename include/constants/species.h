@@ -1808,8 +1808,11 @@
 #define SPECIES_HOOH_MEGA                             1691
 #define SPECIES_SLOWCALF                              1692
 #define SPECIES_ARCEUS_MEGA                           1693
+#define SPECIES_GLACISTER                             1694
+#define SPECIES_ARIDOX                                1695
+#define SPECIES_DRAGNAR                               1696
 
-#define SPECIES_EGG                                     (SPECIES_ARCEUS_MEGA + 1)
+#define SPECIES_EGG                                     (SPECIES_DRAGNAR + 1)
 
 #define NUM_SPECIES SPECIES_EGG
 

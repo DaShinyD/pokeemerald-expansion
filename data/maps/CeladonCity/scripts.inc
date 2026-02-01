@@ -1,3 +1,5 @@
+.set LOCALID_DASH, 3
+
 CeladonCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, CeladonCity_OnTransition
 	.byte 0
@@ -130,4 +132,74 @@ CeladonCity_Text_Rude:
 CeladonCity_Text_ImTpGuy:
 	.string "Hey, I'm the teleport man.\p"
 	.string "Would you like to go somewhere?$"
+
+@ Begin actual
+
+CeladonCity_EventScript_DashT::
+	lock
+	applymovement LOCALID_DASH, CeladonCity_Movement_DashTurn
+	waitmovement 0
+	applymovement LOCALID_DASH, Common_Movement_ExclamationMark
+	playse SE_PIN
+	waitmovement 0
+	applymovement LOCALID_DASH, CeladonCity_Movement_DashApproachT
+	waitmovement 0
+	msgbox CeladonCity_Text_HeyPlayer, MSGBOX_DEFAULT
+	closemessage
+	goto CeladonCity_EventScript_DashBattle
+	release
+	end
+
+CeladonCity_EventScript_DashM::
+	lock
+	applymovement LOCALID_DASH, CeladonCity_Movement_DashTurn
+	waitmovement 0
+	applymovement LOCALID_DASH, Common_Movement_ExclamationMark
+	playse SE_PIN
+	waitmovement 0
+	applymovement LOCALID_DASH, CeladonCity_Movement_DashApproachM
+	waitmovement 0
+	msgbox CeladonCity_Text_HeyPlayer, MSGBOX_DEFAULT
+	closemessage
+	goto CeladonCity_EventScript_DashBattle
+	release
+	end
+
+CeladonCity_EventScript_DashB::
+	lock
+	applymovement LOCALID_DASH, CeladonCity_Movement_DashTurn
+	waitmovement 0
+	applymovement LOCALID_DASH, Common_Movement_ExclamationMark
+	playse SE_PIN
+	waitmovement 0
+	applymovement LOCALID_DASH, CeladonCity_Movement_DashApproachB
+	waitmovement 0
+	msgbox CeladonCity_Text_HeyPlayer, MSGBOX_DEFAULT
+	closemessage
+	goto CeladonCity_EventScript_DashBattle
+	release
+	end
+
+CeladonCity_Movement_DashTurn:
+	face_right
+	step_end
+
+CeladonCity_Movement_DashApproachT:
+	walk_right
+	walk_right
+	walk_up
+	face_right
+	step_end
+
+CeladonCity_Movement_DashApproachM:
+	walk_right
+	walk_right
+	step_end
+
+CeladonCity_Movement_DashApproachB:
+	walk_right
+	walk_right
+	walk_down
+	face_right
+	step_end
 
