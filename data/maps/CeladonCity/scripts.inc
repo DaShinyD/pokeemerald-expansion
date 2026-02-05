@@ -203,3 +203,54 @@ CeladonCity_Movement_DashApproachB:
 	face_right
 	step_end
 
+CeladonCity_Text_HeyPlayer:
+	.string "{PLAYER}!\p"
+	.string "Great to see you here.\p"
+	.string "The Kanto region sure looks different\n"
+	.string "from Hoenn, huh?\p"
+	.string "I heard you also took on Red and Green.\p"
+	.string "You know what that means?\p"
+	.string "We have to battle!$"
+
+CeladonCity_EventScript_DashBattle::
+	trainerbattle_no_intro TRAINER_DASH_CELADON, CeladonCity_Text_Always
+	goto CeladonCity_EventScript_DashAfter
+	release
+	end
+
+CeladonCity_Text_Always:
+	.string "Always the winner, aren't you?$"
+
+CeladonCity_EventScript_DashAfter::
+	msgbox CeladonCity_Text_Going, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_DASH, CeladonCity_Movement_Leave
+	waitmovement 0
+	setvar VAR_DASH_CELADON, 1
+	setflag VAR_DASH_CELADON
+	release
+	end
+
+CeladonCity_Text_Going:
+	.string "One of these days, I'm the one who\n"
+	.string "will win.\p"
+	.string "I'm heading off to explore more.\p"
+	.string "I heard Rye is hanging around in\n"
+	.string "Fuchsia City.\p"
+	.string "I'm sure he's gonna want to have\n"
+	.string "a battle with you too!\p"
+	.string "I'll see you around.$"
+
+CeladonCity_Movement_Leave:
+	walk_left
+	walk_left
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	walk_up
+	step_end
+

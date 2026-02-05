@@ -321,6 +321,9 @@ PlayersHouse_2F_EventScript_NoCap::
 	setflag FLAG_LEVEL_CAP_NINE
 	setflag FLAG_LEVEL_CAP_TEN
 	setflag FLAG_LEVEL_CAP_ELEVEN
+	setflag FLAG_LEVEL_CAP_TWELVE
+	setflag FLAG_LEVEL_CAP_THIRTEEN
+	setflag FLAG_LEVEL_CAP_FOURTEEN
 	setvar VAR_LEVEL_CAP, 1
 	release
 	end
@@ -332,7 +335,7 @@ PlayersHouse_2F_Text_CapEnabled1:
 	.string "Level caps enabled. The caps are as\n"
 	.string "follows.\p"
 	.string "18, 24, 36, 48, 50, 58, 67, 75, 85,\n"
-	.string "100, and lastly 200.$"
+	.string "100, 120, 150, 180 and lastly 200.$"
 
 PlayersHouse_2F_Text_ClockIsStopped:
 	.string "The clock is stopped…\p"
