@@ -23,6 +23,7 @@ gSpecials::
 	def_special GetNewDerby
 	def_special StartSnake
 	def_special StartFlappyBird
+	def_special StartMatch3Game
 	def_special Special_ViewVoltorbFlip
 	def_special SetCableClubWarp
 	def_special DoCableClubWarp

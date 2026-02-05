@@ -2801,6 +2801,7 @@ static void ObjectEventSetGraphics(struct ObjectEvent *objectEvent, const struct
 {
     struct Sprite *sprite = &gSprites[objectEvent->spriteId];
     u32 i = FindObjectEventPaletteIndexByTag(graphicsInfo->paletteTag);
+
     if (i != 0xFF)
         UpdateSpritePalette(&sObjectEventSpritePalettes[i], sprite);
 
@@ -2825,6 +2826,17 @@ static void ObjectEventSetGraphics(struct ObjectEvent *objectEvent, const struct
     sprite->y += 16 + sprite->centerToCornerVecY;
     if (objectEvent->trackedByCamera)
         CameraObjectReset();
+
+    // Species use dynamic palettes: load the new species' palette after all other sprite updates.
+    // Do not free the old palette here — other object sprites may share it (e.g. Match 3), and
+    // freeing would let the slot be reused and cause a wrong palette to appear after script end.
+    if (graphicsInfo->paletteTag == OBJ_EVENT_PAL_TAG_DYNAMIC && (objectEvent->graphicsId & OBJ_EVENT_MON))
+    {
+        u32 species = objectEvent->graphicsId & OBJ_EVENT_MON_SPECIES_MASK;
+        bool32 shiny = objectEvent->graphicsId & OBJ_EVENT_MON_SHINY;
+        bool32 female = objectEvent->graphicsId & OBJ_EVENT_MON_FEMALE;
+        sprite->oam.paletteNum = LoadDynamicFollowerPalette(species, shiny, female);
+    }
 }
 
 void ObjectEventSetGraphicsId(struct ObjectEvent *objectEvent, u16 graphicsId)
