@@ -227,6 +227,7 @@ CeladonCity_EventScript_DashAfter::
 	applymovement LOCALID_DASH, CeladonCity_Movement_Leave
 	waitmovement 0
 	setvar VAR_DASH_CELADON, 1
+	removeobject LOCALID_DASH
 	setflag VAR_DASH_CELADON
 	release
 	end

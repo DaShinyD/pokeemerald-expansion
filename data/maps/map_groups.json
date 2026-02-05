@@ -739,7 +739,10 @@
     "LavenderCenter"
   ],
   "gMapGroup_IndoorCeladon": [
-    "GatehouseWestC"
+    "GatehouseWestC",
+    "CeladonCity_Center",
+    "CeladonHouse1",
+    "CeladonHouse2"
   ],
   "gMapGroup_IndoorSaffron": [
     "GatehouseWest",

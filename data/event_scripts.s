@@ -1518,3 +1518,9 @@ MysteryGift_Text_WillSee:
 	.include "data/maps/SaffronCity_Center/scripts.inc"
 
 	.include "data/maps/Route140/scripts.inc"
+
+	.include "data/maps/CeladonCity_Center/scripts.inc"
+
+	.include "data/maps/CeladonHouse1/scripts.inc"
+
+	.include "data/maps/CeladonHouse2/scripts.inc"

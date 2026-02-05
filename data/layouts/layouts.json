@@ -5380,6 +5380,36 @@
       "secondary_tileset": "gTileset_Fortree",
       "border_filepath": "data/layouts/Route140/border.bin",
       "blockdata_filepath": "data/layouts/Route140/map.bin"
+    },
+    {
+      "id": "LAYOUT_CELADON_CITY_CENTER",
+      "name": "CeladonCity_Center_Layout",
+      "width": 16,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter2",
+      "border_filepath": "data/layouts/CeladonCity_Center/border.bin",
+      "blockdata_filepath": "data/layouts/CeladonCity_Center/map.bin"
+    },
+    {
+      "id": "LAYOUT_CELADON_HOUSE1",
+      "name": "CeladonHouse1_Layout",
+      "width": 16,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Gen4Interior",
+      "border_filepath": "data/layouts/CeladonHouse1/border.bin",
+      "blockdata_filepath": "data/layouts/CeladonHouse1/map.bin"
+    },
+    {
+      "id": "LAYOUT_CELADON_HOUSE2",
+      "name": "CeladonHouse2_Layout",
+      "width": 10,
+      "height": 10,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Gen4Interior",
+      "border_filepath": "data/layouts/CeladonHouse2/border.bin",
+      "blockdata_filepath": "data/layouts/CeladonHouse2/map.bin"
     }
   ]
 }
