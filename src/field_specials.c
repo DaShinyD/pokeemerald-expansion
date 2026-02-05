@@ -4647,3 +4647,76 @@ void UseBlankMessageToCancelPokemonPic(void)
     ScriptMenu_HidePokemonPic();
 }
 
+// Match-3 Game Corner: 9 object events (local ids 1–9). Layout: 1,2,3 = left; 4,5,6 = middle; 7,8,9 = right.
+// Each column has Charmander(1/4/7), Bulbasaur(2/5/8), Squirtle(3/6/9). We only show one per column (no gfx switching).
+// TryGetObjectEventIdByLocalIdAndMap returns FALSE when the object IS found.
+// VAR_0x8000 == 0: roll, show (1+slot0), (4+slot1), (7+slot2). Set 0x8001/0x8002/0x8003. Result = win/lose. (Call after mode 3 + delay.)
+// VAR_0x8000 == 2: init (on first entering map) — show 1, 6, 8; hide 2,3,4,5,7,9.
+// VAR_0x8000 == 3: hide all 1–9 only (script then delays before calling mode 0).
+void StartMatch3Game(void)
+{
+    u8 objectEventId;
+    u8 mapNum = gSaveBlock1Ptr->location.mapNum;
+    u8 mapGroup = gSaveBlock1Ptr->location.mapGroup;
+    u8 slot0, slot1, slot2;
+    u8 i;
+    struct ObjectEvent *obj;
+
+    if (gSpecialVar_0x8000 == 2)
+    {
+        // Init: show 1, 6, 8 (Charmander, Squirtle, Bulbasaur); hide the rest. Result = 1 if any object was updated.
+        gSpecialVar_Result = 0;
+        for (i = 1; i <= 9; i++)
+        {
+            if (!TryGetObjectEventIdByLocalIdAndMap(i, mapNum, mapGroup, &objectEventId))
+            {
+                gSpecialVar_Result = 1;
+                obj = &gObjectEvents[objectEventId];
+                obj->invisible = (i != 1 && i != 6 && i != 8);
+                if (obj->spriteId != 0xFF)
+                    gSprites[obj->spriteId].invisible = obj->invisible;
+            }
+        }
+        return;
+    }
+
+    if (gSpecialVar_0x8000 == 3)
+    {
+        // Hide all 9 so script can delay before new ones appear
+        for (i = 1; i <= 9; i++)
+        {
+            if (!TryGetObjectEventIdByLocalIdAndMap(i, mapNum, mapGroup, &objectEventId))
+            {
+                obj = &gObjectEvents[objectEventId];
+                obj->invisible = TRUE;
+                if (obj->spriteId != 0xFF)
+                    gSprites[obj->spriteId].invisible = TRUE;
+            }
+        }
+        return;
+    }
+
+    // Play: roll and show the three that match the roll (all 9 are already hidden by mode 3)
+    slot0 = (Random() % 3);
+    slot1 = (Random() % 3);
+    slot2 = (Random() % 3);
+
+    gSpecialVar_0x8001 = 1 + slot0;
+    gSpecialVar_0x8002 = 4 + slot1;
+    gSpecialVar_0x8003 = 7 + slot2;
+
+    for (i = 0; i < 3; i++)
+    {
+        u8 localId = (i == 0) ? gSpecialVar_0x8001 : (i == 1) ? gSpecialVar_0x8002 : gSpecialVar_0x8003;
+        if (!TryGetObjectEventIdByLocalIdAndMap(localId, mapNum, mapGroup, &objectEventId))
+        {
+            obj = &gObjectEvents[objectEventId];
+            obj->invisible = FALSE;
+            if (obj->spriteId != 0xFF)
+                gSprites[obj->spriteId].invisible = FALSE;
+        }
+    }
+
+    gSpecialVar_Result = (slot0 == slot1 && slot1 == slot2) ? 1 : 0;
+}
+

@@ -701,6 +701,7 @@
 #define MAP_CELADON_CITY_CENTER (1 | (41 << 8))
 #define MAP_CELADON_HOUSE1      (2 | (41 << 8))
 #define MAP_CELADON_HOUSE2      (3 | (41 << 8))
+#define MAP_CELADON_GAME_CORNER (4 | (41 << 8))
 
 // gMapGroup_IndoorSaffron
 #define MAP_GATEHOUSE_WEST      (0 | (42 << 8))
