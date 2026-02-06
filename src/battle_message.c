@@ -136,6 +136,8 @@ static const u8 sText_SpDefense[] = _("Sp. Def");
 static const u8 sText_Accuracy[] = _("accuracy");
 static const u8 sText_Evasiveness[] = _("evasiveness");
 static const u8 sText_TheFinal[] = _("The final hit! Sam's Lopunny is on\nthe ropes!");
+static const u8 sText_ScriptedDashMsg[] = _("Dash: I'm the best rival!\p");
+static const u8 sText_ScriptedRyeMsg[] = _("Rye: I'm way stronger!\p");
 
 const u8 *const gStatNamesTable[NUM_BATTLE_STATS] =
 {
@@ -2115,7 +2117,9 @@ void BufferStringBattle(u16 stringID, u32 battler)
             }
             else
             {
-                if (BATTLE_TWO_VS_ONE_OPPONENT)
+                if (gBattleTypeFlags & BATTLE_TYPE_SCRIPTED_DASH_RYE)
+                    stringPtr = sText_ScriptedDashMsg;
+                else if (BATTLE_TWO_VS_ONE_OPPONENT)
                     stringPtr = sText_Trainer1WantsToBattle;
                 else if (gBattleTypeFlags & (BATTLE_TYPE_MULTI | BATTLE_TYPE_INGAME_PARTNER))
                     stringPtr = sText_TwoTrainersWantToBattle;
@@ -2185,6 +2189,12 @@ void BufferStringBattle(u16 stringID, u32 battler)
                     stringPtr = sText_LinkTrainerSentOutPkmn;
             }
         }
+        break;
+    case STRINGID_SCRIPTED_DASH_MSG:
+        stringPtr = sText_ScriptedDashMsg;
+        break;
+    case STRINGID_SCRIPTED_RYE_MSG:
+        stringPtr = sText_ScriptedRyeMsg;
         break;
     case STRINGID_RETURNMON: // sending poke to ball msg
         if (GetBattlerSide(battler) == B_SIDE_PLAYER)

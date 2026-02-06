@@ -15,12 +15,12 @@
   "connections": [
     {
       "map": "MAP_LAVENDER_TOWN",
-      "offset": -16,
+      "offset": -9,
       "direction": "up"
     },
     {
       "map": "MAP_FUCHSIA_CITY",
-      "offset": -11,
+      "offset": 7,
       "direction": "left"
     }
   ],

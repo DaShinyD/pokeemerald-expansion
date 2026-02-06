@@ -49,7 +49,10 @@
 #include "constants/trainers.h"
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
+#include "constants/opponents.h"
+#include "constants/moves.h"
 #include "wild_encounter.h"
+#include "pokemon.h"
 
 enum {
     TRANSITION_TYPE_NORMAL,
@@ -432,6 +435,70 @@ void StartBeedrillFinalHitBattle(void)
     LockPlayerFieldControls();
     gBattleTypeFlags = BATTLE_TYPE_14;
     gMain.savedCallback = CB2_ReturnToFieldContinueScriptPlayMapMusic;
+    CreateBattleStartTask(B_TRANSITION_SLICE, 0);
+}
+
+static EWRAM_DATA struct Pokemon sScriptedDashRyePlayerPartyBackup[PARTY_SIZE];
+
+static void CB2_RestorePartyAfterScriptedDashRyeBattle(void)
+{
+    memcpy(gPlayerParty, sScriptedDashRyePlayerPartyBackup, sizeof(struct Pokemon) * PARTY_SIZE);
+    /* Script can read VAR_RESULT: 1 = Dash (player) won, 0 = Rye (opponent) won */
+    gSpecialVar_Result = (gBattleOutcome == B_OUTCOME_WON) ? 1 : 0;
+    CB2_ReturnToFieldContinueScriptPlayMapMusic();
+}
+
+void StartDashVsRyeScriptedBattle(void)
+{
+    u16 item;
+    u32 i;
+    u8 abilityNum;
+
+    memcpy(sScriptedDashRyePlayerPartyBackup, gPlayerParty, sizeof(struct Pokemon) * PARTY_SIZE);
+
+    CreateMon(&gPlayerParty[0], SPECIES_GLACISTER, 120, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    abilityNum = 1; /* Skill Link is second ability for Glacister */
+    SetMonData(&gPlayerParty[0], MON_DATA_ABILITY_NUM, &abilityNum);
+    SetMonMoveSlot(&gPlayerParty[0], MOVE_ICICLE_SPEAR, 0);
+    SetMonMoveSlot(&gPlayerParty[0], MOVE_SHELL_SMASH, 1);
+    SetMonMoveSlot(&gPlayerParty[0], MOVE_WATER_SHURIKEN, 2);
+    SetMonMoveSlot(&gPlayerParty[0], MOVE_BARRAGE, 3);
+    CreateMon(&gPlayerParty[1], SPECIES_VOLCARONA, 120, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    abilityNum = 0;
+    SetMonData(&gPlayerParty[1], MON_DATA_ABILITY_NUM, &abilityNum);
+    SetMonMoveSlot(&gPlayerParty[1], MOVE_QUIVER_DANCE, 0);
+    SetMonMoveSlot(&gPlayerParty[1], MOVE_FLAMETHROWER, 1);
+    SetMonMoveSlot(&gPlayerParty[1], MOVE_BUG_BUZZ, 2);
+    SetMonMoveSlot(&gPlayerParty[1], MOVE_FIRE_BLAST, 3);
+    for (i = 2; i < PARTY_SIZE; i++)
+        ZeroMonData(&gPlayerParty[i]);
+
+    CreateMon(&gEnemyParty[0], SPECIES_SALAMENCE, 120, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    abilityNum = 0; /* Intimidate is first ability for Salamence */
+    SetMonData(&gEnemyParty[0], MON_DATA_ABILITY_NUM, &abilityNum);
+    item = ITEM_SALAMENCITE;
+    SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &item);
+    SetMonMoveSlot(&gEnemyParty[0], MOVE_DRACO_METEOR, 0);
+    SetMonMoveSlot(&gEnemyParty[0], MOVE_HURRICANE, 1);
+    SetMonMoveSlot(&gEnemyParty[0], MOVE_FLAMETHROWER, 2);
+    SetMonMoveSlot(&gEnemyParty[0], MOVE_ROOST, 3);
+    CreateMon(&gEnemyParty[1], SPECIES_SCIZOR, 120, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    abilityNum = 0;
+    SetMonData(&gEnemyParty[1], MON_DATA_ABILITY_NUM, &abilityNum);
+    SetMonMoveSlot(&gEnemyParty[1], MOVE_SWORDS_DANCE, 0);
+    SetMonMoveSlot(&gEnemyParty[1], MOVE_BULLET_PUNCH, 1);
+    SetMonMoveSlot(&gEnemyParty[1], MOVE_U_TURN, 2);
+    SetMonMoveSlot(&gEnemyParty[1], MOVE_KNOCK_OFF, 3);
+    for (i = 2; i < PARTY_SIZE; i++)
+        ZeroMonData(&gEnemyParty[i]);
+
+    gTrainerBattleParameter.params.opponentA = TRAINER_RYE_EG;
+    gTrainerBattleParameter.params.opponentB = 0xFFFF;
+    gTrainerBattleParameter.params.isDoubleBattle = 0;
+
+    LockPlayerFieldControls();
+    gBattleTypeFlags = BATTLE_TYPE_SCRIPTED_DASH_RYE | BATTLE_TYPE_TRAINER | BATTLE_TYPE_IS_MASTER;
+    gMain.savedCallback = CB2_RestorePartyAfterScriptedDashRyeBattle;
     CreateBattleStartTask(B_TRANSITION_SLICE, 0);
 }
 

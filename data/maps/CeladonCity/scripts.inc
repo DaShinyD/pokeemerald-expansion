@@ -255,3 +255,47 @@ CeladonCity_Movement_Leave:
 	walk_up
 	step_end
 
+CeladonCity_EventScript_Locked::
+	msgbox CeladonCity_Text_Locked, MSGBOX_SIGN
+	end
+
+CeladonCity_Text_Locked:
+	.string "It's locked.$"
+
+CeladonCity_EventScript_Locked2::
+	msgbox CeladonCity_Text_Locked2, MSGBOX_SIGN
+	end
+
+CeladonCity_Text_Locked2:
+	.string "Under renovations.$"
+
+CeladonCity_EventScript_CitySign::
+	msgbox CeladonCity_Text_CitySign, MSGBOX_SIGN
+	end
+
+CeladonCity_Text_CitySign:
+	.string "CELADON CITY:\n"
+	.string "VERDANT GREENS$"
+
+CeladonCity_EventScript_LittleBoy::
+	msgbox CeladonCity_Text_LittleBoy, MSGBOX_NPC
+	end
+
+CeladonCity_EventScript_LittleGirl::
+	msgbox CeladonCity_Text_LittleGirl, MSGBOX_NPC
+	end
+
+CeladonCity_Text_LittleBoy:
+	.string "My dream is to be a bug catcher!$"
+
+CeladonCity_Text_LittleGirl:
+	.string "My dream is to be a bug!$"
+
+CeladonCity_EventScript_Cameraman::
+	msgbox CeladonCity_Text_Cameraman, MSGBOX_NPC
+	end
+
+CeladonCity_Text_Cameraman:
+	.string "I'm here recording footage for the\n"
+	.string "people of Hoenn.$"
+

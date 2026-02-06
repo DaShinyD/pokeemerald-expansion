@@ -576,6 +576,7 @@ gSpecials::
 	def_special AreAllPartyMonsLevel200
 	def_special CheckIfPartySizeIsExactly4
 	def_special StartBeedrillFinalHitBattle
+	def_special StartDashVsRyeScriptedBattle
 	def_special LoadMegaBeedrill
 	def_special HasBLESSUParty
 	def_special UseBlankMessageToCancelPokemonPic
