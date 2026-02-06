@@ -546,12 +546,16 @@ static void CB2_InitBattleInternal(void)
 
     if (!DEBUG_OVERWORLD_MENU || (DEBUG_OVERWORLD_MENU && !gIsDebugBattle))
     {
-        if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED)))
+        if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED | BATTLE_TYPE_SCRIPTED_DASH_RYE)))
         {
             CreateNPCTrainerParty(&gEnemyParty[0], TRAINER_BATTLE_PARAM.opponentA, TRUE);
             if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS && !BATTLE_TWO_VS_ONE_OPPONENT)
                 CreateNPCTrainerParty(&gEnemyParty[PARTY_SIZE / 2], TRAINER_BATTLE_PARAM.opponentB, FALSE);
             SetWildMonHeldItem();
+            CalculateEnemyPartyCount();
+        }
+        else if (gBattleTypeFlags & BATTLE_TYPE_SCRIPTED_DASH_RYE)
+        {
             CalculateEnemyPartyCount();
         }
     }
@@ -3574,7 +3578,11 @@ static void DoBattleIntro(void)
     case BATTLE_INTRO_STATE_WAIT_FOR_INTRO_TEXT:
         if (!IsBattlerMarkedForControllerExec(GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)))
         {
-            if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+            if (gBattleTypeFlags & BATTLE_TYPE_SCRIPTED_DASH_RYE)
+            {
+                gBattleStruct->introState = BATTLE_INTRO_STATE_SCRIPTED_RYE_MSG;
+            }
+            else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
             {
                 gBattleStruct->introState++;
             }
@@ -3586,6 +3594,14 @@ static void DoBattleIntro(void)
                     gBattleStruct->introState = BATTLE_INTRO_STATE_WAIT_FOR_TRAINER_2_SEND_OUT_ANIM;
             }
         }
+        break;
+    case BATTLE_INTRO_STATE_SCRIPTED_RYE_MSG:
+        PrepareStringBattle(STRINGID_SCRIPTED_RYE_MSG, GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT));
+        gBattleStruct->introState++;
+        break;
+    case BATTLE_INTRO_STATE_WAIT_FOR_SCRIPTED_RYE_MSG:
+        if (!gBattleControllerExecFlags)
+            gBattleStruct->introState = BATTLE_INTRO_STATE_TRAINER_SEND_OUT_TEXT;
         break;
     case BATTLE_INTRO_STATE_TRAINER_SEND_OUT_TEXT:
         if (gBattleTypeFlags & BATTLE_TYPE_RECORDED_LINK && !(gBattleTypeFlags & BATTLE_TYPE_RECORDED_IS_MASTER))

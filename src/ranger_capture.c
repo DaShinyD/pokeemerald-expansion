@@ -39,8 +39,9 @@
 #define RC_ATTACK_COOLDOWN       60  // frames between attacks
 #define RC_ATTACK_RANGE_TILES    6
 
-#define RC_WANDER_INTERVAL_MIN   20  // frames between random steps (faster)
-#define RC_WANDER_INTERVAL_MAX   60
+#define RC_WANDER_INTERVAL_MIN   35  // frames between random steps (slightly less movement)
+#define RC_WANDER_INTERVAL_MAX   95
+#define RC_WANDER_RADIUS_MAX     4   // target cannot move more than 4 tiles from start
 #define RC_JUMP_CHANCE           25  // % chance to jump instead of walk
 #define RC_FAST_WALK_CHANCE      30  // % chance to walk fast
 
@@ -111,6 +112,9 @@ struct RangerCaptureSession
 
     // Random wandering timer for the target.
     u16 wanderTimer;
+    // Target's starting position (for max movement radius).
+    s16 targetStartX;
+    s16 targetStartY;
 
     // Follower state.
     bool8 followerWasHidden;
@@ -220,6 +224,16 @@ u16 StartRangerCapture(void)
         sRangerCapture.targetMapNum,
         sRangerCapture.targetMapGroup
     );
+    if (sRangerCapture.targetObjEventId < OBJECT_EVENTS_COUNT && gObjectEvents[sRangerCapture.targetObjEventId].active)
+    {
+        sRangerCapture.targetStartX = gObjectEvents[sRangerCapture.targetObjEventId].currentCoords.x;
+        sRangerCapture.targetStartY = gObjectEvents[sRangerCapture.targetObjEventId].currentCoords.y;
+    }
+    else
+    {
+        sRangerCapture.targetStartX = 0;
+        sRangerCapture.targetStartY = 0;
+    }
 
     RangerCapture_ResetOrbit();
     RangerCapture_ResetWanderTimer();
@@ -705,6 +719,8 @@ static void RangerCapture_ResetWanderTimer(void)
 static void RangerCapture_UpdateWander(void)
 {
     struct ObjectEvent *targetObj;
+    s16 curX, curY, nextX, nextY;
+    s16 dx, dy;
     u8 direction, movementAction;
     u8 moveType;
 
@@ -727,9 +743,23 @@ static void RangerCapture_UpdateWander(void)
     // Take a random action if not already moving.
     if (!ObjectEventIsMovementOverridden(targetObj) && !ObjectEventIsHeldMovementActive(targetObj))
     {
+        curX = targetObj->currentCoords.x;
+        curY = targetObj->currentCoords.y;
         direction = Random() % 4;
+        /* One step: 0=down, 1=up, 2=left, 3=right */
+        dx = (direction == 2) ? -1 : (direction == 3) ? 1 : 0;
+        dy = (direction == 0) ? 1 : (direction == 1) ? -1 : 0;
+        nextX = curX + dx;
+        nextY = curY + dy;
+        /* Enforce max radius of RC_WANDER_RADIUS_MAX from start (Chebyshev distance) */
+        if (abs(nextX - sRangerCapture.targetStartX) > RC_WANDER_RADIUS_MAX
+         || abs(nextY - sRangerCapture.targetStartY) > RC_WANDER_RADIUS_MAX)
+        {
+            RangerCapture_ResetWanderTimer();
+            return;
+        }
+
         moveType = Random() % 100;
-        
         if (moveType < RC_JUMP_CHANCE)
         {
             movementAction = MOVEMENT_ACTION_JUMP_DOWN + direction;
@@ -742,7 +772,7 @@ static void RangerCapture_UpdateWander(void)
         {
             movementAction = MOVEMENT_ACTION_WALK_NORMAL_DOWN + direction;
         }
-        
+
         ObjectEventSetHeldMovement(targetObj, movementAction);
         RangerCapture_ResetWanderTimer();
     }
@@ -989,4 +1019,3 @@ static void RangerCapture_UnhideAllObjectSprites(void)
             gSprites[gObjectEvents[i].spriteId].invisible = FALSE;
     }
 }
-

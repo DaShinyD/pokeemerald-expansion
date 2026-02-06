@@ -5294,8 +5294,8 @@
     {
       "id": "LAYOUT_LAV_FUCH",
       "name": "LavFuch_Layout",
-      "width": 20,
-      "height": 20,
+      "width": 30,
+      "height": 30,
       "primary_tileset": "gTileset_KantoPrimaryMe",
       "secondary_tileset": "gTileset_FuchsiaCity",
       "border_filepath": "data/layouts/LavFuch/border.bin",
