@@ -711,6 +711,7 @@
 #define MAP_SAFFRON_CITY_CENTER (4 | (42 << 8))
 
 // gMapGroup_IndoorFuschia
+#define MAP_FUCHSIA_SAFARI (0 | (43 << 8))
 
 // gMapGroup_IndoorCinnabar
 

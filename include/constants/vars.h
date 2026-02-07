@@ -276,7 +276,7 @@
 #define VAR_FLOYD                                        0x4100 // Floyd Event
 #define VAR_YUGI                                         0x4101 // Yugi event
 #define VAR_DASH_CELADON                                 0x4102 // Dash in Celadon
-#define VAR_UNUSED_0x4103                                0x4103 // Unused Var
+#define VAR_RYE_SAFFRON                                  0x4103 // Rye Saffron ranger event
 #define VAR_UNUSED_0x4104                                0x4104 // Unused Var
 #define VAR_UNUSED_0x4105                                0x4105 // Unused Var
 #define VAR_UNUSED_0x4106                                0x4106 // Unused Var
