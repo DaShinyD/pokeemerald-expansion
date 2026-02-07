@@ -648,6 +648,9 @@ $(OBJEVENTGFXDIR)/people/floydcar.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/floyd.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4	
 
+$(OBJEVENTGFXDIR)/people/ranger.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4	
+
 $(OBJEVENTGFXDIR)/people/yugi.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4	
 

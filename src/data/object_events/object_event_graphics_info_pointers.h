@@ -278,6 +278,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Jasmine;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Pryce;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Clair;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FloydCar;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Ranger;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rangertop;
 // Begin pokemon event objects
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeBall;
@@ -575,6 +576,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_CLAIR] =                    &gObjectEventGraphicsInfo_Clair,
     [OBJ_EVENT_GFX_FLOYD] =                    &gObjectEventGraphicsInfo_Floyd,
     [OBJ_EVENT_GFX_CAR] =                      &gObjectEventGraphicsInfo_FloydCar,
+    [OBJ_EVENT_GFX_RANGER] =                   &gObjectEventGraphicsInfo_Ranger,
     [OBJ_EVENT_GFX_RANGERTOP] =                &gObjectEventGraphicsInfo_Rangertop,
 };
 

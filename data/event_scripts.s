@@ -1526,3 +1526,5 @@ MysteryGift_Text_WillSee:
 	.include "data/maps/CeladonHouse2/scripts.inc"
 
 	.include "data/maps/CeladonGameCorner/scripts.inc"
+
+	.include "data/maps/FuchsiaSafari/scripts.inc"
