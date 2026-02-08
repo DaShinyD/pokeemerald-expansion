@@ -583,4 +583,6 @@ gSpecials::
 	def_special ScriptMenu_CreateKantoTPManMultichoice
 	def_special GetKantoTPManSelection
 	def_special StartRangerCapture
+	def_special TeleportCamera
+	def_special ReturnCameraToPlayer
 
