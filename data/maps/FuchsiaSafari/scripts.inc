@@ -30,9 +30,7 @@ FuchsiaSafari_EventScript_StartRangerEvent::
 	waitmovement 0
 	applymovement LOCALID_RANGER, Common_Movement_WalkUp2
 	waitmovement 0
-	removeobject LOCALID_RANGER
 	setobjectxyperm LOCALID_RANGER, 16, 18
-	addobject LOCALID_RANGER
 	setvar VAR_0x8004, LOCALID_RHYPERIOR
 	setvar VAR_0x8005, 5
 	special StartRangerCapture
@@ -68,11 +66,12 @@ FuchsiaSafari_Text_GoDoIt:
 	.string "Please help it!$"
 
 FuchsiaSafari_EventScript_Complete::
+	addobject LOCALID_RANGER
 	turnobject LOCALID_RANGER, DIR_NORTH
 	fadescreen FADE_TO_BLACK
-	special SpawnCameraObject
-	setobjectxy OBJ_EVENT_ID_CAMERA, 16, 17
-	special RemoveCameraObject
+	setvar VAR_0x8004, 16
+	setvar VAR_0x8005, 17
+	special TeleportCamera
 	setobjectxy OBJ_EVENT_ID_PLAYER, 16, 17
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_SOUTH
 	removeobject LOCALID_RHYPERIOR
