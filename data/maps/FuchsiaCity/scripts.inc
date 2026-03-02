@@ -3,11 +3,35 @@
 
 FuchsiaCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, FuchsiaCity_OnTransition
+	map_script MAP_SCRIPT_ON_FRAME_TABLE, FuchsiaCity_EventScript_OnFrame
 	.byte 0
 
 FuchsiaCity_OnTransition:
 	setflag FLAG_VISITED_FUCHSIA
 	end
+
+FuchsiaCity_EventScript_OnFrame::
+	map_script_2 VAR_RYE_SAFFRON, 1, FuchsiaCity_EventScript_BirchCall
+	.2byte 0
+
+FuchsiaCity_EventScript_BirchCall::
+	lock
+	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_ExclamationMark
+	playse SE_PIN
+	waitmovement 0
+	msgbox FuchsiaCity_Text_BirchCall, MSGBOX_DEFAULT
+	setvar VAR_RYE_SAFFRON, 2
+	closemessage
+	release
+	end
+
+FuchsiaCity_Text_BirchCall:
+	.string "Oh! A call.\p"
+	.string "Professor Birch: Hello?\n"
+	.string "Ah, {PLAYER}!\p"
+	.string "Listen, I have a job for you.\n"
+	.string "Meet me in my lab.\p"
+	.string "Bu-bye!$"
 
 @ TP Man Stuff
 

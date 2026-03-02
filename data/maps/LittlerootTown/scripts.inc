@@ -1020,6 +1020,7 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
 
+@ my stuff
 
 LittlerootTown_EventScript_ScientistGarden::
 	lock
@@ -1034,4 +1035,12 @@ LittlerootTown_Text_ThisIsGarden:
 	.string "garden.\p"
 	.string "Unfortunately, you can't enter unless\n"
 	.string "you have a pokedex.$"
+
+LittlerootTown_EventScript_ScientistBlockRoute::
+	msgbox LittlerootTown_Text_NoRoute, MSGBOX_NPC
+	end
+
+LittlerootTown_Text_NoRoute:
+	.string "Sorry, we are still investigating\n"
+	.string "this route for Professor Birch.$"
 

@@ -461,7 +461,7 @@
 #define FLAG_REGISTERED_WALLACE              (TRAINER_REGISTERED_FLAGS_START + REMATCH_WALLACE)
 
 #define FLAG_RHYPERIOR_SAFARI                0x1AA // Rhyperior ranger game safari
-#define FLAG_UNUSED_0x1AB                    0x1AB // Unused Flag
+#define FLAG_UNLOCK_HOENN                    0x1AB // Unlock the new area of Hoenn
 
 #define FLAG_DEFEATED_DEOXYS                 0x1AC
 #define FLAG_BATTLED_DEOXYS                  0x1AD
