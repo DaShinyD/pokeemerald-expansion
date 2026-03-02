@@ -464,6 +464,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedJohtoStarter::
 LittlerootTown_ProfessorBirchsLab_EventScript_Birch::
 	lock
 	faceplayer
+	goto_if_eq VAR_RYE_SAFFRON, 2, LittlerootTown_ProfessorBirchsLab_EventScript_ExploreHoenn
 	goto_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 5, LittlerootTown_ProfessorBirchsLab_EventScript_CanHaveAnyOneOfRarePokemon
 	goto_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_ProfessorBirchsLab_EventScript_GrassyPatchWaiting
 	goto_if_unset FLAG_HAS_MATCH_CALL, LittlerootTown_ProfessorBirchsLab_EventScript_TryRatePokedexOrRegister
@@ -997,3 +998,34 @@ LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall:
 	.string "we meet. I'll be waiting!\p"
 	.string "… … … … … …\n"
 	.string "… … … … … Click!$"
+
+
+@ my stuff
+
+LittlerootTown_ProfessorBirchsLab_EventScript_ExploreHoenn::
+	msgbox LittlerootTown_Text_UnlockHoenn, MSGBOX_DEFAULT
+	closemessage
+	setflag FLAG_UNLOCK_HOENN
+	setvar VAR_RYE_SAFFRON, 3
+	release
+	end
+
+LittlerootTown_Text_UnlockHoenn:
+	.string "{PLAYER}!\n"
+	.string "You came quick.\p"
+	.string "Listen, my scientists have been\n"
+	.string "researching the route below here.\p"
+	.string "It leads to a few areas with incredibly\n"
+	.string "powerful Pokemon.\p"
+	.string "I'd like to you explore these areas for\n"
+	.string "me as my scientists aren't up to the\l"
+	.string "task of battling.\p"
+	.string "I've also tasked a few of the master\n"
+	.string "trainers to help.\p"
+	.string "Apparently, one of my staff saw some\n"
+	.string "members of the crime organizations\l"
+	.string "snooping around.\p"
+	.string "Feel free to include anyone you feel\n"
+	.string "are strong enough to help as well.\p"
+	.string "Best of luck!$"
+
