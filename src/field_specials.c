@@ -37,6 +37,7 @@
 #include "random.h"
 #include "rayquaza_scene.h"
 #include "region_map.h"
+#include "route_wild_wanderers.h"
 #include "rtc.h"
 #include "script.h"
 #include "script_menu.h"
@@ -4611,7 +4612,7 @@ void GetObjectPosition(u16* xPointer, u16* yPointer, u32 localId, u32 useTemplat
 
     if (useTemplate)
     {
-        const struct ObjectEventTemplate *objTemplate = FindObjectEventTemplateByLocalId(localId, gSaveBlock1Ptr->objectEventTemplates, gMapHeader.events->objectEventCount);
+        const struct ObjectEventTemplate *objTemplate = FindObjectEventTemplateByLocalId(localId, gSaveBlock1Ptr->objectEventTemplates, GetCurrentMapObjectEventTemplateCount());
         *xPointer = objTemplate->x;
         *yPointer = objTemplate->y;
         return;

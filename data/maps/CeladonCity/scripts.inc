@@ -230,6 +230,8 @@ CeladonCity_EventScript_DashAfter::
 	removeobject LOCALID_DASH
 	setflag VAR_DASH_CELADON
 	setflag FLAG_LEVEL_CAP_ELEVEN
+	buffernumberstring STR_VAR_1, 150
+	msgbox gText_NewLevelCapIs, MSGBOX_DEFAULT
 	release
 	end
 

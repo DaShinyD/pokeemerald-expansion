@@ -6,6 +6,10 @@
 #include "util.h"
 #include "constants/event_objects.h"
 #include "constants/event_object_movement.h"
+#include "config/overworld.h"
+#if OW_POKEMON_OBJECT_EVENTS
+#include "route_wild_wanderers.h"
+#endif
 
 static void ScriptMovement_StartMoveObjects(u8 priority);
 static u8 GetMoveObjectsTaskId(void);
@@ -22,12 +26,18 @@ static EWRAM_DATA const u8 *sMovementScripts[OBJECT_EVENTS_COUNT] = {0};
 bool8 ScriptMovement_StartObjectMovementScript(u8 localId, u8 mapNum, u8 mapGroup, const u8 *movementScript)
 {
     u8 objEventId;
+    bool8 err;
 
     if (TryGetObjectEventIdByLocalIdAndMap(localId, mapNum, mapGroup, &objEventId))
         return TRUE;
     if (!FuncIsActiveTask(ScriptMovement_MoveObjects))
         ScriptMovement_StartMoveObjects(50);
-    return ScriptMovement_TryAddNewMovement(GetMoveObjectsTaskId(), objEventId, movementScript);
+    err = ScriptMovement_TryAddNewMovement(GetMoveObjectsTaskId(), objEventId, movementScript);
+#if OW_POKEMON_OBJECT_EVENTS
+    if (!err)
+        RouteWildNotifyScriptMovementBegin();
+#endif
+    return err;
 }
 
 bool8 ScriptMovement_IsObjectMovementFinished(u8 localId, u8 mapNum, u8 mapGroup)
@@ -52,6 +62,9 @@ void ScriptMovement_UnfreezeObjectEvents(void)
     taskId = GetMoveObjectsTaskId();
     if (taskId != TASK_NONE)
     {
+#if OW_POKEMON_OBJECT_EVENTS
+        RouteWildNotifyScriptMovementEnd();
+#endif
         ScriptMovement_UnfreezeActiveObjects(taskId);
         DestroyTask(taskId);
     }

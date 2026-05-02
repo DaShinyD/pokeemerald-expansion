@@ -47,6 +47,8 @@ FortreeCity_Gym_EventScript_WinonaDefeated::
 	setvar VAR_SCOTT_FORTREE_CALL_STEP_COUNTER, 0
 	setflag FLAG_SCOTT_CALL_FORTREE_GYM
 	setflag FLAG_LEVEL_CAP_SIX
+	buffernumberstring STR_VAR_1, 67
+	msgbox gText_NewLevelCapIs, MSGBOX_DEFAULT
 	release
 	end
 

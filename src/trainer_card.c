@@ -32,6 +32,7 @@
 #include "constants/rgb.h"
 #include "constants/trainers.h"
 #include "constants/union_room.h"
+#include "caps.h"
 
 enum {
     WIN_MSG,
@@ -47,8 +48,6 @@ struct TrainerCardData
     u8 bgPalLoadState;
     u8 flipDrawState;
     bool8 isLink;
-    u8 timeColonBlinkTimer;
-    bool8 timeColonInvisible;
     bool8 onBack;
     bool8 allowDMACopy;
     bool8 hasPokedex;
@@ -73,7 +72,6 @@ struct TrainerCardData
     u8 textBattleFacilityStat[70];
     u16 monIconPal[16 * PARTY_SIZE];
     s8 flipBlendY;
-    bool8 timeColonNeedDraw;
     u8 cardType;
     bool8 isHoenn;
     u16 blendColor;
@@ -98,7 +96,6 @@ EWRAM_DATA static struct TrainerCardData *sData = NULL;
 //this file's functions
 static void VblankCb_TrainerCard(void);
 static void HblankCb_TrainerCard(void);
-static void BlinkTimeColon(void);
 static void CB2_TrainerCard(void);
 static void CloseTrainerCard(u8 task);
 static bool8 PrintAllOnCardFront(void);
@@ -107,7 +104,7 @@ static void CreateTrainerCardTrainerPic(void);
 static void DrawCardScreenBackground(u16 *);
 static void DrawCardFrontOrBack(u16 *);
 static void DrawStarsAndBadgesOnCard(void);
-static void PrintTimeOnCard(void);
+static void PrintLevelCapOnCard(void);
 static void FlipTrainerCard(void);
 static bool8 IsCardFlipTaskActive(void);
 static bool8 LoadCardGfx(void);
@@ -282,8 +279,6 @@ static const u16 *const sKantoTrainerCardPals[] =
 
 static const u8 sTrainerCardTextColors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
 static const u8 sTrainerCardStatColors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_RED, TEXT_COLOR_LIGHT_RED};
-static const u8 sTimeColonInvisibleTextColors[6] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_TRANSPARENT, TEXT_COLOR_TRANSPARENT};
-
 static const u8 sTrainerPicOffset[2][GENDER_COUNT][2] =
 {
     // Kanto
@@ -332,7 +327,6 @@ static void VblankCb_TrainerCard(void)
     LoadOam();
     ProcessSpriteCopyRequests();
     TransferPlttBuffer();
-    BlinkTimeColon();
     if (sData->allowDMACopy)
         DmaCopy16(3, &gScanlineEffectRegBuffers[0], &gScanlineEffectRegBuffers[1], 0x140);
 }
@@ -436,13 +430,6 @@ static void Task_TrainerCard(u8 taskId)
             sData->mainState++;
         break;
     case STATE_HANDLE_INPUT_FRONT:
-        // Blink the : in play time
-        if (!gReceivedRemoteLinkPlayers && sData->timeColonNeedDraw)
-        {
-            PrintTimeOnCard();
-            DrawTrainerCardWindow(WIN_CARD_TEXT);
-            sData->timeColonNeedDraw = FALSE;
-        }
         if (JOY_NEW(A_BUTTON))
         {
             FlipTrainerCard();
@@ -935,7 +922,7 @@ static bool8 PrintAllOnCardFront(void)
         PrintPokedexOnCard();
         break;
     case 4:
-        PrintTimeOnCard();
+        PrintLevelCapOnCard();
         break;
     case 5:
         PrintProfilePhraseOnCard();
@@ -1093,58 +1080,28 @@ static void PrintPokedexOnCard(void)
     }
 }
 
-static const u8 *const sTimeColonTextColors[] = {sTrainerCardTextColors, sTimeColonInvisibleTextColors};
-
-static void PrintTimeOnCard(void)
+static void PrintLevelCapOnCard(void)
 {
-    u16 hours;
-    u16 minutes;
-    s32 width;
-    u32 x, y, totalWidth;
+    s32 xOffset;
+    u8 top;
 
     if (!sData->isHoenn)
-        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 20, 88, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardTime);
+        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 20, 88, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardLevelCap);
     else
-        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 16, 89, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardTime);
+        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 16, 89, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardLevelCap);
 
-    if (sData->isLink)
-    {
-        hours = sData->trainerCard.playTimeHours;
-        minutes = sData->trainerCard.playTimeMinutes;
-    }
-    else
-    {
-        hours = gSaveBlock2Ptr->playTimeHours;
-        minutes = gSaveBlock2Ptr->playTimeMinutes;
-    }
-
-    if (hours > 999)
-        hours = 999;
-    if (minutes > 59)
-        minutes = 59;
-    width = GetStringWidth(FONT_NORMAL, gText_Colon2, 0);
-
+    ConvertIntToDecimalStringN(gStringVar4, GetCurrentLevelCap(), STR_CONV_MODE_LEFT_ALIGN, 3);
     if (!sData->isHoenn)
     {
-        x = 144;
-        y = 88;
+        xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 144);
+        top = 88;
     }
     else
     {
-        x = 128;
-        y = 89;
+        xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 128);
+        top = 89;
     }
-    totalWidth = width + 30;
-    x -= totalWidth;
-
-    FillWindowPixelRect(WIN_CARD_TEXT, PIXEL_FILL(0), x, y, totalWidth, 15);
-    ConvertIntToDecimalStringN(gStringVar4, hours, STR_CONV_MODE_RIGHT_ALIGN, 3);
-    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, x, y, sTrainerCardTextColors, TEXT_SKIP_DRAW, gStringVar4);
-    x += 18;
-    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, x, y, sTimeColonTextColors[sData->timeColonInvisible], TEXT_SKIP_DRAW, gText_Colon2);
-    x += width;
-    ConvertIntToDecimalStringN(gStringVar4, minutes, STR_CONV_MODE_LEADING_ZEROS, 2);
-    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, x, y, sTrainerCardTextColors, TEXT_SKIP_DRAW, gStringVar4);
+    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, xOffset, top, sTrainerCardTextColors, TEXT_SKIP_DRAW, gStringVar4);
 }
 
 static void PrintProfilePhraseOnCard(void)
@@ -1565,16 +1522,6 @@ static void DrawCardBackStats(void)
     CopyBgTilemapBufferToVram(3);
 }
 
-static void BlinkTimeColon(void)
-{
-    if (++sData->timeColonBlinkTimer > 60)
-    {
-        sData->timeColonBlinkTimer = 0;
-        sData->timeColonInvisible ^= 1;
-        sData->timeColonNeedDraw = TRUE;
-    }
-}
-
 u8 GetTrainerCardStars(u8 cardId)
 {
     struct TrainerCard *trainerCards = gTrainerCards;
@@ -1829,8 +1776,6 @@ static void InitTrainerCardData(void)
     u8 i;
 
     sData->mainState = 0;
-    sData->timeColonBlinkTimer = gSaveBlock2Ptr->playTimeVBlanks;
-    sData->timeColonInvisible = FALSE;
     sData->onBack = FALSE;
     sData->flipBlendY = 0;
     sData->cardType = GetSetCardType();

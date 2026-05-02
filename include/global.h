@@ -202,6 +202,21 @@ struct Time
 #include "constants/items.h"
 #define ITEM_FLAGS_COUNT ((ITEMS_COUNT / 8) + ((ITEMS_COUNT % 8) ? 1 : 0))
 
+#if OW_POKEMON_OBJECT_EVENTS
+#define ROUTE_WILD_PERSISTED_SHINY_COUNT 24
+/* Shiny route wanderers: species+personality+level+slot kind per (map, slot). Save-breaking if added mid-project. */
+struct RouteWildPersistedShiny
+{
+    u16 mapKey;
+    u8 slotIndex;
+    u8 slotKind;
+    u16 species;
+    u32 personality;
+    u8 level;
+    u8 unused;
+};
+#endif
+
 struct SaveBlock3
 {
 #if OW_USE_FAKE_RTC
@@ -214,6 +229,10 @@ struct SaveBlock3
     u8 dexNavSearchLevels[NUM_SPECIES];
 #endif
     u8 dexNavChain;
+#if OW_POKEMON_OBJECT_EVENTS
+    struct RouteWildPersistedShiny routeWildPersistedShinies[ROUTE_WILD_PERSISTED_SHINY_COUNT];
+    u8 routeWildPersistEvictCursor;
+#endif
 }; /* max size 1624 bytes */
 
 extern struct SaveBlock3 *gSaveBlock3Ptr;

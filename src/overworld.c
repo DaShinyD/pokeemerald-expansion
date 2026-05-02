@@ -46,6 +46,7 @@
 #include "play_time.h"
 #include "random.h"
 #include "roamer.h"
+#include "route_wild_wanderers.h"
 #include "rotating_gate.h"
 #include "rtc.h"
 #include "safari_zone.h"
@@ -523,8 +524,9 @@ void LoadSaveblockObjEventScripts(void)
     const struct ObjectEventTemplate *mapHeaderObjTemplates = gMapHeader.events->objectEvents;
     struct ObjectEventTemplate *savObjTemplates = gSaveBlock1Ptr->objectEventTemplates;
     s32 i;
+    u8 n = gMapHeader.events->objectEventCount;
 
-    for (i = 0; i < OBJECT_EVENT_TEMPLATES_COUNT; i++)
+    for (i = 0; (u8)i < n; i++)
         savObjTemplates[i].script = mapHeaderObjTemplates[i].script;
 }
 
@@ -885,6 +887,12 @@ if (I_VS_SEEKER_CHARGING != 0)
          || gMapHeader.regionMapSectionId != sLastMapSectionId)
             ShowMapNamePopup();
     }
+
+#if OW_POKEMON_OBJECT_EVENTS
+    /* Connections skip ResetObjectEvents; drop stale route-wild sprites before rebuilding templates. */
+    RemoveRouteWildObjectEventsNotOnCurrentMap();
+#endif
+    RouteWildScheduleDeferredSetup();
 }
 
 static void LoadMapFromWarp(bool32 a1)
@@ -1559,6 +1567,9 @@ void CB2_OverworldBasic(void)
 
 void CB2_Overworld(void)
 {
+#if OW_POKEMON_OBJECT_EVENTS
+    RouteWildProcessDeferredSetup();
+#endif
     bool32 fading = (gPaletteFade.active != 0);
     if (fading)
         SetVBlankCallback(NULL);
@@ -2241,6 +2252,7 @@ static void InitObjectEventsLink(void)
     gTotalCameraPixelOffsetX = 0;
     gTotalCameraPixelOffsetY = 0;
     ResetObjectEvents();
+    RouteWildScheduleDeferredSetup();
     TrySpawnObjectEvents(0, 0);
     TryRunOnWarpIntoMapScript();
 }
@@ -2258,6 +2270,7 @@ static void InitObjectEventsLocal(void)
     InitPlayerAvatar(x, y, player->direction, gSaveBlock2Ptr->playerGender);
     SetPlayerAvatarTransitionFlags(player->transitionFlags);
     ResetInitialPlayerAvatarState();
+    RouteWildScheduleDeferredSetup();
     TrySpawnObjectEvents(0, 0);
     UpdateFollowingPokemon();
     TryRunOnWarpIntoMapScript();

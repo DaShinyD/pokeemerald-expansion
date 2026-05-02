@@ -12,6 +12,7 @@
 #include "menu.h"
 #include "metatile_behavior.h"
 #include "overworld.h"
+#include "route_wild_wanderers.h"
 #include "party_menu.h"
 #include "random.h"
 #include "rotating_gate.h"
@@ -647,6 +648,10 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
         if (collision == COLLISION_LEDGE_JUMP)
         {
             PlayerJumpLedge(direction);
+            return;
+        }
+        else if (collision == COLLISION_OBJECT_EVENT && TryStartRouteWildWanderingBattleOnBump(direction))
+        {
             return;
         }
         else if (collision == COLLISION_OBJECT_EVENT && IsPlayerCollidingWithFarawayIslandMew(direction))

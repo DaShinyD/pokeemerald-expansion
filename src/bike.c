@@ -6,6 +6,7 @@
 #include "field_specials.h"
 #include "metatile_behavior.h"
 #include "overworld.h"
+#include "route_wild_wanderers.h"
 #include "sound.h"
 #include "constants/map_types.h"
 #include "constants/songs.h"
@@ -252,7 +253,10 @@ static void MachBikeTransition_TrySpeedUp(u8 direction)
             {
                 // we hit a solid object that is not a ledge, so perform the collision.
                 Bike_SetBikeStill();
-                if (collision == COLLISION_OBJECT_EVENT && IsPlayerCollidingWithFarawayIslandMew(direction))
+                if (collision == COLLISION_OBJECT_EVENT && TryStartRouteWildWanderingBattleOnBump(direction))
+                {
+                }
+                else if (collision == COLLISION_OBJECT_EVENT && IsPlayerCollidingWithFarawayIslandMew(direction))
                     PlayerOnBikeCollideWithFarawayIslandMew(direction);
                 else if (collision < COLLISION_STOP_SURFING || collision > COLLISION_ROTATING_GATE)
                     PlayerOnBikeCollide(direction);
@@ -290,7 +294,10 @@ static void MachBikeTransition_TrySlowDown(u8 direction)
         else
         {
             Bike_SetBikeStill();
-            if (collision == COLLISION_OBJECT_EVENT && IsPlayerCollidingWithFarawayIslandMew(direction))
+            if (collision == COLLISION_OBJECT_EVENT && TryStartRouteWildWanderingBattleOnBump(direction))
+            {
+            }
+            else if (collision == COLLISION_OBJECT_EVENT && IsPlayerCollidingWithFarawayIslandMew(direction))
                 PlayerOnBikeCollideWithFarawayIslandMew(direction);
             else if (collision < COLLISION_STOP_SURFING || collision > COLLISION_ROTATING_GATE)
                 PlayerOnBikeCollide(direction);
@@ -589,6 +596,9 @@ static void AcroBikeTransition_Moving(u8 direction)
     {
         if (collision == COLLISION_LEDGE_JUMP)
             PlayerJumpLedge(direction);
+        else if (collision == COLLISION_OBJECT_EVENT && TryStartRouteWildWanderingBattleOnBump(direction))
+        {
+        }
         else if (collision == COLLISION_OBJECT_EVENT && IsPlayerCollidingWithFarawayIslandMew(direction))
             PlayerOnBikeCollideWithFarawayIslandMew(direction);
         else if (collision < COLLISION_STOP_SURFING || collision > COLLISION_ROTATING_GATE)

@@ -30,6 +30,7 @@
 #include "pokeball.h"
 #include "random.h"
 #include "region_map.h"
+#include "route_wild_wanderers.h"
 #include "script.h"
 #include "sound.h"
 #include "sprite.h"
@@ -122,7 +123,7 @@ static void TryEnableObjectEventAnim(struct ObjectEvent *, struct Sprite *);
 static void ObjectEventExecHeldMovementAction(struct ObjectEvent *, struct Sprite *);
 static void UpdateObjectEventSpriteAnimPause(struct ObjectEvent *, struct Sprite *);
 static bool8 IsCoordOutsideObjectEventMovementRange(struct ObjectEvent *, s16, s16);
-static bool8 IsMetatileDirectionallyImpassable(struct ObjectEvent *, s16, s16, u8);
+bool8 IsMetatileDirectionallyImpassable(struct ObjectEvent *, s16, s16, u8);
 static bool8 DoesObjectCollideWithObjectAt(struct ObjectEvent *, s16, s16);
 static void UpdateObjectEventOffscreen(struct ObjectEvent *, struct Sprite *);
 static void UpdateObjectEventSpriteVisibility(struct ObjectEvent *, struct Sprite *);
@@ -1509,7 +1510,7 @@ u8 Unref_TryInitLocalObjectEvent(u8 localId)
         else if (InTrainerHill())
             objectEventCount = HILL_TRAINERS_PER_FLOOR;
         else
-            objectEventCount = gMapHeader.events->objectEventCount;
+            objectEventCount = GetCurrentMapObjectEventTemplateCount();
 
         for (i = 0; i < objectEventCount; i++)
         {
@@ -1563,6 +1564,40 @@ void RemoveObjectEventByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup)
         RemoveObjectEvent(&gObjectEvents[objectEventId]);
     }
 }
+
+void RemoveObjectEventByLocalIdNoFlag(u8 localId, u8 mapNum, u8 mapGroup)
+{
+    u8 objectEventId;
+
+    if (!TryGetObjectEventIdByLocalIdAndMap(localId, mapNum, mapGroup, &objectEventId))
+        RemoveObjectEvent(&gObjectEvents[objectEventId]);
+}
+
+#if OW_POKEMON_OBJECT_EVENTS
+/*
+ * Map connections call LoadMapFromCameraTransition without ResetObjectEvents; wandering wild
+ * mons reuse local IDs 242+. Remove leftovers from the previous map so TrySpawnObjectEvents
+ * can recreate sprites/templates for the current map (avoids garbled OW Pokémon graphics).
+ */
+void RemoveRouteWildObjectEventsNotOnCurrentMap(void)
+{
+    u8 i;
+    u8 mapNum = gSaveBlock1Ptr->location.mapNum;
+    u8 mapGroup = gSaveBlock1Ptr->location.mapGroup;
+
+    for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
+    {
+        struct ObjectEvent *objectEvent = &gObjectEvents[i];
+
+        if (!objectEvent->active || objectEvent->isPlayer)
+            continue;
+        if (objectEvent->localId < LOCALID_ROUTE_WILD_FIRST || objectEvent->localId > LOCALID_ROUTE_WILD_LAST)
+            continue;
+        if (objectEvent->mapNum != mapNum || objectEvent->mapGroup != mapGroup)
+            RemoveObjectEvent(objectEvent);
+    }
+}
+#endif // OW_POKEMON_OBJECT_EVENTS
 
 static void RemoveObjectEventInternal(struct ObjectEvent *objectEvent)
 {
@@ -2621,7 +2656,7 @@ void TrySpawnObjectEvents(s16 cameraX, s16 cameraY)
         else if (InTrainerHill())
             objectCount = HILL_TRAINERS_PER_FLOOR;
         else
-            objectCount = gMapHeader.events->objectEventCount;
+            objectCount = GetCurrentMapObjectEventTemplateCount();
 
         for (i = 0; i < objectCount; i++)
         {
@@ -2655,7 +2690,13 @@ void RemoveObjectEventsOutsideView(void)
             // Followers should not go OOB, or their sprites may be freed early during a cross-map scripting event,
             // such as Wally's Ralts catch sequence
             if (objectEvent->active && !objectEvent->isPlayer && objectEvent->localId != OBJ_EVENT_ID_FOLLOWER)
+            {
+#if OW_POKEMON_OBJECT_EVENTS
+                if (RouteWildObjectEventIsProtectedShiny(objectEvent))
+                    continue;
+#endif
                 RemoveObjectEventIfOutsideView(objectEvent);
+            }
         }
     }
 }
@@ -3235,6 +3276,7 @@ void UpdateObjectEventsForCameraUpdate(s16 x, s16 y)
     UpdateObjectEventCoordsForCameraUpdate();
     TrySpawnObjectEvents(x, y);
     RemoveObjectEventsOutsideView();
+    RouteWildWandering_OnCameraUpdate();
 }
 
 // The "CameraObject" functions below are responsible for an invisible sprite
@@ -3454,7 +3496,7 @@ static const struct ObjectEventTemplate *GetObjectEventTemplateByLocalIdAndMap(u
     if (gSaveBlock1Ptr->location.mapNum == mapNum && gSaveBlock1Ptr->location.mapGroup == mapGroup)
     {
         templates = gSaveBlock1Ptr->objectEventTemplates;
-        count = gMapHeader.events->objectEventCount;
+        count = GetCurrentMapObjectEventTemplateCount();
     }
     else
     {
@@ -3632,6 +3674,10 @@ bool8 MovementType_WanderAround_Step4(struct ObjectEvent *objectEvent, struct Sp
     sprite->sTypeFuncId = 5;
     if (GetCollisionInDirection(objectEvent, chosenDirection))
         sprite->sTypeFuncId = 1;
+#if OW_POKEMON_OBJECT_EVENTS
+    else if (!RouteWildObjectEventCanTakeWanderStep(objectEvent, chosenDirection))
+        sprite->sTypeFuncId = 1;
+#endif
 
     return TRUE;
 }
@@ -3953,6 +3999,10 @@ bool8 MovementType_WanderUpAndDown_Step4(struct ObjectEvent *objectEvent, struct
     sprite->sTypeFuncId = 5;
     if (GetCollisionInDirection(objectEvent, direction))
         sprite->sTypeFuncId = 1;
+#if OW_POKEMON_OBJECT_EVENTS
+    else if (!RouteWildObjectEventCanTakeWanderStep(objectEvent, direction))
+        sprite->sTypeFuncId = 1;
+#endif
 
     return TRUE;
 }
@@ -4011,6 +4061,10 @@ bool8 MovementType_WanderLeftAndRight_Step4(struct ObjectEvent *objectEvent, str
     sprite->sTypeFuncId = 5;
     if (GetCollisionInDirection(objectEvent, direction))
         sprite->sTypeFuncId = 1;
+#if OW_POKEMON_OBJECT_EVENTS
+    else if (!RouteWildObjectEventCanTakeWanderStep(objectEvent, direction))
+        sprite->sTypeFuncId = 1;
+#endif
 
     return TRUE;
 }
@@ -6279,7 +6333,7 @@ static bool8 IsCoordOutsideObjectEventMovementRange(struct ObjectEvent *objectEv
     return FALSE;
 }
 
-static bool8 IsMetatileDirectionallyImpassable(struct ObjectEvent *objectEvent, s16 x, s16 y, u8 direction)
+bool8 IsMetatileDirectionallyImpassable(struct ObjectEvent *objectEvent, s16 x, s16 y, u8 direction)
 {
     if (gOppositeDirectionBlockedMetatileFuncs[direction - 1](objectEvent->currentMetatileBehavior)
         || gDirectionBlockedMetatileFuncs[direction - 1](MapGridGetMetatileBehaviorAt(x, y)))
@@ -6307,6 +6361,13 @@ u32 GetObjectObjectCollidesWith(struct ObjectEvent *objectEvent, s16 x, s16 y, b
         curObject = &gObjectEvents[i];
         if (curObject->active && (curObject->movementType != MOVEMENT_TYPE_FOLLOW_PLAYER || objectEvent != &gObjectEvents[gPlayerAvatar.objectEventId]) && curObject != objectEvent)
         {
+#if OW_POKEMON_OBJECT_EVENTS
+            /* Wandering wild mons: no hard collision with the player (walk on tile to battle). */
+            if (RouteWildWanderingSystemIsEnabled()
+             && ((objectEvent->isPlayer && curObject->localId >= LOCALID_ROUTE_WILD_FIRST && curObject->localId <= LOCALID_ROUTE_WILD_LAST)
+             || (curObject->isPlayer && objectEvent->localId >= LOCALID_ROUTE_WILD_FIRST && objectEvent->localId <= LOCALID_ROUTE_WILD_LAST)))
+                continue;
+#endif // OW_POKEMON_OBJECT_EVENTS
             // check for collision if curObject is active, not the object in question, and not exempt from collisions
             if ((curObject->currentCoords.x == x && curObject->currentCoords.y == y) || (curObject->previousCoords.x == x && curObject->previousCoords.y == y))
             {
