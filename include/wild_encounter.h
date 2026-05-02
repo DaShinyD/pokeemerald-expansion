@@ -50,5 +50,9 @@ u8 ChooseWildMonIndex_Land(void);
 u8 ChooseWildMonIndex_WaterRock(void);
 u8 ChooseHiddenMonIndex(void);
 bool32 MapHasNoEncounterData(void);
+u8 GetLandWildMonEncounterLevel(const struct WildPokemon *wildPokemon, u8 wildMonIndex);
+u8 GetWaterWildMonEncounterLevel(const struct WildPokemon *wildPokemon, u8 wildMonIndex);
+u8 GetFishingWildMonEncounterLevel(const struct WildPokemon *wildPokemon, u8 wildMonIndex);
+u8 ChooseWildMonIndex_FishingRandomRod(void);
 
 #endif // GUARD_WILD_ENCOUNTER_H

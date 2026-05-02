@@ -100,6 +100,8 @@ SootopolisCity_Gym_1F_EventScript_JuanDefeated::
 	setflag FLAG_HIDE_SOOTOPOLIS_CITY_STEVEN
 	setflag FLAG_HIDE_SOOTOPOLIS_CITY_WALLACE
 	setflag FLAG_LEVEL_CAP_EIGHT
+	buffernumberstring STR_VAR_1, 85
+	msgbox gText_NewLevelCapIs, MSGBOX_DEFAULT
 	setvar VAR_SOOTOPOLIS_CITY_STATE, 6
 	clearflag FLAG_HIDE_SOOTOPOLIS_CITY_MAN_1
 	setvar VAR_0x8008, 8

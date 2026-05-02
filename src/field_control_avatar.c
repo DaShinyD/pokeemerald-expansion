@@ -23,6 +23,7 @@
 #include "metatile_behavior.h"
 #include "overworld.h"
 #include "pokemon.h"
+#include "route_wild_wanderers.h"
 #include "tx_registered_items_menu.h"
 #include "safari_zone.h"
 #include "script.h"
@@ -172,6 +173,9 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     metatileBehavior = MapGridGetMetatileBehaviorAt(position.x, position.y);
 
     if (CheckForTrainersWantingBattle() == TRUE)
+        return TRUE;
+
+    if (TryRouteWildWanderingOverlapBattle() == TRUE)
         return TRUE;
 
     if (TryRunOnFrameMapScript() == TRUE)

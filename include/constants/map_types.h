@@ -6,6 +6,8 @@
 #define MAP_TYPE_CITY        2
 #define MAP_TYPE_ROUTE       3
 #define MAP_TYPE_UNDERGROUND 4
+/* Vanilla Emerald uses UNDERGROUND for cave interiors (Granite Cave, Victory Road, etc.). */
+#define MAP_TYPE_CAVE        MAP_TYPE_UNDERGROUND
 #define MAP_TYPE_UNDERWATER  5
 #define MAP_TYPE_OCEAN_ROUTE 6
 #define MAP_TYPE_UNKNOWN     7 // Not used by any map.

@@ -305,6 +305,7 @@ PlayersHouse_2F_EventScript_EnableCap::
 	msgbox PlayersHouse_2F_Text_CapEnabled1, MSGBOX_DEFAULT
 	setflag FLAG_LEVEL_CAP_MASTER
 	setvar VAR_LEVEL_CAP, 1
+	goto PlayersHouse_2F_EventScript_Wanderers
 	release
 	end
 
@@ -325,6 +326,7 @@ PlayersHouse_2F_EventScript_NoCap::
 	setflag FLAG_LEVEL_CAP_THIRTEEN
 	setflag FLAG_LEVEL_CAP_FOURTEEN
 	setvar VAR_LEVEL_CAP, 1
+	goto PlayersHouse_2F_EventScript_Wanderers
 	release
 	end
 
@@ -335,7 +337,48 @@ PlayersHouse_2F_Text_CapEnabled1:
 	.string "Level caps enabled. The caps are as\n"
 	.string "follows.\p"
 	.string "18, 24, 36, 48, 50, 58, 67, 75, 85,\n"
-	.string "100, 120, 150, 180 and lastly 200.$"
+	.string "100, 120, 150, 180, lastly 200.\p"
+	.string "The current cap is 18.\p"
+	.string "Check your trainer card to remind\n"
+	.string "yourself of the current cap.$"
+
+PlayersHouse_2F_EventScript_Wanderers::
+	msgbox PlayersHouse_2F_Text_Wanderers, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, PlayersHouse_2F_EventScript_WanderersEnabled
+	goto_if_eq VAR_RESULT, NO, PlayersHouse_2F_EventScript_WanderersDisabled
+	release
+	end
+
+PlayersHouse_2F_Text_Wanderers:
+	.string "Now, would you like to enable\n"
+	.string "overworld wandering Pokemon?\p"
+	.string "The reason you are being asked\n"
+	.string "is this may slightly lag the\l"
+	.string "game.\p"
+	.string "As well, they could get annoying\n"
+	.string "to walk into, and repels don't\l"
+	.string "stop them.\p"
+	.string "Enable wanderers?$"
+
+PlayersHouse_2F_EventScript_WanderersEnabled::
+	clearflag FLAG_SYS_ROUTE_WILD_WANDERERS_DISABLED
+	msgbox PlayersHouse_2F_Text_WanderersEnabled, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+PlayersHouse_2F_Text_WanderersEnabled:
+	.string "Wanderers enabled.$"
+
+PlayersHouse_2F_EventScript_WanderersDisabled::
+	setflag FLAG_SYS_ROUTE_WILD_WANDERERS_DISABLED
+	msgbox PlayersHouse_2F_Text_WanderersDisabled, MSGBOX_DEFAULT
+	closemessage
+	release
+	end
+
+PlayersHouse_2F_Text_WanderersDisabled:
+	.string "Wanderers disabled.$"
 
 PlayersHouse_2F_Text_ClockIsStopped:
 	.string "The clock is stopped…\p"

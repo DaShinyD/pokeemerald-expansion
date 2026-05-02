@@ -129,6 +129,10 @@ void SetObjectEventDirection(struct ObjectEvent *objectEvent, u8 direction);
 u8 GetFirstInactiveObjectEventId(void);
 u8 GetObjectEventIdByLocalId(u8);
 void RemoveObjectEventByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup);
+void RemoveObjectEventByLocalIdNoFlag(u8 localId, u8 mapNum, u8 mapGroup);
+#if OW_POKEMON_OBJECT_EVENTS
+void RemoveRouteWildObjectEventsNotOnCurrentMap(void);
+#endif
 void LoadSpecialObjectReflectionPalette(u16 tag, u8 slot);
 void TryMoveObjectEventToMapCoords(u8 localId, u8 mapNum, u8 mapGroup, s16 x, s16 y);
 void PatchObjectPalette(u16 paletteTag, u8 paletteSlot);
@@ -187,6 +191,7 @@ void SetTrainerMovementType(struct ObjectEvent *objectEvent, u8 movementType);
 u8 GetTrainerFacingDirectionMovementType(u8 direction);
 const u8 *GetObjectEventScriptPointerByObjectEventId(u8 objectEventId);
 u8 GetCollisionFlagsAtCoords(struct ObjectEvent *objectEvent, s16 x, s16 y, u8 direction);
+bool8 IsMetatileDirectionallyImpassable(struct ObjectEvent *objectEvent, s16 x, s16 y, u8 direction);
 u8 GetFaceDirectionMovementAction(u32);
 u8 GetWalkNormalMovementAction(u32);
 u8 GetWalkFastMovementAction(u32);

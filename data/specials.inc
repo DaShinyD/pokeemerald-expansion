@@ -585,4 +585,6 @@ gSpecials::
 	def_special StartRangerCapture
 	def_special TeleportCamera
 	def_special ReturnCameraToPlayer
+	def_special Special_PrepareRouteWildScriptedMon
+	def_special Special_RemoveRouteWildMonAfterBattle
 

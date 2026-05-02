@@ -354,6 +354,26 @@ static u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIn
     }
 }
 
+u8 GetLandWildMonEncounterLevel(const struct WildPokemon *wildPokemon, u8 wildMonIndex)
+{
+    return ChooseWildMonLevel(wildPokemon, wildMonIndex, WILD_AREA_LAND);
+}
+
+u8 GetWaterWildMonEncounterLevel(const struct WildPokemon *wildPokemon, u8 wildMonIndex)
+{
+    return ChooseWildMonLevel(wildPokemon, wildMonIndex, WILD_AREA_WATER);
+}
+
+u8 GetFishingWildMonEncounterLevel(const struct WildPokemon *wildPokemon, u8 wildMonIndex)
+{
+    return ChooseWildMonLevel(wildPokemon, wildMonIndex, WILD_AREA_FISHING);
+}
+
+u8 ChooseWildMonIndex_FishingRandomRod(void)
+{
+    return ChooseWildMonIndex_Fishing(Random() % 3);
+}
+
 u16 GetCurrentMapWildMonHeaderId(void)
 {
     u16 i;
