@@ -14208,6 +14208,144 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_ROUTE140",
+          "base_label": "gRoute1400",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_PICHU_SPIKY_EARED"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_PIKACHU_ALOLA"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_PIKACHU_BELLE"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_PIKACHU_COSPLAY"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_PIKACHU_KALOS"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_PIKACHU_HOENN"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_PIKACHU_LIBRE"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_PIKACHU_ORIGINAL"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_PIKACHU_PHD"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_PIKACHU_POP_STAR"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_PIKACHU_ROCK_STAR"
+              },
+              {
+                "min_level": 80,
+                "max_level": 80,
+                "species": "SPECIES_PIKACHU_SINNOH"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_LITTLEROOT_WOODS",
+          "base_label": "gLittlerootWoods0",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_ARACHTRES"
+              },
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_FROSMOTH"
+              },
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_BEEDRILL"
+              },
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_BEEDRILL_HOENNIAN"
+              },
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_DRAGNAR"
+              },
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_DRAGNAR"
+              },
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_BEEDRILL"
+              },
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_VOLCARONA"
+              },
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_VOLCARONA"
+              },
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_BEEDRILL_HOENNIAN"
+              },
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_ARACHTRES"
+              },
+              {
+                "min_level": 100,
+                "max_level": 100,
+                "species": "SPECIES_BUZZWOLE"
+              }
+            ]
+          }
         }
       ]
     },

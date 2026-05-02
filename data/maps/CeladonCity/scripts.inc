@@ -229,6 +229,7 @@ CeladonCity_EventScript_DashAfter::
 	setvar VAR_DASH_CELADON, 1
 	removeobject LOCALID_DASH
 	setflag VAR_DASH_CELADON
+	setflag FLAG_LEVEL_CAP_ELEVEN
 	release
 	end
 

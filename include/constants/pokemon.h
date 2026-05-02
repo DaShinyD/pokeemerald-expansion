@@ -258,6 +258,7 @@ enum EvolutionMethods {
     EVO_LEVEL_ATK_GT_DEF,                // Pokémon reaches the specified level with attack > defense
     EVO_LEVEL_ATK_EQ_DEF,                // Pokémon reaches the specified level with attack = defense
     EVO_LEVEL_ATK_LT_DEF,                // Pokémon reaches the specified level with attack < defense
+    EVO_LEVEL_SPATK_GT_ATK_AND_DEF,      // Pokémon reaches the specified level with special attack > attack and special attack > defense
     EVO_LEVEL_SILCOON,                   // Pokémon reaches the specified level with a Silcoon personality value
     EVO_LEVEL_CASCOON,                   // Pokémon reaches the specified level with a Cascoon personality value
     EVO_LEVEL_NINJASK,                   // Pokémon reaches the specified level (special value for Ninjask)

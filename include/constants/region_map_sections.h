@@ -225,6 +225,7 @@
 #define MAPSEC_ROUTE_136                    0xDD
 #define MAPSEC_DISTORTION_WORLD             0xDE
 #define MAPSEC_ROUTE_137                    0xDF
+#define MAPSEC_ROUTE_140                    0xE0
 #define MAPSEC_TRAVERSAL_PATH               0xF0
 #define MAPSEC_CHERRY_DOJO                  0xF1
 #define MAPSEC_LAVA_DEPTHS                  0xF2

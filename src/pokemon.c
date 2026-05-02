@@ -4611,6 +4611,14 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, enum EvolutionMode mode, u16 
                     if (GetMonData(mon, MON_DATA_ATK, 0) < GetMonData(mon, MON_DATA_DEF, 0))
                         targetSpecies = evolutions[i].targetSpecies;
                 break;
+            case EVO_LEVEL_SPATK_GT_ATK_AND_DEF:
+                if (evolutions[i].param <= level)
+                {
+                    u16 spAtk = GetMonData(mon, MON_DATA_SPATK, 0);
+                    if (spAtk > GetMonData(mon, MON_DATA_ATK, 0) && spAtk > GetMonData(mon, MON_DATA_DEF, 0))
+                        targetSpecies = evolutions[i].targetSpecies;
+                }
+                break;
             case EVO_LEVEL_SILCOON:
                 if (evolutions[i].param <= level && (upperPersonality % 10) <= 4)
                     targetSpecies = evolutions[i].targetSpecies;

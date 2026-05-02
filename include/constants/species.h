@@ -1811,8 +1811,11 @@
 #define SPECIES_GLACISTER                             1694
 #define SPECIES_ARIDOX                                1695
 #define SPECIES_DRAGNAR                               1696
+#define SPECIES_LUMINARCH                             1697
+#define SPECIES_HITMONKAME                            1698
+#define SPECIES_FAYFLARE                              1699
 
-#define SPECIES_EGG                                     (SPECIES_DRAGNAR + 1)
+#define SPECIES_EGG                                     (SPECIES_FAYFLARE + 1)
 
 #define NUM_SPECIES SPECIES_EGG
 

@@ -1467,6 +1467,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sLanturnLevelUpLearnset,
         .teachableLearnset = sLanturnTeachableLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 40, SPECIES_LUMINARCH}),
     },
 #endif //P_FAMILY_CHINCHOU
 

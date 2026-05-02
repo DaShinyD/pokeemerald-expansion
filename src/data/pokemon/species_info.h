@@ -11660,5 +11660,198 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .levelUpLearnset = sLandorusLevelUpLearnset,
         .teachableLearnset = sLandorusTeachableLearnset,
     },
+    [SPECIES_LUMINARCH] =
+    {
+        .baseHP        = 145,
+        .baseAttack    = 38,
+        .baseDefense   = 78,
+        .baseSpeed     = 77,
+        .baseSpAttack  = 116,
+        .baseSpDefense = 126,
+        .types = MON_TYPES(TYPE_WATER, TYPE_ELECTRIC),
+        .catchRate = 75,
+        .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 161 : 156,
+        .evYield_HP = 2,
+        .itemRare = ITEM_DEEP_SEA_SCALE,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_2),
+        .abilities = { ABILITY_VOLT_ABSORB, ABILITY_ILLUMINATE, ABILITY_WATER_ABSORB },
+        .bodyColor = BODY_COLOR_BLUE,
+        .speciesName = _("Luminarch"),
+        .cryId = CRY_LANTURN,
+        .natDexNum = NATIONAL_DEX_LUMINARCH,
+        .categoryName = _("Light"),
+        .height = 12,
+        .weight = 225,
+        .description = COMPOUND_STRING(
+            "The light-emitting orbs on its back are\n"
+            "very bright. They are formed from a part of\n"
+            "its dorsal fin. This Pokémon illuminates\n"
+            "the inky darkness of deep seas."),
+        .pokemonScale = 269,
+        .pokemonOffset = 6,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Lanturn,
+        .frontPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(64, 56) : MON_COORDS_SIZE(64, 48),
+        .frontPicYOffset = 11,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE_SMALL,
+        .backPic = gMonBackPic_Luminarch,
+        .backPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(64, 48) : MON_COORDS_SIZE(64, 56),
+        .backPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 8 : 6,
+        .backAnimId = BACK_ANIM_SHAKE_FLASH_YELLOW,
+        .palette = gMonPalette_Luminarch,
+        .shinyPalette = gMonShinyPalette_Luminarch,
+        .iconSprite = gMonIcon_Lanturn,
+        .iconPalIndex = 0,
+        SHADOW(5, 4, SHADOW_SIZE_M)
+        FOOTPRINT(Lanturn)
+        OVERWORLD(
+            sPicTable_Lanturn,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_SPOT,
+            sAnimTable_Following,
+            gOverworldPalette_Lanturn,
+            gShinyOverworldPalette_Lanturn
+        )
+        .levelUpLearnset = sLanturnLevelUpLearnset,
+        .teachableLearnset = sLanturnTeachableLearnset,
+    },
+    [SPECIES_HITMONKAME] =
+    {
+        .baseHP        = 50,
+        .baseAttack    = 35,
+        .baseDefense   = 53,
+        .baseSpeed     = 115,
+        .baseSpAttack  = 120,
+        .baseSpDefense = 110,
+        .types = MON_TYPES(TYPE_FIGHTING, TYPE_DRAGON),
+        .catchRate = 45,
+        .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 159 : 139,
+        .evYield_Attack = 2,
+        .genderRatio = MON_MALE,
+        .eggCycles = 25,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_HUMAN_LIKE),
+    #if P_UPDATED_ABILITIES >= GEN_4
+        .abilities = { ABILITY_LIMBER, ABILITY_RECKLESS, ABILITY_UNBURDEN },
+    #else
+        .abilities = { ABILITY_LIMBER, ABILITY_NONE, ABILITY_UNBURDEN },
+    #endif
+        .bodyColor = BODY_COLOR_BROWN,
+        .speciesName = _("Hitmonlee"),
+        .cryId = CRY_HITMONLEE,
+        .natDexNum = NATIONAL_DEX_HITMONKAME,
+        .categoryName = _("Blasting"),
+        .height = 15,
+        .weight = 498,
+        .description = COMPOUND_STRING(
+            "Its arms can create large\n"
+            "amounts of energy.\n"
+            "It blasts out with the force of\n"
+            "10000 newtons."),
+        .pokemonScale = 256,
+        .pokemonOffset = 3,
+        .trainerScale = 259,
+        .trainerOffset = 1,
+        .frontPic = gMonFrontPic_Hitmonkame,
+        .frontPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(64, 56) : MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 5,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = P_GBA_STYLE_SPECIES_GFX ? ANIM_H_STRETCH : ANIM_H_JUMPS_V_STRETCH,
+        .backPic = gMonBackPic_Hitmonkame,
+        .backPicSize = MON_COORDS_SIZE(64, 56),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_H_SLIDE,
+        .palette = gMonPalette_Hitmonkame,
+        .shinyPalette = gMonShinyPalette_Hitmonkame,
+        .iconSprite = gMonIcon_Hitmonlee,
+        .iconPalIndex = 2,
+        SHADOW(2, 8, SHADOW_SIZE_M)
+        FOOTPRINT(Hitmonlee)
+        OVERWORLD(
+            sPicTable_Hitmonlee,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_Hitmonlee,
+            gShinyOverworldPalette_Hitmonlee
+        )
+        .levelUpLearnset = sHitmonleeLevelUpLearnset,
+        .teachableLearnset = sHitmonleeTeachableLearnset,
+    },
+    [SPECIES_FAYFLARE] =
+    {
+        .baseHP        = 60,
+        .baseAttack    = 35,
+        .baseDefense   = 90,
+        .baseSpeed     = 120,
+        .baseSpAttack  = 150,
+        .baseSpDefense = 90,
+        .types = MON_TYPES(TYPE_FIRE, TYPE_FAIRY),
+        .catchRate = 45,
+        .expYield = (P_UPDATED_EXP_YIELDS >= GEN_8) ? 260 : 234,
+        .evYield_SpAttack = 3,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_AMORPHOUS),
+    #if P_UPDATED_ABILITIES >= GEN_6
+        .abilities = { ABILITY_FLASH_FIRE, ABILITY_FLAME_BODY, ABILITY_INFILTRATOR },
+    #else
+        .abilities = { ABILITY_FLASH_FIRE, ABILITY_FLAME_BODY, ABILITY_SHADOW_TAG },
+    #endif
+        .bodyColor = BODY_COLOR_RED,
+        .speciesName = _("Fayflare"),
+        .cryId = CRY_CHANDELURE,
+        .natDexNum = NATIONAL_DEX_FAYFLARE,
+        .categoryName = _("Luring"),
+        .height = 10,
+        .weight = 343,
+        .description = COMPOUND_STRING(
+            "Being consumed in Fayflare's flame burns\n"
+            "up the spirit, leaving the body behind.\n"
+            "By waving the flames around it, it puts\n"
+            "its foes into a hypnotic trance."),
+        .pokemonScale = 305,
+        .pokemonOffset = 7,
+        .trainerScale = 257,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Fayflare,
+        .frontPicSize = MON_COORDS_SIZE(64, 64),
+        .frontPicYOffset = 4,
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,
+        .frontAnimId = ANIM_H_SLIDE_WOBBLE,
+        .enemyMonElevation = 6,
+        .backPic = gMonBackPic_Fayflare,
+        .backPicSize = MON_COORDS_SIZE(64, 64),
+        .backPicYOffset = 0,
+        .backAnimId = BACK_ANIM_CONVEX_DOUBLE_ARC,
+        .palette = gMonPalette_Fayflare,
+        .shinyPalette = gMonShinyPalette_Fayflare,
+        .iconSprite = gMonIcon_Chandelure,
+        .iconPalIndex = 2,
+        SHADOW(1, 13, SHADOW_SIZE_S)
+        FOOTPRINT(Chandelure)
+        OVERWORLD(
+            sPicTable_Chandelure,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_Chandelure,
+            gShinyOverworldPalette_Chandelure
+        )
+        .levelUpLearnset = sChandelureLevelUpLearnset,
+        .teachableLearnset = sChandelureTeachableLearnset,
+    },
 };
 
