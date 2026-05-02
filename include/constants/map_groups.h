@@ -439,6 +439,7 @@
 #define MAP_RUSTURF_MINE                             (109 | (25 << 8))
 #define MAP_DEWFORD_CAVE2                            (110 | (25 << 8))
 #define MAP_SHADY_FOREST                             (111 | (25 << 8))
+#define MAP_LITTLEROOT_WOODS                         (112 | (25 << 8))
 
 // gMapGroup_IndoorDynamic
 #define MAP_SECRET_BASE_RED_CAVE1    (0 | (26 << 8))

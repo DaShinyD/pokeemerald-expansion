@@ -1833,6 +1833,14 @@
       "height": 1
     },
     {
+      "map_section": "MAPSEC_ROUTE_140",
+      "name": "ROUTE 140",
+      "x": 4,
+      "y": 12,
+      "width": 1,
+      "height": 1
+    },
+    {
       "map_section": "MAPSEC_MOSSDEEP_ROCKET",
       "name": "MOSSDEEP ROCKET",
       "x": 22,

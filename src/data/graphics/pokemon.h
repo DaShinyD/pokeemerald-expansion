@@ -27732,3 +27732,18 @@ const u32 gObjectEventPic_Substitute[] = INCBIN_COMP("graphics/pokemon/question_
     const u32 gMonBackPic_Dragnar[] = INCBIN_U32("graphics/pokemon/dragnar/back.4bpp.lz");
     const u32 gMonShinyPalette_Dragnar[] = INCBIN_U32("graphics/pokemon/dragnar/shiny.gbapal.lz");
 
+    const u32 gMonFrontPic_Luminarch[] = INCBIN_U32("graphics/pokemon/luminarch/front.4bpp.lz");
+    const u32 gMonPalette_Luminarch[] = INCBIN_U32("graphics/pokemon/luminarch/normal.gbapal.lz");
+    const u32 gMonBackPic_Luminarch[] = INCBIN_U32("graphics/pokemon/luminarch/back.4bpp.lz");
+    const u32 gMonShinyPalette_Luminarch[] = INCBIN_U32("graphics/pokemon/luminarch/shiny.gbapal.lz");
+
+    const u32 gMonFrontPic_Hitmonkame[] = INCBIN_U32("graphics/pokemon/hitmonkame/front.4bpp.lz");
+    const u32 gMonPalette_Hitmonkame[] = INCBIN_U32("graphics/pokemon/hitmonkame/normal.gbapal.lz");
+    const u32 gMonBackPic_Hitmonkame[] = INCBIN_U32("graphics/pokemon/hitmonkame/back.4bpp.lz");
+    const u32 gMonShinyPalette_Hitmonkame[] = INCBIN_U32("graphics/pokemon/hitmonkame/shiny.gbapal.lz");
+
+    const u32 gMonFrontPic_Fayflare[] = INCBIN_U32("graphics/pokemon/fayflare/front.4bpp.lz");
+    const u32 gMonPalette_Fayflare[] = INCBIN_U32("graphics/pokemon/fayflare/normal.gbapal.lz");
+    const u32 gMonBackPic_Fayflare[] = INCBIN_U32("graphics/pokemon/fayflare/back.4bpp.lz");
+    const u32 gMonShinyPalette_Fayflare[] = INCBIN_U32("graphics/pokemon/fayflare/shiny.gbapal.lz");
+

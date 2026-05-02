@@ -1346,8 +1346,8 @@
       "name": "PetalburgWoods_Layout",
       "width": 48,
       "height": 44,
-      "primary_tileset": "gTileset_general2",
-      "secondary_tileset": "gTileset_rustboro2",
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/PetalburgWoods/border.bin",
       "blockdata_filepath": "data/layouts/PetalburgWoods/map.bin"
     },
@@ -4436,8 +4436,8 @@
       "name": "PetalburgWoods2_Layout",
       "width": 20,
       "height": 20,
-      "primary_tileset": "gTileset_general2",
-      "secondary_tileset": "gTileset_rustboro2",
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/PetalburgWoods2/border.bin",
       "blockdata_filepath": "data/layouts/PetalburgWoods2/map.bin"
     },
@@ -5430,6 +5430,16 @@
       "secondary_tileset": "gTileset_FuchsiaCity",
       "border_filepath": "data/layouts/FuchsiaSafari/border.bin",
       "blockdata_filepath": "data/layouts/FuchsiaSafari/map.bin"
+    },
+    {
+      "id": "LAYOUT_LITTLEROOT_WOODS",
+      "name": "LittlerootWoods_Layout",
+      "width": 60,
+      "height": 24,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Rustboro",
+      "border_filepath": "data/layouts/LittlerootWoods/border.bin",
+      "blockdata_filepath": "data/layouts/LittlerootWoods/map.bin"
     }
   ]
 }
