@@ -1531,3 +1531,7 @@ MysteryGift_Text_WillSee:
 	.include "data/maps/FuchsiaSafari/scripts.inc"
 
 	.include "data/maps/LittlerootWoods/scripts.inc"
+
+	.include "data/maps/OakLab/scripts.inc"
+
+	.include "data/maps/Tester/scripts.inc"

@@ -5440,6 +5440,26 @@
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/LittlerootWoods/border.bin",
       "blockdata_filepath": "data/layouts/LittlerootWoods/map.bin"
+    },
+    {
+      "id": "LAYOUT_OAK_LAB",
+      "name": "OakLab_Layout",
+      "width": 28,
+      "height": 16,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/OakLab/border.bin",
+      "blockdata_filepath": "data/layouts/OakLab/map.bin"
+    },
+    {
+      "id": "LAYOUT_TESTER",
+      "name": "Tester_Layout",
+      "width": 40,
+      "height": 40,
+      "primary_tileset": "gTileset_KantoPrimaryMe",
+      "secondary_tileset": "gTileset_celadoncity",
+      "border_filepath": "data/layouts/Tester/border.bin",
+      "blockdata_filepath": "data/layouts/Tester/map.bin"
     }
   ]
 }

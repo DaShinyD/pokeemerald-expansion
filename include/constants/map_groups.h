@@ -600,6 +600,7 @@
 #define MAP_ALTAR                                           (92 | (27 << 8))
 #define MAP_SPACE                                           (93 | (27 << 8))
 #define MAP_ROCKET_SHIP                                     (94 | (27 << 8))
+#define MAP_TESTER                                          (95 | (27 << 8))
 
 // gMapGroup_IndoorRoute104Prototype
 #define MAP_ROUTE104_PROTOTYPE                          (0 | (28 << 8))
@@ -717,6 +718,7 @@
 // gMapGroup_IndoorCinnabar
 
 // gMapGroup_IndoorPallet
+#define MAP_OAK_LAB (0 | (45 << 8))
 
 #define MAP_GROUPS_COUNT 46
 

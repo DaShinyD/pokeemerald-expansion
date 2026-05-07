@@ -53,7 +53,13 @@
     }
   ],
   "warp_events": [
-
+    {
+      "x": 27,
+      "y": 19,
+      "elevation": 0,
+      "dest_map": "MAP_OAK_LAB",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 
