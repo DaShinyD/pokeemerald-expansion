@@ -641,7 +641,8 @@
     "Tester2",
     "Altar",
     "Space",
-    "RocketShip"
+    "RocketShip",
+    "Tester"
   ],
   "gMapGroup_IndoorRoute104Prototype": [
     "Route104_Prototype",
@@ -760,6 +761,6 @@
 
   ],
   "gMapGroup_IndoorPallet": [
-
+    "OakLab"
   ]
 }
