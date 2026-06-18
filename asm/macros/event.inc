@@ -1903,6 +1903,10 @@
 	.2byte \id
 	.endm
 
+	.macro questmenu
+	.byte SCR_OP_QUESTMENU
+	.endm
+
 	.macro dynmultistack left:req, top:req, ignoreBPress:req, maxBeforeScroll:req, shouldSort:req, initialSelected:req, callbacks:req
 	_dynmultichoice \left, \top, \ignoreBPress, \maxBeforeScroll, \shouldSort, \initialSelected, \callbacks, NULL
 	.endm

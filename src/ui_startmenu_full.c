@@ -115,6 +115,7 @@ static void PrintMapNameAndTime(void);
 static void PrintBottomBarHints(void);
 static void CursorCallback(struct Sprite *sprite);
 bool8 StartMenuDexNavCallback(void);
+bool8 StartMenuQuestMenuCallback(void);
 
 //==========CONST=DATA==========//
 static const struct BgTemplate sStartMenuBgTemplates[] =
@@ -1205,14 +1206,22 @@ static void StartMenuFull_InitWindows(void)
 //
 static const u8 sText_ConfirmSave[] = _("Confirm Save and Return to Overworld?");
 static const u8 sText_L_DexNav[] = _("{L_BUTTON} DexNav");
+static const u8 sText_R_Quests[] = _("{R_BUTTON} Quests");
 static const u8 sA_ButtonGfx[]         = INCBIN_U8("graphics/ui_startmenu_full/a_button.4bpp");
 
 static void PrintBottomBarHints(void)
 {
     u8 sHintColors[] = {TEXT_COLOR_TRANSPARENT, 2, 3};
+    u8 rQuestsX;
+
     FillWindowPixelBuffer(WINDOW_BOTTOM_BAR, PIXEL_FILL(TEXT_COLOR_TRANSPARENT));
     if (DN_FLAG_DEXNAV_GET != 0 && FlagGet(DN_FLAG_DEXNAV_GET))
         AddTextPrinterParameterized4(WINDOW_BOTTOM_BAR, FONT_SMALL, 0, 0, 0, 0, sHintColors, 0xFF, sText_L_DexNav);
+    if (FlagGet(FLAG_QUESTS_ACTIVATE))
+    {
+        rQuestsX = GetStringRightAlignXOffset(FONT_SMALL_NARROWER, sText_R_Quests, 30 * 8);
+        AddTextPrinterParameterized4(WINDOW_BOTTOM_BAR, FONT_SMALL_NARROWER, rQuestsX, 0, 0, 0, sHintColors, 0xFF, sText_R_Quests);
+    }
     PutWindowTilemap(WINDOW_BOTTOM_BAR);
     CopyWindowToVram(WINDOW_BOTTOM_BAR, COPYWIN_FULL);
 }
@@ -1565,6 +1574,19 @@ static void Task_StartMenuFullMain(u8 taskId)
         if (DN_FLAG_DEXNAV_GET != 0 && FlagGet(DN_FLAG_DEXNAV_GET))
         {
             StartMenuDexNavCallback();
+        }
+        else
+        {
+            PlaySE(SE_BOO);
+        }
+    }
+
+    if (JOY_NEW(R_BUTTON))
+    {
+        if (FlagGet(FLAG_QUESTS_ACTIVATE))
+        {
+            PlaySE(SE_SELECT);
+            StartMenuQuestMenuCallback();
         }
         else
         {

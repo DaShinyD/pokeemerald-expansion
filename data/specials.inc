@@ -587,4 +587,7 @@ gSpecials::
 	def_special ReturnCameraToPlayer
 	def_special Special_PrepareRouteWildScriptedMon
 	def_special Special_RemoveRouteWildMonAfterBattle
+	def_special GetSetQuestFlagSpecial
+	def_special SetActiveQuestSpecial
+	def_special OpenQuestMenuSpecial
 

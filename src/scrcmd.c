@@ -53,6 +53,7 @@
 #include "tv.h"
 #include "window.h"
 #include "list_menu.h"
+#include "quests.h"
 #include "malloc.h"
 #include "new_shop.h"
 #include "constants/event_objects.h"
@@ -3155,4 +3156,16 @@ void Script_EndTrainerCanSeeIf(struct ScriptContext *ctx)
     u8 condition = ScriptReadByte(ctx);
     if (ctx->breakOnTrainerBattle && sScriptConditionTable[condition][ctx->comparisonResult] == 1)
         StopScript(ctx);
+}
+
+bool8 ScrCmd_questmenu(struct ScriptContext *ctx)
+{
+    if (!FlagGet(FLAG_QUESTS_ACTIVATE))
+        return FALSE;
+
+    Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
+    SetQuestMenuActive();
+    QuestMenu_Init(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+    ScriptContext_Stop();
+    return TRUE;
 }

@@ -546,6 +546,8 @@ struct RankingHall2P
     //u8 padding;
 };
 
+#include "constants/quests.h"
+
 struct SaveBlock2
 {
     /*0x00*/ u8 playerName[PLAYER_NAME_LENGTH + 1];
@@ -584,7 +586,10 @@ struct SaveBlock2
 #endif //FREE_RECORD_MIXING_HALL_RECORDS
     /*0x624*/ u16 contestLinkResults[CONTEST_CATEGORIES_COUNT][CONTESTANT_COUNT];
     /*0x64C*/ struct BattleFrontier frontier;
-}; // sizeof=0xF2C
+    /*0xF2C*/ u8 unlockedQuests[SIDE_QUEST_FLAGS_COUNT];
+    /*0xF2E*/ u8 completedQuests[SIDE_QUEST_FLAGS_COUNT];
+    /*0xF30*/ u8 activeQuest; // 0 = none, else quest index + 1
+}; // sizeof=0xF31
 
 extern struct SaveBlock2 *gSaveBlock2Ptr;
 
