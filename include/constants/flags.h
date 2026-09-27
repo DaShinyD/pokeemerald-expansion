@@ -1247,9 +1247,9 @@
 #define FLAG_UNUSED_0x4A4             FLAG_QUEST_MENU_ACTIVE
 #define FLAG_QUESTS_ACTIVATE                                        0x4A5 // Quest menu unlocked
 #define FLAG_UNUSED_0x4A5             FLAG_QUESTS_ACTIVATE
-#define FLAG_UNUSED_0x4A6                                           0x4A6 // Unused Flag
-#define FLAG_UNUSED_0x4A7                                           0x4A7 // Unused Flag
-#define FLAG_UNUSED_0x4A8                                           0x4A8 // Unused Flag
+#define FLAG_KANTO_MAP                                              0x4A6 // Map unlock for region
+#define FLAG_JOHTO_MAP                                              0x4A7 // Map unlock for region
+#define FLAG_HANKU_MAP                                              0x4A8 // Map unlock for region
 #define FLAG_UNUSED_0x4A9                                           0x4A9 // Unused Flag
 #define FLAG_UNUSED_0x4AA                                           0x4AA // Unused Flag
 #define FLAG_UNUSED_0x4AB                                           0x4AB // Unused Flag

@@ -289,6 +289,9 @@ graphics/pokemon_jump/bg.4bpp: %.4bpp: %.png
 graphics/pokenav/region_map/map.8bpp: %.8bpp: %.png
 	$(GFX) $< $@ -num_tiles 233 -Wnum_tiles
 
+# region_map_{2,3,4}.png are converted by tools/generate_region_map_assets.py
+# (see json_data_rules.mk). Do not add gbagfx -num_tiles recipes for them.
+
 $(MISCGFXDIR)/japanese_hof.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 29 -Wnum_tiles
 

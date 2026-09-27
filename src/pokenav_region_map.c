@@ -77,6 +77,7 @@ static u32 LoopedTask_RegionMapZoomOut(s32);
 static u32 LoopedTask_RegionMapZoomIn(s32);
 static u32 LoopedTask_ExitRegionMap(s32);
 static u32 LoopedTask_TreatAsPokeNavFlyMap(s32);
+static u32 LoopedTask_SwitchRegionMap(s32);
 
 extern const u16 gRegionMapCityZoomTiles_Pal[];
 extern const u32 gRegionMapCityZoomText_Gfx[];
@@ -125,6 +126,7 @@ static const LoopedTask sRegionMapLoopTaskFuncs[] =
     [POKENAV_MAP_FUNC_ZOOM_IN]      = LoopedTask_RegionMapZoomIn,
     [POKENAV_MAP_FUNC_EXIT]         = LoopedTask_ExitRegionMap,
     [POKENAV_MAP_FUNC_FLY]          = LoopedTask_TreatAsPokeNavFlyMap,
+    [POKENAV_MAP_FUNC_SWITCH_REGION] = LoopedTask_SwitchRegionMap,
 };
 
 static const struct CompressedSpriteSheet sCityZoomTextSpriteSheet[1] =
@@ -226,6 +228,9 @@ static u32 HandleRegionMapInput(struct Pokenav_RegionMapMenu *state)
         if (regionMap->mapSecType == MAPSECTYPE_CITY_CANFLY && FlagGet(OW_FLAG_POKE_RIDER) 
         && Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType) == TRUE)
             return POKENAV_MAP_FUNC_FLY;
+        break;
+    case MAP_INPUT_SWITCH_REGION:
+        return POKENAV_MAP_FUNC_SWITCH_REGION;
     }
 
     return POKENAV_MAP_FUNC_NONE;
@@ -238,6 +243,9 @@ static u32 HandleRegionMapInputZoomDisabled(struct Pokenav_RegionMapMenu *state)
         state->callback = GetExitRegionMapMenuId;
         return POKENAV_MAP_FUNC_EXIT;
     }
+
+    if (JOY_NEW(SELECT_BUTTON) && TryCycleRegionMap())
+        return POKENAV_MAP_FUNC_SWITCH_REGION;
 
     return POKENAV_MAP_FUNC_NONE;
 }
@@ -396,6 +404,26 @@ static u32 LoopedTask_UpdateInfoAfterCursorMove(s32 taskState)
     switch (taskState)
     {
     case 0:
+        UpdateMapSecInfoWindow(state);
+        UpdateRegionMapHelpBarText();
+        return LT_INC_AND_PAUSE;
+    case 1:
+        if (IsDma3ManagerBusyWithBgCopy_(state))
+            return LT_PAUSE;
+        break;
+    }
+
+    return LT_FINISH;
+}
+
+static u32 LoopedTask_SwitchRegionMap(s32 taskState)
+{
+    struct Pokenav_RegionMapGfx *state = GetSubstructPtr(POKENAV_SUBSTRUCT_REGION_MAP_ZOOM);
+
+    switch (taskState)
+    {
+    case 0:
+        ReloadRegionMapLeftHeader();
         UpdateMapSecInfoWindow(state);
         UpdateRegionMapHelpBarText();
         return LT_INC_AND_PAUSE;

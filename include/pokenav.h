@@ -297,7 +297,8 @@ enum
     POKENAV_MAP_FUNC_ZOOM_OUT,
     POKENAV_MAP_FUNC_ZOOM_IN,
     POKENAV_MAP_FUNC_EXIT,
-    POKENAV_MAP_FUNC_FLY
+    POKENAV_MAP_FUNC_FLY,
+    POKENAV_MAP_FUNC_SWITCH_REGION
 };
 
 // Modes for PokenavFadeScreen
@@ -377,6 +378,7 @@ void FadeToBlackExceptPrimary(void);
 struct Sprite *GetSpinningPokenavSprite(void);
 void HideSpinningPokenavSprite(void);
 void UpdateRegionMapRightHeaderTiles(u32 menuGfxId);
+void ReloadRegionMapLeftHeader(void);
 void HideMainOrSubMenuLeftHeader(u32 id, bool32 onRightSide);
 void SlideMenuHeaderUp(void);
 void PokenavFillPalette(u32 palIndex, u16 fillValue);

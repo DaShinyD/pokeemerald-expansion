@@ -1,5 +1,7 @@
 #include "global.h"
 #include "pokenav.h"
+#include "region_map.h"
+#include "constants/region_maps.h"
 #include "constants/songs.h"
 #include "sound.h"
 #include "constants/rgb.h"
@@ -7,11 +9,14 @@
 #include "bg.h"
 #include "window.h"
 #include "strings.h"
+#include "string_util.h"
+#include "international_string_util.h"
 #include "graphics.h"
 #include "decompress.h"
 #include "gpu_regs.h"
 #include "menu.h"
 #include "dma3.h"
+#include "text.h"
 
 struct Pokenav_MainMenu
 {
@@ -45,6 +50,7 @@ static void ShowLeftHeaderSprites(u32, bool32);
 static void ShowLeftHeaderSubmenuSprites(u32, bool32);
 static void MoveLeftHeader(struct Sprite *, s32, s32, s32);
 static void SpriteCB_MoveLeftHeader(struct Sprite *);
+static void PatchRegionMapLeftHeaderName(struct Pokenav_MainMenu *);
 static void InitPokenavMainMenuResources(void);
 static void CreateLeftHeaderSprites(void);
 static void InitHelpBar(void);
@@ -673,6 +679,112 @@ void UpdateRegionMapRightHeaderTiles(u32 menuGfxId)
         menu->leftHeaderSprites[1]->oam.tileNum = GetSpriteTileStartByTag(2) + 64;
 }
 
+// hoenn_map.png is a 64x96 sheet: HOENN MAP, FULL VIEW, ZOOM VIEW stacked as
+// 64x32 panels. The two header sprites overlap by 8px, so the first panel must
+// keep that bar's chrome. Only the "HOENN MAP" glyphs are replaced.
+static u8 GetLeftHeaderPixel(const u8 *tiles, u32 x, u32 y)
+{
+    u32 offset = ((y / 8) * 8 + (x / 8)) * TILE_SIZE_4BPP + (y % 8) * 4 + ((x % 8) / 2);
+
+    if (x & 1)
+        return tiles[offset] >> 4;
+    return tiles[offset] & 0x0F;
+}
+
+static void SetLeftHeaderPixel(u8 *tiles, u32 x, u32 y, u8 color)
+{
+    u32 offset = ((y / 8) * 8 + (x / 8)) * TILE_SIZE_4BPP + (y % 8) * 4 + ((x % 8) / 2);
+
+    if (x & 1)
+        tiles[offset] = (tiles[offset] & 0x0F) | (color << 4);
+    else
+        tiles[offset] = (tiles[offset] & 0xF0) | color;
+}
+
+static void ClearLeftHeaderNameGlyphs(u8 *tiles)
+{
+    u32 x, y;
+
+    for (y = 0; y < 32; y++)
+    {
+        u8 bar = GetLeftHeaderPixel(tiles, 0, y);
+
+        // Indices 1-3 are the white/outline font. Index 9 is the bar's body.
+        if (bar >= 1 && bar <= 3)
+            bar = 9;
+        for (x = 0; x < 64; x++)
+        {
+            u8 color = GetLeftHeaderPixel(tiles, x, y);
+
+            if (color >= 1 && color <= 3)
+                SetLeftHeaderPixel(tiles, x, y, bar);
+        }
+    }
+}
+
+static void BlitLeftHeaderName(u8 *dst, const u8 *src)
+{
+    u32 i;
+
+    for (i = 0; i < 8 * 4 * TILE_SIZE_4BPP; i++)
+    {
+        u8 lo = src[i] & 0x0F;
+        u8 hi = src[i] >> 4;
+
+        if (lo)
+            dst[i] = (dst[i] & 0xF0) | lo;
+        if (hi)
+            dst[i] = (dst[i] & 0x0F) | (hi << 4);
+    }
+}
+
+static void PatchRegionMapLeftHeaderName(struct Pokenav_MainMenu *menu)
+{
+    static const u8 sRegionMapLeftHeaderNames[REGION_MAP_COUNT][12] = {
+        _("HOENN MAP"),
+        _("KANTO MAP"),
+        _("JOHTO MAP"),
+        _("HANKU MAP"),
+    };
+    static const u8 sHeaderTextColors[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHITE, TEXT_COLOR_DARK_GRAY };
+    static const struct WindowTemplate sHeaderNameWindowTemplate = {
+        .bg = 0,
+        .tilemapLeft = 0,
+        .tilemapTop = 0,
+        .width = 8,
+        .height = 4,
+        .paletteNum = 0,
+        .baseBlock = 0x80,
+    };
+    u8 region = GetCurrentRegionMapId();
+    u8 windowId;
+    const u8 *name;
+    s32 x;
+
+    if (region >= REGION_MAP_COUNT || region == REGION_MAP_1)
+        return;
+
+    ClearLeftHeaderNameGlyphs(menu->leftHeaderMenuBuffer);
+
+    name = sRegionMapLeftHeaderNames[region];
+    windowId = AddWindow(&sHeaderNameWindowTemplate);
+    if (windowId == WINDOW_NONE)
+        return;
+
+    FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
+    x = GetStringCenterAlignXOffset(FONT_NARROW, name, 64);
+    AddTextPrinterParameterized3(windowId, FONT_NARROW, x, 8, sHeaderTextColors, TEXT_SKIP_DRAW, name);
+    BlitLeftHeaderName(menu->leftHeaderMenuBuffer, (const u8 *)GetWindowAttribute(windowId, WINDOW_TILE_DATA));
+    RemoveWindow(windowId);
+}
+
+void ReloadRegionMapLeftHeader(void)
+{
+    u32 menuGfxId = IsRegionMapZoomed() ? POKENAV_GFX_MAP_MENU_ZOOMED_IN : POKENAV_GFX_MAP_MENU_ZOOMED_OUT;
+
+    LoadLeftHeaderGfxForIndex(menuGfxId);
+}
+
 static void LoadLeftHeaderGfxForMenu(u32 menuGfxId)
 {
     struct Pokenav_MainMenu *menu;
@@ -686,6 +798,8 @@ static void LoadLeftHeaderGfxForMenu(u32 menuGfxId)
     size = GetDecompressedDataSize(sMenuLeftHeaderSpriteSheets[menuGfxId].data);
     LoadPalette(&gPokenavLeftHeader_Pal[tag * 16], OBJ_PLTT_ID(IndexOfSpritePaletteTag(1)), PLTT_SIZE_4BPP);
     LZDecompressWram(sMenuLeftHeaderSpriteSheets[menuGfxId].data, menu->leftHeaderMenuBuffer);
+    if (menuGfxId == POKENAV_GFX_MAP_MENU_ZOOMED_OUT || menuGfxId == POKENAV_GFX_MAP_MENU_ZOOMED_IN)
+        PatchRegionMapLeftHeaderName(menu);
     RequestDma3Copy(menu->leftHeaderMenuBuffer, (void *)OBJ_VRAM0 + (GetSpriteTileStartByTag(2) * 32), size, 1);
     menu->leftHeaderSprites[1]->oam.tileNum = GetSpriteTileStartByTag(2) + sMenuLeftHeaderSpriteSheets[menuGfxId].size;
 

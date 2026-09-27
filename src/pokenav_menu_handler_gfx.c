@@ -16,6 +16,9 @@
 #include "scanline_effect.h"
 #include "constants/songs.h"
 #include "constants/rgb.h"
+#include "text.h"
+#include "sprite.h"
+#include "international_string_util.h"
 
 #define GFXTAG_BLUE_LIGHT 1
 #define GFXTAG_OPTIONS    3
@@ -62,6 +65,7 @@ static u32 LoopedTask_SelectRibbonsNoWinners(s32);
 static u32 LoopedTask_ReShowDescription(s32);
 static u32 LoopedTask_OpenPokenavFeature(s32);
 static void LoadPokenavOptionPalettes(void);
+static void PatchRegionMapOptionLabel(void);
 static void FreeAndDestroyMainMenuSprites(void);
 static void CreateMenuOptionSprites(void);
 static void DestroyMenuOptionSprites(void);
@@ -269,7 +273,7 @@ static const struct WindowTemplate sOptionDescWindowTemplate =
 
 static const u8 *const sPageDescriptions[] =
 {
-    [POKENAV_MENUITEM_MAP]                     = COMPOUND_STRING("Check the map of the HOENN region"),
+    [POKENAV_MENUITEM_MAP]                     = COMPOUND_STRING("View all region maps"),
     [POKENAV_MENUITEM_CONDITION]               = COMPOUND_STRING("Check POKéMON in detail."),
     [POKENAV_MENUITEM_MATCH_CALL]              = COMPOUND_STRING("Call a registered TRAINER."),
     [POKENAV_MENUITEM_RIBBONS]                 = COMPOUND_STRING("Check obtained RIBBONS."),
@@ -795,6 +799,45 @@ static u32 LoopedTask_OpenPokenavFeature(s32 state)
     return LT_FINISH;
 }
 
+static void PatchRegionMapOptionLabel(void)
+{
+    static const u8 sLabel[] = _("VIEW MAP");
+    static const u8 sColors[3] = { TEXT_COLOR_TRANSPARENT, 5, 2 };
+    static const struct WindowTemplate sLabelWindow = {
+        .bg = 1,
+        .tilemapLeft = 0,
+        .tilemapTop = 0,
+        .width = 16,
+        .height = 2,
+        .paletteNum = 0,
+        .baseBlock = 0x80,
+    };
+    u8 windowId;
+    const u8 *src;
+    u8 *dst;
+    u32 x, y, srcTile, dstTile;
+
+    windowId = AddWindow(&sLabelWindow);
+    if (windowId == WINDOW_NONE)
+        return;
+
+    FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
+    AddTextPrinterParameterized3(windowId, FONT_NARROW, 0, 1, sColors, TEXT_SKIP_DRAW, sLabel);
+    src = (const u8 *)GetWindowAttribute(windowId, WINDOW_TILE_DATA);
+    dst = (u8 *)(OBJ_VRAM0 + GetSpriteTileStartByTag(GFXTAG_OPTIONS) * TILE_SIZE_4BPP);
+    CpuFill16(0, dst, 32 * TILE_SIZE_4BPP);
+    for (y = 0; y < 2; y++)
+    {
+        for (x = 0; x < 16; x++)
+        {
+            srcTile = y * 16 + x;
+            dstTile = (x / 4) * 8 + y * 4 + (x % 4);
+            CpuCopy16(src + srcTile * TILE_SIZE_4BPP, dst + dstTile * TILE_SIZE_4BPP, TILE_SIZE_4BPP);
+        }
+    }
+    RemoveWindow(windowId);
+}
+
 static void LoadPokenavOptionPalettes(void)
 {
     s32 i;
@@ -802,6 +845,7 @@ static void LoadPokenavOptionPalettes(void)
     for (i = 0; i < ARRAY_COUNT(sPokenavOptionsSpriteSheets); i++)
         LoadCompressedSpriteSheet(&sPokenavOptionsSpriteSheets[i]);
     Pokenav_AllocAndLoadPalettes(sPokenavOptionsSpritePalettes);
+    PatchRegionMapOptionLabel();
 }
 
 static void FreeAndDestroyMainMenuSprites(void)

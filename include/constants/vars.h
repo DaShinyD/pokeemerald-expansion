@@ -277,7 +277,7 @@
 #define VAR_YUGI                                         0x4101 // Yugi event
 #define VAR_DASH_CELADON                                 0x4102 // Dash in Celadon
 #define VAR_RYE_SAFFRON                                  0x4103 // Rye Saffron ranger event
-#define VAR_UNUSED_0x4104                                0x4104 // Unused Var
+#define VAR_MAP_UNLOCK                                   0x4104 // Var for unlocking new maps via trigger
 #define VAR_UNUSED_0x4105                                0x4105 // Unused Var
 #define VAR_UNUSED_0x4106                                0x4106 // Unused Var
 #define VAR_UNUSED_0x4107                                0x4107 // Unused Var

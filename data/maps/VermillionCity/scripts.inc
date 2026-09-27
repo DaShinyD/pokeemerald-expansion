@@ -385,3 +385,8 @@ VermillionCity_Text_ImTpGuy:
 	.string "Hey, I'm the teleport man.\p"
 	.string "Would you like to go somewhere?$"
 
+VermillionCity_EventScript_UnlockKanto::
+	setflag FLAG_KANTO_MAP
+	setvar VAR_MAP_UNLOCK, 1
+	end
+
