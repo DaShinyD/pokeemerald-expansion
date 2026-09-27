@@ -1857,6 +1857,13 @@ static bool8 IsRegionMapUnlocked(u8 region)
     }
 }
 
+bool8 CanCycleRegionMap(void)
+{
+    return FlagGet(FLAG_KANTO_MAP)
+        || FlagGet(FLAG_JOHTO_MAP)
+        || FlagGet(FLAG_HANKU_MAP);
+}
+
 bool8 TryCycleRegionMap(void)
 {
     u8 start;

@@ -802,7 +802,7 @@ static u32 LoopedTask_OpenPokenavFeature(s32 state)
 static void PatchRegionMapOptionLabel(void)
 {
     static const u8 sLabel[] = _("VIEW MAP");
-    static const u8 sColors[3] = { TEXT_COLOR_TRANSPARENT, 5, 2 };
+    static const u8 sColors[3] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHITE, TEXT_COLOR_DARK_GRAY };
     static const struct WindowTemplate sLabelWindow = {
         .bg = 1,
         .tilemapLeft = 0,
@@ -814,28 +814,72 @@ static void PatchRegionMapOptionLabel(void)
     };
     u8 windowId;
     const u8 *src;
-    u8 *dst;
+    u8 *vram;
+    u8 *tiles;
     u32 x, y, srcTile, dstTile;
+
+    tiles = Alloc(32 * TILE_SIZE_4BPP);
+    if (tiles == NULL)
+        return;
+
+    // VRAM only accepts 16-bit writes, so patch a WRAM copy of the first option.
+    vram = (u8 *)(OBJ_VRAM0 + GetSpriteTileStartByTag(GFXTAG_OPTIONS) * TILE_SIZE_4BPP);
+    CpuCopy16(vram, tiles, 32 * TILE_SIZE_4BPP);
+
+    // Keep the yellow bar and left square. Only erase the baked-in MATCH CALL
+    // label from x>=16 so the square's outline stays intact.
+    for (y = 0; y < 16; y++)
+    {
+        for (x = 16; x < 128; x++)
+        {
+            u32 tile = (x / 32) * 8 + (y / 8) * 4 + ((x % 32) / 8);
+            u32 offset = tile * TILE_SIZE_4BPP + (y % 8) * 4 + ((x % 8) / 2);
+            u8 color = (x & 1) ? (tiles[offset] >> 4) : (tiles[offset] & 0x0F);
+
+            if (color >= 1 && color <= 3)
+            {
+                if (x & 1)
+                    tiles[offset] = (tiles[offset] & 0x0F) | (4 << 4);
+                else
+                    tiles[offset] = (tiles[offset] & 0xF0) | 4;
+            }
+        }
+    }
 
     windowId = AddWindow(&sLabelWindow);
     if (windowId == WINDOW_NONE)
+    {
+        Free(tiles);
         return;
+    }
 
     FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
-    AddTextPrinterParameterized3(windowId, FONT_NARROW, 0, 1, sColors, TEXT_SKIP_DRAW, sLabel);
+    AddTextPrinterParameterized3(windowId, FONT_NARROW, 16, 1, sColors, TEXT_SKIP_DRAW, sLabel);
     src = (const u8 *)GetWindowAttribute(windowId, WINDOW_TILE_DATA);
-    dst = (u8 *)(OBJ_VRAM0 + GetSpriteTileStartByTag(GFXTAG_OPTIONS) * TILE_SIZE_4BPP);
-    CpuFill16(0, dst, 32 * TILE_SIZE_4BPP);
     for (y = 0; y < 2; y++)
     {
         for (x = 0; x < 16; x++)
         {
+            u32 i;
+
             srcTile = y * 16 + x;
             dstTile = (x / 4) * 8 + y * 4 + (x % 4);
-            CpuCopy16(src + srcTile * TILE_SIZE_4BPP, dst + dstTile * TILE_SIZE_4BPP, TILE_SIZE_4BPP);
+            for (i = 0; i < TILE_SIZE_4BPP; i++)
+            {
+                u8 lo = src[srcTile * TILE_SIZE_4BPP + i] & 0x0F;
+                u8 hi = src[srcTile * TILE_SIZE_4BPP + i] >> 4;
+                u8 *dstByte = &tiles[dstTile * TILE_SIZE_4BPP + i];
+
+                if (lo)
+                    *dstByte = (*dstByte & 0xF0) | lo;
+                if (hi)
+                    *dstByte = (*dstByte & 0x0F) | (hi << 4);
+            }
         }
     }
     RemoveWindow(windowId);
+    CpuCopy16(tiles, vram, 32 * TILE_SIZE_4BPP);
+    Free(tiles);
 }
 
 static void LoadPokenavOptionPalettes(void)

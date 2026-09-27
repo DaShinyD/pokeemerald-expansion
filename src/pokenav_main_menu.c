@@ -98,6 +98,10 @@ static const u8 *const sHelpBarTexts[HELPBAR_COUNT] =
     [HELPBAR_MAP_ZOOMED_IN]         = COMPOUND_STRING("{A_BUTTON}FULL {B_BUTTON}CANCEL"),
     [HELPBAR_MAP_ZOOMED_OUT_CANFLY] = COMPOUND_STRING("{A_BUTTON}ZOOM {B_BUTTON}CANCEL {R_BUTTON}FLY"),
     [HELPBAR_MAP_ZOOMED_IN_CANFLY]  = COMPOUND_STRING("{A_BUTTON}FULL {B_BUTTON}CANCEL {R_BUTTON}FLY"),
+    [HELPBAR_MAP_ZOOMED_OUT_CYCLE]        = COMPOUND_STRING("{A_BUTTON}ZOOM {B_BUTTON}CANCEL {SELECT_BUTTON}CYCLE"),
+    [HELPBAR_MAP_ZOOMED_IN_CYCLE]         = COMPOUND_STRING("{A_BUTTON}FULL {B_BUTTON}CANCEL {SELECT_BUTTON}CYCLE"),
+    [HELPBAR_MAP_ZOOMED_OUT_CANFLY_CYCLE] = COMPOUND_STRING("{A_BUTTON}ZOOM {B_BUTTON}CANCEL {SELECT_BUTTON}CYCLE"),
+    [HELPBAR_MAP_ZOOMED_IN_CANFLY_CYCLE]  = COMPOUND_STRING("{A_BUTTON}FULL {B_BUTTON}CANCEL {SELECT_BUTTON}CYCLE"),
     [HELPBAR_CONDITION_MON_LIST]    = COMPOUND_STRING("{A_BUTTON}CONDITION {B_BUTTON}CANCEL"),
     [HELPBAR_CONDITION_MON_STATUS]  = COMPOUND_STRING("{A_BUTTON}MARKINGS {B_BUTTON}CANCEL"),
     [HELPBAR_CONDITION_MARKINGS]    = COMPOUND_STRING("{A_BUTTON}SELECT MARK {B_BUTTON}CANCEL"),
@@ -568,9 +572,17 @@ static void InitHelpBar(void)
 void PrintHelpBarText(u32 textId)
 {
     struct Pokenav_MainMenu *menu = GetSubstructPtr(POKENAV_SUBSTRUCT_MAIN_MENU);
+    u8 font = FONT_NORMAL;
+
+    // SELECT's keypad icon is 24px; the cycle prompts need the narrower font to fit.
+    if (textId == HELPBAR_MAP_ZOOMED_OUT_CYCLE
+     || textId == HELPBAR_MAP_ZOOMED_IN_CYCLE
+     || textId == HELPBAR_MAP_ZOOMED_OUT_CANFLY_CYCLE
+     || textId == HELPBAR_MAP_ZOOMED_IN_CANFLY_CYCLE)
+        font = FONT_NARROW;
 
     DrawHelpBar(menu->helpBarWindowId);
-    AddTextPrinterParameterized3(menu->helpBarWindowId, FONT_NORMAL, 0, 1, sHelpBarTextColors, 0, sHelpBarTexts[textId]);
+    AddTextPrinterParameterized3(menu->helpBarWindowId, font, 0, 1, sHelpBarTextColors, 0, sHelpBarTexts[textId]);
 }
 
 bool32 WaitForHelpBar(void)
@@ -705,19 +717,16 @@ static void ClearLeftHeaderNameGlyphs(u8 *tiles)
 {
     u32 x, y;
 
+    // x=0 is transparent on the rounded cap, so it cannot be used as a fill
+    // sample. Index 8 is the bar body. Leave x>=56 alone; FULL VIEW overlaps there.
     for (y = 0; y < 32; y++)
     {
-        u8 bar = GetLeftHeaderPixel(tiles, 0, y);
-
-        // Indices 1-3 are the white/outline font. Index 9 is the bar's body.
-        if (bar >= 1 && bar <= 3)
-            bar = 9;
-        for (x = 0; x < 64; x++)
+        for (x = 0; x < 56; x++)
         {
             u8 color = GetLeftHeaderPixel(tiles, x, y);
 
             if (color >= 1 && color <= 3)
-                SetLeftHeaderPixel(tiles, x, y, bar);
+                SetLeftHeaderPixel(tiles, x, y, 8);
         }
     }
 }
@@ -772,8 +781,10 @@ static void PatchRegionMapLeftHeaderName(struct Pokenav_MainMenu *menu)
         return;
 
     FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
-    x = GetStringCenterAlignXOffset(FONT_NARROW, name, 64);
-    AddTextPrinterParameterized3(windowId, FONT_NARROW, x, 8, sHeaderTextColors, TEXT_SKIP_DRAW, name);
+    // FONT_NARROW caps sit a few pixels below the print origin; y=4 lines them
+    // up with the baked FULL VIEW glyphs (original HOENN MAP was y=7..16).
+    x = GetStringCenterAlignXOffset(FONT_NARROW, name, 56);
+    AddTextPrinterParameterized3(windowId, FONT_NARROW, x, 4, sHeaderTextColors, TEXT_SKIP_DRAW, name);
     BlitLeftHeaderName(menu->leftHeaderMenuBuffer, (const u8 *)GetWindowAttribute(windowId, WINDOW_TILE_DATA));
     RemoveWindow(windowId);
 }

@@ -802,20 +802,18 @@ static void SetCityZoomTextInvisibility(bool32 invisible)
 void UpdateRegionMapHelpBarText(void)
 {
     struct RegionMap* regionMap = GetSubstructPtr(POKENAV_SUBSTRUCT_REGION_MAP);
+    bool32 canFly = regionMap->mapSecType == MAPSECTYPE_CITY_CANFLY
+        && FlagGet(OW_FLAG_POKE_RIDER)
+        && Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType) == TRUE;
+    bool32 canCycle = CanCycleRegionMap();
+    bool32 zoomed = IsRegionMapZoomed();
 
-    if (regionMap->mapSecType == MAPSECTYPE_CITY_CANFLY && FlagGet(OW_FLAG_POKE_RIDER) 
-        && Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType) == TRUE)
-    {
-        if (IsRegionMapZoomed())
-            PrintHelpBarText(HELPBAR_MAP_ZOOMED_IN_CANFLY);
-        else
-            PrintHelpBarText(HELPBAR_MAP_ZOOMED_OUT_CANFLY);
-    }
+    if (canFly && canCycle)
+        PrintHelpBarText(zoomed ? HELPBAR_MAP_ZOOMED_IN_CANFLY_CYCLE : HELPBAR_MAP_ZOOMED_OUT_CANFLY_CYCLE);
+    else if (canFly)
+        PrintHelpBarText(zoomed ? HELPBAR_MAP_ZOOMED_IN_CANFLY : HELPBAR_MAP_ZOOMED_OUT_CANFLY);
+    else if (canCycle)
+        PrintHelpBarText(zoomed ? HELPBAR_MAP_ZOOMED_IN_CYCLE : HELPBAR_MAP_ZOOMED_OUT_CYCLE);
     else
-    {
-        if (IsRegionMapZoomed())
-            PrintHelpBarText(HELPBAR_MAP_ZOOMED_IN);
-        else
-            PrintHelpBarText(HELPBAR_MAP_ZOOMED_OUT);
-    }
+        PrintHelpBarText(zoomed ? HELPBAR_MAP_ZOOMED_IN : HELPBAR_MAP_ZOOMED_OUT);
 }

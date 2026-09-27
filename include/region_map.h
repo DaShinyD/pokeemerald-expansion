@@ -122,6 +122,7 @@ u8 GetRegionIdFromMapSec(u16 mapSecId);
 u8 GetCurrentRegionMapId(void);
 const u8 *GetCurrentRegionMapName(void);
 bool8 TryCycleRegionMap(void);
+bool8 CanCycleRegionMap(void);
 
 //Pokenav Fly funcs
 u32 FilterFlyDestination(struct RegionMap* regionMap);
