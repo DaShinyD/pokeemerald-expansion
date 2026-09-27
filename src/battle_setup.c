@@ -50,6 +50,7 @@
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
 #include "constants/opponents.h"
+#include "debug.h"
 #include "constants/moves.h"
 #include "wild_encounter.h"
 #include "pokemon.h"
@@ -1350,6 +1351,7 @@ static void HandleBattleVariantEndParty(void)
 
 static void CB2_EndTrainerBattle(void)
 {
+    gIsDebugBattle = FALSE;
     HandleBattleVariantEndParty();
 
     if (TRAINER_BATTLE_PARAM.opponentA == TRAINER_SECRET_BASE)

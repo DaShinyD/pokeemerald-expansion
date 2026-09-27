@@ -61,6 +61,7 @@
 #include "constants/expansion.h"
 #include "constants/flags.h"
 #include "constants/items.h"
+#include "constants/opponents.h"
 #include "constants/map_groups.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
@@ -101,6 +102,7 @@ enum UtilDebugMenu
     DEBUG_UTIL_MENU_ITEM_BERRY_FUNCTIONS,
     DEBUG_UTIL_MENU_ITEM_EWRAM_COUNTERS,
     DEBUG_UTIL_MENU_ITEM_STEVEN_MULTI,
+    DEBUG_UTIL_MENU_ITEM_TESTER_BATTLE,
 };
 
 enum GivePCBagDebugMenu
@@ -284,6 +286,7 @@ struct DebugMonData
     u8 teraType;
     u8 dynamaxLevel:7;
     u8 gmaxFactor:1;
+    u16 heldItem;
 };
 
 struct DebugMenuListData
@@ -370,6 +373,7 @@ static void DebugAction_Util_ExpansionVersion(u8 taskId);
 static void DebugAction_Util_BerryFunctions(u8 taskId);
 static void DebugAction_Util_CheckEWRAMCounters(u8 taskId);
 static void DebugAction_Util_Steven_Multi(u8 taskId);
+static void DebugAction_Util_TesterBattle(u8 taskId);
 
 static void DebugAction_OpenPCBagFillMenu(u8 taskId);
 static void DebugAction_PCBag_Fill_PCBoxes_Fast(u8 taskId);
@@ -433,6 +437,8 @@ static void DebugAction_Give_Pokemon_SelectIVs(u8 taskId);
 static void DebugAction_Give_Pokemon_SelectEVs(u8 taskId);
 static void DebugAction_Give_Pokemon_ComplexCreateMon(u8 taskId);
 static void DebugAction_Give_Pokemon_Move(u8 taskId);
+static void DebugAction_Give_Pokemon_SelectHeldItem(u8 taskId);
+static void Debug_Display_HeldItemInfo(u32 itemId, u32 digit, u8 windowId);
 static void DebugAction_Give_MaxMoney(u8 taskId);
 static void DebugAction_Give_MaxCoins(u8 taskId);
 static void DebugAction_Give_MaxBattlePoints(u8 taskId);
@@ -584,6 +590,7 @@ static const struct ListMenuItem sDebugMenu_Items_Utilities[] =
     [DEBUG_UTIL_MENU_ITEM_BERRY_FUNCTIONS] = {COMPOUND_STRING("Berry Functions…{CLEAR_TO 110}{RIGHT_ARROW}"),  DEBUG_UTIL_MENU_ITEM_BERRY_FUNCTIONS},
     [DEBUG_UTIL_MENU_ITEM_EWRAM_COUNTERS]  = {COMPOUND_STRING("EWRAM Counters…{CLEAR_TO 110}{RIGHT_ARROW}"),   DEBUG_UTIL_MENU_ITEM_EWRAM_COUNTERS},
     [DEBUG_UTIL_MENU_ITEM_STEVEN_MULTI]    = {COMPOUND_STRING("Steven Multi"),                                 DEBUG_UTIL_MENU_ITEM_STEVEN_MULTI},
+    [DEBUG_UTIL_MENU_ITEM_TESTER_BATTLE]   = {COMPOUND_STRING("Tester Battle"),                                DEBUG_UTIL_MENU_ITEM_TESTER_BATTLE},
 };
 
 static const struct ListMenuItem sDebugMenu_Items_PCBag[] =
@@ -757,6 +764,7 @@ static void (*const sDebugMenu_Actions_Utilities[])(u8) =
     [DEBUG_UTIL_MENU_ITEM_BERRY_FUNCTIONS] = DebugAction_Util_BerryFunctions,
     [DEBUG_UTIL_MENU_ITEM_EWRAM_COUNTERS]  = DebugAction_Util_CheckEWRAMCounters,
     [DEBUG_UTIL_MENU_ITEM_STEVEN_MULTI]    = DebugAction_Util_Steven_Multi,
+    [DEBUG_UTIL_MENU_ITEM_TESTER_BATTLE]   = DebugAction_Util_TesterBattle,
 };
 
 static void (*const sDebugMenu_Actions_PCBag[])(u8) =
@@ -2741,9 +2749,10 @@ static void ResetMonDataStruct(struct DebugMonData *sDebugMonData)
     }
 }
 
-#define tIsComplex  data[5]
-#define tSpriteId   data[6]
-#define tIterator   data[7]
+#define tIsComplex       data[5]
+#define tSpriteId        data[6]
+#define tIterator        data[7]
+#define tIsTesterBattle  data[8]
 
 static void Debug_Display_SpeciesInfo(u32 species, u32 digit, u8 windowId)
 {
@@ -2818,12 +2827,19 @@ static void DebugAction_Give_PokemonComplex(u8 taskId)
     gTasks[taskId].tInput = 1;
     gTasks[taskId].tDigit = 0;
     gTasks[taskId].tIsComplex = TRUE;
+    gTasks[taskId].tIsTesterBattle = FALSE;
 
     FreeMonIconPalettes();
     LoadMonIconPalette(gTasks[taskId].tInput);
     gTasks[taskId].tSpriteId = CreateMonIcon(gTasks[taskId].tInput, SpriteCB_MonIcon, DEBUG_NUMBER_ICON_X, DEBUG_NUMBER_ICON_Y, 4, 0);
     gSprites[gTasks[taskId].tSpriteId].oam.priority = 0;
     gTasks[taskId].tIterator = 0;
+}
+
+static void DebugAction_Util_TesterBattle(u8 taskId)
+{
+    DebugAction_Give_PokemonComplex(taskId);
+    gTasks[taskId].tIsTesterBattle = TRUE;
 }
 
 static void DebugAction_Give_Pokemon_SelectId(u8 taskId)
@@ -3357,12 +3373,62 @@ static void DebugAction_Give_Pokemon_Move(u8 taskId)
         }
         else
         {
-            gTasks[taskId].tInput = 0;
+            gTasks[taskId].tInput = ITEM_NONE;
             gTasks[taskId].tDigit = 0;
 
-            PlaySE(MUS_LEVEL_UP);
-            gTasks[taskId].func = DebugAction_Give_Pokemon_ComplexCreateMon;
+            if (gTasks[taskId].tIsTesterBattle)
+            {
+                PlaySE(SE_SELECT);
+                Debug_Display_HeldItemInfo(ITEM_NONE, 0, gTasks[taskId].tSubWindowId);
+                gTasks[taskId].func = DebugAction_Give_Pokemon_SelectHeldItem;
+            }
+            else
+            {
+                PlaySE(MUS_LEVEL_UP);
+                gTasks[taskId].func = DebugAction_Give_Pokemon_ComplexCreateMon;
+            }
         }
+    }
+    else if (JOY_NEW(B_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        Free(sDebugMonData);
+        DebugAction_DestroyExtraWindow(taskId);
+    }
+}
+
+static void Debug_Display_HeldItemInfo(u32 itemId, u32 digit, u8 windowId)
+{
+    static const u8 sText_NoItem[] = _("None");
+
+    if (itemId == ITEM_NONE)
+    {
+        StringCopy(gStringVar2, gText_DigitIndicator[digit]);
+        StringCopyPadded(gStringVar1, sText_NoItem, CHAR_SPACE, 15);
+        ConvertIntToDecimalStringN(gStringVar3, itemId, STR_CONV_MODE_LEADING_ZEROS, DEBUG_NUMBER_DIGITS_ITEMS);
+        StringExpandPlaceholders(gStringVar4, sDebugText_ItemID);
+        AddTextPrinterParameterized(windowId, DEBUG_MENU_FONT, gStringVar4, 0, 0, 0, NULL);
+    }
+    else
+    {
+        Debug_Display_ItemInfo(itemId, digit, windowId);
+    }
+}
+
+static void DebugAction_Give_Pokemon_SelectHeldItem(u8 taskId)
+{
+    if (JOY_NEW(DPAD_ANY))
+    {
+        PlaySE(SE_SELECT);
+        Debug_HandleInput_Numeric(taskId, 0, ITEMS_COUNT - 1, DEBUG_NUMBER_DIGITS_ITEMS);
+        Debug_Display_HeldItemInfo(gTasks[taskId].tInput, gTasks[taskId].tDigit, gTasks[taskId].tSubWindowId);
+    }
+
+    if (JOY_NEW(A_BUTTON))
+    {
+        sDebugMonData->heldItem = gTasks[taskId].tInput;
+        PlaySE(MUS_LEVEL_UP);
+        gTasks[taskId].func = DebugAction_Give_Pokemon_ComplexCreateMon;
     }
     else if (JOY_NEW(B_BUTTON))
     {
@@ -3457,6 +3523,33 @@ static void DebugAction_Give_Pokemon_ComplexCreateMon(u8 taskId) //https://githu
 
     //Update mon stats before giving it to the player
     CalculateMonStats(&mon);
+
+    if (gTasks[taskId].tIsTesterBattle)
+    {
+        u16 heldItem = sDebugMonData->heldItem;
+
+        if (heldItem >= ITEMS_COUNT)
+            heldItem = ITEM_NONE;
+        SetMonData(&mon, MON_DATA_HELD_ITEM, &heldItem);
+
+        for (i = 0; i < PARTY_SIZE; i++)
+            ZeroMonData(&gEnemyParty[i]);
+        CopyMon(&gEnemyParty[0], &mon, sizeof(mon));
+        CalculateEnemyPartyCount();
+
+        TRAINER_BATTLE_PARAM.opponentA = TRAINER_TESTER;
+        TRAINER_BATTLE_PARAM.opponentB = 0;
+        TRAINER_BATTLE_PARAM.isDoubleBattle = FALSE;
+        gBattleTypeFlags = BATTLE_TYPE_TRAINER;
+        gBattleEnvironment = BattleSetup_GetEnvironmentId();
+        gDebugAIFlags = GetTrainerAIFlagsFromId(TRAINER_TESTER);
+        gIsDebugBattle = TRUE;
+
+        Free(sDebugMonData);
+        DebugAction_DestroyExtraWindow(taskId);
+        BattleSetup_StartTrainerBattle_Debug();
+        return;
+    }
 
     // give player the mon
     SetMonData(&mon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
