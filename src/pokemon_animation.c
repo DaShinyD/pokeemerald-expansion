@@ -558,6 +558,29 @@ void LaunchAnimationTaskForBackSprite(struct Sprite *sprite, u8 backAnimSet)
     gTasks[taskId].tAnimId = sBackAnimationIds[animId];
 }
 
+void DestroyFrontAnimTasks(struct Sprite *sprite)
+{
+    u32 i;
+
+    for (i = 0; i < NUM_TASKS; i++)
+    {
+        if (!gTasks[i].isActive || gTasks[i].func != Task_HandleMonAnimation)
+            continue;
+        if (ANIM_SPRITE(i) != sprite)
+            continue;
+
+        if (gTasks[i].tState != 0)
+        {
+            sprite->data[0] = gTasks[i].tBattlerId;
+            sprite->data[2] = gTasks[i].tSpeciesId;
+        }
+        sprite->callback = SpriteCallbackDummy;
+        sprite->animPaused = FALSE;
+        BlendPalette(OBJ_PLTT_ID(sprite->oam.paletteNum), 16, 0, RGB_BLACK);
+        DestroyTask(i);
+    }
+}
+
 #undef tState
 #undef tPtrHi
 #undef tPtrLo

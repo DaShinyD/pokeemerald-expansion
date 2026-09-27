@@ -6046,23 +6046,31 @@ F_TRAINER_FEMALE |
             },
         },
     },
-    [DIFFICULTY_NORMAL][TRAINER_NOLEN] =
+    [DIFFICULTY_NORMAL][TRAINER_TESTER_NON_DYNAMIC] =
     {
-        .trainerName = _("NOLEN"),
-        .trainerClass = TRAINER_CLASS_SWIMMER_M,
-        .trainerPic = TRAINER_PIC_SWIMMER_M,
+        .trainerName = _("Test Man"),
+        .trainerClass = TRAINER_CLASS_GENTLEMAN,
+        .trainerPic = TRAINER_PIC_GENTLEMAN,
         .encounterMusic_gender = 
-            TRAINER_ENCOUNTER_MUSIC_SWIMMER,
+            TRAINER_ENCOUNTER_MUSIC_MALE,
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
-        .partySize = 1,
+        .partySize = 2,
         .party = (const struct TrainerMon[])
         {
             {
-            .species = SPECIES_TENTACRUEL,
+            .species = SPECIES_BUTTERFREE,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
-            .lvl = 34,
+            .lvl = 10,
+            .nature = NATURE_HARDY,
+            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
+            },
+            {
+            .species = SPECIES_KAKUNA,
+            .gender = TRAINER_MON_RANDOM_GENDER,
+            .iv = TRAINER_PARTY_IVS(0, 0, 0, 0, 0, 0),
+            .lvl = 10,
             .nature = NATURE_HARDY,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             },

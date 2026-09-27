@@ -215,6 +215,9 @@ enum CmdVarious
     VARIOUS_SAVE_BATTLER_ITEM,
     VARIOUS_RESTORE_BATTLER_ITEM,
     VARIOUS_BATTLER_ITEM_TO_LAST_USED_ITEM,
+    VARIOUS_JUMP_IF_NOT_TESTER_KAKUNA,
+    VARIOUS_SLIDE_BATTLER, // arg: 0 = slide back in, 1 = slide off screen
+    VARIOUS_EVOLVE_TESTER_KAKUNA,
 };
 
 // Cmd_manipulatedamage

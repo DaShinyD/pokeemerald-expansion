@@ -2268,6 +2268,21 @@
 	various \battler, VARIOUS_MAKE_INVISIBLE
 	.endm
 
+	.macro jumpifnottesterkakuna battler:req, jumpInstr:req
+	various \battler, VARIOUS_JUMP_IF_NOT_TESTER_KAKUNA
+	.4byte \jumpInstr
+	.endm
+
+	@ slideOut: 0 = slide back to its battle spot, 1 = slide off screen
+	.macro slidebattler battler:req, slideOut:req
+	various \battler, VARIOUS_SLIDE_BATTLER
+	.byte \slideOut
+	.endm
+
+	.macro evolvetesterkakuna battler:req
+	various \battler, VARIOUS_EVOLVE_TESTER_KAKUNA
+	.endm
+
 	.macro tryroomservice battler:req, failInstr:req
 	various \battler, VARIOUS_ROOM_SERVICE
 	.4byte \failInstr

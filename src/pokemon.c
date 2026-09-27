@@ -6157,6 +6157,21 @@ static void Task_AnimateAfterDelay(u8 taskId)
     }
 }
 
+void StopBattleMonSpriteAnim(struct Sprite *sprite)
+{
+    u32 i;
+
+    for (i = 0; i < NUM_TASKS; i++)
+    {
+        if (!gTasks[i].isActive || gTasks[i].func != Task_AnimateAfterDelay)
+            continue;
+        if (READ_PTR_FROM_TASK(i, 0) != sprite)
+            continue;
+        DestroyTask(i);
+    }
+    DestroyFrontAnimTasks(sprite);
+}
+
 #define tIsShadow data[4]
 
 static void Task_PokemonSummaryAnimateAfterDelay(u8 taskId)

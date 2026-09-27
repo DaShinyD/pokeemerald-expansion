@@ -5507,6 +5507,7 @@ BattleScript_FaintedMonSendOutNew:
 	hidepartystatussummary BS_FAINTED
 	switchinanim BS_FAINTED, FALSE, FALSE
 	waitstate
+	call BattleScript_TesterKakunaEvolve
 	resetplayerfainted
 	trytrainerslidelastonmsg BS_FAINTED
 	jumpifbytenotequal sSHIFT_SWITCHED, sZero, BattleScript_FaintedMonShiftSwitched
@@ -5522,6 +5523,27 @@ BattleScript_FaintedMonShiftSwitched:
 	resetsentmonsvalue
 	copybyte gBattlerTarget, sSAVED_BATTLER
 	goto BattleScript_FaintedMonSendOutNewEnd
+
+BattleScript_TesterKakunaEvolve::
+	jumpifnottesterkakuna BS_FAINTED, BattleScript_TesterKakunaEvolveEnd
+	slidebattler BS_FAINTED, TRUE
+	waitstate
+	trainerslidein BS_FAINTED
+	waitstate
+	printstring STRINGID_TESTER_KAKUNA_CALL
+	waitmessage B_WAIT_TIME_LONG
+	trainerslideout BS_FAINTED
+	waitstate
+	slidebattler BS_FAINTED, FALSE
+	waitstate
+	evolvetesterkakuna BS_FAINTED
+	playanimation BS_FAINTED, B_ANIM_FORM_CHANGE, NULL
+	waitanimation
+	handleformchange BS_FAINTED, 2
+	printstring STRINGID_KAKUNA_EVOLVED
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_TesterKakunaEvolveEnd::
+	return
 
 BattleScript_HandleFaintedMonMultiple::
 	openpartyscreen BS_FAINTED_MULTIPLE_1, BattleScript_HandleFaintedMonMultipleStart

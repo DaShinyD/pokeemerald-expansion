@@ -61,3 +61,22 @@ Tester2_Text_RangerSuccess:
 
 Tester2_Text_RangerFailed:
 	.string "Capture failed or cancelled.$"
+
+@ Object 4: Test Man, Kakuna evolves into Beedrill after Butterfree faints
+Tester2_EventScript_TesterEvolve::
+	lock
+	faceplayer
+	msgbox Tester2_Text_StartTesterEvolve, MSGBOX_YESNO
+	closemessage
+	goto_if_eq VAR_RESULT, NO, Tester2_EventScript_TesterEvolveCancel
+	cleartrainerflag TRAINER_TESTER_NON_DYNAMIC
+	trainerbattle_no_intro_no_whiteout TRAINER_TESTER_NON_DYNAMIC, Tester2_Text_TesterEvolveDefeat
+Tester2_EventScript_TesterEvolveCancel::
+	release
+	end
+
+Tester2_Text_StartTesterEvolve:
+	.string "Battle Test Man?$"
+
+Tester2_Text_TesterEvolveDefeat:
+	.string "That strength was real.$"

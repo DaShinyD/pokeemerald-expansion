@@ -66,6 +66,9 @@
 #include "constants/trainer_slide.h"
 #include "constants/trainers.h"
 #include "battle_util.h"
+#include "battle_gfx_sfx_util.h"
+#include "constants/opponents.h"
+#include "constants/species.h"
 #include "constants/pokemon.h"
 #include "config/battle.h"
 #include "data/battle_move_effects.h"
@@ -10026,6 +10029,128 @@ static u32 CalculateBattlerPartyCount(u32 battler)
     return count;
 }
 
+static const u16 sTesterBeedrillMoves[MAX_MON_MOVES] =
+{
+    MOVE_X_SCISSOR,
+    MOVE_CROSS_POISON,
+    MOVE_NONE,
+    MOVE_NONE,
+};
+
+static void Task_SlideBattlerSprite(u8 taskId)
+{
+    struct Sprite *sprite = &gSprites[gTasks[taskId].data[0]];
+    s16 speed = gTasks[taskId].data[1];
+    s16 target = gTasks[taskId].data[2];
+
+    // Kakuna's delayed send-out glow takes this callback. Keep the slide in charge of the sprite.
+    sprite->callback = SpriteCallbackDummy;
+
+    if (speed == 0 || (speed > 0 && sprite->x2 >= target) || (speed < 0 && sprite->x2 <= target))
+    {
+        sprite->x2 = target;
+        if (gTasks[taskId].data[3])
+            sprite->invisible = TRUE;
+        gTasks[taskId].data[4] = TRUE;
+        return;
+    }
+
+    sprite->x2 += speed;
+}
+
+static u8 FindBattlerSlideTask(u32 battler)
+{
+    u32 i;
+
+    for (i = 0; i < NUM_TASKS; i++)
+    {
+        if (gTasks[i].isActive
+         && gTasks[i].func == Task_SlideBattlerSprite
+         && gTasks[i].data[5] == (s16)battler)
+            return i;
+    }
+    return TASK_NONE;
+}
+
+static void Controller_WaitForBattlerSlide(u32 battler)
+{
+    u8 taskId = FindBattlerSlideTask(battler);
+
+    if (taskId == TASK_NONE || gTasks[taskId].data[4])
+    {
+        if (taskId != TASK_NONE)
+            DestroyTask(taskId);
+        BattleControllerComplete(battler);
+    }
+}
+
+static void RestoreBattlerSpriteGfx(u32 battler, struct Sprite *sprite)
+{
+    u32 position = GetBattlerPosition(battler);
+    struct Pokemon *partyMon = &GetBattlerParty(battler)[gBattlerPartyIndexes[battler]];
+
+    // The trainer slide draws into this battler's sprite graphics.
+    BattleLoadMonSpriteGfx(partyMon, battler);
+    DmaCopy32(3, gMonSpritesGfxPtr->spritesGfx[position], (void *)(OBJ_VRAM0 + sprite->oam.tileNum * TILE_SIZE_4BPP), MON_PIC_SIZE);
+    StartSpriteAnim(sprite, 0);
+}
+
+static void StartBattlerSlide(u32 battler, bool32 slideOut)
+{
+    u32 spriteId = gBattlerSpriteIds[battler];
+    struct Sprite *sprite;
+    s16 target;
+    u8 taskId;
+
+    if (spriteId == SPRITE_NONE)
+        return;
+
+    sprite = &gSprites[spriteId];
+    StopBattleMonSpriteAnim(sprite);
+    sprite->callback = SpriteCallbackDummy;
+
+    if (slideOut)
+    {
+        if (GetBattlerSide(battler) == B_SIDE_PLAYER)
+            target = -sprite->x - 40;
+        else
+            target = (DISPLAY_WIDTH + 40) - sprite->x;
+    }
+    else
+    {
+        RestoreBattlerSpriteGfx(battler, sprite);
+        target = 0;
+        sprite->invisible = FALSE;
+    }
+
+    taskId = FindBattlerSlideTask(battler);
+    if (taskId != TASK_NONE)
+        DestroyTask(taskId);
+
+    taskId = CreateTask(Task_SlideBattlerSprite, 200);
+    if (taskId != TASK_NONE)
+    {
+        gTasks[taskId].data[0] = spriteId;
+        gTasks[taskId].data[1] = (target == sprite->x2) ? 0 : ((target > sprite->x2) ? 3 : -3);
+        gTasks[taskId].data[2] = target;
+        gTasks[taskId].data[3] = slideOut;
+        gTasks[taskId].data[4] = FALSE;
+        gTasks[taskId].data[5] = battler;
+    }
+    else if (slideOut)
+    {
+        sprite->x2 = target;
+        sprite->invisible = TRUE;
+    }
+    else
+    {
+        sprite->x2 = 0;
+    }
+
+    gBattlerControllerFuncs[battler] = Controller_WaitForBattlerSlide;
+    MarkBattlerForControllerExec(battler);
+}
+
 static void Cmd_various(void)
 {
     CMD_ARGS(u8 battler, u8 id);
@@ -11783,6 +11908,46 @@ static void Cmd_various(void)
     {
         VARIOUS_ARGS();
         gBattleMons[battler].item = gLastUsedItem;
+        break;
+    }
+    case VARIOUS_JUMP_IF_NOT_TESTER_KAKUNA:
+    {
+        VARIOUS_ARGS(const u8 *jumpInstr);
+        if (GetBattlerSide(battler) != B_SIDE_OPPONENT
+         || gBattleMons[battler].species != SPECIES_KAKUNA
+         || TRAINER_BATTLE_PARAM.opponentA != TRAINER_TESTER_NON_DYNAMIC)
+            gBattlescriptCurrInstr = cmd->jumpInstr;
+        else
+            gBattlescriptCurrInstr = cmd->nextInstr;
+        return;
+    }
+    case VARIOUS_SLIDE_BATTLER:
+    {
+        VARIOUS_ARGS(u8 slideOut);
+        StartBattlerSlide(battler, cmd->slideOut);
+        gBattlescriptCurrInstr = cmd->nextInstr;
+        return;
+    }
+    case VARIOUS_EVOLVE_TESTER_KAKUNA:
+    {
+        VARIOUS_ARGS();
+        struct Pokemon *partyMon = &GetBattlerParty(battler)[gBattlerPartyIndexes[battler]];
+        u32 species = SPECIES_BEEDRILL;
+        u32 moveIndex;
+
+        SetMonData(partyMon, MON_DATA_SPECIES, &species);
+        SetMonData(partyMon, MON_DATA_NICKNAME, GetSpeciesName(SPECIES_BEEDRILL));
+        for (moveIndex = 0; moveIndex < MAX_MON_MOVES; moveIndex++)
+        {
+            SetMonMoveSlot(partyMon, sTesterBeedrillMoves[moveIndex], moveIndex);
+            SetBattleMonMoveSlot(&gBattleMons[battler], sTesterBeedrillMoves[moveIndex], moveIndex);
+        }
+        // Types are read from the battle mon's species inside RecalcBattlerStats.
+        gBattleMons[battler].species = species;
+        RecalcBattlerStats(battler, partyMon, FALSE);
+        if (gBattlerSpriteIds[battler] != SPRITE_NONE)
+            gSprites[gBattlerSpriteIds[battler]].data[2] = species;
+        SetBattlerShadowSpriteCallback(battler, species);
         break;
     }
     } // End of switch (cmd->id)

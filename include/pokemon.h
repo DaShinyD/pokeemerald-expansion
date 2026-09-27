@@ -769,6 +769,7 @@ void SetWildMonHeldItem(void);
 bool8 IsMonShiny(struct Pokemon *mon);
 const u8 *GetTrainerPartnerName(void);
 void BattleAnimateFrontSprite(struct Sprite *sprite, u16 species, bool8 noCry, u8 panMode);
+void StopBattleMonSpriteAnim(struct Sprite *sprite);
 void DoMonFrontSpriteAnimation(struct Sprite *sprite, u16 species, bool8 noCry, u8 panModeAnimFlag);
 void PokemonSummaryDoMonAnimation(struct Sprite *sprite, u16 species, bool8 oneFrame, bool32 isShadow);
 void StopPokemonAnimationDelayTask(void);

@@ -164,7 +164,7 @@
 #define TRAINER_SAM                         158 // now Sam (previously David)
 #define TRAINER_SPENCER                     159
 #define TRAINER_ROLAND                      160
-#define TRAINER_NOLEN                       161 // now unused (route 125)
+#define TRAINER_TESTER_NON_DYNAMIC          161 // now tester non dynamic (previously nolen route 125)
 #define TRAINER_STAN                        162 // now unused (route 125)
 #define TRAINER_BARRY                       163 // now unused (route 126)
 #define TRAINER_DEAN                        164 // now unused (route 126)
