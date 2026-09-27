@@ -15095,4 +15095,20 @@ const struct Item gItemsInfo[] =
         .iconPic = gItemIcon_PokeshiDoll,
         .iconPalette = gItemIconPalette_PokeshiDoll,
     },
+
+    [ITEM_ALPHA_BALL] =
+    {
+        .name = _("Alpha Ball"),
+        .price = (I_PRICE >= GEN_7) ? 1600 : 2400,
+        .description = COMPOUND_STRING(
+            "A Ball with a much\n"
+            "higher catch rate\n"
+            "than an Ultra Ball."),
+        .pocket = POCKET_POKE_BALLS,
+        .type = ITEM_USE_BAG_MENU,
+        .battleUsage = EFFECT_ITEM_THROW_BALL,
+        .secondaryId = BALL_ALPHA,
+        .iconPic = gItemIcon_AlphaBall,
+        .iconPalette = gItemIconPalette_AlphaBall,
+    },
 };

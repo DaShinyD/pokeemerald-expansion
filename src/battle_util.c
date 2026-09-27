@@ -5588,7 +5588,7 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                 break;
             case ABILITY_BALL_FETCH:
                 if (gBattleMons[battler].item == ITEM_NONE
-                    && gBattleResults.catchAttempts[gLastUsedBall - ITEM_ULTRA_BALL] >= 1
+                    && gBattleResults.catchAttempts[ItemId_GetSecondaryId(gLastUsedBall)] >= 1
                     && !gHasFetchedBall)
                 {
                     gBattleScripting.battler = battler;

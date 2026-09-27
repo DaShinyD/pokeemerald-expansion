@@ -1052,8 +1052,9 @@
 #define ITEM_ARCEUSITE 886
 #define ITEM_HOOHITE 887
 #define ITEM_LUGITE 888
+#define ITEM_ALPHA_BALL 889
 
-#define ITEMS_COUNT 889
+#define ITEMS_COUNT 890
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

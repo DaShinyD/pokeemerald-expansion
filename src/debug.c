@@ -3720,12 +3720,12 @@ static void DebugAction_PCBag_Fill_PocketItems(u8 taskId)
 
 static void DebugAction_PCBag_Fill_PocketPokeBalls(u8 taskId)
 {
-    u16 ballId;
+    u16 itemId;
 
-    for (ballId = BALL_STRANGE; ballId < POKEBALL_COUNT; ballId++)
+    for (itemId = 1; itemId < ITEMS_COUNT; itemId++)
     {
-        if (CheckBagHasSpace(ballId, MAX_BAG_ITEM_CAPACITY))
-            AddBagItem(ballId, MAX_BAG_ITEM_CAPACITY);
+        if (ItemId_GetPocket(itemId) == POCKET_POKE_BALLS && CheckBagHasSpace(itemId, MAX_BAG_ITEM_CAPACITY))
+            AddBagItem(itemId, MAX_BAG_ITEM_CAPACITY);
     }
 }
 

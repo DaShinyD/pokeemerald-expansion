@@ -49,6 +49,20 @@ const struct ObjectEventGraphicsInfo gPokeballGraphics[POKEBALL_COUNT] = {
     POKEBALL_GFX_INFO(DREAM),
     // Gen VII
     POKEBALL_GFX_INFO(BEAST),
+    [BALL_ALPHA] = {
+        .tileTag = TAG_NONE,
+        .paletteTag = OBJ_EVENT_PAL_TAG_BALL_DIVE,
+        .size = 256,
+        .width = 16,
+        .height = 32,
+        .shadowSize = SHADOW_SIZE_M,
+        .inanimate = TRUE,
+        .oam = &gObjectEventBaseOam_16x32,
+        .subspriteTables = sOamTables_16x32,
+        .anims = sAnimTable_Following,
+        .images = sPicTable_Ball_DIVE,
+        .affineAnims = gDummySpriteAffineAnimTable,
+    },
     // Gen VIII
     #ifdef ITEM_STRANGE_BALL
     POKEBALL_GFX_INFO(STRANGE),
