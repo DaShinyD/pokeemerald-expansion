@@ -1815,7 +1815,29 @@
 #define SPECIES_HITMONKAME                            1698
 #define SPECIES_FAYFLARE                              1699
 
-#define SPECIES_EGG                                     (SPECIES_FAYFLARE + 1)
+// Voltorb / Electrode ball forms
+#define SPECIES_VOLTORB_MASTER                        1700
+#define SPECIES_VOLTORB_ULTRA                         1701
+#define SPECIES_VOLTORB_GREAT                         1702
+#define SPECIES_VOLTORB_LUXURY                        1703
+#define SPECIES_VOLTORB_SAFARI                        1704
+#define SPECIES_VOLTORB_NET                           1705
+#define SPECIES_VOLTORB_QUICK                         1706
+#define SPECIES_VOLTORB_HEAL                          1707
+#define SPECIES_VOLTORB_DUSK                          1708
+#define SPECIES_VOLTORB_BEAST                         1709
+#define SPECIES_ELECTRODE_MASTER                      1710
+#define SPECIES_ELECTRODE_ULTRA                       1711
+#define SPECIES_ELECTRODE_GREAT                       1712
+#define SPECIES_ELECTRODE_LUXURY                      1713
+#define SPECIES_ELECTRODE_SAFARI                      1714
+#define SPECIES_ELECTRODE_NET                         1715
+#define SPECIES_ELECTRODE_QUICK                       1716
+#define SPECIES_ELECTRODE_HEAL                        1717
+#define SPECIES_ELECTRODE_DUSK                        1718
+#define SPECIES_ELECTRODE_BEAST                       1719
+
+#define SPECIES_EGG                                     (SPECIES_ELECTRODE_BEAST + 1)
 
 #define NUM_SPECIES SPECIES_EGG
 

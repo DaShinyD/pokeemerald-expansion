@@ -35,6 +35,9 @@
 #include "constants/trainers.h"
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
+#include "constants/rgb.h"
+#include "constants/pokemon.h"
+#include "constants/characters.h"
 
 struct BattleWindowText
 {
@@ -1417,8 +1420,8 @@ const u8 gText_WhatWillPkmnDo[] = _("What will\n{B_BUFF1} do?");
 const u8 gText_WhatWillPkmnDo2[] = _("What will\n{B_PLAYER_NAME} do?");
 const u8 gText_WhatWillWallyDo[] = _("What will\nyou do?");
 const u8 gText_LinkStandby[] = _("{PAUSE 16}Link standby…");
-const u8 gText_BattleMenu[] = _("Battle{CLEAR_TO 56}Bag\nPokémon{CLEAR_TO 56}Run");
-const u8 gText_SafariZoneMenu[] = _("Ball{CLEAR_TO 56}{POKEBLOCK}\nGo Near{CLEAR_TO 56}Run");
+const u8 gText_BattleMenu[] = _("Battle{CLEAR_TO 56}Bag\nPokémon{CLEAR_TO 56}Run{B_BUTTON}");
+const u8 gText_SafariZoneMenu[] = _("Ball{CLEAR_TO 56}{POKEBLOCK}\nGo Near{CLEAR_TO 56}Run{B_BUTTON}");
 const u8 gText_MoveInterfacePP[] = _("PP ");
 const u8 gText_MoveInterfaceType[] = _("TYPE/");
 const u8 gText_MoveInterfacePpType[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW DYNAMIC_COLOR4 DYNAMIC_COLOR5 DYNAMIC_COLOR6}PP\nTYPE/");
@@ -3524,6 +3527,105 @@ void BattlePutTextOnWindow(const u8 *text, u8 windowId)
         PutWindowTilemap(windowId);
         CopyWindowToVram(windowId, COPYWIN_FULL);
     }
+}
+
+// Slots 1 and 2 are the B-button glyph. 11 and 12 are the PP colors.
+#define MOVE_TYPE_MATCHUP_FG_INDEX      5
+#define MOVE_TYPE_MATCHUP_SHADOW_INDEX  6
+#define MOVE_TYPE_MATCHUP_BG_INDEX     14
+
+static u32 GetPreviewDefenderBattler(u32 battler)
+{
+    u32 defender = BATTLE_OPPOSITE(battler);
+
+    if (!IsBattlerAlive(defender))
+        defender = BATTLE_PARTNER(defender);
+
+    return defender;
+}
+
+static uq4_12_t GetMoveTypeMatchupModifier(u32 battler, u32 type)
+{
+    u32 i;
+    u32 types[3];
+    u32 defender;
+    uq4_12_t modifier = UQ_4_12(1.0);
+
+    if (type >= NUMBER_OF_MON_TYPES || type == TYPE_MYSTERY)
+        return modifier;
+
+    defender = GetPreviewDefenderBattler(battler);
+    if (!IsBattlerAlive(defender))
+        return modifier;
+
+    GetBattlerTypes(defender, FALSE, types);
+    for (i = 0; i < 3; i++)
+    {
+        if (types[i] == TYPE_MYSTERY)
+            continue;
+        if (i > 0 && types[i] == types[0])
+            continue;
+        if (i == 2 && types[i] == types[1])
+            continue;
+        modifier = uq4_12_multiply(modifier, GetTypeModifier(type, types[i]));
+    }
+
+    return modifier;
+}
+
+u8 *CopyTypeNameColoredByMatchup(u8 *dest, u32 battler, u32 move, u32 type)
+{
+    uq4_12_t modifier;
+
+    if (move == MOVE_NONE || GetMoveCategory(move) == DAMAGE_CATEGORY_STATUS)
+        return StringCopy(dest, gTypesInfo[type].name);
+
+    modifier = GetMoveTypeMatchupModifier(battler, type);
+    u16 fg;
+    u16 shadow;
+
+    if (modifier == UQ_4_12(0.0))
+    {
+        fg = RGB(10, 10, 10); // dark gray
+        shadow = RGB(5, 5, 5);
+    }
+    else if (modifier <= UQ_4_12(0.25))
+    {
+        fg = RGB(18, 2, 2); // dark red
+        shadow = RGB(8, 0, 0);
+    }
+    else if (modifier < UQ_4_12(1.0))
+    {
+        fg = RGB(31, 4, 4); // red
+        shadow = RGB(16, 0, 0);
+    }
+    else if (modifier >= UQ_4_12(4.0))
+    {
+        fg = RGB(24, 0, 28); // purple
+        shadow = RGB(12, 0, 16);
+    }
+    else if (modifier >= UQ_4_12(2.0))
+    {
+        fg = RGB(4, 24, 4); // green
+        shadow = RGB(0, 12, 0);
+    }
+    else
+    {
+        return StringCopy(dest, gTypesInfo[type].name);
+    }
+
+    gPlttBufferUnfaded[BG_PLTT_ID(5) + MOVE_TYPE_MATCHUP_FG_INDEX] = fg;
+    gPlttBufferUnfaded[BG_PLTT_ID(5) + MOVE_TYPE_MATCHUP_SHADOW_INDEX] = shadow;
+    CpuCopy16(&gPlttBufferUnfaded[BG_PLTT_ID(5) + MOVE_TYPE_MATCHUP_FG_INDEX],
+              &gPlttBufferFaded[BG_PLTT_ID(5) + MOVE_TYPE_MATCHUP_FG_INDEX],
+              PLTT_SIZEOF(2));
+
+    *dest++ = EXT_CTRL_CODE_BEGIN;
+    *dest++ = EXT_CTRL_CODE_COLOR_HIGHLIGHT_SHADOW;
+    *dest++ = MOVE_TYPE_MATCHUP_FG_INDEX;
+    *dest++ = MOVE_TYPE_MATCHUP_BG_INDEX;
+    *dest++ = MOVE_TYPE_MATCHUP_SHADOW_INDEX;
+    return StringCopy(dest, gTypesInfo[type].name);
 }
 
 void SetPpNumbersPaletteInMoveSelection(u32 battler)

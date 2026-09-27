@@ -45,6 +45,7 @@ extern const u8 RouteWildWandering_EventScript[];
 #define ROUTE_WILD_RELOCATE_DISTANCE 20
 
 #define ROUTE_WILD_CAMERA_UPDATE_INTERVAL 10
+#define ROUTE_WILD_SPAWN_RANDOM_TRIES 56
 
 /* Rough cap: ~1 wanderer per N grass tiles when grass exists (e.g. 20 tiles → ~4 max). */
 #define ROUTE_WILD_GRASS_TILES_PER_MON 5
@@ -101,6 +102,8 @@ static EWRAM_DATA bool8 sRouteWildIsShiny[ROUTE_WILD_MON_MAX];
 static EWRAM_DATA u8 sRouteWildSlotKind[ROUTE_WILD_MON_MAX];
 static EWRAM_DATA u8 sRouteWildPrevOverlapObjId = 0;
 static EWRAM_DATA bool8 sRouteWildDeferredSetupPending = FALSE;
+static EWRAM_DATA bool8 sRouteWildDeferredSpawning = FALSE;
+static EWRAM_DATA u8 sRouteWildDeferredSpawnI = 0;
 static EWRAM_DATA bool8 sRouteWildHiddenForScriptMovement = FALSE;
 
 static u16 RouteWildMapKey(void)
@@ -339,7 +342,8 @@ static bool8 RouteWildIsWaterSpawnTile(u8 metatileBehavior)
     return MetatileBehavior_IsSurfableWaterOrUnderwater(metatileBehavior);
 }
 
-/* Single full-map pass — Setup previously ran three separate scans (land, water, grass). */
+/* Fast approximate counts for land/water mix and grass cap. Skip NPC-cluster
+ * scans — those are O(tiles * objects) and were a large part of map-enter lag. */
 static void RouteWildCountEligibleTiles(u8 romTemplateCount, u32 *outLand, u32 *outWater, u32 *outGrass)
 {
     s16 width = (s16)gMapHeader.mapLayout->width;
@@ -348,19 +352,23 @@ static void RouteWildCountEligibleTiles(u8 romTemplateCount, u32 *outLand, u32 *
     u32 land = 0, water = 0, grass = 0;
     u8 behavior;
 
+    (void)romTemplateCount;
+
     for (ty = 1; ty < height - 1; ty++)
     {
         for (tx = 1; tx < width - 1; tx++)
         {
             behavior = MapGridGetMetatileBehaviorAt(tx + MAP_OFFSET, ty + MAP_OFFSET);
-            if (RouteWildTileOkForLandSpawn(tx, ty, behavior, romTemplateCount, NULL, NULL, 0))
+            if (MetatileBehavior_IsSurfableWaterOrUnderwater(behavior))
+            {
+                water++;
+            }
+            else if (!MapGridGetCollisionAt(tx + MAP_OFFSET, ty + MAP_OFFSET))
             {
                 land++;
                 if (IsGrassSpawnTile(behavior))
                     grass++;
             }
-            if (RouteWildTileOkForWaterSpawn(tx, ty, behavior, romTemplateCount, NULL, NULL, 0))
-                water++;
         }
     }
 
@@ -490,9 +498,34 @@ static u8 RouteWildComputeDesiredCount(u8 romTemplateCount, u32 grassTiles)
     return want;
 }
 
+static bool8 RouteWildCandidateTileOk(s16 tx, s16 ty,
+                                      RouteWildTilePredicate tileWanted,
+                                      u8 romTemplateCount,
+                                      const s16 *placedX, const s16 *placedY, u8 placedCount,
+                                      u8 minChebyshevSep,
+                                      bool8 waterTiles)
+{
+    u8 behavior = MapGridGetMetatileBehaviorAt(tx + MAP_OFFSET, ty + MAP_OFFSET);
+
+    if (!tileWanted(behavior))
+        return FALSE;
+    if (waterTiles)
+    {
+        if (!RouteWildTileOkForWaterSpawn(tx, ty, behavior, romTemplateCount, placedX, placedY, placedCount))
+            return FALSE;
+    }
+    else
+    {
+        if (!RouteWildTileOkForLandSpawn(tx, ty, behavior, romTemplateCount, placedX, placedY, placedCount))
+            return FALSE;
+    }
+    return RouteWildMeetsWandererSeparation(tx, ty, placedX, placedY, placedCount, minChebyshevSep);
+}
+
 /*
- * Scans valid tiles; optionally restricted to a square around (centerX, centerY).
- * Picks one uniform random valid candidate.
+ * Large maps used to be scanned twice (count, then nth pick) at every radius and
+ * spacing, which froze map entry. Random probes (or one small reservoir pass)
+ * keep placement near-uniform without walking the whole grid.
  */
 static bool8 TryPickSpawnOnLoadedMap(s16 *outX, s16 *outY,
                                      RouteWildTilePredicate tileWanted,
@@ -505,10 +538,10 @@ static bool8 TryPickSpawnOnLoadedMap(s16 *outX, s16 *outY,
     s16 width = (s16)gMapHeader.mapLayout->width;
     s16 height = (s16)gMapHeader.mapLayout->height;
     s16 tx, ty;
-    u8 behavior;
-    u32 count;
-    u32 pick;
     s16 minX, maxX, minY, maxY;
+    u16 regionW, regionH;
+    u32 area;
+    u16 i;
 
     if (limitToRegion)
     {
@@ -533,61 +566,49 @@ static bool8 TryPickSpawnOnLoadedMap(s16 *outX, s16 *outY,
         maxY = height - 2;
     }
 
-    count = 0;
-    for (ty = minY; ty <= maxY; ty++)
-    {
-        for (tx = minX; tx <= maxX; tx++)
-        {
-            behavior = MapGridGetMetatileBehaviorAt(tx + MAP_OFFSET, ty + MAP_OFFSET);
-            if (!tileWanted(behavior))
-                continue;
-            if (waterTiles)
-            {
-                if (!RouteWildTileOkForWaterSpawn(tx, ty, behavior, romTemplateCount, placedX, placedY, placedCount))
-                    continue;
-            }
-            else
-            {
-                if (!RouteWildTileOkForLandSpawn(tx, ty, behavior, romTemplateCount, placedX, placedY, placedCount))
-                    continue;
-            }
-            if (!RouteWildMeetsWandererSeparation(tx, ty, placedX, placedY, placedCount, minChebyshevSep))
-                continue;
-            count++;
-        }
-    }
-
-    if (count == 0)
+    if (maxX < minX || maxY < minY)
         return FALSE;
 
-    pick = Random() % count;
+    regionW = (u16)(maxX - minX + 1);
+    regionH = (u16)(maxY - minY + 1);
+    area = (u32)regionW * regionH;
 
-    for (ty = minY; ty <= maxY; ty++)
+    if (area <= 96)
     {
-        for (tx = minX; tx <= maxX; tx++)
+        u32 count = 0;
+        s16 pickX = minX;
+        s16 pickY = minY;
+
+        for (ty = minY; ty <= maxY; ty++)
         {
-            behavior = MapGridGetMetatileBehaviorAt(tx + MAP_OFFSET, ty + MAP_OFFSET);
-            if (!tileWanted(behavior))
-                continue;
-            if (waterTiles)
+            for (tx = minX; tx <= maxX; tx++)
             {
-                if (!RouteWildTileOkForWaterSpawn(tx, ty, behavior, romTemplateCount, placedX, placedY, placedCount))
+                if (!RouteWildCandidateTileOk(tx, ty, tileWanted, romTemplateCount, placedX, placedY, placedCount, minChebyshevSep, waterTiles))
                     continue;
+                count++;
+                if ((Random() % count) == 0)
+                {
+                    pickX = tx;
+                    pickY = ty;
+                }
             }
-            else
-            {
-                if (!RouteWildTileOkForLandSpawn(tx, ty, behavior, romTemplateCount, placedX, placedY, placedCount))
-                    continue;
-            }
-            if (!RouteWildMeetsWandererSeparation(tx, ty, placedX, placedY, placedCount, minChebyshevSep))
-                continue;
-            if (pick == 0)
-            {
-                *outX = tx;
-                *outY = ty;
-                return TRUE;
-            }
-            pick--;
+        }
+        if (count == 0)
+            return FALSE;
+        *outX = pickX;
+        *outY = pickY;
+        return TRUE;
+    }
+
+    for (i = 0; i < ROUTE_WILD_SPAWN_RANDOM_TRIES; i++)
+    {
+        tx = minX + (s16)(Random() % regionW);
+        ty = minY + (s16)(Random() % regionH);
+        if (RouteWildCandidateTileOk(tx, ty, tileWanted, romTemplateCount, placedX, placedY, placedCount, minChebyshevSep, waterTiles))
+        {
+            *outX = tx;
+            *outY = ty;
+            return TRUE;
         }
     }
 
@@ -601,15 +622,11 @@ static bool8 TryPickSpawnCategoryWithSpacing(s16 *outX, s16 *outY,
                                              bool8 limitToRegion, s16 centerX, s16 centerY, u16 halfSpan,
                                              bool8 waterTiles)
 {
-    u8 sep;
-
-    for (sep = ROUTE_WILD_MAX_SPAWN_SEPARATION; sep >= 1; sep--)
-    {
-        if (TryPickSpawnOnLoadedMap(outX, outY, tileWanted, romTemplateCount, placedX, placedY, placedCount, sep,
-                                      limitToRegion, centerX, centerY, halfSpan, waterTiles))
-            return TRUE;
-    }
-    return FALSE;
+    if (TryPickSpawnOnLoadedMap(outX, outY, tileWanted, romTemplateCount, placedX, placedY, placedCount,
+                                  ROUTE_WILD_MAX_SPAWN_SEPARATION, limitToRegion, centerX, centerY, halfSpan, waterTiles))
+        return TRUE;
+    return TryPickSpawnOnLoadedMap(outX, outY, tileWanted, romTemplateCount, placedX, placedY, placedCount,
+                                   1, limitToRegion, centerX, centerY, halfSpan, waterTiles);
 }
 
 static bool8 RouteWildTrySpawnNearPlayer(s16 *outX, s16 *outY,
@@ -620,17 +637,12 @@ static bool8 RouteWildTrySpawnNearPlayer(s16 *outX, s16 *outY,
                                         bool8 waterTiles)
 {
     u16 half = RouteWildProximityHalfSpan((s16)gMapHeader.mapLayout->width, (s16)gMapHeader.mapLayout->height);
-    u16 expand;
 
-    for (expand = 0; expand <= (u16)(half + 24); expand += 6)
-    {
-        u16 span = half + expand;
-
-        if (TryPickSpawnCategoryWithSpacing(outX, outY, tileWanted, romTemplateCount, placedX, placedY, placedCount,
-                                            TRUE, px, py, span, waterTiles))
-            return TRUE;
-    }
-    return FALSE;
+    if (TryPickSpawnCategoryWithSpacing(outX, outY, tileWanted, romTemplateCount, placedX, placedY, placedCount,
+                                        TRUE, px, py, half, waterTiles))
+        return TRUE;
+    return TryPickSpawnCategoryWithSpacing(outX, outY, tileWanted, romTemplateCount, placedX, placedY, placedCount,
+                                           TRUE, px, py, (u16)(half + 16), waterTiles);
 }
 
 static bool8 RouteWildPickLandSpawnForSlot(s16 *outX, s16 *outY,
@@ -640,15 +652,13 @@ static bool8 RouteWildPickLandSpawnForSlot(s16 *outX, s16 *outY,
 {
     if (RouteWildTrySpawnNearPlayer(outX, outY, IsGrassSpawnTile, romTemplateCount, placedX, placedY, placedCount, px, py, FALSE))
         return TRUE;
-    if (RouteWildTrySpawnNearPlayer(outX, outY, RouteWildAcceptCaveTile, romTemplateCount, placedX, placedY, placedCount, px, py, FALSE))
+    if (gMapHeader.mapType == MAP_TYPE_UNDERGROUND
+     && RouteWildTrySpawnNearPlayer(outX, outY, RouteWildAcceptCaveTile, romTemplateCount, placedX, placedY, placedCount, px, py, FALSE))
         return TRUE;
     if (RouteWildTrySpawnNearPlayer(outX, outY, RouteWildAcceptAnyLandTile, romTemplateCount, placedX, placedY, placedCount, px, py, FALSE))
         return TRUE;
 
     if (TryPickSpawnCategoryWithSpacing(outX, outY, IsGrassSpawnTile, romTemplateCount, placedX, placedY, placedCount,
-                                        FALSE, 0, 0, 0, FALSE))
-        return TRUE;
-    if (TryPickSpawnCategoryWithSpacing(outX, outY, RouteWildAcceptCaveTile, romTemplateCount, placedX, placedY, placedCount,
                                         FALSE, 0, 0, 0, FALSE))
         return TRUE;
     if (TryPickSpawnCategoryWithSpacing(outX, outY, RouteWildAcceptAnyLandTile, romTemplateCount, placedX, placedY, placedCount,
@@ -1151,20 +1161,34 @@ void RouteWildScheduleDeferredSetup(void)
     if (!RouteWildWanderingSystemIsEnabled())
         return;
     sRouteWildDeferredSetupPending = TRUE;
+    sRouteWildDeferredSpawning = FALSE;
+    sRouteWildDeferredSpawnI = 0;
 }
 
 void RouteWildProcessDeferredSetup(void)
 {
-    if (!sRouteWildDeferredSetupPending)
-        return;
-
     /* Do not build or spawn wanderers while the player is locked (events, warps, etc.). */
     if (ArePlayerFieldControlsLocked())
         return;
 
-    sRouteWildDeferredSetupPending = FALSE;
-    SetupRouteWildWanderingMons();
-    TrySpawnObjectEvents(0, 0);
+    if (sRouteWildDeferredSetupPending)
+    {
+        sRouteWildDeferredSetupPending = FALSE;
+        SetupRouteWildWanderingMons();
+        sRouteWildDeferredSpawnI = 0;
+        sRouteWildDeferredSpawning = (sRouteWildWanderingActive && sRouteWildActiveCount != 0);
+        return;
+    }
+
+    if (sRouteWildDeferredSpawning)
+    {
+        TrySpawnObjectEvent(sRouteWildLocalIds[sRouteWildDeferredSpawnI],
+                            gSaveBlock1Ptr->location.mapNum,
+                            gSaveBlock1Ptr->location.mapGroup);
+        sRouteWildDeferredSpawnI++;
+        if (sRouteWildDeferredSpawnI >= sRouteWildActiveCount)
+            sRouteWildDeferredSpawning = FALSE;
+    }
 }
 
 static void RouteWildHideForScript(void)

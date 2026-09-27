@@ -391,9 +391,16 @@ static void HandleInputChooseAction(u32 battler)
             BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_CANCEL_PARTNER, 0);
             PlayerBufferExecCompleted(battler);
         }
-        else if (B_QUICK_MOVE_CURSOR_TO_RUN)
+        else
         {
-            if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER)) // If wild battle, pressing B moves cursor to "Run".
+            if (JOY_NEW(B_BUTTON) && gActionSelectionCursor[battler] == 3)
+            {
+                PlaySE(SE_SELECT);
+                TryHideLastUsedBall();
+                BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_RUN, 0);
+                PlayerBufferExecCompleted(battler);
+            }
+            else if (gActionSelectionCursor[battler] != 3)
             {
                 PlaySE(SE_SELECT);
                 ActionSelectionDestroyCursorAt(gActionSelectionCursor[battler]);
@@ -1736,7 +1743,7 @@ static void MoveSelectionDisplayMoveType(u32 battler)
         struct Pokemon *mon = &gPlayerParty[gBattlerPartyIndexes[battler]];
         type = CheckDynamicMoveType(mon, move, battler);
     }
-    end = StringCopy(txtPtr, gTypesInfo[type].name);
+    end = CopyTypeNameColoredByMatchup(txtPtr, battler, move, type);
 
     PrependFontIdToFit(txtPtr, end, FONT_NORMAL, WindowWidthPx(B_WIN_MOVE_TYPE) - 25);
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_TYPE);

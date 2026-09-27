@@ -422,7 +422,7 @@ static void ZMoveSelectionDisplayMoveType(u16 zMove, u32 battler)
     *(txtPtr)++ = EXT_CTRL_CODE_FONT;
     *(txtPtr)++ = FONT_NORMAL;
 
-    end = StringCopy(txtPtr, gTypesInfo[zMoveType].name);
+    end = CopyTypeNameColoredByMatchup(txtPtr, battler, zMove, zMoveType);
     PrependFontIdToFit(txtPtr, end, FONT_NORMAL, WindowWidthPx(B_WIN_MOVE_TYPE) - 25);
     BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MOVE_TYPE);
 }

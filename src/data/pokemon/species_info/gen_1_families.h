@@ -12735,6 +12735,157 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .formSpeciesIdTable = sElectrodeFormSpeciesIdTable,
     },
 #endif //P_HISUIAN_FORMS
+
+#define VOLTORB_BALL_FORM(enumName, picName, color)                                     \
+    [SPECIES_VOLTORB_##enumName] =                                                      \
+    {                                                                                   \
+        .baseHP        = 40,                                                            \
+        .baseAttack    = 30,                                                            \
+        .baseDefense   = 50,                                                            \
+        .baseSpeed     = 100,                                                           \
+        .baseSpAttack  = 55,                                                            \
+        .baseSpDefense = 55,                                                            \
+        .types = MON_TYPES(TYPE_ELECTRIC),                                              \
+        .catchRate = 190,                                                               \
+        .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 66 : 103,                         \
+        .evYield_Speed = 1,                                                             \
+        .genderRatio = MON_GENDERLESS,                                                  \
+        .eggCycles = 20,                                                                \
+        .friendship = STANDARD_FRIENDSHIP,                                              \
+        .growthRate = GROWTH_MEDIUM_FAST,                                               \
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL),                                 \
+        .abilities = { ABILITY_SOUNDPROOF, ABILITY_STATIC, ABILITY_AFTERMATH },         \
+        .bodyColor = color,                                                             \
+        .speciesName = _("Voltorb"),                                                    \
+        .cryId = CRY_VOLTORB,                                                           \
+        .natDexNum = NATIONAL_DEX_VOLTORB,                                              \
+        .categoryName = _("Ball"),                                                      \
+        .height = 5,                                                                    \
+        .weight = 104,                                                                  \
+        .description = COMPOUND_STRING(                                                 \
+            "It bears an uncanny and unexplained\n"                                     \
+            "resemblance to a Poké Ball. Because it\n"                                  \
+            "explodes at the slightest shock, even\n"                                   \
+            "veteran Trainers treat it with caution."),                                 \
+        .pokemonScale = 364,                                                            \
+        .pokemonOffset = -8,                                                            \
+        .trainerScale = 256,                                                            \
+        .trainerOffset = 0,                                                             \
+        .frontPic = gMonFrontPic_Voltorb##picName,                                      \
+        .frontPicSize = MON_COORDS_SIZE(64, 64),                                        \
+        .frontPicYOffset = 8,                                                           \
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,                               \
+        .backPic = gMonBackPic_Voltorb##picName,                                        \
+        .backPicSize = MON_COORDS_SIZE(64, 64),                                         \
+        .backPicYOffset = 0,                                                            \
+        .backAnimId = BACK_ANIM_JOLT_RIGHT,                                             \
+        .palette = gMonPalette_Voltorb##picName,                                        \
+        .shinyPalette = gMonShinyPalette_Voltorb##picName,                              \
+        .iconSprite = gMonIcon_Voltorb,                                                 \
+        .iconPalIndex = 0,                                                              \
+        SHADOW(0, 0, SHADOW_SIZE_S)                                                     \
+        FOOTPRINT(Voltorb)                                                              \
+        OVERWORLD(                                                                      \
+            sPicTable_Voltorb,                                                          \
+            SIZE_32x32,                                                                 \
+            SHADOW_SIZE_M,                                                              \
+            TRACKS_SPOT,                                                                \
+            sAnimTable_Following,                                                       \
+            gOverworldPalette_Voltorb,                                                  \
+            gShinyOverworldPalette_Voltorb                                              \
+        )                                                                               \
+        .levelUpLearnset = sVoltorbLevelUpLearnset,                                     \
+        .teachableLearnset = sVoltorbTeachableLearnset,                                 \
+        .formSpeciesIdTable = sVoltorbFormSpeciesIdTable,                               \
+        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_ELECTRODE_##enumName}),         \
+    },
+
+#define ELECTRODE_BALL_FORM(enumName, picName, color)                                   \
+    [SPECIES_ELECTRODE_##enumName] =                                                    \
+    {                                                                                   \
+        .baseHP        = 60,                                                            \
+        .baseAttack    = 50,                                                            \
+        .baseDefense   = 70,                                                            \
+        .baseSpeed     = P_UPDATED_STATS >= GEN_7 ? 150 : 140,                          \
+        .baseSpAttack  = 80,                                                            \
+        .baseSpDefense = 80,                                                            \
+        .types = MON_TYPES(TYPE_ELECTRIC),                                              \
+        .catchRate = 60,                                                                \
+        .expYield = ELECTRODE_EXP_YIELD,                                                \
+        .evYield_Speed = 2,                                                             \
+        .genderRatio = MON_GENDERLESS,                                                  \
+        .eggCycles = 20,                                                                \
+        .friendship = STANDARD_FRIENDSHIP,                                              \
+        .growthRate = GROWTH_MEDIUM_FAST,                                               \
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL),                                 \
+        .abilities = { ABILITY_SOUNDPROOF, ABILITY_STATIC, ABILITY_AFTERMATH },         \
+        .bodyColor = color,                                                             \
+        .speciesName = _("Electrode"),                                                  \
+        .cryId = CRY_ELECTRODE,                                                         \
+        .natDexNum = NATIONAL_DEX_ELECTRODE,                                            \
+        .categoryName = _("Ball"),                                                      \
+        .height = 12,                                                                   \
+        .weight = 666,                                                                  \
+        .description = COMPOUND_STRING(                                                 \
+            "They appear in great numbers at electric\n"                                \
+            "power plants. Because they feed on\n"                                      \
+            "electricity, they cause massive and\n"                                     \
+            "chaotic blackouts in nearby cities."),                                     \
+        .pokemonScale = 256,                                                            \
+        .pokemonOffset = 0,                                                             \
+        .trainerScale = 256,                                                            \
+        .trainerOffset = 0,                                                             \
+        .frontPic = gMonFrontPic_Electrode##picName,                                    \
+        .frontPicSize = MON_COORDS_SIZE(64, 64),                                        \
+        .frontPicYOffset = 4,                                                           \
+        .frontAnimFrames = sAnims_SingleFramePlaceHolder,                               \
+        .backPic = gMonBackPic_Electrode##picName,                                      \
+        .backPicSize = MON_COORDS_SIZE(64, 64),                                         \
+        .backPicYOffset = 0,                                                            \
+        .backAnimId = BACK_ANIM_JOLT_RIGHT,                                             \
+        .palette = gMonPalette_Electrode##picName,                                      \
+        .shinyPalette = gMonShinyPalette_Electrode##picName,                            \
+        .iconSprite = gMonIcon_Electrode,                                               \
+        .iconPalIndex = 0,                                                              \
+        SHADOW(1, 2, SHADOW_SIZE_M)                                                     \
+        FOOTPRINT(Electrode)                                                            \
+        OVERWORLD(                                                                      \
+            sPicTable_Electrode,                                                        \
+            SIZE_32x32,                                                                 \
+            SHADOW_SIZE_M,                                                              \
+            TRACKS_SPOT,                                                                \
+            sAnimTable_Following,                                                       \
+            gOverworldPalette_Electrode,                                                \
+            gShinyOverworldPalette_Electrode                                            \
+        )                                                                               \
+        .levelUpLearnset = sElectrodeLevelUpLearnset,                                   \
+        .teachableLearnset = sElectrodeTeachableLearnset,                               \
+        .formSpeciesIdTable = sElectrodeFormSpeciesIdTable,                             \
+    },
+
+    VOLTORB_BALL_FORM(MASTER, Master, BODY_COLOR_PURPLE)
+    VOLTORB_BALL_FORM(ULTRA, Ultra, BODY_COLOR_YELLOW)
+    VOLTORB_BALL_FORM(GREAT, Great, BODY_COLOR_BLUE)
+    VOLTORB_BALL_FORM(LUXURY, Luxury, BODY_COLOR_RED)
+    VOLTORB_BALL_FORM(SAFARI, Safari, BODY_COLOR_GREEN)
+    VOLTORB_BALL_FORM(NET, Net, BODY_COLOR_BLUE)
+    VOLTORB_BALL_FORM(QUICK, Quick, BODY_COLOR_YELLOW)
+    VOLTORB_BALL_FORM(HEAL, Heal, BODY_COLOR_PINK)
+    VOLTORB_BALL_FORM(DUSK, Dusk, BODY_COLOR_GREEN)
+    VOLTORB_BALL_FORM(BEAST, Beast, BODY_COLOR_BLUE)
+    ELECTRODE_BALL_FORM(MASTER, Master, BODY_COLOR_PURPLE)
+    ELECTRODE_BALL_FORM(ULTRA, Ultra, BODY_COLOR_YELLOW)
+    ELECTRODE_BALL_FORM(GREAT, Great, BODY_COLOR_BLUE)
+    ELECTRODE_BALL_FORM(LUXURY, Luxury, BODY_COLOR_RED)
+    ELECTRODE_BALL_FORM(SAFARI, Safari, BODY_COLOR_GREEN)
+    ELECTRODE_BALL_FORM(NET, Net, BODY_COLOR_BLUE)
+    ELECTRODE_BALL_FORM(QUICK, Quick, BODY_COLOR_YELLOW)
+    ELECTRODE_BALL_FORM(HEAL, Heal, BODY_COLOR_PINK)
+    ELECTRODE_BALL_FORM(DUSK, Dusk, BODY_COLOR_GREEN)
+    ELECTRODE_BALL_FORM(BEAST, Beast, BODY_COLOR_BLUE)
+
+#undef VOLTORB_BALL_FORM
+#undef ELECTRODE_BALL_FORM
 #endif //P_FAMILY_VOLTORB
 
 #if P_FAMILY_EXEGGCUTE
