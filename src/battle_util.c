@@ -4,6 +4,7 @@
 #include "battle_arena.h"
 #include "battle_pyramid.h"
 #include "battle_util.h"
+#include "game_modes.h"
 #include "battle_controllers.h"
 #include "battle_interface.h"
 #include "battle_setup.h"
@@ -689,6 +690,12 @@ void HandleAction_ThrowBall(void)
     gBattle_BG0_X = 0;
     gBattle_BG0_Y = 0;
     gLastUsedItem = gBallToDisplay;
+    if (Nuzlocke_ShouldBlockCatch())
+    {
+        gBattlescriptCurrInstr = BattleScript_NuzlockeBallBlocked;
+        gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
+        return;
+    }
     if (!ItemId_GetImportance(gLastUsedItem))
     	RemoveBagItem(gLastUsedItem, 1);
     gBattlescriptCurrInstr = BattleScript_BallThrow;

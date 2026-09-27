@@ -143,6 +143,7 @@ static const u8 sText_ScriptedDashMsg[] = _("Dash: I'm the best rival!\p");
 static const u8 sText_ScriptedRyeMsg[] = _("Rye: I'm way stronger!\p");
 static const u8 sText_TesterKakunaCall[] = _("We aren't done yet.\nKakuna, I need your strength!\p");
 static const u8 sText_KakunaEvolved[] = _("Kakuna evolved!\p");
+static const u8 sText_NuzlockeCantCatch[] = _("You already had this\nroute's encounter!\p");
 
 const u8 *const gStatNamesTable[NUM_BATTLE_STATS] =
 {
@@ -2206,6 +2207,9 @@ void BufferStringBattle(u16 stringID, u32 battler)
         break;
     case STRINGID_KAKUNA_EVOLVED:
         stringPtr = sText_KakunaEvolved;
+        break;
+    case STRINGID_NUZLOCKE_CANT_CATCH:
+        stringPtr = sText_NuzlockeCantCatch;
         break;
     case STRINGID_RETURNMON: // sending poke to ball msg
         if (GetBattlerSide(battler) == B_SIDE_PLAYER)

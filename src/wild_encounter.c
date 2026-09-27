@@ -1,5 +1,6 @@
 #include "global.h"
 #include "wild_encounter.h"
+#include "game_modes.h"
 #include "pokemon.h"
 #include "metatile_behavior.h"
 #include "fieldmap.h"
@@ -529,17 +530,22 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, u8 ar
     if (gMapHeader.mapLayoutId != LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_WILD_MONS && flags & WILD_CHECK_KEEN_EYE && !IsAbilityAllowingEncounter(level))
         return FALSE;
 
-    CreateWildMon(wildMonInfo->wildPokemon[wildMonIndex].species, level);
+    {
+        u16 species = GameMode_RandomWildSpecies(wildMonInfo->wildPokemon[wildMonIndex].species, (gSaveBlock1Ptr->location.mapGroup << 16) | (gSaveBlock1Ptr->location.mapNum << 8) | wildMonIndex);
+        GameMode_NoteWildEncounter(species);
+        CreateWildMon(species, level);
+    }
     return TRUE;
 }
 
 static u16 GenerateFishingWildMon(const struct WildPokemonInfo *wildMonInfo, u8 rod)
 {
     u8 wildMonIndex = ChooseWildMonIndex_Fishing(rod);
-    u16 wildMonSpecies = wildMonInfo->wildPokemon[wildMonIndex].species;
+    u16 wildMonSpecies = GameMode_RandomWildSpecies(wildMonInfo->wildPokemon[wildMonIndex].species, (gSaveBlock1Ptr->location.mapGroup << 16) | (gSaveBlock1Ptr->location.mapNum << 8) | (wildMonIndex + 32));
     u8 level = ChooseWildMonLevel(wildMonInfo->wildPokemon, wildMonIndex, WILD_AREA_FISHING);
 
     UpdateChainFishingStreak();
+    GameMode_NoteWildEncounter(wildMonSpecies);
     CreateWildMon(wildMonSpecies, level);
     return wildMonSpecies;
 }
@@ -551,9 +557,16 @@ static bool8 SetUpMassOutbreakEncounter(u8 flags)
     if (flags & WILD_CHECK_REPEL && !IsWildLevelAllowedByRepel(gSaveBlock1Ptr->outbreakPokemonLevel))
         return FALSE;
 
-    CreateWildMon(gSaveBlock1Ptr->outbreakPokemonSpecies, gSaveBlock1Ptr->outbreakPokemonLevel);
-    for (i = 0; i < MAX_MON_MOVES; i++)
-        SetMonMoveSlot(&gEnemyParty[0], gSaveBlock1Ptr->outbreakPokemonMoves[i], i);
+    {
+        u16 species = GameMode_RandomWildSpecies(gSaveBlock1Ptr->outbreakPokemonSpecies, (gSaveBlock1Ptr->location.mapGroup << 16) | (gSaveBlock1Ptr->location.mapNum << 8) | 0x50);
+        GameMode_NoteWildEncounter(species);
+        CreateWildMon(species, gSaveBlock1Ptr->outbreakPokemonLevel);
+        if (species == gSaveBlock1Ptr->outbreakPokemonSpecies)
+        {
+            for (i = 0; i < MAX_MON_MOVES; i++)
+                SetMonMoveSlot(&gEnemyParty[0], gSaveBlock1Ptr->outbreakPokemonMoves[i], i);
+        }
+    }
 
     return TRUE;
 }
@@ -913,7 +926,8 @@ void FishingWildEncounter(u8 rod)
     {
         u8 level = ChooseWildMonLevel(&sWildFeebas, 0, WILD_AREA_FISHING);
 
-        species = sWildFeebas.species;
+        species = GameMode_RandomWildSpecies(sWildFeebas.species, (gSaveBlock1Ptr->location.mapGroup << 16) | (gSaveBlock1Ptr->location.mapNum << 8) | 0x40);
+        GameMode_NoteWildEncounter(species);
         CreateWildMon(species, level);
     }
     else

@@ -29,6 +29,7 @@
 #include "pokemon_icon.h"
 #include "pokemon_summary_screen.h"
 #include "pokemon_storage_system.h"
+#include "game_modes.h"
 #include "script.h"
 #include "sound.h"
 #include "string_util.h"
@@ -106,6 +107,7 @@ enum {
     MSG_ITEM_IS_HELD,
     MSG_CHANGED_TO_ITEM,
     MSG_CANT_STORE_MAIL,
+    MSG_NUZLOCKE_FALLEN,
 };
 
 // IDs for how to resolve variables in the above messages
@@ -1074,6 +1076,7 @@ static const struct StorageMessage sMessages[] =
     [MSG_ITEM_IS_HELD]         = {COMPOUND_STRING("{DYNAMIC 0} is now held."),   MSG_VAR_ITEM_NAME},
     [MSG_CHANGED_TO_ITEM]      = {COMPOUND_STRING("Changed to {DYNAMIC 0}."),    MSG_VAR_ITEM_NAME},
     [MSG_CANT_STORE_MAIL]      = {COMPOUND_STRING("MAIL can't be stored!"),      MSG_VAR_NONE},
+    [MSG_NUZLOCKE_FALLEN]      = {COMPOUND_STRING("Fallen POKéMON stay in this BOX."), MSG_VAR_NONE},
 };
 
 static const struct WindowTemplate sYesNoWindowTemplate =
@@ -1725,6 +1728,7 @@ void ResetPokemonStorageSystem(void)
         SetBoxWallpaper(boxId, boxId % (MAX_DEFAULT_WALLPAPER + 1));
 
     ResetWaldaWallpaper();
+    memset(gPokemonStoragePtr->nuzlockeRouteBits, 0, sizeof(gPokemonStoragePtr->nuzlockeRouteBits));
 }
 
 
@@ -2557,6 +2561,25 @@ static void Task_HidePartyPokemon(u8 taskId)
     }
 }
 
+static bool8 BlockFallenBoxChange(s16 menuAction)
+{
+    if (menuAction < 0 || !Nuzlocke_IsGraveyardBox(StorageGetCurrentBox()))
+        return FALSE;
+
+    if (menuAction == MENU_CANCEL || menuAction == MENU_SUMMARY || menuAction == MENU_MARK || menuAction == MENU_INFO)
+        return FALSE;
+    if (menuAction == MENU_MOVE || menuAction == MENU_SHIFT || menuAction == MENU_WITHDRAW || menuAction == MENU_RELEASE)
+    {
+        if (sCursorArea != CURSOR_AREA_IN_BOX)
+            return FALSE;
+    }
+
+    PlaySE(SE_FAILURE);
+    PrintMessage(MSG_NUZLOCKE_FALLEN);
+    sStorage->state = 6;
+    return TRUE;
+}
+
 static void Task_OnSelectedMon(u8 taskId)
 {
     switch (sStorage->state)
@@ -2581,7 +2604,12 @@ static void Task_OnSelectedMon(u8 taskId)
             sStorage->state = 2;
         break;
     case 2:
-        switch (HandleMenuInput())
+    {
+        s32 menuAction = HandleMenuInput();
+
+        if (BlockFallenBoxChange(menuAction))
+            break;
+        switch (menuAction)
         {
         case MENU_B_PRESSED:
         case MENU_CANCEL:
@@ -2689,6 +2717,7 @@ static void Task_OnSelectedMon(u8 taskId)
             break;
         }
         break;
+    }
     case 3:
         PlaySE(SE_FAILURE);
         PrintMessage(MSG_LAST_POKE);

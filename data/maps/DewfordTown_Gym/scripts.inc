@@ -163,7 +163,7 @@ DewfordTown_Gym_EventScript_BrawlyDefeated::
 	delay 30
 	setflag FLAG_LEVEL_CAP_TWO
 	buffernumberstring STR_VAR_1, 36
-	msgbox gText_NewLevelCapIs, MSGBOX_DEFAULT
+	call EventScript_TryShowNewLevelCap
 	setflag FLAG_ENABLE_BRAWLY_MATCH_CALL
 	setvar VAR_ROXANNE_CALL_STEP_COUNTER, 0
 	setflag FLAG_ENABLE_ROXANNE_FIRST_CALL

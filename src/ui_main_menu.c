@@ -40,6 +40,7 @@
 #include "title_screen.h"
 #include "main_menu.h"
 #include "option_menu.h"
+#include "game_modes.h"
 #include "mystery_event_menu.h"
 #include "mystery_gift_menu.h"
 #include "link.h"
@@ -348,7 +349,9 @@ void Task_OpenMainMenu(u8 taskId)
         {                //  where the UI is initialized by swapping a task func with this one 
             case HAS_NO_SAVED_GAME:
             default:
-                SetMainCallback2(CB2_NewGameBirchSpeech_FromNewMainMenu);
+                GameMode_BeginNewGameOptions();
+                gMain.savedCallback = CB2_NewGameBirchSpeech_FromNewMainMenu;
+                SetMainCallback2(CB2_InitOptionMenu);
                 DestroyTask(taskId);
                 return;
             case HAS_SAVED_GAME:       
@@ -902,7 +905,9 @@ static void Task_MainMenuMain(u8 taskId)
                 sSelectedOption = HW_WIN_CONTINUE;
                 break;
             case HW_WIN_NEW_GAME:
-                sMainMenuDataPtr->savedCallback = CB2_NewGameBirchSpeech_FromNewMainMenu;
+                GameMode_BeginNewGameOptions();
+                gMain.savedCallback = CB2_NewGameBirchSpeech_FromNewMainMenu;
+                sMainMenuDataPtr->savedCallback = CB2_InitOptionMenu;
                 sSelectedOption = HW_WIN_CONTINUE;
                 break;
             case HW_WIN_OPTIONS:

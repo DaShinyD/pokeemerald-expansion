@@ -167,6 +167,11 @@ BattleScript_BallThrow::
 	printstring STRINGID_PLAYERUSEDITEM
 	handleballthrow
 
+BattleScript_NuzlockeBallBlocked::
+	printstring STRINGID_NUZLOCKE_CANT_CATCH
+	waitmessage B_WAIT_TIME_LONG
+	end
+
 BattleScript_BallThrowByWally::
 	printstring STRINGID_WALLYUSEDITEM
 	handleballthrow

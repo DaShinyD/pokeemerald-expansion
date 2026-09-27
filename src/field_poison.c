@@ -6,6 +6,7 @@
 #include "event_object_movement.h"
 #include "field_message_box.h"
 #include "field_poison.h"
+#include "game_modes.h"
 #include "fldeff_misc.h"
 #include "frontier_util.h"
 #include "party_menu.h"
@@ -104,6 +105,7 @@ static void Task_TryFieldPoisonWhiteOut(u8 taskId)
         }
         else
         {
+            Nuzlocke_BuryFaintedParty();
             gSpecialVar_Result = FLDPSN_NO_WHITEOUT;
             UpdateFollowingPokemon();
         }

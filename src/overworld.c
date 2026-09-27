@@ -1,5 +1,6 @@
 #include "global.h"
 #include "overworld.h"
+#include "game_modes.h"
 #include "battle_pyramid.h"
 #include "battle_pike.h"
 #include "battle_pyramid_bag.h"
@@ -370,6 +371,9 @@ static void (*const sMovementStatusHandler[])(struct LinkPlayerObjectEvent *, st
 // code
 void DoWhiteOut(void)
 {
+    if (Nuzlocke_OnWhiteOut())
+        return;
+
     RunScriptImmediately(EventScript_WhiteOut);
     if (B_WHITEOUT_MONEY == GEN_3)
         SetMoney(&gSaveBlock1Ptr->money, GetMoney(&gSaveBlock1Ptr->money) / 2);

@@ -13,6 +13,7 @@
 #include "main.h"
 #include "menu.h"
 #include "overworld.h"
+#include "game_modes.h"
 #include "palette.h"
 #include "party_menu.h"
 #include "pokedex.h"
@@ -115,6 +116,7 @@ void CreateScriptedWildMon(u16 species, u8 level, u16 item)
 {
     u8 heldItem[2];
 
+    species = GameMode_RandomStaticSpecies(species);
     ZeroEnemyPartyMons();
     if (OW_SYNCHRONIZE_NATURE > GEN_3)
         CreateMonWithNature(&gEnemyParty[0], species, level, USE_RANDOM_IVS, PickWildMonNature());
@@ -132,6 +134,8 @@ void CreateScriptedDoubleWildMon(u16 species1, u8 level1, u16 item1, u16 species
     u8 heldItem1[2];
     u8 heldItem2[2];
 
+    species1 = GameMode_RandomStaticSpecies(species1);
+    species2 = GameMode_RandomStaticSpecies(species2);
     ZeroEnemyPartyMons();
 
     if (OW_SYNCHRONIZE_NATURE > GEN_3)

@@ -67,7 +67,7 @@ LavaridgeTown_Gym_1F_EventScript_FlanneryDefeated::
 	setflag FLAG_BADGE04_GET
 	setflag FLAG_LEVEL_CAP_FOUR
 	buffernumberstring STR_VAR_1, 50
-	msgbox gText_NewLevelCapIs, MSGBOX_DEFAULT
+	call EventScript_TryShowNewLevelCap
 	addvar VAR_PETALBURG_GYM_STATE, 1
 	call_if_eq VAR_PETALBURG_GYM_STATE, 6, Common_EventScript_ReadyPetalburgGymForBattle
 	setvar VAR_0x8008, 4

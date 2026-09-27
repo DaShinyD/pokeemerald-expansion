@@ -6,6 +6,7 @@
 #include "daycare.h"
 #include "decompress.h"
 #include "dexnav.h"
+#include "game_modes.h"
 #include "event_data.h"
 #include "event_object_movement.h"
 #include "event_scripts.h"
@@ -1199,6 +1200,7 @@ static void CreateDexNavWildMon(u16 species, u8 potential, u8 level, u8 abilityN
     u8 i;
     u8 perfectIv = 31;
 
+    GameMode_NoteWildEncounter(species);
     CreateWildMon(species, level);  // shiny rate bonus handled in CreateBoxMon
 
     // Pick random, unique IVs to set to 31. The number of perfect IVs that are assigned is equal to the potential

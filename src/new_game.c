@@ -1,5 +1,6 @@
 #include "global.h"
 #include "new_game.h"
+#include "game_modes.h"
 #include "derby.h"
 #include "random.h"
 #include "pokemon.h"
@@ -216,6 +217,7 @@ void NewGameInitData(void)
     SetCurrentDifficultyLevel(DIFFICULTY_NORMAL);
     ResetItemFlags();
     ResetDexNav();
+    GameMode_ApplyNewGame();
 }
 
 static void ResetMiniGamesRecords(void)

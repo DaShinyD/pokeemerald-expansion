@@ -1,5 +1,6 @@
 #include "global.h"
 #include "item_ball.h"
+#include "game_modes.h"
 #include "event_data.h"
 #include "constants/event_objects.h"
 #include "constants/items.h"
@@ -27,6 +28,6 @@ static u32 GetItemBallIdFromTemplate(u32 itemBallId)
 void GetItemBallIdAndAmountFromTemplate(void)
 {
     u32 itemBallId = (gSpecialVar_LastTalked - 1);
-    gSpecialVar_Result = GetItemBallIdFromTemplate(itemBallId);
+    gSpecialVar_Result = GameMode_RandomizeFoundItem(GetItemBallIdFromTemplate(itemBallId), (gSaveBlock1Ptr->location.mapGroup << 16) | (gSaveBlock1Ptr->location.mapNum << 8) | itemBallId);
     gSpecialVar_0x8009 = GetItemBallAmountFromTemplate(itemBallId);
 }

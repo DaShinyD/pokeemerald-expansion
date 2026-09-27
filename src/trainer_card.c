@@ -13,6 +13,7 @@
 #include "menu.h"
 #include "text.h"
 #include "event_data.h"
+#include "game_modes.h"
 #include "easy_chat.h"
 #include "money.h"
 #include "strings.h"
@@ -1082,6 +1083,9 @@ static void PrintPokedexOnCard(void)
 
 static void PrintLevelCapOnCard(void)
 {
+    if (!AreLevelCapsEnabled())
+        return;
+
     s32 xOffset;
     u8 top;
 

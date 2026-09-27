@@ -591,6 +591,13 @@ EventScript_WhiteOut::
 	goto EventScript_ResetMrBriney
 	end
 
+EventScript_TryShowNewLevelCap::
+	specialvar VAR_RESULT, Special_AreLevelCapsEnabled
+	goto_if_eq VAR_RESULT, FALSE, EventScript_TryShowNewLevelCapEnd
+	msgbox gText_NewLevelCapIs, MSGBOX_DEFAULT
+EventScript_TryShowNewLevelCapEnd::
+	return
+
 EventScript_AfterWhiteOutHeal::
 	lockall
 	msgbox gText_FirstShouldRestoreMonsHealth

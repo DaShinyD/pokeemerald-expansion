@@ -12,6 +12,7 @@
 #define STRINGID_SCRIPTED_RYE_MSG   8
 #define STRINGID_TESTER_KAKUNA_CALL 9
 #define STRINGID_KAKUNA_EVOLVED     10
+#define STRINGID_NUZLOCKE_CANT_CATCH 11
 
 // todo: make some of those names less vague: attacker/target vs pkmn, etc.
 #define STRINGID_TRAINER1LOSETEXT                     12

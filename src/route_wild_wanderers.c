@@ -22,6 +22,7 @@
 #include "script.h"
 #include "sound.h"
 #include "wild_encounter.h"
+#include "game_modes.h"
 #include "constants/songs.h"
 #include "battle_pyramid.h"
 #include "trainer_hill.h"
@@ -984,6 +985,7 @@ static void RouteWildCreateEnemyMonForBattle(u8 idx)
     u16 attempt;
 
     ZeroEnemyPartyMons();
+    GameMode_NoteWildEncounter(sRouteWildSpecies[idx]);
 
 #if OW_SYNCHRONIZE_NATURE > GEN_3
     {
@@ -1040,6 +1042,7 @@ static void RouteWildRollSpeciesAndLevelForSlot(u8 i, u16 headerId)
         break;
     }
 
+    sRouteWildSpecies[i] = GameMode_RandomWildSpecies(sRouteWildSpecies[i], (gSaveBlock1Ptr->location.mapGroup << 16) | (gSaveBlock1Ptr->location.mapNum << 8) | (0x80 + i));
     RouteWildRollEncounterPersonality(i);
 
     if (sRouteWildIsShiny[i])

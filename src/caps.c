@@ -3,10 +3,14 @@
 #include "event_data.h"
 #include "caps.h"
 #include "pokemon.h"
+#include "game_modes.h"
 
 
 u32 GetCurrentLevelCap(void)
 {
+    if (!AreLevelCapsEnabled())
+        return MAX_LEVEL;
+
     static const u32 sLevelCapFlagMap[][2] =
     {
         {FLAG_LEVEL_CAP_ONE, 18},

@@ -22,7 +22,7 @@ RustboroCity_Gym_EventScript_RoxanneDefeated::
 	setvar VAR_0x8008, 1
 	setflag FLAG_LEVEL_CAP_ONE
 	buffernumberstring STR_VAR_1, 24
-	msgbox gText_NewLevelCapIs, MSGBOX_DEFAULT
+	call EventScript_TryShowNewLevelCap
 	call Common_EventScript_SetGymTrainers
 	call_if_eq VAR_PETALBURG_GYM_STATE, 6, Common_EventScript_ReadyPetalburgGymForBattle
 	goto RustboroCity_Gym_EventScript_GiveRockTomb

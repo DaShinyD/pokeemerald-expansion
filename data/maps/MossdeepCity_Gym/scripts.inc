@@ -69,7 +69,7 @@ MossdeepCity_Gym_EventScript_TateAndLizaDefeated::
 	msgbox MossdeepCity_Gym_Text_ExplainMindBadgeTakeThis, MSGBOX_DEFAULT
 	setflag FLAG_LEVEL_CAP_SEVEN
 	buffernumberstring STR_VAR_1, 75
-	msgbox gText_NewLevelCapIs, MSGBOX_DEFAULT
+	call EventScript_TryShowNewLevelCap
 	setflag FLAG_DEFEATED_MOSSDEEP_GYM
 	setflag FLAG_BADGE07_GET
 	setflag FLAG_HIDE_AQUA_HIDEOUT_GRUNTS

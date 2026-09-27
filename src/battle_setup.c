@@ -2,6 +2,7 @@
 #include "battle.h"
 #include "load_save.h"
 #include "battle_setup.h"
+#include "game_modes.h"
 #include "battle_transition.h"
 #include "main.h"
 #include "task.h"
@@ -649,12 +650,14 @@ static void CB2_EndWildBattle(void)
     CpuFill16(0, (void *)(BG_PLTT), BG_PLTT_SIZE);
     ResetOamRange(0, 128);
 
+    GameMode_FinishWildEncounter();
     if (IsPlayerDefeated(gBattleOutcome) == TRUE && !InBattlePyramid() && !InBattlePike())
     {
         SetMainCallback2(CB2_WhiteOut);
     }
     else
     {
+        Nuzlocke_BuryFaintedParty();
         SetMainCallback2(CB2_ReturnToField);
         DowngradeBadPoison();
         gFieldCallback = FieldCB_ReturnToFieldNoScriptCheckMusic;
@@ -669,12 +672,16 @@ static void CB2_EndScriptedWildBattle(void)
     if (IsPlayerDefeated(gBattleOutcome) == TRUE)
     {
         if (InBattlePyramid())
+        {
+            Nuzlocke_BuryFaintedParty();
             SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+        }
         else
             SetMainCallback2(CB2_WhiteOut);
     }
     else
     {
+        Nuzlocke_BuryFaintedParty();
         DowngradeBadPoison();
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
     }
@@ -1362,12 +1369,16 @@ static void CB2_EndTrainerBattle(void)
     else if (IsPlayerDefeated(gBattleOutcome) == TRUE)
     {
         if (InBattlePyramid() || InTrainerHillChallenge() || BattleHasNoWhiteout() || (!NoAliveMonsForPlayer()))
+        {
+            Nuzlocke_BuryFaintedParty();
             SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+        }
         else
             SetMainCallback2(CB2_WhiteOut);
     }
     else
     {
+        Nuzlocke_BuryFaintedParty();
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
         DowngradeBadPoison();
         if (!InBattlePyramid() && !InTrainerHillChallenge())
@@ -1391,6 +1402,7 @@ static void CB2_EndRematchBattle(void)
     }
     else
     {
+        Nuzlocke_BuryFaintedParty();
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
         RegisterTrainerInMatchCall();
         SetBattledTrainersFlags();

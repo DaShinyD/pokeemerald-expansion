@@ -19,6 +19,7 @@
 #include "mystery_event_menu.h"
 #include "naming_screen.h"
 #include "option_menu.h"
+#include "game_modes.h"
 #include "overworld.h"
 #include "palette.h"
 #include "pokeball.h"
@@ -1078,9 +1079,10 @@ static void Task_HandleMainMenuAPressed(u8 taskId)
         {
             case ACTION_NEW_GAME:
             default:
-                gPlttBufferUnfaded[0] = RGB_BLACK;
-                gPlttBufferFaded[0] = RGB_BLACK;
-                gTasks[taskId].func = Task_NewGameBirchSpeech_Init;
+                GameMode_BeginNewGameOptions();
+                gMain.savedCallback = CB2_NewGameBirchSpeech_FromNewMainMenu;
+                SetMainCallback2(CB2_InitOptionMenu);
+                DestroyTask(taskId);
                 break;
             case ACTION_CONTINUE:
                 gPlttBufferUnfaded[0] = RGB_BLACK;

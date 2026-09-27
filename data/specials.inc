@@ -590,4 +590,6 @@ gSpecials::
 	def_special GetSetQuestFlagSpecial
 	def_special SetActiveQuestSpecial
 	def_special OpenQuestMenuSpecial
+	def_special Special_AreLevelCapsEnabled
+	def_special Special_ActivateNuzlockeRules
 
