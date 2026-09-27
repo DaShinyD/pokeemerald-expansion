@@ -3584,7 +3584,8 @@ static void DoBattleIntro(void)
             }
             else if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
             {
-                gBattleStruct->introState++;
+                // Skip the Dash vs Rye states. They sit next in the enum, so ++ would print Rye's line in every trainer battle.
+                gBattleStruct->introState = BATTLE_INTRO_STATE_TRAINER_SEND_OUT_TEXT;
             }
             else
             {
