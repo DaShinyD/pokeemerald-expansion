@@ -2586,3 +2586,25 @@
 	closemessage
 	.endm
 
+	@ Single fullscreen image. Existing scripts can keep using
+	@ setvar VAR_0x8000 / callnative OpenFullscreenPopupBgFromScript.
+	.macro showfullscreen id:req
+	setvar VAR_0x8000, \id
+	callnative OpenFullscreenPopupBgFromScript
+	waitstate
+	.endm
+
+	@ Slideshow. A advances to the next image, B closes.
+	.macro showfullscreensequence id:req
+	setvar VAR_0x8000, \id
+	callnative OpenFullscreenPopupSequenceFromScript
+	waitstate
+	.endm
+
+	@ Fullscreen image with a dialogue box. A/B advances text.
+	.macro showfullscreenstory id:req
+	setvar VAR_0x8000, \id
+	callnative OpenFullscreenPopupStoryFromScript
+	waitstate
+	.endm
+
