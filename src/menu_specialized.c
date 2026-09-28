@@ -14,6 +14,7 @@
 #include "move_relearner.h"
 #include "palette.h"
 #include "player_pc.h"
+#include "pokemon.h"
 #include "pokemon_summary_screen.h"
 #include "pokemon_storage_system.h"
 #include "scanline_effect.h"
@@ -27,6 +28,7 @@
 #include "constants/songs.h"
 #include "constants/battle_move_effects.h"
 #include "gba/io_reg.h"
+#include "variant_colours.h"
 
 EWRAM_DATA static u8 sMailboxWindowIds[MAILBOXWIN_COUNT] = {0};
 EWRAM_DATA static struct ListMenuItem *sMailboxList = NULL;
@@ -1075,6 +1077,7 @@ void GetConditionMenuMonGfx(void *tilesDst, void *palDst, u16 boxId, u16 monId, 
 
         LoadSpecialPokePic(tilesDst, species, personality, TRUE);
         LZ77UnCompWram(GetMonSpritePalFromSpeciesAndPersonality(species, isShiny, personality), palDst);
+        ApplyMonSpeciesVariantToPaletteBuffer(species, isShiny, personality, (u16 *)palDst);
     }
 }
 
@@ -1510,7 +1513,7 @@ static const u8 *const sLvlUpStatStrings[NUM_STATS] =
 
 void DrawLevelUpWindowPg1(u16 windowId, u16 *statsBefore, u16 *statsAfter, u8 bgClr, u8 fgClr, u8 shadowClr)
 {
-    u16 i, x;
+    u16 i, x, numDigits;
     s16 statsDiff[NUM_STATS];
     u8 text[12];
     u8 color[3];
@@ -1548,11 +1551,22 @@ void DrawLevelUpWindowPg1(u16 windowId, u16 *statsBefore, u16 *statsAfter, u8 bg
                                      TEXT_SKIP_DRAW,
                                      text);
         if (abs(statsDiff[i]) <= 9)
+        {
+            numDigits = 1;
             x = 18;
+        }
+        else if (abs(statsDiff[i]) > 99)
+        {
+            numDigits = 3;
+            x = 6;
+        }
         else
+        {
+            numDigits = 2;
             x = 12;
+        }
 
-        ConvertIntToDecimalStringN(text, abs(statsDiff[i]), STR_CONV_MODE_LEFT_ALIGN, 2);
+        ConvertIntToDecimalStringN(text, abs(statsDiff[i]), STR_CONV_MODE_LEFT_ALIGN, numDigits);
         AddTextPrinterParameterized3(windowId,
                                      FONT_NORMAL,
                                      56 + x,

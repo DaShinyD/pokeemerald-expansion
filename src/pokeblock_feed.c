@@ -25,6 +25,7 @@
 #include "trig.h"
 #include "util.h"
 #include "constants/rgb.h"
+#include "variant_colours.h"
 
 enum {
     ANIMDATA_ROT_IDX,
@@ -668,7 +669,7 @@ static bool8 LoadMonAndSceneGfx(struct Pokemon *mon)
         species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG);
         personality = GetMonData(mon, MON_DATA_PERSONALITY);
         isShiny = GetMonData(mon, MON_DATA_IS_SHINY);
-        LoadCompressedSpritePaletteWithTag(GetMonSpritePalFromSpeciesAndPersonality(species, isShiny, personality), species);
+        LoadMonSpritePaletteTagWithVariants(species, isShiny, personality, species);
         SetMultiuseSpriteTemplateToPokemon(species, B_POSITION_OPPONENT_LEFT);
         sPokeblockFeed->loadGfxState++;
         break;

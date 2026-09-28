@@ -3,6 +3,7 @@
 
 #include "main.h"
 #include "task.h"
+#include "constants/party_menu.h"
 
 // seems like the last two fields may have been left as all-purpose vars
 // and the second of the two just happens to only be used in one case
@@ -11,14 +12,18 @@ struct PartyMenu
     MainCallback exitCallback;
     TaskFunc task;
     u8 menuType:4;
-    u8 layout:2;
+    u8 layout:4;
     s8 slotId;
     s8 slotId2;
     u8 action;
     u16 bagItem;
     s16 data1;           // used variously as a moveId, counter, moveSlotId, or cursorPos
     s16 learnMoveState;  // data2, used only as a learn move state
+    u8 levelBefore;      // (swsh_party_menu) level before rare/exp candy use
+    u8 levelAfter;       // (swsh_party_menu) level after it
 };
+
+#define DATA1_PARTY_MENU_FROM_FIELD -1
 
 extern struct PartyMenu gPartyMenu;
 extern bool8 gPartyMenuUseExitCallback;
@@ -48,6 +53,9 @@ void DisplayPartyMenuStdMessage(u32 stringId);
 bool8 FieldCallback_PrepareFadeInFromMenu(void);
 bool8 FieldCallback_PrepareFadeInForTeleport(void);
 void CB2_ReturnToPartyMenuFromFlyMap(void);
+#if SWSH_PARTY_PC_ACCESS
+void CB2_ReopenPartyMenuFromPC(void);
+#endif
 void LoadHeldItemIcons(void);
 void DrawHeldItemIconsForTrade(u8 *partyCounts, u8 *partySpriteIds, u8 whichParty);
 void LoadPartyMenuAilmentGfx(void);

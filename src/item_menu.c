@@ -56,6 +56,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 
+#if !SWSH_BAG_MENU
+
 #define TAG_POCKET_SCROLL_ARROW 110
 #define TAG_BAG_SCROLL_ARROW    111
 
@@ -2762,3 +2764,16 @@ static void UNUSED ItemMenu_Deselect(u8 taskId)
 
     gTasks[taskId].func = ItemMenu_FinishRegister;
 }
+
+#endif // !SWSH_BAG_MENU
+
+#if SWSH_BAG_MENU
+void ItemMenu_RotomCatalog(u8 taskId)
+{
+    (void)taskId;
+}
+
+void ShowRegisteredItemsMenu(void)
+{
+}
+#endif

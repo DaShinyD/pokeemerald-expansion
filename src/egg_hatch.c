@@ -28,6 +28,7 @@
 #include "daycare.h"
 #include "overworld.h"
 #include "scanline_effect.h"
+#include "variant_colours.h"
 #include "field_weather.h"
 #include "international_string_util.h"
 #include "naming_screen.h"
@@ -448,7 +449,7 @@ static u8 EggHatchCreateMonSprite(u8 useAlt, u8 state, u8 partyId, u16 *speciesL
             HandleLoadSpecialPokePic(TRUE,
                                      gMonSpritesGfxPtr->spritesGfx[(useAlt * 2) + B_POSITION_OPPONENT_LEFT],
                                      species, pid);
-            LoadCompressedSpritePaletteWithTag(GetMonFrontSpritePal(mon), species);
+            LoadMonSpritePaletteTagWithVariants(species, GetMonData(mon, MON_DATA_IS_SHINY), pid, species);
             *speciesLoc = species;
         }
         break;

@@ -79,6 +79,8 @@
 #include "move_relearner.h"
 #include "naming_screen.h"
 
+#if !SWSH_PARTY_MENU
+
 enum {
     MENU_SUMMARY,
     MENU_MOVES,
@@ -8215,3 +8217,5 @@ void IsLastMonThatKnowsSurf(void)
             gSpecialVar_Result = !P_CAN_FORGET_HIDDEN_MOVE;
     }
 }
+
+#endif // !SWSH_PARTY_MENU

@@ -86,6 +86,7 @@ static const u16 sFloorItemPool[] =
 static const u8 sText_LevelCap[] = _("LEVEL CAP");
 static const u8 sText_Scaled[] = _("SCALE LEVELS");
 static const u8 sText_Wanderers[] = _("WANDERERS");
+static const u8 sText_ColorVars[] = _("COLOR VARS");
 static const u8 sText_Nuzlocke[] = _("NUZLOCKE");
 static const u8 sText_Whiteout[] = _("WHITEOUT");
 static const u8 sText_RandFoes[] = _("RAND FOES");
@@ -120,6 +121,7 @@ static const u8 *const sPage1Names[] =
     sText_LevelCap,
     sText_Scaled,
     sText_Wanderers,
+    sText_ColorVars,
 };
 
 static const u8 *const sPage2Names[] =
@@ -349,7 +351,7 @@ u8 GameModeOptions_PageCount(void)
 u8 GameModeOptions_ItemCount(u8 page)
 {
     if (page == 1)
-        return 3;
+        return 4;
     if (page == 2)
         return 6;
     return 0;
@@ -385,6 +387,7 @@ bool8 GameModeOptions_Get(u8 page, u8 index)
         case 0: return sEdit.levelCaps;
         case 1: return sEdit.scaled;
         case 2: return sEdit.wanderers;
+        case 3: return !gSaveBlock2Ptr->optionsColorVariantsOff;
         }
     }
     else if (page == 2)
@@ -427,6 +430,7 @@ void GameModeOptions_Toggle(u8 page, u8 index)
         case 0: sEdit.levelCaps ^= 1; break;
         case 1: sEdit.scaled ^= 1; break;
         case 2: sEdit.wanderers ^= 1; break;
+        case 3: gSaveBlock2Ptr->optionsColorVariantsOff ^= 1; break;
         }
     }
     else if (page == 2)

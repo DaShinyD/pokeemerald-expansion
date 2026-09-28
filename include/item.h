@@ -35,6 +35,7 @@ struct BagPocket
 {
     struct ItemSlot *itemSlots;
     u8 capacity;
+    u8 id;
 };
 
 extern const struct Item gItemsInfo[];

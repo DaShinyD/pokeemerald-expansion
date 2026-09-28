@@ -38,6 +38,7 @@
 #include "text_window.h"
 #include "trig.h"
 #include "walda_phrase.h"
+#include "variant_colours.h"
 #include "window.h"
 #include "constants/form_change_types.h"
 #include "constants/items.h"
@@ -45,6 +46,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "constants/pokemon_icon.h"
+#include "swsh_storage_system.h"
 
 /*
     NOTE: This file is large. Some general groups of functions have
@@ -554,6 +556,7 @@ EWRAM_DATA static u8 sMovingMonOrigBoxPos = 0;
 EWRAM_DATA static bool8 sAutoActionOn = 0;
 EWRAM_DATA static bool8 sJustOpenedBag = 0;
 EWRAM_DATA static bool8 sRefreshDisplayMonGfx = FALSE;
+EWRAM_DATA static MainCallback sReturnToPartyCallback = NULL;
 
 // Main tasks
 static void Task_InitPokeStorage(u8);
@@ -1631,6 +1634,10 @@ static void Task_PCMainMenu(u8 taskId)
 
 void ShowPokemonStorageSystemPC(void)
 {
+#if SWSH_STORAGE_SYSTEM
+    ShowPokemonStorageSystemPC_SwSh();
+    return;
+#endif
     u8 taskId = CreateTask(Task_PCMainMenu, 80);
     gTasks[taskId].tState = 0;
     gTasks[taskId].tSelectedOption = 0;
@@ -1649,6 +1656,50 @@ static void FieldTask_ReturnToPcMenu(void)
     Task_PCMainMenu(taskId);
     SetVBlankCallback(vblankCb);
     FadeInFromBlack();
+}
+
+// Used when the storage system was opened straight from the party menu instead of a PC.
+static void FieldTask_ReturnToPartyMenu(void)
+{
+    MainCallback vblankCb = gMain.vblankCallback;
+
+    ResetSpriteData();
+    FreeAllWindowBuffers();
+
+    SetVBlankCallback(NULL);
+    SetMainCallback2(sReturnToPartyCallback != NULL ? sReturnToPartyCallback : CB2_ReturnToFieldWithOpenMenu);
+    sReturnToPartyCallback = NULL;
+    SetVBlankCallback(vblankCb);
+    FadeInFromBlack();
+}
+
+void PokemonPC_SetReturnToPartyCallback(MainCallback cb)
+{
+    sReturnToPartyCallback = cb;
+}
+
+MainCallback PokemonPC_GetReturnToPartyCallback(void)
+{
+    return sReturnToPartyCallback;
+}
+
+void PokemonPC_ClearReturnToPartyCallback(void)
+{
+    sReturnToPartyCallback = NULL;
+}
+
+void ShowPokemonPCFromParty(void)
+{
+#if SWSH_STORAGE_SYSTEM
+    ShowPokemonPCFromParty_SwSh();
+    return;
+#endif
+    EnterPokeStorage(OPTION_MOVE_MONS);
+}
+
+void CB2_ShowPokemonPCFromParty(void)
+{
+    ShowPokemonPCFromParty();
 }
 
 #undef tState
@@ -1673,7 +1724,10 @@ static void CreateMainMenu(u8 whichMenu, s16 *windowIdPtr)
 static void CB2_ExitPokeStorage(void)
 {
     sPreviousBoxOption = GetCurrentBoxOption();
-    gFieldCallback = FieldTask_ReturnToPcMenu;
+    if (sReturnToPartyCallback != NULL)
+        gFieldCallback = FieldTask_ReturnToPartyMenu;
+    else
+        gFieldCallback = FieldTask_ReturnToPcMenu;
     SetMainCallback2(CB2_ReturnToField);
 }
 
@@ -4018,6 +4072,7 @@ static void LoadDisplayMonGfx(u16 species, u32 pid)
     {
         LoadSpecialPokePic(sStorage->tileBuffer, species, pid, TRUE);
         LZ77UnCompWram(sStorage->displayMonPalette, sStorage->displayMonPalBuffer);
+        ApplyMonSpeciesVariantToPaletteBuffer(species, FALSE, pid, sStorage->displayMonPalBuffer);
         CpuCopy32(sStorage->tileBuffer, sStorage->displayMonTilePtr, MON_PIC_SIZE);
         LoadPalette(sStorage->displayMonPalBuffer, sStorage->displayMonPalOffset, PLTT_SIZE_4BPP);
         sStorage->displayMonSprite->invisible = FALSE;
@@ -6951,6 +7006,10 @@ static void ReshowDisplayMon(void)
 
 void SetMonFormPSS(struct BoxPokemon *boxMon, u32 method)
 {
+#if SWSH_STORAGE_SYSTEM
+    SetMonFormPSS_SwSh(boxMon, method);
+    return;
+#endif
     u16 targetSpecies = GetFormChangeTargetSpeciesBoxMon(boxMon, method, 0);
     if (targetSpecies != GetBoxMonData(boxMon, MON_DATA_SPECIES, NULL))
     {
@@ -10099,6 +10158,10 @@ static void TilemapUtil_Draw(u8 id)
 
 void UpdateSpeciesSpritePSS(struct BoxPokemon *boxMon)
 {
+#if SWSH_STORAGE_SYSTEM
+    UpdateSpeciesSpritePSS_SwSh(boxMon);
+    return;
+#endif
     u16 species = GetBoxMonData(boxMon, MON_DATA_SPECIES);
     bool8 isShiny = GetBoxMonData(boxMon, MON_DATA_IS_SHINY);
     u32 pid = GetBoxMonData(boxMon, MON_DATA_PERSONALITY);

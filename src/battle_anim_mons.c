@@ -16,6 +16,7 @@
 #include "trig.h"
 #include "util.h"
 #include "constants/battle_anim.h"
+#include "variant_colours.h"
 
 extern const struct OamData gOamData_AffineNormal_ObjNormal_64x64;
 
@@ -2015,7 +2016,7 @@ u8 CreateAdditionalMonSpriteForMoveAnim(u16 species, bool8 isBackpic, u8 id, s16
         gMonSpritesGfxPtr->buffer = AllocZeroed(MON_PIC_SIZE * MAX_MON_PIC_FRAMES);
     if (!isBackpic)
     {
-        LoadCompressedPalette(GetMonSpritePalFromSpeciesAndPersonality(species, isShiny, personality), OBJ_PLTT_ID(palette), PLTT_SIZE_4BPP);
+        LoadMonPaletteWithVariants(species, isShiny, personality, OBJ_PLTT_ID(palette));
         LoadSpecialPokePic(gMonSpritesGfxPtr->buffer,
                            species,
                            personality,
@@ -2023,7 +2024,7 @@ u8 CreateAdditionalMonSpriteForMoveAnim(u16 species, bool8 isBackpic, u8 id, s16
     }
     else
     {
-        LoadCompressedPalette(GetMonSpritePalFromSpeciesAndPersonality(species, isShiny, personality), OBJ_PLTT_ID(palette), PLTT_SIZE_4BPP);
+        LoadMonPaletteWithVariants(species, isShiny, personality, OBJ_PLTT_ID(palette));
         LoadSpecialPokePic(gMonSpritesGfxPtr->buffer,
                            species,
                            personality,

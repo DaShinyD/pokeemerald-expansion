@@ -20,6 +20,7 @@
 #include "text.h"
 #include "window.h"
 #include "constants/rgb.h"
+#include "variant_colours.h"
 
 COMMON_DATA u16 (*gContestMonPixels)[][32] = {0};
 COMMON_DATA struct ImageProcessingContext gImageProcessingContext = {0};
@@ -363,7 +364,8 @@ static void VBlankCB_ContestPainting(void)
 static void InitContestMonPixels(u16 species, bool8 backPic)
 {
     const void *pal = GetMonSpritePalFromSpeciesAndPersonality(species, gContestPaintingWinner->isShiny, gContestPaintingWinner->personality);
-    LZDecompressVram(pal, gContestPaintingMonPalette);
+    LZ77UnCompWram(pal, gContestPaintingMonPalette);
+    ApplyMonSpeciesVariantToPaletteBuffer(species, gContestPaintingWinner->isShiny, gContestPaintingWinner->personality, gContestPaintingMonPalette);
     if (!backPic)
     {
         HandleLoadSpecialPokePic(TRUE,

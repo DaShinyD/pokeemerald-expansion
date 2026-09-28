@@ -44,6 +44,7 @@
 #include "union_room.h"
 #include "util.h"
 #include "window.h"
+#include "variant_colours.h"
 #include "constants/contest.h"
 #include "constants/items.h"
 #include "constants/moves.h"
@@ -2801,7 +2802,7 @@ static void LoadTradeMonPic(u8 whichParty, u8 state)
 
         HandleLoadSpecialPokePic(TRUE, gMonSpritesGfxPtr->spritesGfx[whichParty * 2 + B_POSITION_OPPONENT_LEFT], species, personality);
 
-        LoadCompressedSpritePaletteWithTag(GetMonFrontSpritePal(mon), species);
+        LoadMonSpritePaletteTagWithVariants(species, GetMonData(mon, MON_DATA_IS_SHINY), personality, species);
         sTradeAnim->monSpecies[whichParty] = species;
         sTradeAnim->monPersonalities[whichParty] = personality;
         break;

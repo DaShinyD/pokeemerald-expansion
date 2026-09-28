@@ -127,6 +127,19 @@ static void SetUpItemUseCallback(u8 taskId)
         type = gTasks[taskId].tEnigmaBerryType - 1;
     else
         type = ItemId_GetType(gSpecialVar_ItemId) - 1;
+#if SWSH_BAG_IN_BAG_USE
+    {
+        bool8 useInline = !InBattlePyramid();
+#if SWSH_BAG_PYRAMID_ACTION
+        useInline = TRUE;
+#endif
+        if (useInline && (type == (ITEM_USE_PARTY_MENU - 1) || type == (ITEM_USE_PARTY_MENU_MOVES - 1)))
+        {
+            BagMenu_OpenPartySelect(taskId);
+            return;
+        }
+    }
+#endif
     if (!InBattlePyramid())
     {
         gBagMenu->newScreenCallback = sItemUseCallbacks[type];
@@ -1168,6 +1181,19 @@ void ItemUseInBattle_PokeBall(u8 taskId)
 
 static void ItemUseInBattle_ShowPartyMenu(u8 taskId)
 {
+#if SWSH_BAG_IN_BATTLE_USE
+    {
+        bool8 useInline = !InBattlePyramid();
+#if SWSH_BAG_PYRAMID_ACTION
+        useInline = TRUE;
+#endif
+        if (useInline)
+        {
+            BagMenu_OpenPartySelectBattle(taskId);
+            return;
+        }
+    }
+#endif
     if (!InBattlePyramid())
     {
         gBagMenu->newScreenCallback = ChooseMonForInBattleItem;

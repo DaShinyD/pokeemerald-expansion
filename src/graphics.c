@@ -1726,6 +1726,17 @@ const u32 gShopMenu_Pal[] = INCBIN_U32("graphics/shop/menu.gbapal.lz");
 const u32 gShopMenu_Tilemap[] = INCBIN_U32("graphics/shop/menu.bin.lz");
 const u32 gShopMenuMoney_Gfx[] = INCBIN_U32("graphics/shop/money.4bpp.lz");
 
+// SwSh assets shared across branches
+const u32 gStatusIconsSwSh_Gfx[]    = INCBIN_U32("graphics/interface/swsh/status_icons.4bpp.lz");
+const u16 gStatusIconsSwSh_Pal[]    = INCBIN_U16("graphics/interface/swsh/status_icons.gbapal");
+const u32 gCategoryIconsSwSh_Gfx[]  = INCBIN_U32("graphics/interface/swsh/category_icons.4bpp.lz");
+const u32 gCursorSwSh_Gfx[]         = INCBIN_U32("graphics/interface/swsh/cursor.4bpp.lz");
+const u32 gQuantityFrameSwSh_Gfx[]  = INCBIN_U32("graphics/interface/swsh/quantity_frame.4bpp.lz");
+const u32 gSpinnerArrowSwSh_Gfx[]   = INCBIN_U32("graphics/interface/swsh/spinner_arrow.4bpp.lz");
+const u16 gMonShadowSwSh_Pal[]      = INCBIN_U16("graphics/interface/swsh/shadow.gbapal");
+const u32 gMoveTypesSwSh_Gfx[]      = INCBIN_U32("graphics/types/swsh/move_types.4bpp.lz");
+const u16 gMoveTypesSwSh_Pal[]      = INCBIN_U16("graphics/types/swsh/move_types.gbapal");
+
 // Pokeblock
 
 const u32 gMenuPokeblock_Gfx[] = INCBIN_U32("graphics/pokeblock/menu.4bpp.lz");

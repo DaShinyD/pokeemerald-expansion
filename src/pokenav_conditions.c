@@ -12,6 +12,7 @@
 #include "strings.h"
 #include "text.h"
 #include "constants/songs.h"
+#include "variant_colours.h"
 
 #define CONDITION_MONS_LOADED 3
 
@@ -539,6 +540,7 @@ static void ConditionGraphDrawMonPic(s16 listId, u8 loadId)
     personality = GetBoxOrPartyMonData(boxId, monId, MON_DATA_PERSONALITY, NULL);
     LoadSpecialPokePic(menu->monPicGfx[loadId], species, personality, TRUE);
     LZ77UnCompWram(GetMonSpritePalFromSpeciesAndPersonality(species, isShiny, personality), menu->monPal[loadId]);
+    ApplyMonSpeciesVariantToPaletteBuffer(species, isShiny, personality, (u16 *)menu->monPal[loadId]);
 }
 
 u16 GetMonListCount(void)

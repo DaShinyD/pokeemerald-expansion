@@ -1,7 +1,18 @@
 #ifndef GUARD_CONSTANTS_PARTY_MENU_H
 #define GUARD_CONSTANTS_PARTY_MENU_H
 
+#include "config/swsh_party_menu.h"
+
+#define PC_MON_CHOSEN        0xFE
 #define PARTY_NOTHING_CHOSEN 0xFF
+
+enum CanMoveBeLearned
+{
+    CAN_LEARN_MOVE,
+    CANNOT_LEARN_MOVE,
+    ALREADY_KNOWS_MOVE,
+    CANNOT_LEARN_MOVE_IS_EGG
+};
 
 #define AILMENT_NONE  0
 #define AILMENT_PSN   1
@@ -17,7 +28,11 @@
 #define PARTY_LAYOUT_DOUBLE          1
 #define PARTY_LAYOUT_MULTI           2
 #define PARTY_LAYOUT_MULTI_SHOWCASE  3  // The layout during the screen that appears just before a multi battle
-#define PARTY_LAYOUT_COUNT           4
+#define PARTY_LAYOUT_MULTI_FULL                  4
+#define PARTY_LAYOUT_MULTI_FULL_PARTNER          5
+#define PARTY_LAYOUT_MULTI_FULL_SHOWCASE         6  // The layout used to present the player team in a full-teams multi battle
+#define PARTY_LAYOUT_MULTI_FULL_SHOWCASE_PARTNER 7  // The layout used to present the partner team in a full-teams multi battle
+#define PARTY_LAYOUT_COUNT           8
 #define KEEP_PARTY_LAYOUT            0xFF
 
 #define PARTY_MENU_TYPE_FIELD                     0
@@ -33,6 +48,7 @@
 #define PARTY_MENU_TYPE_SPIN_TRADE                10 // Unused beta for Gen IV's Spin Trade
 #define PARTY_MENU_TYPE_MINIGAME                  11
 #define PARTY_MENU_TYPE_STORE_PYRAMID_HELD_ITEMS  12
+#define PARTY_MENU_TYPE_MULTI_FULL_SHOWCASE       13
 
 #define PARTY_ACTION_CHOOSE_MON         0
 #define PARTY_ACTION_SEND_OUT           1
@@ -50,6 +66,8 @@
 #define PARTY_ACTION_MINIGAME           13
 #define PARTY_ACTION_SEND_MON_TO_BOX    14
 #define PARTY_ACTION_CHOOSE_FAINTED_MON 15
+#define PARTY_ACTION_MOVE_ITEM          16
+#define PARTY_ACTION_FUSION             17
 
 // IDs for DisplayPartyMenuStdMessage, to display the message at the bottom of the party menu
 #define PARTY_MSG_CHOOSE_MON                0
@@ -83,6 +101,8 @@
 #define PARTY_MSG_CHOOSE_SECOND_FUSION      28
 #define PARTY_MSG_NO_POKEMON                29
 #define PARTY_MSG_CHOOSE_MON_FOR_BOX        30
+#define PARTY_MSG_MOVE_ITEM_WHERE           31
+#define PARTY_MSG_SEND_MON_TO_BOX           32
 
 #define PARTY_MSG_NONE                      127
 

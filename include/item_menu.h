@@ -2,7 +2,10 @@
 #define GUARD_ITEM_MENU_H
 
 #include "item.h"
+#include "main.h"
 #include "menu_helpers.h"
+#include "constants/global.h"
+#include "swsh_item_menu.h"
 
 enum {
     ITEMMENULOCATION_FIELD,
@@ -18,6 +21,7 @@ enum {
     ITEMMENULOCATION_WALLY,
     ITEMMENULOCATION_PCBOX,
     ITEMMENULOCATION_BERRY_TREE_MULCH,
+    ITEMMENULOCATION_RAIDEND,
     ITEMMENULOCATION_LAST,
 };
 
@@ -33,15 +37,60 @@ enum {
     ITEMWIN_QUANTITY,
     ITEMWIN_QUANTITY_WIDE,
     ITEMWIN_MONEY,
+#if SWSH_BAG_MENU
+    ITEMWIN_SELL_PRICE,
+    ITEMWIN_1x2_HIGH,
+    ITEMWIN_2x2_HIGH,
+    ITEMWIN_2x3_HIGH,
+#endif
+#if SWSH_BAG_IN_BAG_USE
+    ITEMWIN_PP_MOVE_SELECT,
+    ITEMWIN_LEVEL_UP_STATS,
+    ITEMWIN_ROTOM_CATALOG,
+    ITEMWIN_ZYGARDE_CUBE,
+#endif
     ITEMWIN_COUNT
 };
 
-#define ITEMMENU_SWAP_LINE_LENGTH 8  // Swap line is 8 sprites long
+enum BagSortOptions
+{
+    SORT_ALPHABETICALLY,
+    SORT_BY_TYPE,
+    SORT_BY_AMOUNT,
+    SORT_BY_INDEX,
+};
+
+#if SWSH_BAG_BATTLE_POCKETS
+enum BattlePocket
+{
+    BATTLE_POCKET_NONE = 0,
+    BATTLE_POCKET_MEDICINE = POCKETS_COUNT,
+    BATTLE_POCKET_POKE_BALLS,
+    BATTLE_POCKET_BATTLE_ITEMS,
+    BATTLE_POCKET_BERRIES,
+    BATTLE_POCKETS_END,
+};
+#define BATTLE_POCKETS_COUNT (BATTLE_POCKETS_END - POCKETS_COUNT)
+#define BATTLE_POCKET_CAPACITY max(BAG_ITEMS_COUNT, max(BAG_POKEBALLS_COUNT, BAG_BERRIES_COUNT))
+#define BAG_POCKET_IDS_COUNT BATTLE_POCKETS_END
+#else
+#define BAG_POCKET_IDS_COUNT POCKETS_COUNT
+#endif
+
+#define ITEMMENU_SWAP_LINE_LENGTH 8
+#if SWSH_BAG_MENU
+#define HOVER_SLOT_SPRITES_COUNT        5
+#define FRAME_QUANTITY_SPRITES_COUNT    2
+#define SPINNER_ARROW_SPRITES_COUNT     2
+#define SCROLL_THUMB_SPRITES_COUNT      3
+#define PROMPT_WIDTH                    3
+#define PROMPT_HEIGHT                   3
+#endif
 enum {
     ITEMMENUSPRITE_BAG,
     ITEMMENUSPRITE_BALL,
     ITEMMENUSPRITE_ITEM,
-    ITEMMENUSPRITE_ITEM_ALT, // Need two when selecting new item
+    ITEMMENUSPRITE_ITEM_ALT,
     ITEMMENUSPRITE_SWAP_LINE,
     ITEMMENUSPRITE_COUNT = ITEMMENUSPRITE_SWAP_LINE + ITEMMENU_SWAP_LINE_LENGTH,
 };
@@ -51,17 +100,28 @@ struct BagPosition
     void (*exitCallback)(void);
     u8 location;
     u8 pocket;
+#if SWSH_BAG_PYRAMID
+    bool8 isPyramid;
+#endif
     u16 pocketSwitchArrowPos;
-    u16 cursorPosition[POCKETS_COUNT];
-    u16 scrollPosition[POCKETS_COUNT];
+    u16 cursorPosition[BAG_POCKET_IDS_COUNT];
+    u16 scrollPosition[BAG_POCKET_IDS_COUNT];
 };
 
 extern struct BagPosition gBagPosition;
 
+#define ITEM_DESCRIPTION_BUFFER_SIZE 200
+
 struct BagMenu
 {
     void (*newScreenCallback)(void);
+#if SWSH_BAG_MENU
+    u8 bg0TilemapBuffer[BG_SCREEN_SIZE];
+    u8 mainTilemapBuffer[BG_SCREEN_SIZE];
+    u8 scrollingBgTilemapBuffer[BG_SCREEN_SIZE];
+#else
     u8 tilemapBuffer[BG_SCREEN_SIZE];
+#endif
     u8 spriteIds[ITEMMENUSPRITE_COUNT];
     u8 windowIds[ITEMWIN_COUNT];
     u8 toSwapPos;
@@ -75,12 +135,60 @@ struct BagMenu
     const u8 *contextMenuItemsPtr;
     u8 contextMenuItemsBuffer[4];
     u8 contextMenuNumItems;
-    u8 numItemStacks[POCKETS_COUNT];
-    u8 numShownItems[POCKETS_COUNT];
+    u8 numItemStacks[BAG_POCKET_IDS_COUNT];
+    u8 numShownItems[BAG_POCKET_IDS_COUNT];
     s16 graphicsLoadState;
     u8 unused2[14];
     u8 ALIGNED(4) pocketNameBuffer[32][32];
     u8 unused3[4];
+#if SWSH_BAG_MENU
+    u8 partyMonIconSpriteIds[PARTY_SIZE];
+    u8 cursorSpriteId;
+    u8 spinnerArrowSpriteIds[SPINNER_ARROW_SPRITES_COUNT];
+    u8 hoverSlotSpriteIds[HOVER_SLOT_SPRITES_COUNT];
+    u8 scrollThumbSpriteIds[SCROLL_THUMB_SPRITES_COUNT];
+    u8 pocketScrollArrowSpriteIds[2];
+    u8 frameQuantityIds[FRAME_QUANTITY_SPRITES_COUNT];
+    u8 moveInfoMode;
+    u8 moveTypeIconSpriteId;
+    u8 categoryIconSpriteId;
+    u16 showItemIconId;
+    u32 cursorAnimId;
+    u32 cursorBobAnimId;
+    u32 scrollThumbAnimId;
+    u32 pocketScrollArrowAnimIds[2];
+    s32 hoveredItemIndex;
+    u16 listTotal;
+    u8 listShown;
+    u16 promptTilemapBackup[PROMPT_WIDTH * PROMPT_HEIGHT];
+    u16 *moveTypeIconTilesPtr;
+    u8 *moveTypeIconsCache;
+    u8 descriptionBuffer[ITEM_DESCRIPTION_BUFFER_SIZE];
+#if SWSH_BAG_BERRY_STAT
+    u8 berryInfoMode;
+#endif
+#if SWSH_BAG_IN_BAG_USE
+    const struct YesNoFuncTable *partyYesNoFuncs;
+    bool8 partyGiveMode;
+    bool8 partyBlendActive;
+    u16 partyGiveSwapItem;
+    u8 heldItemIconSpriteId;
+    u16 heldItemPalIndex;
+    s8 heldItemShownSlot;
+    u16 heldItemShownItem;
+    u8 statusIconSpriteIds[PARTY_SIZE];
+    s8 prevHPBarSlot;
+    bool8 hpBarWindowMapped;
+    u8 multiFullPage;
+#endif
+#if SWSH_BAG_PYRAMID
+    struct ItemSlot pyramidScratch[PYRAMID_BAG_ITEMS_COUNT];
+    struct BagPocket pyramidScratchPocket;
+#endif
+#if SWSH_BAG_BATTLE_POCKETS
+    u16 battlePocketRefs[BATTLE_POCKETS_COUNT][BATTLE_POCKET_CAPACITY];
+#endif
+#endif
 };
 
 extern struct BagMenu *gBagMenu;
@@ -97,19 +205,22 @@ void CB2_BagMenuFromStartMenu(void);
 u8 GetItemListPosition(u8 pocketId);
 bool8 UseRegisteredKeyItemOnField(u8 button);
 void CB2_GoToSellMenu(void);
-void GoToBagMenu(u8 bagMenuType, u8 pocketId, void ( *exitCallback)());
+void GoToBagMenu(u8 bagMenuType, u8 pocketId, void (*exitCallback)());
 void DoWallyTutorialBagMenu(void);
 void ResetBagScrollPositions(void);
 void ChooseBerryForMachine(void (*exitCallback)(void));
 void CB2_ChooseBerry(void);
 void CB2_ChooseMulch(void);
 void Task_FadeAndCloseBagMenu(u8 taskId);
-void BagMenu_YesNo(u8 taskId, u8 windowType, const struct YesNoFuncTable* funcTable);
+void BagMenu_YesNo(u8 taskId, u8 windowType, const struct YesNoFuncTable *funcTable);
 void UpdatePocketItemList(u8 pocketId);
-void DisplayItemMessage(u8 taskId, u8 fontId, const u8 *str, void ( *callback)(u8 taskId));
+void DisplayItemMessage(u8 taskId, u8 fontId, const u8 *str, void (*callback)(u8 taskId));
 void DisplayItemMessageOnField(u8 taskId, const u8 *src, TaskFunc callback);
 void CloseItemMessage(u8 taskId);
 void ItemMenu_RotomCatalog(u8 taskId);
 void ShowRegisteredItemsMenu(void);
+void InitOldManBag(void);
+void CB2_ChooseBall(void);
+void SortItemsInBag(struct BagPocket *pocket, enum BagSortOptions type);
 
 #endif //GUARD_ITEM_MENU_H
