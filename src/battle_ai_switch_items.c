@@ -33,7 +33,7 @@ static bool32 CanAbilityTrapOpponent(u16 ability, u32 opponent);
 
 static void InitializeSwitchinCandidate(struct Pokemon *mon)
 {
-    PokemonToBattleMon(mon, &AI_DATA->switchinCandidate.battleMon);
+    PokemonToBattleMon(mon, &AI_DATA->switchinCandidate.battleMon, TRUE);
     AI_DATA->switchinCandidate.hypotheticalStatus = FALSE;
 }
 

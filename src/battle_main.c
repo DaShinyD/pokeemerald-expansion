@@ -43,6 +43,7 @@
 #include "pokemon.h"
 #include "random.h"
 #include "recorded_battle.h"
+#include "reshow_battle_screen.h"
 #include "roamer.h"
 #include "safari_zone.h"
 #include "scanline_effect.h"
@@ -126,6 +127,9 @@ static void HandleEndTurn_FinishBattle(void);
 static u32 Crc32B (const u8 *data, u32 size);
 static u32 GeneratePartyHash(const struct Trainer *trainer, u32 i);
 static s32 Factorial(s32);
+static void PlayerTryEvolution(void);
+static void WaitForEvolutionThenTryAnother(void);
+static void CB2_SetUpReshowBattleScreenAfterEvolution(void);
 
 EWRAM_DATA u16 gBattle_BG0_X = 0;
 EWRAM_DATA u16 gBattle_BG0_Y = 0;
@@ -145,6 +149,8 @@ EWRAM_DATA u8 gBattleTextBuff2[TEXT_BUFF_ARRAY_COUNT] = {0};
 EWRAM_DATA u8 gBattleTextBuff3[TEXT_BUFF_ARRAY_COUNT + 13] = {0};   // expanded for stupidly long z move names
 EWRAM_DATA u32 gBattleTypeFlags = 0;
 EWRAM_DATA u8 gBattleEnvironment = 0;
+EWRAM_DATA bool8 gPlayerDoesNotWantToEvolveLeft = FALSE;
+EWRAM_DATA bool8 gPlayerDoesNotWantToEvolveRight = FALSE;
 EWRAM_DATA struct MultiPartnerMenuPokemon gMultiPartnerParty[MULTI_PARTY_SIZE] = {0};
 EWRAM_DATA static struct MultiPartnerMenuPokemon* sMultiPartnerPartyBuffer = NULL;
 EWRAM_DATA u8 *gBattleAnimBgTileBuffer = NULL;
@@ -190,6 +196,7 @@ EWRAM_DATA u8 gLastHitBy[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u16 gChosenMoveByBattler[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA u32 gHitMarker = 0;
 EWRAM_DATA u8 gBideTarget[MAX_BATTLERS_COUNT] = {0};
+EWRAM_DATA u8 gBattleEnvironmentBackup = 0;
 EWRAM_DATA u32 gSideStatuses[NUM_BATTLE_SIDES] = {0};
 EWRAM_DATA struct SideTimer gSideTimers[NUM_BATTLE_SIDES] = {0};
 EWRAM_DATA u32 gStatuses3[MAX_BATTLERS_COUNT] = {0};
@@ -447,6 +454,9 @@ void CB2_InitBattle(void)
             SetMainCallback2(CB2_PreInitIngamePlayerPartnerBattle);
         }
         gBattleCommunication[MULTIUSE_STATE] = 0;
+
+        gPlayerDoesNotWantToEvolveLeft = FALSE;
+        gPlayerDoesNotWantToEvolveRight = FALSE;
     }
     else
     {
@@ -3052,6 +3062,8 @@ static void BattleStartClearSetData(void)
     gPauseCounterBattle = 0;
     gIntroSlideFlags = 0;
     gLeveledUpInBattle = 0;
+    gPlayerDoesNotWantToEvolveLeft = FALSE;
+    gPlayerDoesNotWantToEvolveRight = FALSE;
     gAbsentBattlerFlags = 0;
     gBattleStruct->runTries = 0;
     gBattleStruct->safariGoNearCounter = 0;
@@ -4022,7 +4034,7 @@ void BattleTurnPassed(void)
     AssignUsableGimmicks();
     SetShellSideArmCategory();
     SetAiLogicDataForTurn(AI_DATA); // get assumed abilities, hold effects, etc of all battlers
-    gBattleMainFunc = HandleTurnActionSelectionState;
+    gBattleMainFunc = B_MID_BATTLE_EVOLUTION ? PlayerTryEvolution : HandleTurnActionSelectionState;
 
     if (gBattleTypeFlags & BATTLE_TYPE_PALACE)
         BattleScriptExecute(BattleScript_PalacePrintFlavorText);
@@ -4158,6 +4170,100 @@ enum
     STATE_WAIT_SET_BEFORE_ACTION,
     STATE_SELECTION_SCRIPT_MAY_RUN
 };
+
+#define tSpeciesToEvolveInto data[0]
+#define tBattlerPosition data[1]
+
+static void CB2_SetUpReshowBattleScreenAfterEvolution(void)
+{
+    gBattleEnvironment = gBattleEnvironmentBackup;
+    SetMainCallback2(ReshowBattleScreenAfterMenu);
+}
+
+static void Task_BeginBattleEvolutionScene(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        u8 partyId = gTasks[taskId].tBattlerPosition;
+        u16 speciesToEvolveInto = gTasks[taskId].tSpeciesToEvolveInto;
+
+        FreeAllWindowBuffers();
+        gCB2_AfterEvolution = CB2_SetUpReshowBattleScreenAfterEvolution;
+        gBattleEnvironmentBackup = gBattleEnvironment;
+        DestroyTask(taskId);
+        EvolutionScene(&gPlayerParty[partyId], speciesToEvolveInto, TRUE, partyId);
+    }
+}
+
+static bool32 TryMidBattleEvolutionForBattler(u32 battler, bool8 *playerDoesNotWant)
+{
+    u32 partyIndex;
+    u16 species;
+    u8 taskId;
+
+    if (GetBattlerSide(battler) != B_SIDE_PLAYER)
+        return FALSE;
+    if (GetBattlerParty(battler) != gPlayerParty)
+        return FALSE;
+    if (!IsBattlerAlive(battler))
+        return FALSE;
+    if (GetActiveGimmick(battler) != GIMMICK_NONE)
+        return FALSE;
+
+    partyIndex = gBattlerPartyIndexes[battler];
+    if (!(gLeveledUpInBattle & (1u << partyIndex)) || *playerDoesNotWant)
+        return FALSE;
+
+    gLeveledUpInBattle &= ~(1u << partyIndex);
+    species = GetEvolutionTargetSpecies(&gPlayerParty[partyIndex], EVO_MODE_NORMAL, ITEM_NONE, NULL);
+    if (species == SPECIES_NONE)
+        return FALSE;
+
+    BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
+    gBattleMainFunc = WaitForEvolutionThenTryAnother;
+    taskId = CreateTask(Task_BeginBattleEvolutionScene, 0);
+    gTasks[taskId].tSpeciesToEvolveInto = species;
+    gTasks[taskId].tBattlerPosition = partyIndex;
+    return TRUE;
+}
+
+static void PlayerTryEvolution(void)
+{
+    u32 battlerLeft = GetBattlerAtPosition(B_POSITION_PLAYER_LEFT);
+    u32 battlerRight = GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT);
+
+    if (gBattleTypeFlags & (BATTLE_TYPE_LINK
+                          | BATTLE_TYPE_RECORDED_LINK
+                          | BATTLE_TYPE_RECORDED
+                          | BATTLE_TYPE_SAFARI
+                          | BATTLE_TYPE_FRONTIER
+                          | BATTLE_TYPE_EREADER_TRAINER
+                          | BATTLE_TYPE_WALLY_TUTORIAL
+                          | BATTLE_TYPE_FIRST_BATTLE))
+    {
+        gBattleMainFunc = HandleTurnActionSelectionState;
+        return;
+    }
+
+    if (TryMidBattleEvolutionForBattler(battlerLeft, &gPlayerDoesNotWantToEvolveLeft))
+        return;
+
+    if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+     && !(gBattleTypeFlags & (BATTLE_TYPE_INGAME_PARTNER | BATTLE_TYPE_MULTI))
+     && TryMidBattleEvolutionForBattler(battlerRight, &gPlayerDoesNotWantToEvolveRight))
+        return;
+
+    gBattleMainFunc = HandleTurnActionSelectionState;
+}
+
+static void WaitForEvolutionThenTryAnother(void)
+{
+    if (gMain.callback2 == BattleMainCB2 && !gPaletteFade.active)
+        gBattleMainFunc = PlayerTryEvolution;
+}
+
+#undef tSpeciesToEvolveInto
+#undef tBattlerPosition
 
 void SetupAISwitchingData(u32 battler, enum SwitchType switchType)
 {

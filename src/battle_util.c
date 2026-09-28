@@ -3611,6 +3611,42 @@ static void CancellerPowderStatus(u32 *effect)
     }
 }
 
+static void CancellerCastformWeather(u32 *effect)
+{
+    u32 weatherId = BATTLE_WEATHER_COUNT;
+    u32 move = gCurrentMove;
+    u32 moveType = GetMoveType(move);
+    u32 species = gBattleMons[gBattlerAttacker].species;
+
+    if (GetBattlerAbility(gBattlerAttacker) != ABILITY_FORECAST
+     || GET_BASE_SPECIES_ID(species) != SPECIES_CASTFORM
+     || (gBattleMons[gBattlerAttacker].status2 & STATUS2_TRANSFORMED))
+        return;
+
+    if (moveType == TYPE_WATER || move == MOVE_THUNDER || move == MOVE_HURRICANE)
+        weatherId = BATTLE_WEATHER_RAIN;
+    else if (moveType == TYPE_FIRE
+          || move == MOVE_SOLAR_BEAM
+          || move == MOVE_SOLAR_BLADE
+          || move == MOVE_SYNTHESIS
+          || move == MOVE_MORNING_SUN
+          || move == MOVE_MOONLIGHT
+          || move == MOVE_GROWTH)
+        weatherId = BATTLE_WEATHER_SUN;
+    else if (moveType == TYPE_ICE)
+        weatherId = (B_SNOW_WARNING >= GEN_9) ? BATTLE_WEATHER_SNOW : BATTLE_WEATHER_HAIL;
+    else if (moveType == TYPE_GROUND || moveType == TYPE_ROCK)
+        weatherId = BATTLE_WEATHER_SANDSTORM;
+    else
+        return;
+
+    if (!TryChangeBattleWeather(gBattlerAttacker, weatherId, FALSE))
+        return;
+
+    if (AbilityBattleEffects(ABILITYEFFECT_ON_WEATHER, gBattlerAttacker, 0, 0, 0))
+        *effect = 1;
+}
+
 static void CancellerProtean(u32 *effect)
 {
     u32 moveType = GetBattleMoveType(gCurrentMove);
@@ -3828,6 +3864,7 @@ static const MoveSuccessOrderCancellers sMoveSuccessOrderCancellers[] =
     [CANCELLER_WEATHER_PRIMAL] = CancellerWeatherPrimal,
     [CANCELLER_DYNAMAX_BLOCKED] = CancellerDynamaxBlocked,
     [CANCELLER_POWDER_STATUS] = CancellerPowderStatus,
+    [CANCELLER_CASTFORM_WEATHER] = CancellerCastformWeather,
     [CANCELLER_PROTEAN] = CancellerProtean,
     [CANCELLER_PSYCHIC_TERRAIN] = CancellerPsychicTerrain,
     [CANCELLER_EXPLODING_DAMP] = CancellerExplodingDamp,

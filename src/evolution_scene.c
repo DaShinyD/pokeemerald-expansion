@@ -250,7 +250,8 @@ void EvolutionScene(struct Pokemon *mon, u16 postEvoSpecies, bool8 canStopEvo, u
     gReservedSpritePaletteCount = 4;
 
     sEvoStructPtr = AllocZeroed(sizeof(struct EvoInfo));
-    AllocateMonSpritesGfx();
+    if (!gMain.inBattle || gMonSpritesGfxPtr == NULL)
+        AllocateMonSpritesGfx();
 
     GetMonData(mon, MON_DATA_NICKNAME, name);
     StringCopy_Nickname(gStringVar1, name);
@@ -638,6 +639,26 @@ enum {
 // Task data from CycleEvolutionMonSprite
 #define tEvoStopped data[8]
 
+static bool32 IsOngoingBattleEvolution(void)
+{
+    return gMain.inBattle && gBattleOutcome == 0;
+}
+
+static u32 GetEvolvedBattlerId(u8 partyId)
+{
+    u32 battler;
+
+    for (battler = 0; battler < gBattlersCount; battler++)
+    {
+        if (GetBattlerSide(battler) == B_SIDE_PLAYER
+         && GetBattlerParty(battler) == gPlayerParty
+         && gBattlerPartyIndexes[battler] == partyId)
+            return battler;
+    }
+
+    return MAX_BATTLERS_COUNT;
+}
+
 static void Task_EvolutionScene(u8 taskId)
 {
     u32 var;
@@ -651,6 +672,14 @@ static void Task_EvolutionScene(u8 taskId)
     {
         gTasks[taskId].tState = EVOSTATE_CANCEL;
         gTasks[sEvoGraphicsTaskId].tEvoStopped = TRUE;
+        if (IsOngoingBattleEvolution())
+        {
+            if (gTasks[taskId].tPartyId == gBattlerPartyIndexes[GetBattlerAtPosition(B_POSITION_PLAYER_LEFT)])
+                gPlayerDoesNotWantToEvolveLeft = TRUE;
+            else if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+                  && gTasks[taskId].tPartyId == gBattlerPartyIndexes[GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT)])
+                gPlayerDoesNotWantToEvolveRight = TRUE;
+        }
         StopBgAnimation();
         return;
     }
@@ -778,6 +807,12 @@ static void Task_EvolutionScene(u8 taskId)
             GetSetPokedexFlag(SpeciesToNationalPokedexNum(gTasks[taskId].tPostEvoSpecies), FLAG_SET_SEEN);
             GetSetPokedexFlag(SpeciesToNationalPokedexNum(gTasks[taskId].tPostEvoSpecies), FLAG_SET_CAUGHT);
             IncrementGameStat(GAME_STAT_EVOLVED_POKEMON);
+            if (IsOngoingBattleEvolution())
+            {
+                u32 battler = GetEvolvedBattlerId(gTasks[taskId].tPartyId);
+                if (battler < MAX_BATTLERS_COUNT)
+                    CopyPartyMonToBattleData(battler, gTasks[taskId].tPartyId, FALSE);
+            }
         }
         break;
     case EVOSTATE_TRY_LEARN_MOVE:
@@ -790,7 +825,10 @@ static void Task_EvolutionScene(u8 taskId)
                 if (!(gTasks[taskId].tBits & TASK_BIT_LEARN_MOVE))
                 {
                     StopMapMusic();
-                    Overworld_PlaySpecialMapMusic();
+                    if (IsOngoingBattleEvolution())
+                        PlayBattleBGM();
+                    else
+                        Overworld_PlaySpecialMapMusic();
                 }
 
                 gTasks[taskId].tBits |= TASK_BIT_LEARN_MOVE;
@@ -804,7 +842,15 @@ static void Task_EvolutionScene(u8 taskId)
                 else if (var == MON_ALREADY_KNOWS_MOVE)
                     break;
                 else
+                {
+                    if (IsOngoingBattleEvolution())
+                    {
+                        u32 battler = GetEvolvedBattlerId(gTasks[taskId].tPartyId);
+                        if (battler < MAX_BATTLERS_COUNT)
+                            GiveMoveToBattleMon(&gBattleMons[battler], var);
+                    }
                     gTasks[taskId].tState = EVOSTATE_LEARNED_MOVE;
+                }
             }
             else // no move to learn, or evolution was canceled
             {
@@ -819,13 +865,17 @@ static void Task_EvolutionScene(u8 taskId)
             if (!(gTasks[taskId].tBits & TASK_BIT_LEARN_MOVE))
             {
                 StopMapMusic();
-                Overworld_PlaySpecialMapMusic();
+                if (IsOngoingBattleEvolution())
+                    PlayBattleBGM();
+                else
+                    Overworld_PlaySpecialMapMusic();
             }
             if (!gTasks[taskId].tEvoWasStopped)
                 CreateShedinja(gTasks[taskId].tPreEvoSpecies, mon);
 
             DestroyTask(taskId);
-            FreeMonSpritesGfx();
+            if (!IsOngoingBattleEvolution())
+                FreeMonSpritesGfx();
             FREE_AND_SET_NULL(sEvoStructPtr);
             FreeAllWindowBuffers();
             SetMainCallback2(gCB2_AfterEvolution);
@@ -1006,6 +1056,16 @@ static void Task_EvolutionScene(u8 taskId)
                     {
                         // Forget move
                         PREPARE_MOVE_BUFFER(gBattleTextBuff2, move)
+
+                        if (IsOngoingBattleEvolution())
+                        {
+                            u32 battler = GetEvolvedBattlerId(gTasks[taskId].tPartyId);
+                            if (battler < MAX_BATTLERS_COUNT)
+                            {
+                                RemoveBattleMonPPBonus(&gBattleMons[battler], var);
+                                SetBattleMonMoveSlot(&gBattleMons[battler], gMoveToLearn, var);
+                            }
+                        }
 
                         RemoveMonPPBonus(mon, var);
                         SetMonMoveSlot(mon, gMoveToLearn, var);

@@ -1836,8 +1836,9 @@
 #define SPECIES_ELECTRODE_HEAL                        1717
 #define SPECIES_ELECTRODE_DUSK                        1718
 #define SPECIES_ELECTRODE_BEAST                       1719
+#define SPECIES_CASTFORM_SANDSTORM                    1720
 
-#define SPECIES_EGG                                     (SPECIES_ELECTRODE_BEAST + 1)
+#define SPECIES_EGG                                     (SPECIES_CASTFORM_SANDSTORM + 1)
 
 #define NUM_SPECIES SPECIES_EGG
 
