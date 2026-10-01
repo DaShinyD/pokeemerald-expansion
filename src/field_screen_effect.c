@@ -465,8 +465,16 @@ void ReturnToFieldOpenStartMenu(void)
 
 bool8 FieldCB_ReturnToFieldOpenStartMenu(void)
 {
-    ShowReturnToFieldStartMenu();
-    return FALSE;
+    if (GetSafariZoneFlag() || InBattlePyramid() || InBattlePike() || InUnionRoom() || InMultiPartnerRoom())
+    {
+        ShowReturnToFieldStartMenu();
+        return FALSE;
+    }
+
+    FreezeObjectEvents();
+    LockPlayerFieldControls();
+    CreateTask(Task_OpenStartMenuFullScreen, 0);
+    return TRUE;
 }
 
 static void Task_ReturnToFieldNoScript(u8 taskId)

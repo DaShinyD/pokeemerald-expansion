@@ -6,6 +6,7 @@ DistortionWorld_MapScripts::
 DistortionWorld_EventScript_Giratina::
 	lock
 	faceplayer
+	call Common_EventScript_SaveGame
 	playmoncry SPECIES_GIRATINA, CRY_MODE_ENCOUNTER
 	waitmoncry
 	setvar VAR_0x8004, 1  @ vertical pan
@@ -16,14 +17,16 @@ DistortionWorld_EventScript_Giratina::
 	delay 50
 	setwildbattle SPECIES_GIRATINA, 70
 	special BattleSetup_StartLegendaryBattle
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	waitstate
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-	delay 50
-	removeobject LOCALID_GIRATINA
+	specialvar VAR_RESULT, GetBattleOutcome
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, DistortionWorld_EventScript_GiratinaCaught
+	release
+	end
+
+DistortionWorld_EventScript_GiratinaCaught::
 	setflag FLAG_GIRATINA
+	removeobject LOCALID_GIRATINA
 	clearflag FLAG_DIALGA
 	clearflag FLAG_PALKIA
 	release
 	end
-

@@ -73,6 +73,7 @@ SouthernIsland_Interior_EventScript_Lati::
 	waitmovement 0
 	delay 50
 	special RemoveCameraObject
+	call Common_EventScript_SaveGame
 	setvar VAR_LAST_TALKED, LOCALID_LATI
 	call_if_eq VAR_ROAMER_POKEMON, 0, SouthernIsland_Interior_EventScript_SetLatiosBattleVars
 	call_if_ne VAR_ROAMER_POKEMON, 0, SouthernIsland_Interior_EventScript_SetLatiasBattleVars

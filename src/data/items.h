@@ -15111,4 +15111,19 @@ const struct Item gItemsInfo[] =
         .iconPic = gItemIcon_AlphaBall,
         .iconPalette = gItemIconPalette_AlphaBall,
     },
+
+    [ITEM_JOY_SCENT] =
+    {
+        .name = _("Joy Scent"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Purifies a Shadow\n"
+            "Pokémon whose Heart\n"
+            "Gauge is full."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_JoyScent,
+        .iconPic = gItemIcon_RoseIncense,
+        .iconPalette = gItemIconPalette_RoseIncense,
+    },
 };

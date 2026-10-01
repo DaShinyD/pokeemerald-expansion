@@ -573,6 +573,7 @@ gSpecials::
 	def_special EnterMysteryGiftCode
 	def_special GetMysteryGiftFeedback
 	def_special HasAllRegisInParty
+	def_special SetPartyRegisToLevel100
 	def_special AreAllPartyMonsLevel200
 	def_special CheckIfPartySizeIsExactly4
 	def_special StartBeedrillFinalHitBattle
@@ -592,4 +593,5 @@ gSpecials::
 	def_special OpenQuestMenuSpecial
 	def_special Special_AreLevelCapsEnabled
 	def_special Special_ActivateNuzlockeRules
+	def_special GiveShadowLegendaries
 

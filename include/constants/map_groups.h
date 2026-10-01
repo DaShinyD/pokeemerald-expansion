@@ -716,6 +716,7 @@
 #define MAP_FUCHSIA_SAFARI (0 | (43 << 8))
 
 // gMapGroup_IndoorCinnabar
+#define MAP_CINNABAR_ISLAND_HOUSE1 (0 | (44 << 8))
 
 // gMapGroup_IndoorPallet
 #define MAP_OAK_LAB (0 | (45 << 8))

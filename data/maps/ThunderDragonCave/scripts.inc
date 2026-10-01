@@ -71,18 +71,18 @@ ThunderDragonCave_EventScript_Reset::
 ThunderDragonCave_EventScript_Regidrago::
 	lock
 	faceplayer
+	call Common_EventScript_SaveGame
 	playmoncry SPECIES_REGIDRAGO, CRY_MODE_ENCOUNTER
 	waitmoncry
 	setwildbattle SPECIES_REGIDRAGO, 40
 	special BattleSetup_StartLegendaryBattle
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, ThunderDragonCave_EventScript_RegidragoGone
-	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ThunderDragonCave_EventScript_RegidragoGone
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ThunderDragonCave_EventScript_RegidragoCaught
 	release
 	end
 
-ThunderDragonCave_EventScript_RegidragoGone::
+ThunderDragonCave_EventScript_RegidragoCaught::
 	fadescreen FADE_TO_BLACK
 	setflag FLAG_REGIDRAGO
 	removeobject LOCALID_REGIDRAGO
@@ -93,18 +93,18 @@ ThunderDragonCave_EventScript_RegidragoGone::
 ThunderDragonCave_EventScript_Regieleki::
 	lock
 	faceplayer
+	call Common_EventScript_SaveGame
 	playmoncry SPECIES_REGIELEKI, CRY_MODE_ENCOUNTER
 	waitmoncry
 	setwildbattle SPECIES_REGIELEKI, 40
 	special BattleSetup_StartLegendaryBattle
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, ThunderDragonCave_EventScript_RegielekiGone
-	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ThunderDragonCave_EventScript_RegielekiGone
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, ThunderDragonCave_EventScript_RegielekiCaught
 	release
 	end
 
-ThunderDragonCave_EventScript_RegielekiGone::
+ThunderDragonCave_EventScript_RegielekiCaught::
 	fadescreen FADE_TO_BLACK
 	setflag FLAG_REGIELEKI
 	removeobject LOCALID_REGIELEKI

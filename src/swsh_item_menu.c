@@ -35,6 +35,7 @@
 #include "party_menu.h"
 #include "player_pc.h"
 #include "pokemon.h"
+#include "shadow_pokemon.h"
 #include "pokemon_summary_screen.h"
 #include "bw_summary_screen.h"
 #include "scanline_effect.h"
@@ -400,6 +401,7 @@ static void BagMenu_UseMint(u8);
 static void BagMenu_UseRareCandy(u8);
 static void BagMenu_UseEvolutionStone(u8);
 static void BagMenu_UseFormChange(u8);
+static void BagMenu_UseJoyScent(u8);
 static void Task_BagMenu_FormChangeAnim(u8);
 static void BagMenu_SpriteCB_FormChangeIconMosaic(struct Sprite *);
 static void Task_BagMenu_PartyInput(u8);
@@ -1701,7 +1703,7 @@ void ResetBagScrollPositions(void)
 
 void CB2_BagMenuFromStartMenu(void)
 {
-    GoToBagMenu(ITEMMENULOCATION_FIELD, POCKETS_COUNT, CB2_ReturnToFieldWithOpenMenu);
+    GoToBagMenu(ITEMMENULOCATION_FIELD, POCKETS_COUNT, CB2_ReturnToFullScreenStartMenu);
 }
 
 void CB2_BagMenuFromBattle(void)
@@ -6824,6 +6826,8 @@ static bool8 BagMenu_IsMonEligibleForItem(u8 partySlot)
         }
         return FALSE;
     }
+    if (gItemUseCB == ItemUseCB_PurifyShadow)
+        return IsShadowMon(mon);
     return FALSE;
 }
 
@@ -6955,7 +6959,8 @@ static void BagMenu_ApplyItemUseBlend(void)
             || gItemUseCB == ItemUseCB_FormChange
             || gItemUseCB == ItemUseCB_FormChange_ConsumedOnUse
             || gItemUseCB == ItemUseCB_RotomCatalog
-            || gItemUseCB == ItemUseCB_ZygardeCube)
+            || gItemUseCB == ItemUseCB_ZygardeCube
+            || gItemUseCB == ItemUseCB_PurifyShadow)
         BagMenu_ApplyPartyBlend(BagMenu_IsMonEligibleForItem);
 }
 
@@ -8485,6 +8490,37 @@ static void Task_BagMenu_FormChangeAnim(u8 taskId)
     }
 }
 
+static const u8 sText_ShadowPurified[] = _("{STR_VAR_1}'s heart was purified!\nIt gained the stored Exp. Points!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_ShadowHeartNotFull[] = _("The Heart Gauge isn't full yet.{PAUSE_UNTIL_PRESS}");
+
+static void BagMenu_UseJoyScent(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+    struct Pokemon *mon = &SwShParty(B_TRAINER_PLAYER)[tPartySlot];
+    u16 item = gSpecialVar_ItemId;
+
+    PlaySE(SE_SELECT);
+
+    if (PurifyShadowMon(mon))
+    {
+        RemoveBagItem(item, 1);
+        BagMenu_HideDepletedItemCursor(item);
+        BagMenu_DrawPartySlotInfo();
+        PlayFanfare(MUS_EVOLVED);
+        GetMonNickname(mon, gStringVar1);
+        StringExpandPlaceholders(gStringVar4, sText_ShadowPurified);
+        DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, Task_BagMenu_PartyAfterItemUse);
+    }
+    else if (IsShadowMon(mon))
+    {
+        DisplayItemMessage(taskId, FONT_NORMAL, sText_ShadowHeartNotFull, Task_BagMenu_PartyStayAfterMessage);
+    }
+    else
+    {
+        BagMenu_DisplayCannotUseMessage(taskId);
+    }
+}
+
 static void BagMenu_UseFormChange(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
@@ -9650,6 +9686,8 @@ static void BagMenu_UseItem(u8 taskId)
         BagMenu_UseFusion(taskId);
     else if (gItemUseCB == ItemUseCB_TMHM)
         BagMenu_UseTMHM(taskId);
+    else if (gItemUseCB == ItemUseCB_PurifyShadow)
+        BagMenu_UseJoyScent(taskId);
     else
         BagMenu_ClosePartySelect(taskId);
 }

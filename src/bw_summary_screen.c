@@ -39,6 +39,8 @@
 #include "sound.h"
 #include "sprite.h"
 #include "variant_colours.h"
+#include "shadow_pokemon.h"
+#include "constants/pokemon.h"
 #include "string_util.h"
 #include "strings.h"
 #include "task.h"
@@ -161,7 +163,8 @@ static EWRAM_DATA struct PokemonSummaryScreenData
         u16 species2; // 0x2
         u8 isEgg:1; // 0x4
         u8 isShiny:1;
-        u8 padding:6;
+        u8 isShadow:1;
+        u8 padding:5;
         u8 level; // 0x5
         u8 ribbonCount; // 0x6
         u8 ailment; // 0x7
@@ -202,6 +205,7 @@ static EWRAM_DATA struct PokemonSummaryScreenData
         u8 evSpatk;
         u8 evSpdef;
         u8 evSpeed; // 0x56
+        u8 shadowHeart;
     } summary;
     u16 bg3TilemapBuffers[PSS_BUFFER_SIZE];
     u16 bg2TilemapBuffers[PSS_PAGE_COUNT][PSS_BUFFER_SIZE];
@@ -233,6 +237,8 @@ static EWRAM_DATA u8 sMoveSlotToReplace = 0;
 ALIGNED(4) static EWRAM_DATA u8 sAnimDelayTaskId = 0;
 ALIGNED(4) static EWRAM_DATA u8 sShadowAnimDelayTaskId = 0;
 static EWRAM_DATA u8 sStringVar5[8] = {0};
+static EWRAM_DATA u16 sExpBarPalBackup[16] = {0};
+static EWRAM_DATA bool8 sExpBarPalBackedUp = FALSE;
 
 // forward declarations
 static bool8 LoadGraphics(void);
@@ -254,6 +260,8 @@ static void PssScroll(u8);
 static void PssScrollEnd(u8);
 static void TryDrawExperienceProgressBar(void);
 static void TryDrawHPBar(void);
+static void OverrideExpBarPalette(bool32 isShadow);
+static void PrintSkillsExpLabel(void);
 static void SwitchToMoveSelection(u8);
 static void Task_HandleInput_MoveSelect(u8);
 static bool8 HasMoreThanOneMove(void);
@@ -399,6 +407,9 @@ static const u8 sText_ViewStats[]                           = _("View Stats");
 static const u8 sText_ViewIVs_Graded[]                      = _("See Innate");
 static const u8 sText_ViewEVs_Graded[]                      = _("See Effort");
 static const u8 sText_NextLv[]                              = _("Next Lv.");
+static const u8 sText_ToPurify[]                            = _("To purify");
+static const u8 sText_Shadow[]                              = _("Shadow");
+static const u8 sText_ShadowMemo[]                          = _("A Shadow Pokémon.\n");
 static const u8 sText_RentalPkmn[]                          = _("Rental Pokémon");
 static const u8 sText_None[]                                = _("None");
 #else
@@ -415,6 +426,9 @@ static const u8 sText_ViewStats[]                           = _("VIEW STATS");
 static const u8 sText_ViewIVs_Graded[]                      = _("SEE INNATE");
 static const u8 sText_ViewEVs_Graded[]                      = _("SEE EFFORT");
 static const u8 sText_NextLv[]                              = _("NEXT LV.");
+static const u8 sText_ToPurify[]                            = _("TO PURIFY");
+static const u8 sText_Shadow[]                              = _("SHADOW");
+static const u8 sText_ShadowMemo[]                          = _("A Shadow Pokémon.\n");
 static const u8 sText_RentalPkmn[]                          = _("RENTAL POKéMON");
 static const u8 sText_None[]                                = _("NONE");
 #endif
@@ -2064,6 +2078,8 @@ static bool8 DecompressGraphics(void)
     case 8:
         LoadCompressedPalette(sSummaryScreen_Pal_BW, BG_PLTT_ID(0), 8 * PLTT_SIZE_4BPP);
         LoadPalette(&sSummaryScreen_PPTextPalette_BW, BG_PLTT_ID(8) + 1, PLTT_SIZEOF(16 - 1));
+        sExpBarPalBackedUp = FALSE;
+        OverrideExpBarPalette(FALSE);
         sMonSummaryScreen->switchCounter++;
         break;
     case 9:
@@ -2176,6 +2192,8 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
         sum->item = GetMonData(mon, MON_DATA_HELD_ITEM);
         sum->pid = GetMonData(mon, MON_DATA_PERSONALITY);
         sum->sanity = GetMonData(mon, MON_DATA_SANITY_IS_BAD_EGG);
+        sum->isShadow = IsShadowMon(mon);
+        sum->shadowHeart = GetMonData(mon, MON_DATA_SHADOW_HEART);
 
         if (sum->sanity)
             sum->isEgg = TRUE;
@@ -2329,6 +2347,7 @@ static void FreeSummaryScreen(void)
 {
     FreeAllWindowBuffers();
     Free(sMonSummaryScreen);
+    sExpBarPalBackedUp = FALSE;
 }
 
 static void BeginCloseSummaryScreen(u8 taskId)
@@ -2848,6 +2867,8 @@ static void TryDrawExperienceProgressBar(void)
 {
     if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS)
         DrawExperienceProgressBar(&sMonSummaryScreen->currentMon);
+    else
+        OverrideExpBarPalette(FALSE);
 }
 
 static void TryDrawHPBar(void)
@@ -3500,6 +3521,52 @@ static void OverrideHPBarPalette(void)
 #define EXP_BAR_TILEMAP_START 0x1F4
 #define EXP_BAR_TILE_EMPTY    0x2100
 #define EXP_BAR_TILE_FULL     0x2108
+#define EXP_BAR_TILE_PAL      2
+
+static void OverrideExpBarPalette(bool32 isShadow)
+{
+    u16 *unfaded = &gPlttBufferUnfaded[BG_PLTT_ID(EXP_BAR_TILE_PAL)];
+    u32 i;
+
+    if (!sExpBarPalBackedUp)
+    {
+        CpuCopy16(unfaded, sExpBarPalBackup, PLTT_SIZEOF(16));
+        sExpBarPalBackedUp = TRUE;
+    }
+
+    CpuCopy16(sExpBarPalBackup, unfaded, PLTT_SIZEOF(16));
+    if (isShadow)
+    {
+        u32 brightest = 1;
+        u32 second = 1;
+        u32 maxSum = 0;
+        u32 secondSum = 0;
+
+        for (i = 1; i < 16; i++)
+        {
+            u16 color = sExpBarPalBackup[i];
+            u32 sum = GET_R(color) + GET_G(color) + GET_B(color);
+
+            if (sum > maxSum)
+            {
+                second = brightest;
+                secondSum = maxSum;
+                brightest = i;
+                maxSum = sum;
+            }
+            else if (sum > secondSum)
+            {
+                second = i;
+                secondSum = sum;
+            }
+        }
+
+        unfaded[brightest] = HP_BAR_LIGHT_RED;
+        unfaded[second] = HP_BAR_DARK_RED;
+    }
+
+    CpuCopy16(unfaded, &gPlttBufferFaded[BG_PLTT_ID(EXP_BAR_TILE_PAL)], PLTT_SIZEOF(16));
+}
 
 static void DrawExperienceProgressBar(struct Pokemon *unused)
 {
@@ -3508,7 +3575,13 @@ static void DrawExperienceProgressBar(struct Pokemon *unused)
     u16 *dst;
     u8 i;
 
-    if (summary->level < MAX_LEVEL)
+    if (IsShadowMon(&sMonSummaryScreen->currentMon))
+    {
+        numExpProgressBarTicks = summary->shadowHeart * 64 / SHADOW_HEART_MAX;
+        if (numExpProgressBarTicks == 0 && summary->shadowHeart != 0)
+            numExpProgressBarTicks = 1;
+    }
+    else if (summary->level < MAX_LEVEL)
     {
         u32 expBetweenLevels = gExperienceTables[gSpeciesInfo[summary->species].growthRate][summary->level + 1] - gExperienceTables[gSpeciesInfo[summary->species].growthRate][summary->level];
         u32 expSinceLastLevel = summary->exp - gExperienceTables[gSpeciesInfo[summary->species].growthRate][summary->level];
@@ -3537,6 +3610,7 @@ static void DrawExperienceProgressBar(struct Pokemon *unused)
             numExpProgressBarTicks = 0;
     }
 
+    OverrideExpBarPalette(IsShadowMon(&sMonSummaryScreen->currentMon));
     ScheduleBgCopyTilemapToVram(2);
 }
 
@@ -3609,6 +3683,8 @@ static void PrintNotEggInfo(void)
     StringAppend(gStringVar1, gStringVar2);
 
     PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME_GENDER_LEVEL, gStringVar1, 5, 13, 0, 0);
+    if (IsShadowMon(mon))
+        PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME_GENDER_LEVEL, sText_Shadow, 28, 13, 0, 6);
     PutWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME_GENDER_LEVEL);
 }
 
@@ -3716,7 +3792,17 @@ static void PrintPageNamesAndStats(void)
         PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_STATS, sText_ViewStats, stringXPos, 1, 0, 1);
     }
 
-    PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, sText_NextLv, 0, 4, 0, 0);
+    PrintSkillsExpLabel();
+}
+
+static void PrintSkillsExpLabel(void)
+{
+    FillWindowPixelBuffer(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, PIXEL_FILL(0));
+    if (IsShadowMon(&sMonSummaryScreen->currentMon))
+        PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, sText_ToPurify, 0, 4, 0, 0);
+    else
+        PrintTextOnWindow(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, sText_NextLv, 0, 4, 0, 0);
+    PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP);
 }
 
 static void PutPageWindowTilemaps(u8 page)
@@ -4015,6 +4101,12 @@ static void BufferMonTrainerMemo(void)
     if (InBattleFactory() == TRUE || InSlateportBattleTent() == TRUE || IsInGamePartnerMon() == TRUE)
     {
         DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, gText_XNature);
+        if (sum->isShadow)
+        {
+            StringCopy(gStringVar1, sText_ShadowMemo);
+            StringAppend(gStringVar1, gStringVar4);
+            StringCopy(gStringVar4, gStringVar1);
+        }
     }
     else
     {
@@ -4051,6 +4143,13 @@ static void BufferMonTrainerMemo(void)
         }
 
         DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, text);
+
+        if (sum->isShadow)
+        {
+            StringCopy(gStringVar1, sText_ShadowMemo);
+            StringAppend(gStringVar1, gStringVar4);
+            StringCopy(gStringVar4, gStringVar1);
+        }
 
         Free(metLevelString);
         Free(metLocationString);
@@ -4443,19 +4542,29 @@ static void PrintExpPointsNextLevel(void)
     u8 windowIdExp = AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_EXP);
     u8 windowIdNextLvl = AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_EXP_NEXT_LEVEL);
 
-    // print exp
-    ConvertIntToDecimalStringN(gStringVar1, sum->exp, STR_CONV_MODE_RIGHT_ALIGN, 8);
-    PrintTextOnWindow(windowIdExp, gStringVar1, 39, 4, 0, 0);
+    PrintSkillsExpLabel();
 
-    // print exp to next level
-    if (sum->level < MAX_LEVEL)
-        expToNextLevel = gExperienceTables[gSpeciesInfo[sum->species].growthRate][sum->level + 1] - sum->exp;
+    FillWindowPixelBuffer(windowIdExp, PIXEL_FILL(0));
+    FillWindowPixelBuffer(windowIdNextLvl, PIXEL_FILL(0));
+
+    if (IsShadowMon(&sMonSummaryScreen->currentMon))
+    {
+        ConvertIntToDecimalStringN(gStringVar1, GetShadowBattlesToPurify(&sMonSummaryScreen->currentMon), STR_CONV_MODE_RIGHT_ALIGN, 8);
+        PrintTextOnWindow(windowIdExp, gStringVar1, 39, 4, 0, 0);
+        CopyWindowToVram(windowIdNextLvl, COPYWIN_GFX);
+    }
     else
-        expToNextLevel = 0;
+    {
+        ConvertIntToDecimalStringN(gStringVar1, sum->exp, STR_CONV_MODE_RIGHT_ALIGN, 8);
+        PrintTextOnWindow(windowIdExp, gStringVar1, 39, 4, 0, 0);
 
-    ConvertIntToDecimalStringN(gStringVar1, expToNextLevel, STR_CONV_MODE_RIGHT_ALIGN, 6);
-
-    PrintTextOnWindow(windowIdNextLvl, gStringVar1, 1, 4, 0, 0);
+        if (sum->level < MAX_LEVEL)
+            expToNextLevel = gExperienceTables[gSpeciesInfo[sum->species].growthRate][sum->level + 1] - sum->exp;
+        else
+            expToNextLevel = 0;
+        ConvertIntToDecimalStringN(gStringVar1, expToNextLevel, STR_CONV_MODE_RIGHT_ALIGN, 6);
+        PrintTextOnWindow(windowIdNextLvl, gStringVar1, 1, 4, 0, 0);
+    }
 }
 
 static void PrintBattleMoves(void)
@@ -4913,11 +5022,10 @@ static void SetTypeIcons(void)
 static void TrySetInfoPageIcons(void)
 {
     if (sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO)
-    { 
         SetPokerusCuredSprite();
-        if (BW_SUMMARY_SHOW_FRIENDSHIP)
-            SetFriendshipSprite();
-    }
+
+    if (BW_SUMMARY_SHOW_FRIENDSHIP)
+        SetFriendshipSprite();
 }
 
 static void CreateMoveTypeIcons(void)
@@ -5098,7 +5206,7 @@ static u8 LoadMonGfxAndSprite(struct Pokemon *mon, s16 *state, bool32 isShadow)
         (*state)++;
         return 0xFF;
     case 1:
-        LoadMonSpritePaletteTagWithVariants(summary->species2, summary->isShiny, summary->pid, summary->species2);
+        LoadMonSpritePaletteTagWithVariants(summary->species2, summary->isShiny, summary->pid, summary->species2, summary->isShadow);
         SetMultiuseSpriteTemplateToPokemon(summary->species2, B_POSITION_OPPONENT_LEFT);
         (*state)++;
         return 0xFF;
@@ -5251,18 +5359,45 @@ static void SetPokerusCuredSprite(void)
 static void SetFriendshipSprite(void)
 {
     u8 level = FRIENDSHIP_LEVEL_0;
+    struct Sprite *sprite;
+    bool32 isShadow = IsShadowMon(&sMonSummaryScreen->currentMon);
     
     if (sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_FRIENDSHIP] == SPRITE_NONE)
         sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_FRIENDSHIP] = CreateSprite(&sSpriteTemplate_FriendshipIcon, 153, 25, 0);
 
-    gSprites[sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_FRIENDSHIP]].invisible = FALSE;
-    
-    // don't even think about swapping the order of the conditions here or the compiler will smite you for your arrogance
-    // I have no idea why it works that way
-    while (level < FRIENDSHIP_LEVEL_MAX && sMonSummaryScreen->summary.friendship >= sFriendshipLevelToThreshold[level + 1])
-        level++;
+    sprite = &gSprites[sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_FRIENDSHIP]];
 
-    StartSpriteAnim(&gSprites[sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_FRIENDSHIP]], level);
+    if (sMonSummaryScreen->currPageIndex == PSS_PAGE_SKILLS && isShadow)
+    {
+        sprite->invisible = FALSE;
+        sprite->x = 226;
+        sprite->y = 120;
+        level = sMonSummaryScreen->summary.shadowHeart * FRIENDSHIP_LEVEL_MAX / SHADOW_HEART_MAX;
+    }
+    else if (sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO)
+    {
+        sprite->invisible = FALSE;
+        sprite->x = 153;
+        sprite->y = 25;
+        if (isShadow)
+            level = sMonSummaryScreen->summary.shadowHeart * FRIENDSHIP_LEVEL_MAX / SHADOW_HEART_MAX;
+        else
+        {
+            // don't even think about swapping the order of the conditions here or the compiler will smite you for your arrogance
+            // I have no idea why it works that way
+            while (level < FRIENDSHIP_LEVEL_MAX && sMonSummaryScreen->summary.friendship >= sFriendshipLevelToThreshold[level + 1])
+                level++;
+        }
+    }
+    else
+    {
+        sprite->invisible = TRUE;
+        sprite->x = 153;
+        sprite->y = 25;
+        return;
+    }
+
+    StartSpriteAnim(sprite, level);
 }
 
 static void CreateMonShinySprite(struct Pokemon *mon)

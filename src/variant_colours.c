@@ -1,4 +1,5 @@
 #include "variant_colours.h"
+#include "shadow_pokemon.h"
 #include "decompress.h"
 #include "malloc.h"
 #include "menu.h"
@@ -444,19 +445,21 @@ bool8 AreColorVariantsEnabled(void)
   return gSaveBlock2Ptr != NULL && !gSaveBlock2Ptr->optionsColorVariantsOff;
 }
 
-void LoadMonPaletteWithVariants(u16 species, bool32 isShiny, u32 personality, u16 offset)
+void LoadMonPaletteWithVariants(u16 species, bool32 isShiny, u32 personality, u16 offset, bool32 isShadow)
 {
   void *buffer = malloc_and_decompress(GetMonSpritePalFromSpeciesAndPersonality(species, isShiny, personality), NULL);
 
   if (buffer != NULL)
   {
     ApplyMonSpeciesVariantToPaletteBuffer(species, isShiny, personality, buffer);
+    if (isShadow)
+      ApplyShadowTintToPaletteBuffer(buffer);
     LoadPalette(buffer, offset, PLTT_SIZE_4BPP);
     Free(buffer);
   }
 }
 
-void LoadMonSpritePaletteTagWithVariants(u16 species, bool32 isShiny, u32 personality, u16 tag)
+void LoadMonSpritePaletteTagWithVariants(u16 species, bool32 isShiny, u32 personality, u16 tag, bool32 isShadow)
 {
   struct SpritePalette dest;
   void *buffer = malloc_and_decompress(GetMonSpritePalFromSpeciesAndPersonality(species, isShiny, personality), NULL);
@@ -464,6 +467,8 @@ void LoadMonSpritePaletteTagWithVariants(u16 species, bool32 isShiny, u32 person
   if (buffer != NULL)
   {
     ApplyMonSpeciesVariantToPaletteBuffer(species, isShiny, personality, buffer);
+    if (isShadow)
+      ApplyShadowTintToPaletteBuffer(buffer);
     dest.data = buffer;
     dest.tag = tag;
     LoadSpritePalette(&dest);

@@ -9,6 +9,8 @@ ShadyForest_MapScripts::
 ShadyForest_EventScript_Celebi::
 	lock
 	msgbox ShadyForest_Text_Pray, MSGBOX_DEFAULT
+	closemessage
+	call Common_EventScript_SaveGame
 	playmoncry SPECIES_CELEBI, CRY_MODE_ENCOUNTER
 	waitmoncry
 	applymovement LOCALID_CELEBI, ShadyForest_Movement_Approach

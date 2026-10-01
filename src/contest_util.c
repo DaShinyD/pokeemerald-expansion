@@ -899,7 +899,7 @@ static void Task_ShowWinnerMonBanner(u8 taskId)
                                 species,
                                 personality);
 
-        LoadMonSpritePaletteTagWithVariants(species, isShiny, personality, species);
+        LoadMonSpritePaletteTagWithVariants(species, isShiny, personality, species, FALSE);
         SetMultiuseSpriteTemplateToPokemon(species, B_POSITION_OPPONENT_LEFT);
         gMultiuseSpriteTemplate.paletteTag = species;
         spriteId = CreateSprite(&gMultiuseSpriteTemplate, DISPLAY_WIDTH + 32, DISPLAY_HEIGHT / 2, 10);
@@ -2579,7 +2579,7 @@ void ShowContestEntryMonPic(void)
         gTasks[taskId].data[1] = species;
         HandleLoadSpecialPokePic(TRUE, gMonSpritesGfxPtr->spritesGfx[B_POSITION_OPPONENT_LEFT], species, personality);
 
-        LoadMonSpritePaletteTagWithVariants(species, isShiny, personality, species);
+        LoadMonSpritePaletteTagWithVariants(species, isShiny, personality, species, FALSE);
         SetMultiuseSpriteTemplateToPokemon(species, B_POSITION_OPPONENT_LEFT);
         gMultiuseSpriteTemplate.paletteTag = species;
         spriteId = CreateSprite(&gMultiuseSpriteTemplate, (left + 1) * 8 + 32, (top * 8) + 40, 0);

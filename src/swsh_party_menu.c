@@ -75,6 +75,7 @@
 #include "union_room.h"
 #include "window.h"
 #include "variant_colours.h"
+#include "shadow_pokemon.h"
 #include "constants/battle.h"
 #include "constants/battle_frontier.h"
 #include "constants/field_effects.h"
@@ -343,6 +344,7 @@ struct PartySlotInfo
     u8 gender;
     bool8 isEgg;
     bool8 focused;
+    bool8 isShadow;
 };
 
 struct PartyMenuBox
@@ -420,6 +422,7 @@ static void Task_ExitPartyMenu(u8);
 static void FreePartyPointers(void);
 static u8 LoadMonGfxAndSprite(struct Pokemon *, s16 *, bool32);
 static u8 CreateMonSprite(struct Pokemon *, bool32);
+static u8 LoadAndApplyMosaicToMonSprite(struct Pokemon *, bool32);
 static void DestroyMonSprite(void);
 static void UpdatePartyMonSprite(u8);
 static void SpriteCB_PartyMonPokemon(struct Sprite *);
@@ -448,7 +451,7 @@ static void DisplayPartyPokemonDataToTeachMove(u8, u16);
 u8 CanTeachMove(struct Pokemon *, u16);
 static void DisplayPartyPokemonBarDetail(u8, const u8 *, u8, const struct PartyBoxRect *);
 static void DisplayPartyPokemonBarDetailToFit(u8 windowId, const u8 *str, u8 color, const struct PartyBoxRect *rect, u32 width);
-static void DisplayPartyPokemonLevel(u8, struct PartyMenuBox *);
+static void DisplayPartyPokemonLevel(u8, struct PartyMenuBox *, bool32);
 static void DisplayPartyPokemonGender(u8, u16, const u8 *, struct PartyMenuBox *, bool8);
 static void RefreshPartySlotGenderPalette(struct PartyMenuBox *, bool8);
 static void RefreshPartySlotHPBarPalette(struct PartyMenuBox *);
@@ -733,6 +736,7 @@ static void Task_FirstBattleEnterParty_RunPrinterMsg2(u8 taskId);
 static void Task_FirstBattleEnterParty_FadeNormal(u8 taskId);
 static void Task_FirstBattleEnterParty_WaitFadeNormal(u8 taskId);
 
+static const u8 sText_ShadowLevel[] = _("S");
 static const u8 sText_askText[] = _("Would you like to change {STR_VAR_1}'s\nability to {STR_VAR_2}?");
 static const u8 sText_doneText[] = _("{STR_VAR_1}'s ability became\n{STR_VAR_2}!{PAUSE_UNTIL_PRESS}");
 static const u8 sText_BasePointsResetToZero[] = _("{STR_VAR_1}'s base points\nwere all reset to zero!{PAUSE_UNTIL_PRESS}");
@@ -1598,6 +1602,7 @@ static void GetPartySlotInfoFromMon(struct Pokemon *mon, struct PartyMenuBox *me
     info->gender     = GetMonGender(mon);
     info->isEgg      = GetMonData(mon, MON_DATA_IS_EGG);
     info->focused    = (menuBox->windowId == gPartyMenu.slotId);
+    info->isShadow   = GetMonData(mon, MON_DATA_IS_SHADOW);
 }
 
 static void GetPartySlotInfoFromMultiPartner(u8 actualSlot, struct PartySlotInfo *info)
@@ -1615,6 +1620,7 @@ static void GetPartySlotInfoFromMultiPartner(u8 actualSlot, struct PartySlotInfo
     info->gender     = partner->gender;
     info->isEgg      = FALSE;
     info->focused    = FALSE;
+    info->isShadow   = FALSE;
 }
 
 static void DrawPartySlot(const struct PartySlotInfo *info, struct PartyMenuBox *menuBox)
@@ -1627,7 +1633,7 @@ static void DrawPartySlot(const struct PartySlotInfo *info, struct PartyMenuBox 
     if (info->isEgg)
         return;
 
-    DisplayPartyPokemonLevel(info->level, menuBox);
+    DisplayPartyPokemonLevel(info->level, menuBox, info->isShadow);
     DisplayPartyPokemonGender(info->gender, info->species, info->genderName, menuBox, info->focused);
     DisplayPartyPokemonHP(info->hp, info->maxHp, menuBox);
     DisplayPartyPokemonHPBar(info->hp, info->maxHp, menuBox);
@@ -3410,13 +3416,16 @@ static void DisplayPartyPokemonNickname(struct Pokemon *mon, struct PartyMenuBox
 static void DisplayPartyPokemonLevelCheck(struct Pokemon *mon, struct PartyMenuBox *menuBox)
 {
     if (GetMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE)
-        DisplayPartyPokemonLevel(GetMonData(mon, MON_DATA_LEVEL), menuBox);
+        DisplayPartyPokemonLevel(GetMonData(mon, MON_DATA_LEVEL), menuBox, IsShadowMon(mon));
 }
 
-static void DisplayPartyPokemonLevel(u8 level, struct PartyMenuBox *menuBox)
+static void DisplayPartyPokemonLevel(u8 level, struct PartyMenuBox *menuBox, bool32 isShadow)
 {
     ConvertIntToDecimalStringN(gStringVar2, level, STR_CONV_MODE_LEFT_ALIGN, 3);
-    StringCopy(gStringVar1, gText_LevelSymbol);
+    if (isShadow)
+        StringCopy(gStringVar1, sText_ShadowLevel);
+    else
+        StringCopy(gStringVar1, gText_LevelSymbol);
     StringAppend(gStringVar1, gStringVar2);
     DisplayPartyPokemonBarDetail(menuBox->windowId, gStringVar1, 0, &sPartySlotLayout.level);
 }
@@ -6557,7 +6566,7 @@ static u8 LoadMonGfxAndSprite(struct Pokemon *mon, s16 *state, bool32 isShadow)
         (*state)++;
         return 0xFF;
     case 1:
-        LoadMonSpritePaletteTagWithVariants(species, isShiny, pid, species);
+        LoadMonSpritePaletteTagWithVariants(species, isShiny, pid, species, GetMonData(mon, MON_DATA_IS_SHADOW));
         SetMultiuseSpriteTemplateToPokemon(species, B_POSITION_OPPONENT_LEFT);
         (*state)++;
         return 0xFF;
@@ -8026,7 +8035,9 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
     tItemCount = 1;
     tMegaCandy = FALSE;
 
-    if (B_RARE_CANDY_CAP && gPartyMenu.levelBefore >= GetCurrentLevelCap())
+    if (IsShadowMon(mon))
+        cannotUseEffect = TRUE;
+    else if (B_RARE_CANDY_CAP && gPartyMenu.levelBefore >= GetCurrentLevelCap())
         cannotUseEffect = TRUE;
     else
         cannotUseEffect = (gPartyMenu.levelBefore >= MAX_LEVEL);
@@ -9256,6 +9267,44 @@ void ItemUseCB_FormChange_ConsumedOnUse(u8 taskId, TaskFunc task)
         RemoveBagItem(gSpecialVar_ItemId, 1);
 }
 
+static const u8 sText_ShadowPurified[] = _("{STR_VAR_1}'s heart was purified!\nIt gained the stored Exp. Points!{PAUSE_UNTIL_PRESS}");
+static const u8 sText_ShadowHeartNotFull[] = _("The Heart Gauge isn't full yet.{PAUSE_UNTIL_PRESS}");
+
+void ItemUseCB_PurifyShadow(u8 taskId, TaskFunc task)
+{
+    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+
+    PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[0]);
+    PlaySE(SE_SELECT);
+
+    if (PurifyShadowMon(mon))
+    {
+        RemoveBagItem(gSpecialVar_ItemId, 1);
+        DisplayPartyPokemonData(gPartyMenu.slotId);
+        DestroyMonSprite();
+        sMonSpriteId = LoadAndApplyMosaicToMonSprite(mon, FALSE);
+        if (SWSH_PARTY_MON_SHADOW)
+            sMonShadowSpriteId = LoadAndApplyMosaicToMonSprite(mon, TRUE);
+        PlayFanfare(MUS_EVOLVED);
+        GetMonNickname(mon, gStringVar1);
+        StringExpandPlaceholders(gStringVar4, sText_ShadowPurified);
+        gPartyMenuUseExitCallback = FALSE;
+        DisplayPartyMenuMessage(gStringVar4, TRUE);
+        ScheduleBgCopyTilemapToVram(0);
+        gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+    }
+    else
+    {
+        gPartyMenuUseExitCallback = FALSE;
+        if (IsShadowMon(mon))
+            DisplayPartyMenuMessage(sText_ShadowHeartNotFull, TRUE);
+        else
+            DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
+        ScheduleBgCopyTilemapToVram(0);
+        gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+    }
+}
+
 static bool32 HasMultichoiceFormChange(struct Pokemon *mon)
 {
     const struct FormChange *formChanges = GetSpeciesFormChanges(GetMonData(mon, MON_DATA_SPECIES));
@@ -9524,7 +9573,7 @@ static void TryTutorSelectedMon(u8 taskId)
 
 void CB2_PartyMenuFromStartMenu(void)
 {
-    InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_CHOOSE_MON, FALSE, PARTY_MSG_CHOOSE_MON, Task_HandleChooseMonInput, CB2_ReturnToFieldWithOpenMenu);
+    InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_CHOOSE_MON, FALSE, PARTY_MSG_CHOOSE_MON, Task_HandleChooseMonInput, CB2_ReturnToFullScreenStartMenu);
 }
 
 // Giving an item by selecting Give from the bag menu

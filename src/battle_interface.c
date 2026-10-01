@@ -2,6 +2,7 @@
 #include "malloc.h"
 #include "battle.h"
 #include "pokemon.h"
+#include "shadow_pokemon.h"
 #include "battle_controllers.h"
 #include "battle_interface.h"
 #include "battle_z_move.h"
@@ -2013,12 +2014,20 @@ void UpdateHealthboxAttribute(u8 healthboxSpriteId, struct Pokemon *mon, u8 elem
             u8 level;
 
             LoadBattleBarGfx(3);
-            species = GetMonData(mon, MON_DATA_SPECIES);
-            level = GetMonData(mon, MON_DATA_LEVEL);
-            exp = GetMonData(mon, MON_DATA_EXP);
-            currLevelExp = gExperienceTables[gSpeciesInfo[species].growthRate][level];
-            currExpBarValue = exp - currLevelExp;
-            maxExpBarValue = gExperienceTables[gSpeciesInfo[species].growthRate][level + 1] - currLevelExp;
+            if (IsShadowMon(mon))
+            {
+                currExpBarValue = GetMonData(mon, MON_DATA_SHADOW_HEART);
+                maxExpBarValue = SHADOW_HEART_MAX;
+            }
+            else
+            {
+                species = GetMonData(mon, MON_DATA_SPECIES);
+                level = GetMonData(mon, MON_DATA_LEVEL);
+                exp = GetMonData(mon, MON_DATA_EXP);
+                currLevelExp = gExperienceTables[gSpeciesInfo[species].growthRate][level];
+                currExpBarValue = exp - currLevelExp;
+                maxExpBarValue = gExperienceTables[gSpeciesInfo[species].growthRate][level + 1] - currLevelExp;
+            }
             SetBattleBarStruct(battlerId, healthboxSpriteId, maxExpBarValue, currExpBarValue, isDoubles);
             MoveBattleBar(battlerId, healthboxSpriteId, EXP_BAR, 0);
         }
@@ -2139,19 +2148,22 @@ static void MoveBattleBarGraphically(u8 battlerId, u8 whichBar)
                     &gBattleSpritesDataPtr->battleBars[battlerId].currValue,
                     array, B_EXPBAR_PIXELS / 8);
         level = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_LEVEL);
-        if (level >= MAX_LEVEL)
+        if (level >= MAX_LEVEL && !IsBattlerShadowMon(battlerId))
         {
             for (i = 0; i < 8; i++)
                 array[i] = 0;
         }
-        for (i = 0; i < 8; i++)
         {
-            if (i < 4)
-                CpuCopy32(GetHealthboxElementGfxPtr(HEALTHBOX_GFX_12) + array[i] * 32,
-                          (void *)(OBJ_VRAM0 + (gSprites[gBattleSpritesDataPtr->battleBars[battlerId].healthboxSpriteId].oam.tileNum + 0x24 + i) * TILE_SIZE_4BPP), 32);
-            else
-                CpuCopy32(GetHealthboxElementGfxPtr(HEALTHBOX_GFX_12) + array[i] * 32,
-                          (void *)(OBJ_VRAM0 + 0xB80 + (i + gSprites[gBattleSpritesDataPtr->battleBars[battlerId].healthboxSpriteId].oam.tileNum) * TILE_SIZE_4BPP), 32);
+            u8 gfx = IsBattlerShadowMon(battlerId) ? HEALTHBOX_GFX_HP_BAR_RED : HEALTHBOX_GFX_12;
+            for (i = 0; i < 8; i++)
+            {
+                if (i < 4)
+                    CpuCopy32(GetHealthboxElementGfxPtr(gfx) + array[i] * 32,
+                              (void *)(OBJ_VRAM0 + (gSprites[gBattleSpritesDataPtr->battleBars[battlerId].healthboxSpriteId].oam.tileNum + 0x24 + i) * TILE_SIZE_4BPP), 32);
+                else
+                    CpuCopy32(GetHealthboxElementGfxPtr(gfx) + array[i] * 32,
+                              (void *)(OBJ_VRAM0 + 0xB80 + (i + gSprites[gBattleSpritesDataPtr->battleBars[battlerId].healthboxSpriteId].oam.tileNum) * TILE_SIZE_4BPP), 32);
+            }
         }
         break;
     }

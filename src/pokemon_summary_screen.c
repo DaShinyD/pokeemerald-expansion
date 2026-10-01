@@ -139,7 +139,8 @@ static EWRAM_DATA struct PokemonSummaryScreenData
         u16 species2; // 0x2
         u8 isEgg:1; // 0x4
         u8 isShiny:1;
-        u8 padding:6;
+        u8 isShadow:1;
+        u8 padding:5;
         u8 level; // 0x5
         u8 ribbonCount; // 0x6
         u8 ailment; // 0x7
@@ -1538,6 +1539,7 @@ static bool8 ExtractMonDataToSummaryStruct(struct Pokemon *mon)
         sum->ribbonCount = GetMonData(mon, MON_DATA_RIBBON_COUNT);
         sum->teraType = GetMonData(mon, MON_DATA_TERA_TYPE);
         sum->isShiny = GetMonData(mon, MON_DATA_IS_SHINY);
+        sum->isShadow = GetMonData(mon, MON_DATA_IS_SHADOW);
         sMonSummaryScreen->relearnableMovesNum = P_SUMMARY_SCREEN_MOVE_RELEARNER ? GetNumberOfRelearnableMoves(mon) : 0;
         return TRUE;
     }
@@ -4414,7 +4416,7 @@ static u8 LoadMonGfxAndSprite(struct Pokemon *mon, s16 *state)
         (*state)++;
         return 0xFF;
     case 1:
-        LoadMonSpritePaletteTagWithVariants(summary->species2, summary->isShiny, summary->pid, summary->species2);
+        LoadMonSpritePaletteTagWithVariants(summary->species2, summary->isShiny, summary->pid, summary->species2, summary->isShadow);
         SetMultiuseSpriteTemplateToPokemon(summary->species2, B_POSITION_OPPONENT_LEFT);
         (*state)++;
         return 0xFF;

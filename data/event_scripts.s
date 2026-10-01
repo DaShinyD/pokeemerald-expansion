@@ -46,6 +46,7 @@
 #include "constants/moves.h"
 #include "constants/party_menu.h"
 #include "constants/pokedex.h"
+#include "constants/quests.h"
 #include "constants/pokemon.h"
 #include "constants/roulette.h"
 #include "constants/script_menu.h"
@@ -1544,3 +1545,5 @@ MysteryGift_Text_WillSee:
 	.include "data/maps/OakLab/scripts.inc"
 
 	.include "data/maps/Tester/scripts.inc"
+
+	.include "data/maps/CinnabarIsland_House1/scripts.inc"

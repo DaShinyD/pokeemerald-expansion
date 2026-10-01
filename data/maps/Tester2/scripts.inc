@@ -80,3 +80,36 @@ Tester2_Text_StartTesterEvolve:
 
 Tester2_Text_TesterEvolveDefeat:
 	.string "That strength was real.$"
+
+@ Object 5: Give Shadow Darkrai (full gauge), plus Shadow Shaymin, Cresselia, Uxie, Mesprit, Azelf, and Joy Scent
+Tester2_EventScript_GiveShadowCharmander::
+	lock
+	faceplayer
+	msgbox Tester2_Text_GiveShadowCharmanderAsk, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Tester2_EventScript_GiveShadowCharmanderCancel
+	special GiveShadowLegendaries
+	goto_if_eq VAR_RESULT, MON_CANT_GIVE, Tester2_EventScript_GiveShadowCharmanderNoRoom
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox Tester2_Text_GaveShadowCharmander, MSGBOX_DEFAULT
+	waitfanfare
+Tester2_EventScript_GiveShadowCharmanderCancel::
+	release
+	end
+Tester2_EventScript_GiveShadowCharmanderNoRoom::
+	msgbox Tester2_Text_ShadowCharmanderNoRoom, MSGBOX_DEFAULT
+	release
+	end
+
+Tester2_Text_GiveShadowCharmanderAsk:
+	.string "Take six Shadow Pokémon to test?\n"
+	.string "Darkrai, Shaymin, Cresselia,\l"
+	.string "Uxie, Mesprit, and Azelf.\l"
+	.string "You'll also get a Joy Scent.$"
+
+Tester2_Text_GaveShadowCharmander:
+	.string "Received six Shadow Pokémon!\n"
+	.string "Joy Scent was added to the Bag.$"
+
+Tester2_Text_ShadowCharmanderNoRoom:
+	.string "There's no room for them in your\n"
+	.string "party or PC.$"

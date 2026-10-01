@@ -29,6 +29,7 @@
 #include "constants/battle_move_effects.h"
 #include "constants/event_objects.h" // only for SHADOW_SIZE constants
 #include "variant_colours.h"
+#include "shadow_pokemon.h"
 
 // this file's functions
 static u8 GetBattlePalaceMoveGroup(u8 battler, u16 move);
@@ -659,6 +660,8 @@ void BattleLoadMonSpriteGfx(struct Pokemon *mon, u32 battler)
 
     void *buffer = malloc_and_decompress(lzPaletteData, NULL);
     ApplyMonSpeciesVariantToPaletteBuffer(species, isShiny, personalityValue, buffer);
+    if (gBattleSpritesDataPtr->battlerData[battler].transformSpecies == SPECIES_NONE && IsShadowMon(mon))
+        ApplyShadowTintToPaletteBuffer(buffer);
     LoadPalette(buffer, paletteOffset, PLTT_SIZE_4BPP);
     LoadPalette(buffer, BG_PLTT_ID(8) + BG_PLTT_ID(battler), PLTT_SIZE_4BPP);
     Free(buffer);

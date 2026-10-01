@@ -3310,7 +3310,7 @@ static void GachaMain(u8 taskId)
             GiveMonToPlayer(&gEnemyParty[0]);
             GetSetPokedexFlag(SpeciesToNationalPokedexNum(sGacha->CalculatedSpecies), FLAG_SET_SEEN);
             HandleSetPokedexFlag(SpeciesToNationalPokedexNum(sGacha->CalculatedSpecies), FLAG_SET_CAUGHT, GetMonData(&gEnemyParty[0], MON_DATA_PERSONALITY));
-            LoadMonPaletteWithVariants(sGacha->CalculatedSpecies, GetMonData(&gEnemyParty[0], MON_DATA_IS_SHINY), GetMonData(&gEnemyParty[0], MON_DATA_PERSONALITY), OBJ_PLTT_ID(2));
+            LoadMonPaletteWithVariants(sGacha->CalculatedSpecies, GetMonData(&gEnemyParty[0], MON_DATA_IS_SHINY), GetMonData(&gEnemyParty[0], MON_DATA_PERSONALITY), OBJ_PLTT_ID(2), GetMonData(&gEnemyParty[0], MON_DATA_IS_SHADOW));
             SetMultiuseSpriteTemplateToPokemon(sGacha->CalculatedSpecies, pos);
             sGacha->monSpriteId = CreateMonPicSprite_Affine(sGacha->CalculatedSpecies, GetMonData(&gEnemyParty[0], MON_DATA_IS_SHINY), GetMonData(&gEnemyParty[0], MON_DATA_PERSONALITY), MON_PIC_AFFINE_FRONT, 120, 60, 14, TAG_NONE);
             gSprites[sGacha->monSpriteId].callback = SpriteCB_Null;

@@ -669,7 +669,7 @@ static bool8 LoadMonAndSceneGfx(struct Pokemon *mon)
         species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG);
         personality = GetMonData(mon, MON_DATA_PERSONALITY);
         isShiny = GetMonData(mon, MON_DATA_IS_SHINY);
-        LoadMonSpritePaletteTagWithVariants(species, isShiny, personality, species);
+        LoadMonSpritePaletteTagWithVariants(species, isShiny, personality, species, FALSE);
         SetMultiuseSpriteTemplateToPokemon(species, B_POSITION_OPPONENT_LEFT);
         sPokeblockFeed->loadGfxState++;
         break;

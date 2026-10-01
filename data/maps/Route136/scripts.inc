@@ -627,17 +627,18 @@ Route136_Movement_RivalsLeaveAfter:
 Route136_EventScript_Dialga::
 	lock
 	faceplayer
+	call Common_EventScript_SaveGame
 	playmoncry SPECIES_DIALGA, CRY_MODE_ENCOUNTER
 	waitmoncry
 	setwildbattle SPECIES_DIALGA, 70
 	special BattleSetup_StartLegendaryBattle
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Route136_EventScript_DialgaGone
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Route136_EventScript_DialgaCaught
 	release
 	end
 
-Route136_EventScript_DialgaGone:
+Route136_EventScript_DialgaCaught::
 	setflag FLAG_DIALGA
 	removeobject LOCALID_DIALGA
 	release
@@ -646,17 +647,18 @@ Route136_EventScript_DialgaGone:
 Route136_EventScript_Palkia::
 	lock
 	faceplayer
+	call Common_EventScript_SaveGame
 	playmoncry SPECIES_PALKIA, CRY_MODE_ENCOUNTER
 	waitmoncry
 	setwildbattle SPECIES_PALKIA, 70
 	special BattleSetup_StartLegendaryBattle
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Route136_EventScript_PalkiaGone
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Route136_EventScript_PalkiaCaught
 	release
 	end
 
-Route136_EventScript_PalkiaGone:
+Route136_EventScript_PalkiaCaught::
 	setflag FLAG_PALKIA
 	removeobject LOCALID_PALKIA
 	release

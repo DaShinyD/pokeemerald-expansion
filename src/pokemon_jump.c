@@ -3010,7 +3010,7 @@ static void CreateJumpMonSprite(struct PokemonJumpGfx *jumpGfx, struct PokemonJu
         spriteSheet.size = MON_PIC_SIZE;
         LoadSpriteSheet(&spriteSheet);
 
-        LoadMonSpritePaletteTagWithVariants(monInfo->species, monInfo->isShiny, monInfo->personality, multiplayerId);
+        LoadMonSpritePaletteTagWithVariants(monInfo->species, monInfo->isShiny, monInfo->personality, multiplayerId, FALSE);
 
         Free(buffer);
         Free(unusedBuffer);

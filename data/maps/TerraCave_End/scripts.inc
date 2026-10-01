@@ -30,6 +30,7 @@ TerraCave_End_EventScript_Groudon::
 	waitmovement 0
 	applymovement LOCALID_GROUDON, TerraCave_End_Movement_GroudonApproach
 	waitmovement 0
+	call Common_EventScript_SaveGame
 	waitse
 	playmoncry SPECIES_GROUDON, CRY_MODE_ENCOUNTER
 	delay 40

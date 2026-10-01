@@ -30,6 +30,7 @@ MarineCave_End_EventScript_Kyogre::
 	waitmovement 0
 	applymovement LOCALID_KYOGRE, MarineCave_End_Movement_KyogreApproach
 	waitmovement 0
+	call Common_EventScript_SaveGame
 	waitse
 	playmoncry SPECIES_KYOGRE, CRY_MODE_ENCOUNTER
 	delay 40

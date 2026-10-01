@@ -25,7 +25,7 @@ void ApplyPaletteVariantToPaletteBuffer(u16 pal16[16], const struct PaletteVaria
 void ApplyCustomRestrictionToPaletteBuffer(u8 hMin, u8 hMax, u8 cMin, u8 cMax, u8 lMin, u8 lMax, u16 pal16[16]);
 void ApplyMonSpeciesVariantToPaletteBuffer(u32 species, bool8 shiny, u32 PID, u16 pal16[16]);
 bool8 AreColorVariantsEnabled(void);
-void LoadMonPaletteWithVariants(u16 species, bool32 isShiny, u32 personality, u16 offset);
-void LoadMonSpritePaletteTagWithVariants(u16 species, bool32 isShiny, u32 personality, u16 tag);
+void LoadMonPaletteWithVariants(u16 species, bool32 isShiny, u32 personality, u16 offset, bool32 isShadow);
+void LoadMonSpritePaletteTagWithVariants(u16 species, bool32 isShiny, u32 personality, u16 tag, bool32 isShadow);
 
 #endif // GUARD_VARIANT_COLOURS_H

@@ -5460,6 +5460,16 @@
       "secondary_tileset": "gTileset_celadoncity",
       "border_filepath": "data/layouts/Tester/border.bin",
       "blockdata_filepath": "data/layouts/Tester/map.bin"
+    },
+    {
+      "id": "LAYOUT_CINNABAR_ISLAND_HOUSE1",
+      "name": "CinnabarIsland_House1_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/CinnabarIsland_House1/border.bin",
+      "blockdata_filepath": "data/layouts/CinnabarIsland_House1/map.bin"
     }
   ]
 }

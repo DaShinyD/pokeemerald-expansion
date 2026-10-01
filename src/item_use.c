@@ -1479,6 +1479,12 @@ void ItemUseOutOfBattle_Fusion(u8 taskId)
     }
 }
 
+void ItemUseOutOfBattle_JoyScent(u8 taskId)
+{
+    gItemUseCB = ItemUseCB_PurifyShadow;
+    SetUpItemUseCallback(taskId);
+}
+
 void Task_UseHoneyOnField(u8 taskId)
 {
     //ResetInitialPlayerAvatarState();

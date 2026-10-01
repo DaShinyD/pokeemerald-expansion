@@ -147,6 +147,9 @@
 #define MIN_LEVEL 1
 #define MAX_LEVEL 200
 
+#define SHADOW_HEART_MAX         16
+#define SHADOW_HEART_GAIN_BATTLE 1
+
 #define MAX_DYNAMAX_LEVEL 10
 
 #define OT_ID_PLAYER_ID       0

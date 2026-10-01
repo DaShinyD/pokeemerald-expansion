@@ -1237,6 +1237,7 @@ static u8 SaveReturnSuccessCallback(void)
     if (!IsSEPlaying() && SaveSuccesTimer())
     {
         HideSaveInfoWindow();
+        HideSaveMessageWindow();
         return SAVE_SUCCESS;
     }
     else
@@ -1265,6 +1266,7 @@ static u8 SaveReturnErrorCallback(void)
     else
     {
         HideSaveInfoWindow();
+        HideSaveMessageWindow();
         return SAVE_ERROR;
     }
 }

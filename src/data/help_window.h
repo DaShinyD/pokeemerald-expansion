@@ -37,5 +37,12 @@ const struct HelpWindow gHelpWindowInfo[] =
                                "all around Paldea."),
         .headerFont = FONT_NARROWER,
     },
+    [HELP_QUEST_1_CATCH_REGIS] =
+    {
+        .header = COMPOUND_STRING("Quest 1: Catch The Regis"),
+        .desc = COMPOUND_STRING("Catch all known regis and bring them\nto Professor Oak"),
+        .headerFont = FONT_NORMAL,
+        .descFont = FONT_NORMAL,
+    },
     // Add more entries
 };

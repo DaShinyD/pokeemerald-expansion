@@ -4225,7 +4225,7 @@ static void Task_ExitCaughtMonPage(u8 taskId)
         otId = ((u16)gTasks[taskId].tOtIdHi << 16) | (u16)gTasks[taskId].tOtIdLo;
         personality = ((u16)gTasks[taskId].tPersonalityHi << 16) | (u16)gTasks[taskId].tPersonalityLo;
         paletteNum = gSprites[gTasks[taskId].tMonSpriteId].oam.paletteNum;
-        LoadMonPaletteWithVariants(species, otId, personality, OBJ_PLTT_ID(paletteNum));
+        LoadMonPaletteWithVariants(species, otId, personality, OBJ_PLTT_ID(paletteNum), FALSE);
         DestroyTask(taskId);
     }
 }

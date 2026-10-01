@@ -278,7 +278,7 @@
 #define VAR_DASH_CELADON                                 0x4102 // Dash in Celadon
 #define VAR_RYE_SAFFRON                                  0x4103 // Rye Saffron ranger event
 #define VAR_MAP_UNLOCK                                   0x4104 // Var for unlocking new maps via trigger
-#define VAR_UNUSED_0x4105                                0x4105 // Unused Var
+#define VAR_OAK_QUEST_STATE                              0x4105 // Prof. Oak research quest line
 #define VAR_UNUSED_0x4106                                0x4106 // Unused Var
 #define VAR_UNUSED_0x4107                                0x4107 // Unused Var
 #define VAR_UNUSED_0x4108                                0x4108 // Unused Var

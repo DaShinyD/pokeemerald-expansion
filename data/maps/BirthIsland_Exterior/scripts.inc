@@ -84,6 +84,7 @@ BirthIsland_Exterior_EventScript_Deoxys::
 	playmoncry SPECIES_DEOXYS_NORMAL, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
+	call Common_EventScript_SaveGame
 	setvar VAR_LAST_TALKED, LOCALID_DEOXYS
 	seteventmon SPECIES_DEOXYS_NORMAL, 30
 	setflag FLAG_SYS_CTRL_OBJ_DELETE

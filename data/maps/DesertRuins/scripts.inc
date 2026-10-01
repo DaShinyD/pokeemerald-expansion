@@ -57,6 +57,7 @@ DesertRuins_EventScript_CaveEntranceSide::
 DesertRuins_EventScript_Regirock::
 	lock
 	faceplayer
+	call Common_EventScript_SaveGame
 	waitse
 	playmoncry SPECIES_REGIROCK, CRY_MODE_ENCOUNTER
 	delay 40

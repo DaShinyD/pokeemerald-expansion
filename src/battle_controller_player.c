@@ -21,6 +21,7 @@
 #include "party_menu.h"
 #include "pokeball.h"
 #include "pokemon.h"
+#include "shadow_pokemon.h"
 #include "random.h"
 #include "recorded_battle.h"
 #include "reshow_battle_screen.h"
@@ -1434,7 +1435,15 @@ static void Task_GiveExpToMon(u8 taskId)
         u32 nextLvlExp = gExperienceTables[gSpeciesInfo[species].growthRate][level + 1];
         u32 oldMaxHP = GetMonData(mon, MON_DATA_MAX_HP);
 
-        if (currExp + gainedExp >= nextLvlExp)
+        if (IsShadowMon(mon))
+        {
+            currExp += gainedExp;
+            SetMonData(mon, MON_DATA_EXP, &currExp);
+            TryAddShadowHeart(mon, SHADOW_HEART_GAIN_BATTLE);
+            gBattlerControllerFuncs[battler] = Controller_WaitForString;
+            DestroyTask(taskId);
+        }
+        else if (currExp + gainedExp >= nextLvlExp)
         {
             SetMonData(mon, MON_DATA_EXP, &nextLvlExp);
             CalculateMonStats(mon);
@@ -1478,10 +1487,22 @@ static void Task_PrepareToGiveExpWithExpBar(u8 taskId)
     u32 currLvlExp = gExperienceTables[gSpeciesInfo[species].growthRate][level];
     u32 expToNextLvl;
 
-    exp -= currLvlExp;
-    expToNextLvl = gExperienceTables[gSpeciesInfo[species].growthRate][level + 1] - currLvlExp;
-    SetBattleBarStruct(battler, gHealthboxSpriteIds[battler], expToNextLvl, exp, -gainedExp);
-    TestRunner_Battle_RecordExp(battler, exp, -gainedExp);
+    if (IsShadowMon(mon))
+    {
+        u8 heart = GetMonData(mon, MON_DATA_SHADOW_HEART);
+        s32 heartGain = SHADOW_HEART_GAIN_BATTLE;
+        if (heart + heartGain > SHADOW_HEART_MAX)
+            heartGain = SHADOW_HEART_MAX - heart;
+        SetBattleBarStruct(battler, gHealthboxSpriteIds[battler], SHADOW_HEART_MAX, heart, -heartGain);
+        TestRunner_Battle_RecordExp(battler, heart, -heartGain);
+    }
+    else
+    {
+        exp -= currLvlExp;
+        expToNextLvl = gExperienceTables[gSpeciesInfo[species].growthRate][level + 1] - currLvlExp;
+        SetBattleBarStruct(battler, gHealthboxSpriteIds[battler], expToNextLvl, exp, -gainedExp);
+        TestRunner_Battle_RecordExp(battler, exp, -gainedExp);
+    }
     PlaySE(SE_EXP);
     gTasks[taskId].func = Task_GiveExpWithExpBar;
 }
@@ -1515,7 +1536,15 @@ static void Task_GiveExpWithExpBar(u8 taskId)
             oldMaxHP = GetMonData(mon, MON_DATA_MAX_HP);
             expOnNextLvl = gExperienceTables[gSpeciesInfo[species].growthRate][level + 1];
 
-            if (currExp + gainedExp >= expOnNextLvl)
+            if (IsShadowMon(mon))
+            {
+                currExp += gainedExp;
+                SetMonData(mon, MON_DATA_EXP, &currExp);
+                TryAddShadowHeart(mon, SHADOW_HEART_GAIN_BATTLE);
+                gBattlerControllerFuncs[battler] = Controller_WaitForString;
+                DestroyTask(taskId);
+            }
+            else if (currExp + gainedExp >= expOnNextLvl)
             {
                 SetMonData(mon, MON_DATA_EXP, &expOnNextLvl);
                 CalculateMonStats(mon);

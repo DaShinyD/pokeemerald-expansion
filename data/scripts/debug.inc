@@ -169,9 +169,12 @@ Debug_EventScript_Script_3::
 	end
 
 Debug_EventScript_Script_4::
-	specialvar VAR_RESULT, AreAllPartyMonsLevel200
-	goto_if_eq VAR_RESULT, TRUE, Debug_EventScript_ItWorked_Text
-	goto_if_eq VAR_RESULT, FALSE, Debug_EventScript_ItDidntWorked_Text
+	givemon SPECIES_REGIROCK, 50
+	givemon SPECIES_REGICE, 50
+	givemon SPECIES_REGISTEEL, 50
+	givemon SPECIES_REGIELEKI, 50
+	givemon SPECIES_REGIDRAGO, 50
+	givemon SPECIES_REGIGIGAS, 50
 	release
 	end
 

@@ -2016,7 +2016,7 @@ u8 CreateAdditionalMonSpriteForMoveAnim(u16 species, bool8 isBackpic, u8 id, s16
         gMonSpritesGfxPtr->buffer = AllocZeroed(MON_PIC_SIZE * MAX_MON_PIC_FRAMES);
     if (!isBackpic)
     {
-        LoadMonPaletteWithVariants(species, isShiny, personality, OBJ_PLTT_ID(palette));
+        LoadMonPaletteWithVariants(species, isShiny, personality, OBJ_PLTT_ID(palette), FALSE);
         LoadSpecialPokePic(gMonSpritesGfxPtr->buffer,
                            species,
                            personality,
@@ -2024,7 +2024,7 @@ u8 CreateAdditionalMonSpriteForMoveAnim(u16 species, bool8 isBackpic, u8 id, s16
     }
     else
     {
-        LoadMonPaletteWithVariants(species, isShiny, personality, OBJ_PLTT_ID(palette));
+        LoadMonPaletteWithVariants(species, isShiny, personality, OBJ_PLTT_ID(palette), FALSE);
         LoadSpecialPokePic(gMonSpritesGfxPtr->buffer,
                            species,
                            personality,

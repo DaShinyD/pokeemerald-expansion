@@ -44,6 +44,7 @@ SkyPillar_Top_EventScript_RayquazaFaceDown::
 
 SkyPillar_Top_EventScript_Rayquaza::
 	lockall
+	call Common_EventScript_SaveGame
 	waitse
 	playmoncry SPECIES_RAYQUAZA, CRY_MODE_ENCOUNTER
 	delay 40

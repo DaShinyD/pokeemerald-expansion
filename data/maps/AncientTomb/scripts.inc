@@ -57,6 +57,7 @@ AncientTomb_EventScript_CaveEntranceSide::
 AncientTomb_EventScript_Registeel::
 	lock
 	faceplayer
+	call Common_EventScript_SaveGame
 	waitse
 	playmoncry SPECIES_REGISTEEL, CRY_MODE_ENCOUNTER
 	delay 40

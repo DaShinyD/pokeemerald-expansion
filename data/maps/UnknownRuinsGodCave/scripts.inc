@@ -10,6 +10,7 @@ UnknownRuinsGodCave_MapScripts::
 UnknownRuinsGodCave_EventScript_Unone::
 	lock
 	goto_if_set FLAG_UNOWN_GOD_EVENT, UnknownRuinsGodCave_EventScript_UnoneNO
+	call Common_EventScript_SaveGame
 	applymovement LOCALID_UNOWN_1, UnknownRuinsGodCave_Movement_Approach
 	applymovement LOCALID_UNOWN_2, UnknownRuinsGodCave_Movement_Approach
 	applymovement LOCALID_UNOWN_3, UnknownRuinsGodCave_Movement_Approach
@@ -27,12 +28,17 @@ UnknownRuinsGodCave_EventScript_Unone::
 	special BattleSetup_StartLegendaryBattle
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, UnknownRuinsGodCave_EventScript_UnoneGone
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, UnknownRuinsGodCave_EventScript_UnoneCaught
 	release
 	end
 
-UnknownRuinsGodCave_EventScript_UnoneGone::
+UnknownRuinsGodCave_EventScript_UnoneCaught::
 	setflag FLAG_UNOWN_GOD_EVENT
+	removeobject LOCALID_UNOWN_1
+	removeobject LOCALID_UNOWN_2
+	removeobject LOCALID_UNOWN_3
+	removeobject LOCALID_UNOWN_4
+	removeobject LOCALID_UNOWN_5
 	release
 	end
 
@@ -46,4 +52,3 @@ UnknownRuinsGodCave_Movement_Approach:
 	walk_down
 	walk_down
 	step_end
-

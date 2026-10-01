@@ -117,6 +117,7 @@ enum {
     MON_DATA_GIGANTAMAX_FACTOR,
     MON_DATA_TERA_TYPE,
     MON_DATA_EVOLUTION_TRACKER,
+    MON_DATA_SHADOW_HEART,
 };
 
 struct PokemonSubstruct0
@@ -124,14 +125,15 @@ struct PokemonSubstruct0
     u16 species:11; // 2047 species.
     u16 teraType:5; // 30 types.
     u16 heldItem:10; // 1023 items.
-    u16 unused_02:6;
+    u16 shadowHeart:6; // 0-63 heart gauge while MON_DATA_IS_SHADOW.
     u32 experience:24;
     u32 nickname11:8; // 11th character of nickname.
     u8 ppBonuses;
     u8 friendship;
     u16 pokeball:6; // 63 balls.
     u16 nickname12:8; // 12th character of nickname.
-    u16 unused_0A:2;
+    u16 isShadow:1;
+    u16 unused_0A:1;
 };
 
 struct PokemonSubstruct1
@@ -205,7 +207,6 @@ struct PokemonSubstruct3
     u32 nationalRibbon:1; // Given to purified Shadow Pokémon in Colosseum/XD.
     u32 earthRibbon:1;    // Given to teams that have beaten Mt. Battle's 100-battle challenge in Colosseum/XD.
     u32 worldRibbon:1;    // Distributed during Pokémon Festa '04 and '05 to tournament winners.
-    u32 isShadow:1;
     u32 abilityNum:2;
 
     // The functionality of this bit changed in FRLG:

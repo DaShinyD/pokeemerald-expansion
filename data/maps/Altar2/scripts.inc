@@ -8,17 +8,18 @@ Altar2_MapScripts::
 Altar2_EventScript_Moltres::
 	lock
 	faceplayer
+	call Common_EventScript_SaveGame
 	playmoncry SPECIES_MOLTRES, CRY_MODE_ENCOUNTER
 	waitmoncry
 	setwildbattle SPECIES_MOLTRES, 40
 	special BattleSetup_StartLegendaryBattle
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Altar2_EventScript_MoltresGone
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Altar2_EventScript_MoltresCaught
 	release
 	end
 
-Altar2_EventScript_MoltresGone:
+Altar2_EventScript_MoltresCaught::
 	setflag FLAG_MOLTRES
 	removeobject LOCALID_MOLTRES
 	release
@@ -27,17 +28,18 @@ Altar2_EventScript_MoltresGone:
 Altar2_EventScript_Zapdos::
 	lock
 	faceplayer
+	call Common_EventScript_SaveGame
 	playmoncry SPECIES_ZAPDOS, CRY_MODE_ENCOUNTER
 	waitmoncry
 	setwildbattle SPECIES_ZAPDOS, 40
 	special BattleSetup_StartLegendaryBattle
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Altar2_EventScript_ZapdosGone
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Altar2_EventScript_ZapdosCaught
 	release
 	end
 
-Altar2_EventScript_ZapdosGone:
+Altar2_EventScript_ZapdosCaught::
 	setflag FLAG_ZAPDOS
 	removeobject LOCALID_ZAPDOS
 	release
@@ -46,19 +48,19 @@ Altar2_EventScript_ZapdosGone:
 Altar2_EventScript_Articuno::
 	lock
 	faceplayer
+	call Common_EventScript_SaveGame
 	playmoncry SPECIES_ARTICUNO, CRY_MODE_ENCOUNTER
 	waitmoncry
 	setwildbattle SPECIES_ARTICUNO, 40
 	special BattleSetup_StartLegendaryBattle
 	waitstate
 	specialvar VAR_RESULT, GetBattleOutcome
-	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Altar2_EventScript_ArticunoGone
+	goto_if_eq VAR_RESULT, B_OUTCOME_CAUGHT, Altar2_EventScript_ArticunoCaught
 	release
 	end
 
-Altar2_EventScript_ArticunoGone:
+Altar2_EventScript_ArticunoCaught::
 	setflag FLAG_ARTICUNO
 	removeobject LOCALID_ARTICUNO
 	release
 	end
-

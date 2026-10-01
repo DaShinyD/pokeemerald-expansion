@@ -1801,6 +1801,13 @@ void CalculateMonStats(struct Pokemon *mon)
 
     u8 nature = GetMonData(mon, MON_DATA_HIDDEN_NATURE, NULL);
 
+    if (GetMonData(mon, MON_DATA_IS_SHADOW))
+    {
+        s32 frozenLevel = GetMonData(mon, MON_DATA_SHEEN);
+        if (frozenLevel >= MIN_LEVEL && frozenLevel <= MAX_LEVEL)
+            level = frozenLevel;
+    }
+
     SetMonData(mon, MON_DATA_LEVEL, &level);
 
     if (species == SPECIES_SHEDINJA)
@@ -2808,7 +2815,10 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
             retVal = substruct1->hyperTrainedSpDefense;
             break;
         case MON_DATA_IS_SHADOW:
-            retVal = substruct3->isShadow;
+            retVal = substruct0->isShadow;
+            break;
+        case MON_DATA_SHADOW_HEART:
+            retVal = substruct0->shadowHeart;
             break;
         case MON_DATA_DYNAMAX_LEVEL:
             retVal = substruct3->dynamaxLevel;
@@ -3242,7 +3252,12 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
             SET8(substruct1->hyperTrainedSpDefense);
             break;
         case MON_DATA_IS_SHADOW:
-            SET8(substruct3->isShadow);
+            SET8(substruct0->isShadow);
+            break;
+        case MON_DATA_SHADOW_HEART:
+            SET8(substruct0->shadowHeart);
+            if (substruct0->shadowHeart > SHADOW_HEART_MAX)
+                substruct0->shadowHeart = SHADOW_HEART_MAX;
             break;
         case MON_DATA_DYNAMAX_LEVEL:
             SET8(substruct3->dynamaxLevel);
@@ -4496,6 +4511,9 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, enum EvolutionMode mode, u16 
     u16 evolutionTracker = GetMonData(mon, MON_DATA_EVOLUTION_TRACKER, 0);
     const struct Evolution *evolutions = GetSpeciesEvolutions(species);
 
+    if (GetMonData(mon, MON_DATA_IS_SHADOW))
+        return SPECIES_NONE;
+
     if (evolutions == NULL)
         return SPECIES_NONE;
 
@@ -5213,6 +5231,8 @@ void AdjustFriendship(struct Pokemon *mon, u8 event)
 
     if (ShouldSkipFriendshipChange())
         return;
+    if (GetMonData(mon, MON_DATA_IS_SHADOW))
+        return;
 
     species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0);
     heldItem = GetMonData(mon, MON_DATA_HELD_ITEM, 0);
@@ -5780,9 +5800,12 @@ u16 GetBattleBGM(void)
         switch (GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL))
         {
         case SPECIES_RAYQUAZA:
+        case SPECIES_RAYQUAZA_MEGA:
             return MUS_VS_RAYQUAZA;
         case SPECIES_KYOGRE:
+        case SPECIES_KYOGRE_PRIMAL:
         case SPECIES_GROUDON:
+        case SPECIES_GROUDON_PRIMAL:
             return MUS_VS_KYOGRE_GROUDON;
         case SPECIES_REGIROCK:
         case SPECIES_REGICE:
@@ -5790,7 +5813,19 @@ u16 GetBattleBGM(void)
         case SPECIES_REGIGIGAS:
         case SPECIES_REGIELEKI:
         case SPECIES_REGIDRAGO:
+        case SPECIES_REGIALPHA:
             return MUS_VS_REGI;
+        case SPECIES_MEW:
+        case SPECIES_MEWTWO:
+        case SPECIES_CELEBI:
+        case SPECIES_JIRACHI:
+        case SPECIES_VICTINI:
+            return MUS_VS_MEW;
+        case SPECIES_DEOXYS_NORMAL:
+        case SPECIES_DEOXYS_ATTACK:
+        case SPECIES_DEOXYS_DEFENSE:
+        case SPECIES_DEOXYS_SPEED:
+            return MUS_RG_VS_DEOXYS;
         default:
             return MUS_RG_VS_LEGEND;
         }

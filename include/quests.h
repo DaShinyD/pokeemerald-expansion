@@ -23,14 +23,6 @@ enum QuestDifficulty
     QUEST_DIFFICULTY_EXTREME,
 };
 
-enum QuestFlagCases
-{
-    QUEST_FLAG_GET_UNLOCKED,
-    QUEST_FLAG_SET_UNLOCKED,
-    QUEST_FLAG_GET_COMPLETED,
-    QUEST_FLAG_SET_COMPLETED,
-};
-
 extern const struct SideQuest gSideQuests[SIDE_QUEST_COUNT];
 
 void QuestMenu_Init(MainCallback callback);

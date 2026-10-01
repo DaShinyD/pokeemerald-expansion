@@ -13,6 +13,7 @@
 #include "generational_changes.h"
 #include "party_menu.h"
 #include "pokemon.h"
+#include "shadow_pokemon.h"
 #include "international_string_util.h"
 #include "item.h"
 #include "util.h"
@@ -8664,9 +8665,30 @@ u32 GetBattleMoveTarget(u16 move, u8 setTarget)
 
 u8 GetAttackerObedienceForAction()
 {
-    return OBEYS;
-    
     s32 rnd;
+    struct Pokemon *mon = &gPlayerParty[gBattlerPartyIndexes[gBattlerAttacker]];
+
+    if (GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER
+     && !(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
+     && !BattlerHasAi(gBattlerAttacker)
+     && IsShadowMon(mon))
+    {
+        u8 heart = GetMonData(mon, MON_DATA_SHADOW_HEART);
+        u8 chance = 40 - (heart * 35 / SHADOW_HEART_MAX);
+
+        if (Random() % 100 < chance)
+        {
+            if (gCurrentMove == MOVE_RAGE)
+                gBattleMons[gBattlerAttacker].status2 &= ~STATUS2_RAGE;
+            rnd = Random() % 2;
+            if (rnd == 0)
+                return DISOBEYS_LOAFS;
+            return DISOBEYS_HITS_SELF;
+        }
+    }
+
+    return OBEYS;
+
     s32 calc;
     u8 obedienceLevel = 0;
     u8 levelReferenced;

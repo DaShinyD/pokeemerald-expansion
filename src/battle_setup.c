@@ -542,39 +542,53 @@ void BattleSetup_StartLatiBattle(void)
 
 void BattleSetup_StartLegendaryBattle(void)
 {
+    u16 species;
+    u8 transition;
+
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_EndScriptedWildBattle;
     gBattleTypeFlags = BATTLE_TYPE_LEGENDARY;
+    species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL);
 
-    switch (GetMonData(&gEnemyParty[0], MON_DATA_SPECIES, NULL))
+    switch (species)
     {
-    default:
     case SPECIES_GROUDON:
     case SPECIES_GROUDON_PRIMAL:
-        CreateBattleStartTask(B_TRANSITION_GROUDON, MUS_VS_KYOGRE_GROUDON);
+        transition = B_TRANSITION_GROUDON;
         break;
     case SPECIES_KYOGRE:
     case SPECIES_KYOGRE_PRIMAL:
-        CreateBattleStartTask(B_TRANSITION_KYOGRE, MUS_VS_KYOGRE_GROUDON);
+        transition = B_TRANSITION_KYOGRE;
         break;
     case SPECIES_RAYQUAZA:
     case SPECIES_RAYQUAZA_MEGA:
-        CreateBattleStartTask(B_TRANSITION_RAYQUAZA, MUS_VS_RAYQUAZA);
+        transition = B_TRANSITION_RAYQUAZA;
         break;
-    case SPECIES_DEOXYS_NORMAL:
-    case SPECIES_DEOXYS_ATTACK:
-    case SPECIES_DEOXYS_DEFENSE:
-    case SPECIES_DEOXYS_SPEED:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_DEOXYS);
+    case SPECIES_REGIROCK:
+        transition = B_TRANSITION_REGIROCK;
         break;
-    case SPECIES_LUGIA:
-    case SPECIES_HO_OH:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RG_VS_LEGEND);
+    case SPECIES_REGICE:
+        transition = B_TRANSITION_REGICE;
+        break;
+    case SPECIES_REGISTEEL:
+        transition = B_TRANSITION_REGISTEEL;
+        break;
+    case SPECIES_REGIGIGAS:
+    case SPECIES_REGIELEKI:
+    case SPECIES_REGIDRAGO:
+    case SPECIES_REGIALPHA:
+        transition = B_TRANSITION_GRID_SQUARES;
         break;
     case SPECIES_MEW:
-        CreateBattleStartTask(B_TRANSITION_GRID_SQUARES, MUS_VS_MEW);
+    case SPECIES_MEWTWO:
+        transition = B_TRANSITION_GRID_SQUARES;
+        break;
+    default:
+        transition = B_TRANSITION_BLUR;
         break;
     }
+
+    CreateBattleStartTask(transition, GetBattleBGM());
 
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_WILD_BATTLES);

@@ -1453,6 +1453,7 @@ bool8 HasAllRegisInParty(void)
     bool8 hasRegirock = FALSE;
     bool8 hasRegidrago = FALSE;
     bool8 hasRegieleki = FALSE;
+    bool8 hasRegigigas = FALSE;
 
     // Loop through the player's party
     for (i = 0; i < PARTY_SIZE; i++) {
@@ -1475,10 +1476,51 @@ bool8 HasAllRegisInParty(void)
         if (species == SPECIES_REGIELEKI) {
             hasRegieleki = TRUE;
         }
+        if (species == SPECIES_REGIGIGAS) {
+            hasRegigigas = TRUE;
+        }
     }
 
-    // Return TRUE only if all six Regi Pokémon are found in the player's party, FALSE if ANY are missing
-    return hasRegisteel && hasRegice && hasRegirock && hasRegidrago && hasRegieleki;
+    // Return TRUE only if all six known Regi Pokémon are found in the player's party
+    return hasRegisteel && hasRegice && hasRegirock && hasRegidrago && hasRegieleki && hasRegigigas;
+}
+
+void SetPartyRegisToLevel100(void)
+{
+    static const u16 sRegiSpecies[] = {
+        SPECIES_REGIROCK,
+        SPECIES_REGICE,
+        SPECIES_REGISTEEL,
+        SPECIES_REGIELEKI,
+        SPECIES_REGIDRAGO,
+        SPECIES_REGIGIGAS,
+    };
+    u32 i, j;
+    u8 level = 100;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        u16 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
+
+        if (species == SPECIES_NONE || species == SPECIES_EGG)
+            continue;
+
+        for (j = 0; j < ARRAY_COUNT(sRegiSpecies); j++)
+        {
+            if (species == sRegiSpecies[j])
+            {
+                u32 exp = gExperienceTables[gSpeciesInfo[species].growthRate][level];
+                u16 maxHp;
+
+                SetMonData(&gPlayerParty[i], MON_DATA_EXP, &exp);
+                SetMonData(&gPlayerParty[i], MON_DATA_LEVEL, &level);
+                CalculateMonStats(&gPlayerParty[i]);
+                maxHp = GetMonData(&gPlayerParty[i], MON_DATA_MAX_HP);
+                SetMonData(&gPlayerParty[i], MON_DATA_HP, &maxHp);
+                break;
+            }
+        }
+    }
 }
 
 void IsGrassTypeInParty(void)
