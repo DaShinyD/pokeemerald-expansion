@@ -783,6 +783,15 @@ static const struct MenuAction MultichoiceList_Exit[] =
     {gText_Exit},
 };
 
+// Order matches MD_STARTER_* in src/mystery_dungeon.c.
+static const struct MenuAction MultichoiceList_MysteryDungeonStarter[] =
+{
+    {COMPOUND_STRING("SQUIRTLE")},
+    {COMPOUND_STRING("BULBASAUR")},
+    {COMPOUND_STRING("CHARMANDER")},
+    {gText_Exit},
+};
+
 struct MultichoiceListStruct
 {
     const struct MenuAction *list;
@@ -907,6 +916,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
     [MULTI_BERRY_PLOT]                 = MULTICHOICE(MultichoiceList_BerryPlot),
     [MULTI_TELEPORT_MAN]               = MULTICHOICE(MultichoiceList_Exit),
+    [MULTI_MYSTERY_DUNGEON_STARTER]    = MULTICHOICE(MultichoiceList_MysteryDungeonStarter),
 };
 
 const u8 *const gStdStrings[] =

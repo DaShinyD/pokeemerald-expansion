@@ -17,22 +17,36 @@ static const struct WindowTemplate sHelpWindowTemplate = {
     .tilemapLeft = 2,
     .tilemapTop = 3,
     .width = 26,
-    .height = 14,
+    .height = 11,
     .paletteNum = 15,
-    .baseBlock = 8
+    // BG0 owns tiles 0x000-0x2FF (char base 2 up to the map tilemaps at
+    // VRAM 0xE000); a window running past that corrupts the map. 0x001-0x11E
+    // also stays clear of the overworld's own text box (0x194), its message
+    // frame (0x200) and the standard border this window's frame points at
+    // (0x214), all of which are loaded once per map and never rewritten.
+    .baseBlock = 0x001
 };
 
 static const u8 sHelpHeaderColor[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_BLUE, TEXT_COLOR_LIGHT_GRAY};
 
-void ShowHelpInfoWindow(struct ScriptContext *ctx)
+void HideHelpInfoWindowImmediate(void)
 {
-    u16 helpTutorialId = ScriptReadHalfword(ctx);
+    if (!sHelpWindowActive)
+        return;
+
+    PlaySE(SE_RG_HELP_CLOSE);
+    ClearStdWindowAndFrameToTransparent(sHelpWindowId, FALSE);
+    CopyWindowToVram(sHelpWindowId, COPYWIN_FULL);
+    RemoveWindow(sHelpWindowId);
+    sHelpWindowActive = FALSE;
+}
+
+void ShowHelpInfoWindowId(u16 helpTutorialId)
+{
     u32 xOffset = 0;
     u32 yOffset = 1;
     u8 headerFont = FONT_NORMAL;
     u8 descFont = FONT_SMALL;
-
-    Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
 
     if (helpTutorialId >= HELP_COUNT)
         helpTutorialId = 0;
@@ -40,7 +54,7 @@ void ShowHelpInfoWindow(struct ScriptContext *ctx)
     PlaySE(SE_RG_HELP_OPEN);
 
     if (sHelpWindowActive)
-        HideHelpInfoWindow(ctx);
+        HideHelpInfoWindowImmediate();
 
     sHelpWindowId = AddWindow(&sHelpWindowTemplate);
     sHelpWindowActive = TRUE;
@@ -61,16 +75,14 @@ void ShowHelpInfoWindow(struct ScriptContext *ctx)
     CopyWindowToVram(sHelpWindowId, COPYWIN_FULL);
 }
 
+void ShowHelpInfoWindow(struct ScriptContext *ctx)
+{
+    Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
+    ShowHelpInfoWindowId(ScriptReadHalfword(ctx));
+}
+
 void HideHelpInfoWindow(struct ScriptContext *ctx)
 {
     Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
-
-    if (!sHelpWindowActive)
-        return;
-
-    PlaySE(SE_RG_HELP_CLOSE);
-    ClearStdWindowAndFrameToTransparent(sHelpWindowId, FALSE);
-    CopyWindowToVram(sHelpWindowId, COPYWIN_FULL);
-    RemoveWindow(sHelpWindowId);
-    sHelpWindowActive = FALSE;
+    HideHelpInfoWindowImmediate();
 }

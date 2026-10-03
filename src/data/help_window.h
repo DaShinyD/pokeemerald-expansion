@@ -44,5 +44,15 @@ const struct HelpWindow gHelpWindowInfo[] =
         .headerFont = FONT_NORMAL,
         .descFont = FONT_NORMAL,
     },
+    [HELP_MD_FIND_FLOOR] =
+    {
+        .header = COMPOUND_STRING("Find the next floor!"),
+        .desc = COMPOUND_STRING("Locate the guide to move\n"
+                               "to the next floor.\n"
+                               "Press {START_BUTTON} to show or hide\n"
+                               "the button controls."),
+        .headerFont = FONT_NORMAL,
+        .descFont = FONT_NORMAL,
+    },
     // Add more entries
 };

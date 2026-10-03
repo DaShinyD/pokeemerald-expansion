@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Visual Trainer Builder</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Visual Trainer Builder</h1>
+      <button id="reload" title="Re-read trainers and constants from disk">Reload from repo</button>
+      <div class="meta" id="repo-meta">loading&hellip;</div>
+    </header>
+
+    <main>
+      <aside id="sidebar">
+        <div class="search-wrap">
+          <input type="text" id="search" placeholder="Search trainers, classes, species&hellip;" autocomplete="off">
+        </div>
+        <div class="count" id="list-count"></div>
+        <div id="trainer-list"></div>
+      </aside>
+
+      <section id="editor">
+        <div class="placeholder">Select a trainer from the list to inspect it.</div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

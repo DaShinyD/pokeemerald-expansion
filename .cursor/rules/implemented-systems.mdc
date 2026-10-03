@@ -1,0 +1,16 @@
+---
+description: Custom systems already in this hack. Reuse them instead of building a second version.
+alwaysApply: true
+---
+
+# Systems already implemented
+
+These exist and should be used when new content needs them.
+
+1. Mystery Dungeon. Turn-based floor on the Tester map (`src/mystery_dungeon.c`). Starter choice, chase pathfinding, regen, and background experience.
+2. Shadow Pokemon (`src/shadow_pokemon.c`). Shadow heart, purification, and `GiveShadowLegendaries`.
+3. Quests (`src/quests.c`).
+4. Help Menu (`src/help_window.c`, `helpwindow` script macro).
+5. Ryan and Dash scripted battle.
+6. Enemy mid-battle evolution (`TryMidBattleEvolutionForBattler` in `src/battle_main.c`).
+7. Map scrolling. Region maps, with Kanto fly visit-gated and extra maps locked behind `FLAG_KANTO_MAP`, `FLAG_JOHTO_MAP`, and `FLAG_HANKU_MAP`.

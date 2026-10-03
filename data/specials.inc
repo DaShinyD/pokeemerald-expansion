@@ -594,4 +594,5 @@ gSpecials::
 	def_special Special_AreLevelCapsEnabled
 	def_special Special_ActivateNuzlockeRules
 	def_special GiveShadowLegendaries
+	def_special StartMysteryDungeon
 

@@ -18,5 +18,7 @@ extern const struct HelpWindow gHelpWindowInfo[];
 
 void ShowHelpInfoWindow(struct ScriptContext *ctx);
 void HideHelpInfoWindow(struct ScriptContext *ctx);
+void ShowHelpInfoWindowId(u16 helpTutorialId);
+void HideHelpInfoWindowImmediate(void);
 
 #endif // GUARD_HELP_WINDOW_H
